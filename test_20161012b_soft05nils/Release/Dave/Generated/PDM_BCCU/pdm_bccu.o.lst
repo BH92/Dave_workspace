@@ -1,0 +1,295 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "pdm_bccu.c"
+  14              	 .section .text.PDM_BCCU_GetAppVersion,"ax",%progbits
+  15              	 .align 1
+  16              	 .global PDM_BCCU_GetAppVersion
+  17              	 .code 16
+  18              	 .thumb_func
+  20              	PDM_BCCU_GetAppVersion:
+  21 0000 0148     	 ldr r0,.L2
+  22 0002 82B0     	 sub sp,sp,#8
+  23 0004 02B0     	 add sp,sp,#8
+  24              	 
+  25 0006 7047     	 bx lr
+  26              	.L3:
+  27              	 .align 2
+  28              	.L2:
+  29 0008 04010800 	 .word 524548
+  31              	 .section .text.PDM_BCCU_Init,"ax",%progbits
+  32              	 .align 1
+  33              	 .global PDM_BCCU_Init
+  34              	 .code 16
+  35              	 .thumb_func
+  37              	PDM_BCCU_Init:
+  38 0000 70B5     	 push {r4,r5,r6,lr}
+  39 0002 041C     	 mov r4,r0
+  40 0004 4069     	 ldr r0,[r0,#20]
+  41 0006 FFF7FEFF 	 bl GLOBAL_BCCU_Init
+  42 000a 061E     	 sub r6,r0,#0
+  43 000c 012E     	 cmp r6,#1
+  44 000e 44D0     	 beq .L5
+  45 0010 231C     	 mov r3,r4
+  46 0012 2D33     	 add r3,r3,#45
+  47 0014 1B78     	 ldrb r3,[r3]
+  48 0016 002B     	 cmp r3,#0
+  49 0018 06D0     	 beq .L6
+  50 001a 231C     	 mov r3,r4
+  51 001c 2C33     	 add r3,r3,#44
+  52 001e 1978     	 ldrb r1,[r3]
+  53 0020 E068     	 ldr r0,[r4,#12]
+  54 0022 A268     	 ldr r2,[r4,#8]
+  55 0024 FFF7FEFF 	 bl XMC_GPIO_Init
+  56              	.L6:
+  57 0028 627E     	 ldrb r2,[r4,#25]
+  58 002a 2068     	 ldr r0,[r4]
+  59 002c E169     	 ldr r1,[r4,#28]
+  60 002e FFF7FEFF 	 bl XMC_BCCU_SetOutputPassiveLevel
+  61 0032 231C     	 mov r3,r4
+  62 0034 2E33     	 add r3,r3,#46
+  63 0036 1B78     	 ldrb r3,[r3]
+  64 0038 002B     	 cmp r3,#0
+  65 003a 03D0     	 beq .L7
+  66 003c 2068     	 ldr r0,[r4]
+  67 003e E169     	 ldr r1,[r4,#28]
+  68 0040 FFF7FEFF 	 bl XMC_BCCU_EnableTrap
+  69              	.L7:
+  70 0044 A36A     	 ldr r3,[r4,#40]
+  71 0046 012B     	 cmp r3,#1
+  72 0048 0DD1     	 bne .L8
+  73 004a 6368     	 ldr r3,[r4,#4]
+  74 004c 2069     	 ldr r0,[r4,#16]
+  75 004e 5A78     	 ldrb r2,[r3,#1]
+  76 0050 5107     	 lsl r1,r2,#29
+  77 0052 1207     	 lsl r2,r2,#28
+  78 0054 C90F     	 lsr r1,r1,#31
+  79 0056 D20F     	 lsr r2,r2,#31
+  80 0058 FFF7FEFF 	 bl XMC_BCCU_CH_ConfigTrigger
+  81 005c A27E     	 ldrb r2,[r4,#26]
+  82 005e 2068     	 ldr r0,[r4]
+  83 0060 E169     	 ldr r1,[r4,#28]
+  84 0062 FFF7FEFF 	 bl XMC_BCCU_EnableChannelTrigger
+  85              	.L8:
+  86 0066 2069     	 ldr r0,[r4,#16]
+  87 0068 6168     	 ldr r1,[r4,#4]
+  88 006a FFF7FEFF 	 bl XMC_BCCU_CH_Init
+  89 006e 257E     	 ldrb r5,[r4,#24]
+  90 0070 0026     	 mov r6,#0
+  91 0072 012D     	 cmp r5,#1
+  92 0074 11D1     	 bne .L5
+  93 0076 2069     	 ldr r0,[r4,#16]
+  94 0078 216A     	 ldr r1,[r4,#32]
+  95 007a FFF7FEFF 	 bl XMC_BCCU_CH_SetLinearWalkPrescaler
+  96 007e 2068     	 ldr r0,[r4]
+  97 0080 E169     	 ldr r1,[r4,#28]
+  98 0082 FFF7FEFF 	 bl XMC_BCCU_EnableChannel
+  99 0086 616A     	 ldr r1,[r4,#36]
+ 100 0088 2069     	 ldr r0,[r4,#16]
+ 101 008a FFF7FEFF 	 bl XMC_BCCU_CH_SetTargetIntensity
+ 102 008e E169     	 ldr r1,[r4,#28]
+ 103 0090 2268     	 ldr r2,[r4]
+ 104 0092 8D40     	 lsl r5,r5,r1
+ 105 0094 9369     	 ldr r3,[r2,#24]
+ 106 0096 1D43     	 orr r5,r3
+ 107 0098 9561     	 str r5,[r2,#24]
+ 108              	.L5:
+ 109 009a 301C     	 mov r0,r6
+ 110              	 
+ 111 009c 70BD     	 pop {r4,r5,r6,pc}
+ 113              	 .section .text.PDM_BCCU_EnableChannel,"ax",%progbits
+ 114              	 .align 1
+ 115              	 .global PDM_BCCU_EnableChannel
+ 116              	 .code 16
+ 117              	 .thumb_func
+ 119              	PDM_BCCU_EnableChannel:
+ 120 0000 08B5     	 push {r3,lr}
+ 121 0002 031C     	 mov r3,r0
+ 122 0004 0068     	 ldr r0,[r0]
+ 123 0006 D969     	 ldr r1,[r3,#28]
+ 124 0008 FFF7FEFF 	 bl XMC_BCCU_EnableChannel
+ 125              	 
+ 126 000c 08BD     	 pop {r3,pc}
+ 128              	 .section .text.PDM_BCCU_DisableChannel,"ax",%progbits
+ 129              	 .align 1
+ 130              	 .global PDM_BCCU_DisableChannel
+ 131              	 .code 16
+ 132              	 .thumb_func
+ 134              	PDM_BCCU_DisableChannel:
+ 135 0000 08B5     	 push {r3,lr}
+ 136 0002 031C     	 mov r3,r0
+ 137 0004 0068     	 ldr r0,[r0]
+ 138 0006 D969     	 ldr r1,[r3,#28]
+ 139 0008 FFF7FEFF 	 bl XMC_BCCU_DisableChannel
+ 140              	 
+ 141 000c 08BD     	 pop {r3,pc}
+ 143              	 .section .text.PDM_BCCU_GateEnable,"ax",%progbits
+ 144              	 .align 1
+ 145              	 .global PDM_BCCU_GateEnable
+ 146              	 .code 16
+ 147              	 .thumb_func
+ 149              	PDM_BCCU_GateEnable:
+ 150 0000 8021     	 mov r1,#128
+ 151 0002 0269     	 ldr r2,[r0,#16]
+ 152 0004 4900     	 lsl r1,r1,#1
+ 153 0006 9368     	 ldr r3,[r2,#8]
+ 154              	 
+ 155 0008 0B43     	 orr r3,r1
+ 156 000a 9360     	 str r3,[r2,#8]
+ 157 000c 7047     	 bx lr
+ 159              	 .section .text.PDM_BCCU_GateDisable,"ax",%progbits
+ 160              	 .align 1
+ 161              	 .global PDM_BCCU_GateDisable
+ 162              	 .code 16
+ 163              	 .thumb_func
+ 165              	PDM_BCCU_GateDisable:
+ 166 0000 0269     	 ldr r2,[r0,#16]
+ 167 0002 024B     	 ldr r3,.L24
+ 168 0004 9168     	 ldr r1,[r2,#8]
+ 169              	 
+ 170 0006 0B40     	 and r3,r1
+ 171 0008 9360     	 str r3,[r2,#8]
+ 172 000a 7047     	 bx lr
+ 173              	.L25:
+ 174              	 .align 2
+ 175              	.L24:
+ 176 000c FFFEFFFF 	 .word -257
+ 178              	 .section .text.PDM_BCCU_SetIntensity,"ax",%progbits
+ 179              	 .align 1
+ 180              	 .global PDM_BCCU_SetIntensity
+ 181              	 .code 16
+ 182              	 .thumb_func
+ 184              	PDM_BCCU_SetIntensity:
+ 185 0000 08B5     	 push {r3,lr}
+ 186 0002 0069     	 ldr r0,[r0,#16]
+ 187 0004 FFF7FEFF 	 bl XMC_BCCU_CH_SetTargetIntensity
+ 188              	 
+ 189 0008 08BD     	 pop {r3,pc}
+ 191              	 .section .text.PDM_BCCU_SetLinearWalk,"ax",%progbits
+ 192              	 .align 1
+ 193              	 .global PDM_BCCU_SetLinearWalk
+ 194              	 .code 16
+ 195              	 .thumb_func
+ 197              	PDM_BCCU_SetLinearWalk:
+ 198 0000 08B5     	 push {r3,lr}
+ 199 0002 0069     	 ldr r0,[r0,#16]
+ 200 0004 FFF7FEFF 	 bl XMC_BCCU_CH_SetLinearWalkPrescaler
+ 201              	 
+ 202 0008 08BD     	 pop {r3,pc}
+ 204              	 .section .text.PDM_BCCU_StartLinearWalk,"ax",%progbits
+ 205              	 .align 1
+ 206              	 .global PDM_BCCU_StartLinearWalk
+ 207              	 .code 16
+ 208              	 .thumb_func
+ 210              	PDM_BCCU_StartLinearWalk:
+ 211 0000 0123     	 mov r3,#1
+ 212 0002 0168     	 ldr r1,[r0]
+ 213 0004 C069     	 ldr r0,[r0,#28]
+ 214 0006 8A69     	 ldr r2,[r1,#24]
+ 215 0008 8340     	 lsl r3,r3,r0
+ 216 000a 1343     	 orr r3,r2
+ 217 000c 8B61     	 str r3,[r1,#24]
+ 218              	 
+ 219 000e 7047     	 bx lr
+ 221              	 .section .text.PDM_BCCU_AbortLinearWalk,"ax",%progbits
+ 222              	 .align 1
+ 223              	 .global PDM_BCCU_AbortLinearWalk
+ 224              	 .code 16
+ 225              	 .thumb_func
+ 227              	PDM_BCCU_AbortLinearWalk:
+ 228 0000 8023     	 mov r3,#128
+ 229 0002 0168     	 ldr r1,[r0]
+ 230 0004 C069     	 ldr r0,[r0,#28]
+ 231 0006 5B02     	 lsl r3,r3,#9
+ 232 0008 8340     	 lsl r3,r3,r0
+ 233 000a 8A69     	 ldr r2,[r1,#24]
+ 234              	 
+ 235 000c 1343     	 orr r3,r2
+ 236 000e 8B61     	 str r3,[r1,#24]
+ 237 0010 7047     	 bx lr
+ 239              	 .section .text.PDM_BCCU_LinearWalkStatus,"ax",%progbits
+ 240              	 .align 1
+ 241              	 .global PDM_BCCU_LinearWalkStatus
+ 242              	 .code 16
+ 243              	 .thumb_func
+ 245              	PDM_BCCU_LinearWalkStatus:
+ 246 0000 031C     	 mov r3,r0
+ 247 0002 0268     	 ldr r2,[r0]
+ 248              	 
+ 249 0004 9069     	 ldr r0,[r2,#24]
+ 250 0006 DA69     	 ldr r2,[r3,#28]
+ 251 0008 0123     	 mov r3,#1
+ 252 000a 9340     	 lsl r3,r3,r2
+ 253 000c 1840     	 and r0,r3
+ 254 000e D040     	 lsr r0,r0,r2
+ 255 0010 7047     	 bx lr
+ 257              	 .section .text.PDM_BCCU_AwaitEndOfLinearWalk,"ax",%progbits
+ 258              	 .align 1
+ 259              	 .global PDM_BCCU_AwaitEndOfLinearWalk
+ 260              	 .code 16
+ 261              	 .thumb_func
+ 263              	PDM_BCCU_AwaitEndOfLinearWalk:
+ 264 0000 0122     	 mov r2,#1
+ 265 0002 C169     	 ldr r1,[r0,#28]
+ 266 0004 10B5     	 push {r4,lr}
+ 267 0006 8A40     	 lsl r2,r2,r1
+ 268 0008 0468     	 ldr r4,[r0]
+ 269              	.L32:
+ 270 000a A369     	 ldr r3,[r4,#24]
+ 271 000c 1340     	 and r3,r2
+ 272 000e CB40     	 lsr r3,r3,r1
+ 273 0010 012B     	 cmp r3,#1
+ 274 0012 FAD0     	 beq .L32
+ 275              	 
+ 276 0014 10BD     	 pop {r4,pc}
+ 278              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pdm_bccu.c
+    {standard input}:15     .text.PDM_BCCU_GetAppVersion:00000000 $t
+    {standard input}:20     .text.PDM_BCCU_GetAppVersion:00000000 PDM_BCCU_GetAppVersion
+    {standard input}:29     .text.PDM_BCCU_GetAppVersion:00000008 $d
+    {standard input}:32     .text.PDM_BCCU_Init:00000000 $t
+    {standard input}:37     .text.PDM_BCCU_Init:00000000 PDM_BCCU_Init
+    {standard input}:114    .text.PDM_BCCU_EnableChannel:00000000 $t
+    {standard input}:119    .text.PDM_BCCU_EnableChannel:00000000 PDM_BCCU_EnableChannel
+    {standard input}:129    .text.PDM_BCCU_DisableChannel:00000000 $t
+    {standard input}:134    .text.PDM_BCCU_DisableChannel:00000000 PDM_BCCU_DisableChannel
+    {standard input}:144    .text.PDM_BCCU_GateEnable:00000000 $t
+    {standard input}:149    .text.PDM_BCCU_GateEnable:00000000 PDM_BCCU_GateEnable
+    {standard input}:160    .text.PDM_BCCU_GateDisable:00000000 $t
+    {standard input}:165    .text.PDM_BCCU_GateDisable:00000000 PDM_BCCU_GateDisable
+    {standard input}:176    .text.PDM_BCCU_GateDisable:0000000c $d
+    {standard input}:179    .text.PDM_BCCU_SetIntensity:00000000 $t
+    {standard input}:184    .text.PDM_BCCU_SetIntensity:00000000 PDM_BCCU_SetIntensity
+    {standard input}:192    .text.PDM_BCCU_SetLinearWalk:00000000 $t
+    {standard input}:197    .text.PDM_BCCU_SetLinearWalk:00000000 PDM_BCCU_SetLinearWalk
+    {standard input}:205    .text.PDM_BCCU_StartLinearWalk:00000000 $t
+    {standard input}:210    .text.PDM_BCCU_StartLinearWalk:00000000 PDM_BCCU_StartLinearWalk
+    {standard input}:222    .text.PDM_BCCU_AbortLinearWalk:00000000 $t
+    {standard input}:227    .text.PDM_BCCU_AbortLinearWalk:00000000 PDM_BCCU_AbortLinearWalk
+    {standard input}:240    .text.PDM_BCCU_LinearWalkStatus:00000000 $t
+    {standard input}:245    .text.PDM_BCCU_LinearWalkStatus:00000000 PDM_BCCU_LinearWalkStatus
+    {standard input}:258    .text.PDM_BCCU_AwaitEndOfLinearWalk:00000000 $t
+    {standard input}:263    .text.PDM_BCCU_AwaitEndOfLinearWalk:00000000 PDM_BCCU_AwaitEndOfLinearWalk
+
+UNDEFINED SYMBOLS
+GLOBAL_BCCU_Init
+XMC_GPIO_Init
+XMC_BCCU_SetOutputPassiveLevel
+XMC_BCCU_EnableTrap
+XMC_BCCU_CH_ConfigTrigger
+XMC_BCCU_EnableChannelTrigger
+XMC_BCCU_CH_Init
+XMC_BCCU_CH_SetLinearWalkPrescaler
+XMC_BCCU_EnableChannel
+XMC_BCCU_CH_SetTargetIntensity
+XMC_BCCU_DisableChannel

@@ -1,0 +1,257 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "adc_measurement_adv_conf.c"
+  14              	 .section .text.ADC_MEASUREMENT_ADV_0_event_config,"ax",%progbits
+  15              	 .align 1
+  16              	 .code 16
+  17              	 .thumb_func
+  19              	ADC_MEASUREMENT_ADV_0_event_config:
+  20 0000 08B5     	 push {r3,lr}
+  21 0002 0348     	 ldr r0,.L2
+  22 0004 0A21     	 mov r1,#10
+  23 0006 0422     	 mov r2,#4
+  24 0008 FFF7FEFF 	 bl XMC_VADC_GROUP_SetResultInterruptNode
+  25              	 
+  26 000c 08BD     	 pop {r3,pc}
+  27              	.L3:
+  28 000e C046     	 .align 2
+  29              	.L2:
+  30 0010 00040348 	 .word 1208157184
+  32              	 .global ADC_MEASUREMENT_ADV_0
+  33              	 .global ADC_MEASUREMENT_ADV_0_xmc_I_cw_handle
+  34              	 .global ADC_MEASUREMENT_ADV_0_xmc_U_in_handle
+  35              	 .global ADC_MEASUREMENT_ADV_0_xmc_I_ww_handle
+  36              	 .global ADC_MEASUREMENT_ADV_0_xmc_ntc_handle
+  37              	 .section .data.ADC_MEASUREMENT_ADV_0_channel_array,"aw",%progbits
+  38              	 .align 2
+  41              	ADC_MEASUREMENT_ADV_0_channel_array:
+  42 0000 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_ntc_handle
+  43 0004 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_ww_handle
+  44 0008 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_U_in_handle
+  45 000c 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_cw_handle
+  46              	 .section .rodata.ADC_MEASUREMENT_ADV_0_queue_config,"a",%progbits
+  47              	 .align 2
+  50              	ADC_MEASUREMENT_ADV_0_queue_config:
+  51 0000 00000000 	 .space 12
+  51      00000000 
+  51      00000000 
+  52              	 .section .data.ADC_MEASUREMENT_ADV_0_initialization_status,"aw",%progbits
+  55              	ADC_MEASUREMENT_ADV_0_initialization_status:
+  56 0000 02       	 .byte 2
+  57              	 .section .rodata.ADC_MEASUREMENT_ADV_0,"a",%progbits
+  58              	 .align 2
+  61              	ADC_MEASUREMENT_ADV_0:
+  62 0000 00000000 	 .word ADC_MEASUREMENT_ADV_0_channel_array
+  63 0004 00000000 	 .word ADC_MEASUREMENT_ADV_0_queue_entries
+  64 0008 00000000 	 .word ADC_MEASUREMENT_ADV_0_event_config
+  65 000c 00000000 	 .word ADC_MEASUREMENT_ADV_0_queue_handle
+  66 0010 00000000 	 .word ADC_MEASUREMENT_ADV_0_initialization_status
+  67 0014 03       	 .byte 3
+  68 0015 00       	 .byte 0
+  69 0016 04       	 .byte 4
+  70 0017 04       	 .byte 4
+  71 0018 01       	 .byte 1
+  72 0019 000000   	 .space 3
+  73              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_res_config,"a",%progbits
+  74              	 .align 2
+  77              	ADC_MEASUREMENT_ADV_0_xmc_I_cw_res_config:
+  78 0000 0000     	 .space 2
+  79 0002 00       	 .byte 0
+  80 0003 80       	 .byte 128
+  81              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_queue_entry_3,"a",%progbits
+  82              	 .align 2
+  85              	ADC_MEASUREMENT_ADV_0_xmc_I_cw_queue_entry_3:
+  86 0000 24       	 .byte 36
+  87 0001 000000   	 .space 3
+  88              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_handle,"a",%progbits
+  89              	 .align 2
+  92              	ADC_MEASUREMENT_ADV_0_xmc_ntc_handle:
+  93 0000 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_ntc_ch_config
+  94 0004 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_ntc_res_config
+  95 0008 00       	 .byte 0
+  96 0009 00       	 .byte 0
+  97 000a 0000     	 .space 2
+  98              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_res_config,"a",%progbits
+  99              	 .align 2
+ 102              	ADC_MEASUREMENT_ADV_0_xmc_I_ww_res_config:
+ 103 0000 00000000 	 .space 4
+ 104              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_handle,"a",%progbits
+ 105              	 .align 2
+ 108              	ADC_MEASUREMENT_ADV_0_xmc_I_cw_handle:
+ 109 0000 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_cw_ch_config
+ 110 0004 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_cw_res_config
+ 111 0008 00       	 .byte 0
+ 112 0009 04       	 .byte 4
+ 113 000a 0000     	 .space 2
+ 114              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_handle,"a",%progbits
+ 115              	 .align 2
+ 118              	ADC_MEASUREMENT_ADV_0_xmc_I_ww_handle:
+ 119 0000 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_ww_ch_config
+ 120 0004 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_ww_res_config
+ 121 0008 00       	 .byte 0
+ 122 0009 01       	 .byte 1
+ 123 000a 0000     	 .space 2
+ 124              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_queue_entry_0,"a",%progbits
+ 125              	 .align 2
+ 128              	ADC_MEASUREMENT_ADV_0_xmc_ntc_queue_entry_0:
+ 129 0000 A0       	 .byte 160
+ 130 0001 000000   	 .space 3
+ 131              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_queue_entry_1,"a",%progbits
+ 132              	 .align 2
+ 135              	ADC_MEASUREMENT_ADV_0_xmc_I_ww_queue_entry_1:
+ 136 0000 21       	 .byte 33
+ 137 0001 000000   	 .space 3
+ 138              	 .section .rodata.ADC_MEASUREMENT_ADV_0_queue_handle,"a",%progbits
+ 139              	 .align 2
+ 142              	ADC_MEASUREMENT_ADV_0_queue_handle:
+ 143 0000 00000000 	 .word 0
+ 144 0004 00000000 	 .word 0
+ 145 0008 00       	 .byte 0
+ 146 0009 000000   	 .space 3
+ 147 000c 15       	 .byte 21
+ 148 000d 00       	 .byte 0
+ 149 000e 00       	 .byte 0
+ 150 000f 00       	 .byte 0
+ 151 0010 00000000 	 .word ADC_MEASUREMENT_ADV_0_queue_config
+ 152 0014 01       	 .byte 1
+ 153 0015 00       	 .byte 0
+ 154 0016 00       	 .byte 0
+ 155 0017 00       	 .space 1
+ 156              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_ch_config,"a",%progbits
+ 157              	 .align 2
+ 160              	ADC_MEASUREMENT_ADV_0_xmc_U_in_ch_config:
+ 161 0000 00       	 .byte 0
+ 162 0001 00       	 .byte 0
+ 163 0002 2D       	 .byte 45
+ 164 0003 00       	 .byte 0
+ 165 0004 00000000 	 .word 0
+ 166 0008 00000000 	 .space 4
+ 167 000c 01       	 .byte 1
+ 168 000d FF       	 .byte -1
+ 169 000e 0000     	 .space 2
+ 170              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_handle,"a",%progbits
+ 171              	 .align 2
+ 174              	ADC_MEASUREMENT_ADV_0_xmc_U_in_handle:
+ 175 0000 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_U_in_ch_config
+ 176 0004 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_U_in_res_config
+ 177 0008 00       	 .byte 0
+ 178 0009 03       	 .byte 3
+ 179 000a 0000     	 .space 2
+ 180              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_res_config,"a",%progbits
+ 181              	 .align 2
+ 184              	ADC_MEASUREMENT_ADV_0_xmc_U_in_res_config:
+ 185 0000 00000000 	 .space 4
+ 186              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_ch_config,"a",%progbits
+ 187              	 .align 2
+ 190              	ADC_MEASUREMENT_ADV_0_xmc_I_ww_ch_config:
+ 191 0000 00       	 .byte 0
+ 192 0001 00       	 .byte 0
+ 193 0002 2C       	 .byte 44
+ 194 0003 00       	 .byte 0
+ 195 0004 00000000 	 .word 0
+ 196 0008 00000000 	 .space 4
+ 197 000c 01       	 .byte 1
+ 198 000d 02       	 .byte 2
+ 199 000e 0000     	 .space 2
+ 200              	 .section .data.ADC_MEASUREMENT_ADV_0_queue_entries,"aw",%progbits
+ 201              	 .align 2
+ 204              	ADC_MEASUREMENT_ADV_0_queue_entries:
+ 205 0000 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_ntc_queue_entry_0
+ 206 0004 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_ww_queue_entry_1
+ 207 0008 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_U_in_queue_entry_2
+ 208 000c 00000000 	 .word ADC_MEASUREMENT_ADV_0_xmc_I_cw_queue_entry_3
+ 209              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_queue_entry_2,"a",%progbits
+ 210              	 .align 2
+ 213              	ADC_MEASUREMENT_ADV_0_xmc_U_in_queue_entry_2:
+ 214 0000 23       	 .byte 35
+ 215 0001 000000   	 .space 3
+ 216              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_ch_config,"a",%progbits
+ 217              	 .align 2
+ 220              	ADC_MEASUREMENT_ADV_0_xmc_ntc_ch_config:
+ 221 0000 00       	 .byte 0
+ 222 0001 00       	 .byte 0
+ 223 0002 2B       	 .byte 43
+ 224 0003 00       	 .byte 0
+ 225 0004 00000000 	 .word 0
+ 226 0008 00000000 	 .space 4
+ 227 000c 01       	 .byte 1
+ 228 000d FF       	 .byte -1
+ 229 000e 0000     	 .space 2
+ 230              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_res_config,"a",%progbits
+ 231              	 .align 2
+ 234              	ADC_MEASUREMENT_ADV_0_xmc_ntc_res_config:
+ 235 0000 00000000 	 .space 4
+ 236              	 .section .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_ch_config,"a",%progbits
+ 237              	 .align 2
+ 240              	ADC_MEASUREMENT_ADV_0_xmc_I_cw_ch_config:
+ 241 0000 00       	 .byte 0
+ 242 0001 00       	 .byte 0
+ 243 0002 2A       	 .byte 42
+ 244 0003 00       	 .byte 0
+ 245 0004 00000000 	 .word 0
+ 246 0008 00000000 	 .space 4
+ 247 000c 01       	 .byte 1
+ 248 000d FF       	 .byte -1
+ 249 000e 0000     	 .space 2
+ 250              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 adc_measurement_adv_conf.c
+    {standard input}:15     .text.ADC_MEASUREMENT_ADV_0_event_config:00000000 $t
+    {standard input}:19     .text.ADC_MEASUREMENT_ADV_0_event_config:00000000 ADC_MEASUREMENT_ADV_0_event_config
+    {standard input}:30     .text.ADC_MEASUREMENT_ADV_0_event_config:00000010 $d
+    {standard input}:61     .rodata.ADC_MEASUREMENT_ADV_0:00000000 ADC_MEASUREMENT_ADV_0
+    {standard input}:108    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_handle:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_cw_handle
+    {standard input}:174    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_handle:00000000 ADC_MEASUREMENT_ADV_0_xmc_U_in_handle
+    {standard input}:118    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_handle:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_ww_handle
+    {standard input}:92     .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_handle:00000000 ADC_MEASUREMENT_ADV_0_xmc_ntc_handle
+    {standard input}:38     .data.ADC_MEASUREMENT_ADV_0_channel_array:00000000 $d
+    {standard input}:41     .data.ADC_MEASUREMENT_ADV_0_channel_array:00000000 ADC_MEASUREMENT_ADV_0_channel_array
+    {standard input}:47     .rodata.ADC_MEASUREMENT_ADV_0_queue_config:00000000 $d
+    {standard input}:50     .rodata.ADC_MEASUREMENT_ADV_0_queue_config:00000000 ADC_MEASUREMENT_ADV_0_queue_config
+    {standard input}:55     .data.ADC_MEASUREMENT_ADV_0_initialization_status:00000000 ADC_MEASUREMENT_ADV_0_initialization_status
+    {standard input}:58     .rodata.ADC_MEASUREMENT_ADV_0:00000000 $d
+    {standard input}:204    .data.ADC_MEASUREMENT_ADV_0_queue_entries:00000000 ADC_MEASUREMENT_ADV_0_queue_entries
+    {standard input}:142    .rodata.ADC_MEASUREMENT_ADV_0_queue_handle:00000000 ADC_MEASUREMENT_ADV_0_queue_handle
+    {standard input}:74     .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_res_config:00000000 $d
+    {standard input}:77     .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_res_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_cw_res_config
+    {standard input}:82     .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_queue_entry_3:00000000 $d
+    {standard input}:85     .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_queue_entry_3:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_cw_queue_entry_3
+    {standard input}:89     .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_handle:00000000 $d
+    {standard input}:220    .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_ch_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_ntc_ch_config
+    {standard input}:234    .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_res_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_ntc_res_config
+    {standard input}:99     .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_res_config:00000000 $d
+    {standard input}:102    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_res_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_ww_res_config
+    {standard input}:105    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_handle:00000000 $d
+    {standard input}:240    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_ch_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_cw_ch_config
+    {standard input}:115    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_handle:00000000 $d
+    {standard input}:190    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_ch_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_ww_ch_config
+    {standard input}:125    .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_queue_entry_0:00000000 $d
+    {standard input}:128    .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_queue_entry_0:00000000 ADC_MEASUREMENT_ADV_0_xmc_ntc_queue_entry_0
+    {standard input}:132    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_queue_entry_1:00000000 $d
+    {standard input}:135    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_queue_entry_1:00000000 ADC_MEASUREMENT_ADV_0_xmc_I_ww_queue_entry_1
+    {standard input}:139    .rodata.ADC_MEASUREMENT_ADV_0_queue_handle:00000000 $d
+    {standard input}:157    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_ch_config:00000000 $d
+    {standard input}:160    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_ch_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_U_in_ch_config
+    {standard input}:171    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_handle:00000000 $d
+    {standard input}:184    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_res_config:00000000 ADC_MEASUREMENT_ADV_0_xmc_U_in_res_config
+    {standard input}:181    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_res_config:00000000 $d
+    {standard input}:187    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_ww_ch_config:00000000 $d
+    {standard input}:201    .data.ADC_MEASUREMENT_ADV_0_queue_entries:00000000 $d
+    {standard input}:213    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_queue_entry_2:00000000 ADC_MEASUREMENT_ADV_0_xmc_U_in_queue_entry_2
+    {standard input}:210    .rodata.ADC_MEASUREMENT_ADV_0_xmc_U_in_queue_entry_2:00000000 $d
+    {standard input}:217    .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_ch_config:00000000 $d
+    {standard input}:231    .rodata.ADC_MEASUREMENT_ADV_0_xmc_ntc_res_config:00000000 $d
+    {standard input}:237    .rodata.ADC_MEASUREMENT_ADV_0_xmc_I_cw_ch_config:00000000 $d
+
+UNDEFINED SYMBOLS
+XMC_VADC_GROUP_SetResultInterruptNode

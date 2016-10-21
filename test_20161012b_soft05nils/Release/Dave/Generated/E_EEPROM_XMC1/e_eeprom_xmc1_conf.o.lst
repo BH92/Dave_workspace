@@ -1,0 +1,58 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "e_eeprom_xmc1_conf.c"
+  14              	 .global E_EEPROM_XMC1_0
+  15              	 .global E_EEPROM_XMC1_block_Config
+  16              	 .comm E_EEPROM_XMC1_data,400,4
+  17              	 .section .rodata.E_EEPROM_XMC1_block_Config,"a",%progbits
+  18              	 .align 2
+  21              	E_EEPROM_XMC1_block_Config:
+  22 0000 01       	 .byte 1
+  23 0001 000000   	 .space 3
+  24 0004 10000000 	 .word 16
+  25 0008 02       	 .byte 2
+  26 0009 000000   	 .space 3
+  27 000c 10000000 	 .word 16
+  28 0010 03       	 .byte 3
+  29 0011 000000   	 .space 3
+  30 0014 20000000 	 .word 32
+  31 0018 04       	 .byte 4
+  32 0019 000000   	 .space 3
+  33 001c 10000000 	 .word 16
+  34 0020 05       	 .byte 5
+  35 0021 000000   	 .space 3
+  36 0024 10000000 	 .word 16
+  37 0028 06       	 .byte 6
+  38 0029 000000   	 .space 3
+  39 002c 10000000 	 .word 16
+  40              	 .section .data.E_EEPROM_XMC1_0,"aw",%progbits
+  41              	 .align 2
+  44              	E_EEPROM_XMC1_0:
+  45 0000 00000000 	 .word E_EEPROM_XMC1_block_Config
+  46 0004 00000000 	 .word E_EEPROM_XMC1_data
+  47 0008 02       	 .byte 2
+  48 0009 06       	 .byte 6
+  49 000a 00       	 .byte 0
+  50 000b 00       	 .byte 0
+  51 000c 01       	 .byte 1
+  52 000d 000000   	 .space 3
+  53              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 e_eeprom_xmc1_conf.c
+    {standard input}:44     .data.E_EEPROM_XMC1_0:00000000 E_EEPROM_XMC1_0
+    {standard input}:21     .rodata.E_EEPROM_XMC1_block_Config:00000000 E_EEPROM_XMC1_block_Config
+                            *COM*:00000190 E_EEPROM_XMC1_data
+    {standard input}:18     .rodata.E_EEPROM_XMC1_block_Config:00000000 $d
+    {standard input}:41     .data.E_EEPROM_XMC1_0:00000000 $d
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,2258 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "e_eeprom_xmc1.c"
+  14              	 .section .text.E_EEPROM_XMC1_lGetUsrBlockIndex,"ax",%progbits
+  15              	 .align 1
+  16              	 .code 16
+  17              	 .thumb_func
+  19              	E_EEPROM_XMC1_lGetUsrBlockIndex:
+  20 0000 10B5     	 push {r4,lr}
+  21 0002 094B     	 ldr r3,.L10
+  22 0004 1C68     	 ldr r4,[r3]
+  23 0006 5A7A     	 ldrb r2,[r3,#9]
+  24 0008 0023     	 mov r3,#0
+  25              	.L2:
+  26 000a 9342     	 cmp r3,r2
+  27 000c 04D3     	 bcc .L3
+  28              	.L8:
+  29 000e 181E     	 sub r0,r3,#0
+  30 0010 9042     	 cmp r0,r2
+  31 0012 07D1     	 bne .L4
+  32 0014 FF20     	 mov r0,#255
+  33 0016 05E0     	 b .L4
+  34              	.L3:
+  35 0018 D900     	 lsl r1,r3,#3
+  36 001a 615C     	 ldrb r1,[r4,r1]
+  37 001c 8142     	 cmp r1,r0
+  38 001e F6D0     	 beq .L8
+  39 0020 0133     	 add r3,r3,#1
+  40 0022 F2E7     	 b .L2
+  41              	.L4:
+  42              	 
+  43 0024 10BD     	 pop {r4,pc}
+  44              	.L11:
+  45 0026 C046     	 .align 2
+  46              	.L10:
+  47 0028 00000000 	 .word E_EEPROM_XMC1_0
+  49              	 .section .text.E_EEPROM_XMC1_lGetFreeDFLASHBlocks,"ax",%progbits
+  50              	 .align 1
+  51              	 .code 16
+  52              	 .thumb_func
+  54              	E_EEPROM_XMC1_lGetFreeDFLASHBlocks:
+  55 0000 074B     	 ldr r3,.L15
+  56 0002 5A68     	 ldr r2,[r3,#4]
+  57 0004 936B     	 ldr r3,[r2,#56]
+  58 0006 002B     	 cmp r3,#0
+  59 0008 01D0     	 beq .L14
+  60 000a 064B     	 ldr r3,.L15+4
+  61 000c 00E0     	 b .L13
+  62              	.L14:
+  63 000e 064B     	 ldr r3,.L15+8
+  64              	.L13:
+  65 0010 D06C     	 ldr r0,[r2,#76]
+  66              	 
+  67 0012 181A     	 sub r0,r3,r0
+  68 0014 C023     	 mov r3,#192
+  69 0016 9B00     	 lsl r3,r3,#2
+  70 0018 C018     	 add r0,r0,r3
+  71 001a 0009     	 lsr r0,r0,#4
+  72 001c 7047     	 bx lr
+  73              	.L16:
+  74 001e C046     	 .align 2
+  75              	.L15:
+  76 0020 00000000 	 .word E_EEPROM_XMC1_0
+  77 0024 000D0110 	 .word 268504320
+  78 0028 000A0110 	 .word 268503552
+  80              	 .section .text.E_EEPROM_XMC1_lUpdateCurrBankInfo,"ax",%progbits
+  81              	 .align 1
+  82              	 .code 16
+  83              	 .thumb_func
+  85              	E_EEPROM_XMC1_lUpdateCurrBankInfo:
+  86 0000 0A4B     	 ldr r3,.L20
+  87 0002 30B5     	 push {r4,r5,lr}
+  88 0004 5B68     	 ldr r3,[r3,#4]
+  89 0006 0A4A     	 ldr r2,.L20+4
+  90 0008 9D6B     	 ldr r5,[r3,#56]
+  91 000a 0A49     	 ldr r1,.L20+8
+  92 000c 0A48     	 ldr r0,.L20+12
+  93 000e 0B4C     	 ldr r4,.L20+16
+  94 0010 002D     	 cmp r5,#0
+  95 0012 05D1     	 bne .L18
+  96 0014 1A65     	 str r2,[r3,#80]
+  97 0016 1A64     	 str r2,[r3,#64]
+  98 0018 D963     	 str r1,[r3,#60]
+  99 001a 5864     	 str r0,[r3,#68]
+ 100 001c 9C64     	 str r4,[r3,#72]
+ 101 001e 04E0     	 b .L17
+ 102              	.L18:
+ 103 0020 1965     	 str r1,[r3,#80]
+ 104 0022 1964     	 str r1,[r3,#64]
+ 105 0024 DA63     	 str r2,[r3,#60]
+ 106 0026 5C64     	 str r4,[r3,#68]
+ 107 0028 9864     	 str r0,[r3,#72]
+ 108              	.L17:
+ 109              	 
+ 110 002a 30BD     	 pop {r4,r5,pc}
+ 111              	.L21:
+ 112              	 .align 2
+ 113              	.L20:
+ 114 002c 00000000 	 .word E_EEPROM_XMC1_0
+ 115 0030 000A0110 	 .word 268503552
+ 116 0034 000D0110 	 .word 268504320
+ 117 0038 FF0C0110 	 .word 268504319
+ 118 003c FF0F0110 	 .word 268505087
+ 120              	 .section .text.E_EEPROM_XMC1_lSetMarkerBlockBuffer,"ax",%progbits
+ 121              	 .align 1
+ 122              	 .code 16
+ 123              	 .thumb_func
+ 125              	E_EEPROM_XMC1_lSetMarkerBlockBuffer:
+ 126 0000 0022     	 mov r2,#0
+ 127 0002 034B     	 ldr r3,.L23
+ 128              	 
+ 129 0004 5B68     	 ldr r3,[r3,#4]
+ 130 0006 DA65     	 str r2,[r3,#92]
+ 131 0008 1A66     	 str r2,[r3,#96]
+ 132 000a 5A66     	 str r2,[r3,#100]
+ 133 000c 9A66     	 str r2,[r3,#104]
+ 134 000e 7047     	 bx lr
+ 135              	.L24:
+ 136              	 .align 2
+ 137              	.L23:
+ 138 0010 00000000 	 .word E_EEPROM_XMC1_0
+ 140              	 .section .text.E_EEPROM_XMC1_lSetMarkerPageBuffer,"ax",%progbits
+ 141              	 .align 1
+ 142              	 .code 16
+ 143              	 .thumb_func
+ 145              	E_EEPROM_XMC1_lSetMarkerPageBuffer:
+ 146 0000 0E4B     	 ldr r3,.L28
+ 147 0002 30B5     	 push {r4,r5,lr}
+ 148 0004 5968     	 ldr r1,[r3,#4]
+ 149 0006 0024     	 mov r4,#0
+ 150 0008 0A1C     	 mov r2,r1
+ 151 000a 7032     	 add r2,r2,#112
+ 152              	.L26:
+ 153 000c 8023     	 mov r3,#128
+ 154 000e E340     	 lsr r3,r3,r4
+ 155 0010 0340     	 and r3,r0
+ 156 0012 5D1E     	 sub r5,r3,#1
+ 157 0014 AB41     	 sbc r3,r3,r5
+ 158 0016 0134     	 add r4,r4,#1
+ 159 0018 5B42     	 neg r3,r3
+ 160 001a 1360     	 str r3,[r2]
+ 161 001c 5360     	 str r3,[r2,#4]
+ 162 001e 9360     	 str r3,[r2,#8]
+ 163 0020 D360     	 str r3,[r2,#12]
+ 164 0022 1032     	 add r2,r2,#16
+ 165 0024 042C     	 cmp r4,#4
+ 166 0026 F1D1     	 bne .L26
+ 167 0028 0B1C     	 mov r3,r1
+ 168 002a 7131     	 add r1,r1,#113
+ 169 002c B033     	 add r3,r3,#176
+ 170 002e FF31     	 add r1,r1,#255
+ 171              	.L27:
+ 172 0030 0122     	 mov r2,#1
+ 173 0032 5242     	 neg r2,r2
+ 174 0034 04C3     	 stmia r3!,{r2}
+ 175 0036 8B42     	 cmp r3,r1
+ 176 0038 FAD1     	 bne .L27
+ 177              	 
+ 178 003a 30BD     	 pop {r4,r5,pc}
+ 179              	.L29:
+ 180              	 .align 2
+ 181              	.L28:
+ 182 003c 00000000 	 .word E_EEPROM_XMC1_0
+ 184              	 .section .text.E_EEPROM_XMC1_lSearchBlockCopy,"ax",%progbits
+ 185              	 .align 1
+ 186              	 .code 16
+ 187              	 .thumb_func
+ 189              	E_EEPROM_XMC1_lSearchBlockCopy:
+ 190 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 191 0002 0024     	 mov r4,#0
+ 192 0004 254B     	 ldr r3,.L47
+ 193 0006 0D1C     	 mov r5,r1
+ 194 0008 5E68     	 ldr r6,[r3,#4]
+ 195 000a 87B0     	 sub sp,sp,#28
+ 196 000c 311C     	 mov r1,r6
+ 197 000e 0392     	 str r2,[sp,#12]
+ 198 0010 0222     	 mov r2,#2
+ 199 0012 271C     	 mov r7,r4
+ 200 0014 3431     	 add r1,r1,#52
+ 201 0016 0B78     	 ldrb r3,[r1]
+ 202 0018 0290     	 str r0,[sp,#8]
+ 203 001a 9343     	 bic r3,r2
+ 204 001c 013A     	 sub r2,r2,#1
+ 205 001e 9343     	 bic r3,r2
+ 206 0020 0B70     	 strb r3,[r1]
+ 207 0022 0092     	 str r2,[sp]
+ 208 0024 3463     	 str r4,[r6,#48]
+ 209              	.L31:
+ 210 0026 039B     	 ldr r3,[sp,#12]
+ 211 0028 AB42     	 cmp r3,r5
+ 212 002a 33D8     	 bhi .L46
+ 213 002c 002C     	 cmp r4,#0
+ 214 002e 31D1     	 bne .L46
+ 215 0030 FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 216 0034 2B68     	 ldr r3,[r5]
+ 217 0036 1A0A     	 lsr r2,r3,#8
+ 218 0038 D2B2     	 uxtb r2,r2
+ 219 003a 0192     	 str r2,[sp,#4]
+ 220 003c 029A     	 ldr r2,[sp,#8]
+ 221 003e 0593     	 str r3,[sp,#20]
+ 222 0040 DBB2     	 uxtb r3,r3
+ 223 0042 9342     	 cmp r3,r2
+ 224 0044 24D1     	 bne .L32
+ 225 0046 FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 226 004a 2023     	 mov r3,#32
+ 227 004c 1840     	 and r0,r3
+ 228 004e 4342     	 neg r3,r0
+ 229 0050 5841     	 adc r0,r0,r3
+ 230 0052 009B     	 ldr r3,[sp]
+ 231 0054 4042     	 neg r0,r0
+ 232 0056 0340     	 and r3,r0
+ 233 0058 0093     	 str r3,[sp]
+ 234 005a 6B46     	 mov r3,sp
+ 235 005c 1B79     	 ldrb r3,[r3,#4]
+ 236 005e 0137     	 add r7,r7,#1
+ 237 0060 5BB2     	 sxtb r3,r3
+ 238 0062 002B     	 cmp r3,#0
+ 239 0064 14DA     	 bge .L32
+ 240 0066 009B     	 ldr r3,[sp]
+ 241 0068 012B     	 cmp r3,#1
+ 242 006a 05D1     	 bne .L35
+ 243 006c 321C     	 mov r2,r6
+ 244 006e 0221     	 mov r1,#2
+ 245 0070 3432     	 add r2,r2,#52
+ 246 0072 1378     	 ldrb r3,[r2]
+ 247 0074 0B43     	 orr r3,r1
+ 248 0076 1370     	 strb r3,[r2]
+ 249              	.L35:
+ 250 0078 019B     	 ldr r3,[sp,#4]
+ 251 007a 5B06     	 lsl r3,r3,#25
+ 252 007c 05D5     	 bpl .L36
+ 253 007e 321C     	 mov r2,r6
+ 254 0080 0121     	 mov r1,#1
+ 255 0082 3432     	 add r2,r2,#52
+ 256 0084 1378     	 ldrb r3,[r2]
+ 257 0086 0B43     	 orr r3,r1
+ 258 0088 1370     	 strb r3,[r2]
+ 259              	.L36:
+ 260 008a 3763     	 str r7,[r6,#48]
+ 261 008c 2C1C     	 mov r4,r5
+ 262 008e CAE7     	 b .L31
+ 263              	.L32:
+ 264 0090 103D     	 sub r5,r5,#16
+ 265 0092 C8E7     	 b .L31
+ 266              	.L46:
+ 267 0094 201C     	 mov r0,r4
+ 268 0096 07B0     	 add sp,sp,#28
+ 269              	 
+ 270 0098 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 271              	.L48:
+ 272 009a C046     	 .align 2
+ 273              	.L47:
+ 274 009c 00000000 	 .word E_EEPROM_XMC1_0
+ 276              	 .section .text.E_EEPROM_XMC1_lWriteDataBlock,"ax",%progbits
+ 277              	 .align 1
+ 278              	 .code 16
+ 279              	 .thumb_func
+ 281              	E_EEPROM_XMC1_lWriteDataBlock:
+ 282 0000 38B5     	 push {r3,r4,r5,lr}
+ 283 0002 0A4B     	 ldr r3,.L50
+ 284              	 
+ 285 0004 5C68     	 ldr r4,[r3,#4]
+ 286 0006 A36D     	 ldr r3,[r4,#88]
+ 287 0008 E26C     	 ldr r2,[r4,#76]
+ 288 000a 1D01     	 lsl r5,r3,#4
+ 289 000c 0133     	 add r3,r3,#1
+ 290 000e A365     	 str r3,[r4,#88]
+ 291 0010 AD18     	 add r5,r5,r2
+ 292 0012 FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 293 0016 0122     	 mov r2,#1
+ 294 0018 211C     	 mov r1,r4
+ 295 001a 281C     	 mov r0,r5
+ 296 001c 5C31     	 add r1,r1,#92
+ 297 001e 131C     	 mov r3,r2
+ 298 0020 FFF7FEFF 	 bl XMC_FLASH_WriteBlocks
+ 299 0024 FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 300 0028 38BD     	 pop {r3,r4,r5,pc}
+ 301              	.L51:
+ 302 002a C046     	 .align 2
+ 303              	.L50:
+ 304 002c 00000000 	 .word E_EEPROM_XMC1_0
+ 306              	 .section .text.E_EEPROM_XMC1_lEraseBank,"ax",%progbits
+ 307              	 .align 1
+ 308              	 .code 16
+ 309              	 .thumb_func
+ 311              	E_EEPROM_XMC1_lEraseBank:
+ 312 0000 38B5     	 push {r3,r4,r5,lr}
+ 313 0002 041C     	 mov r4,r0
+ 314 0004 084B     	 ldr r3,.L58
+ 315 0006 FF3C     	 sub r4,r4,#255
+ 316 0008 C518     	 add r5,r0,r3
+ 317              	.L54:
+ 318 000a FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 319 000e 201C     	 mov r0,r4
+ 320 0010 013C     	 sub r4,r4,#1
+ 321 0012 0121     	 mov r1,#1
+ 322 0014 FF3C     	 sub r4,r4,#255
+ 323 0016 FFF7FEFF 	 bl XMC_FLASH_ErasePages
+ 324 001a FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 325 001e AC42     	 cmp r4,r5
+ 326 0020 01D0     	 beq .L57
+ 327 0022 0028     	 cmp r0,#0
+ 328 0024 F1D0     	 beq .L54
+ 329              	.L57:
+ 330              	 
+ 331 0026 38BD     	 pop {r3,r4,r5,pc}
+ 332              	.L59:
+ 333              	 .align 2
+ 334              	.L58:
+ 335 0028 01FCFFFF 	 .word -1023
+ 337              	 .section .text.E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks,"ax",%progbits
+ 338              	 .align 1
+ 339              	 .code 16
+ 340              	 .thumb_func
+ 342              	E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks:
+ 343 0000 031C     	 mov r3,r0
+ 344 0002 0120     	 mov r0,#1
+ 345 0004 0C2B     	 cmp r3,#12
+ 346 0006 06D9     	 bls .L61
+ 347 0008 0C3B     	 sub r3,r3,#12
+ 348 000a 0018     	 add r0,r0,r0
+ 349              	.L62:
+ 350 000c 0E2B     	 cmp r3,#14
+ 351 000e 02D9     	 bls .L61
+ 352 0010 0130     	 add r0,r0,#1
+ 353 0012 0E3B     	 sub r3,r3,#14
+ 354 0014 FAE7     	 b .L62
+ 355              	.L61:
+ 356              	 
+ 357 0016 7047     	 bx lr
+ 359              	 .section .text.E_EEPROM_XMC1_lUpdateCache,"ax",%progbits
+ 360              	 .align 1
+ 361              	 .code 16
+ 362              	 .thumb_func
+ 364              	E_EEPROM_XMC1_lUpdateCache:
+ 365 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 366 0002 694B     	 ldr r3,.L105
+ 367 0004 85B0     	 sub sp,sp,#20
+ 368 0006 5C68     	 ldr r4,[r3,#4]
+ 369 0008 0393     	 str r3,[sp,#12]
+ 370 000a A36B     	 ldr r3,[r4,#56]
+ 371 000c 002B     	 cmp r3,#0
+ 372 000e 01D0     	 beq .L90
+ 373 0010 664B     	 ldr r3,.L105+4
+ 374 0012 00E0     	 b .L98
+ 375              	.L90:
+ 376 0014 664B     	 ldr r3,.L105+8
+ 377              	.L98:
+ 378 0016 0093     	 str r3,[sp]
+ 379 0018 0023     	 mov r3,#0
+ 380 001a FF22     	 mov r2,#255
+ 381 001c A365     	 str r3,[r4,#88]
+ 382 001e 8533     	 add r3,r3,#133
+ 383 0020 FF33     	 add r3,r3,#255
+ 384 0022 E250     	 str r2,[r4,r3]
+ 385 0024 FE3A     	 sub r2,r2,#254
+ 386 0026 043B     	 sub r3,r3,#4
+ 387 0028 E250     	 str r2,[r4,r3]
+ 388 002a BC22     	 mov r2,#188
+ 389 002c 236D     	 ldr r3,[r4,#80]
+ 390 002e 9200     	 lsl r2,r2,#2
+ 391 0030 9B18     	 add r3,r3,r2
+ 392 0032 2365     	 str r3,[r4,#80]
+ 393              	.L73:
+ 394 0034 039B     	 ldr r3,[sp,#12]
+ 395 0036 5D68     	 ldr r5,[r3,#4]
+ 396 0038 FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 397 003c 291C     	 mov r1,r5
+ 398 003e 0122     	 mov r2,#1
+ 399 0040 5C31     	 add r1,r1,#92
+ 400 0042 286D     	 ldr r0,[r5,#80]
+ 401 0044 FFF7FEFF 	 bl XMC_FLASH_ReadBlocks
+ 402 0048 FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 403 004c C022     	 mov r2,#192
+ 404 004e 031C     	 mov r3,r0
+ 405 0050 0190     	 str r0,[sp,#4]
+ 406 0052 5200     	 lsl r2,r2,#1
+ 407 0054 9B06     	 lsl r3,r3,#26
+ 408 0056 0BD5     	 bpl .L67
+ 409 0058 E96C     	 ldr r1,[r5,#76]
+ 410 005a 2B6D     	 ldr r3,[r5,#80]
+ 411 005c 0029     	 cmp r1,#0
+ 412 005e 02D1     	 bne .L68
+ 413 0060 191C     	 mov r1,r3
+ 414 0062 1031     	 add r1,r1,#16
+ 415 0064 E964     	 str r1,[r5,#76]
+ 416              	.L68:
+ 417 0066 0099     	 ldr r1,[sp]
+ 418 0068 8B42     	 cmp r3,r1
+ 419 006a 10D1     	 bne .L72
+ 420 006c 0423     	 mov r3,#4
+ 421 006e 06E0     	 b .L99
+ 422              	.L67:
+ 423 0070 EB6D     	 ldr r3,[r5,#92]
+ 424 0072 0133     	 add r3,r3,#1
+ 425 0074 05D0     	 beq .L71
+ 426 0076 AB6D     	 ldr r3,[r5,#88]
+ 427 0078 0133     	 add r3,r3,#1
+ 428 007a AB65     	 str r3,[r5,#88]
+ 429 007c 0223     	 mov r3,#2
+ 430              	.L99:
+ 431 007e AB50     	 str r3,[r5,r2]
+ 432 0080 07E0     	 b .L70
+ 433              	.L71:
+ 434 0082 2B6D     	 ldr r3,[r5,#80]
+ 435 0084 0099     	 ldr r1,[sp]
+ 436 0086 8B42     	 cmp r3,r1
+ 437 0088 01D1     	 bne .L72
+ 438 008a 0421     	 mov r1,#4
+ 439 008c A950     	 str r1,[r5,r2]
+ 440              	.L72:
+ 441 008e 103B     	 sub r3,r3,#16
+ 442 0090 2B65     	 str r3,[r5,#80]
+ 443              	.L70:
+ 444 0092 C023     	 mov r3,#192
+ 445 0094 5B00     	 lsl r3,r3,#1
+ 446 0096 E358     	 ldr r3,[r4,r3]
+ 447 0098 012B     	 cmp r3,#1
+ 448 009a CBD0     	 beq .L73
+ 449 009c E36C     	 ldr r3,[r4,#76]
+ 450 009e 002B     	 cmp r3,#0
+ 451 00a0 25D1     	 bne .L75
+ 452 00a2 236D     	 ldr r3,[r4,#80]
+ 453 00a4 1033     	 add r3,r3,#16
+ 454 00a6 E364     	 str r3,[r4,#76]
+ 455 00a8 21E0     	 b .L75
+ 456              	.L89:
+ 457 00aa 2027     	 mov r7,#32
+ 458 00ac 019B     	 ldr r3,[sp,#4]
+ 459 00ae 1F40     	 and r7,r3
+ 460 00b0 55D1     	 bne .L76
+ 461 00b2 3D4B     	 ldr r3,.L105
+ 462 00b4 5E68     	 ldr r6,[r3,#4]
+ 463 00b6 331C     	 mov r3,r6
+ 464 00b8 5C33     	 add r3,r3,#92
+ 465 00ba 5A78     	 ldrb r2,[r3,#1]
+ 466 00bc 1878     	 ldrb r0,[r3]
+ 467 00be 0292     	 str r2,[sp,#8]
+ 468 00c0 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetUsrBlockIndex
+ 469 00c4 C223     	 mov r3,#194
+ 470 00c6 5B00     	 lsl r3,r3,#1
+ 471 00c8 FF28     	 cmp r0,#255
+ 472 00ca 45D0     	 beq .L77
+ 473 00cc C200     	 lsl r2,r0,#3
+ 474 00ce B518     	 add r5,r6,r2
+ 475 00d0 2968     	 ldr r1,[r5]
+ 476 00d2 F050     	 str r0,[r6,r3]
+ 477 00d4 0029     	 cmp r1,#0
+ 478 00d6 3CD1     	 bne .L78
+ 479 00d8 029B     	 ldr r3,[sp,#8]
+ 480 00da DB09     	 lsr r3,r3,#7
+ 481 00dc 0DD1     	 bne .L103
+ 482              	.L79:
+ 483 00de 236D     	 ldr r3,[r4,#80]
+ 484 00e0 009A     	 ldr r2,[sp]
+ 485 00e2 9342     	 cmp r3,r2
+ 486 00e4 49D1     	 bne .L87
+ 487 00e6 C023     	 mov r3,#192
+ 488 00e8 0422     	 mov r2,#4
+ 489 00ea 5B00     	 lsl r3,r3,#1
+ 490 00ec E250     	 str r2,[r4,r3]
+ 491              	.L75:
+ 492 00ee C023     	 mov r3,#192
+ 493 00f0 5B00     	 lsl r3,r3,#1
+ 494 00f2 E358     	 ldr r3,[r4,r3]
+ 495 00f4 042B     	 cmp r3,#4
+ 496 00f6 D8D1     	 bne .L89
+ 497 00f8 53E0     	 b .L104
+ 498              	.L103:
+ 499 00fa 336D     	 ldr r3,[r6,#80]
+ 500 00fc 0298     	 ldr r0,[sp,#8]
+ 501 00fe 2B60     	 str r3,[r5]
+ 502 0100 0131     	 add r1,r1,#1
+ 503 0102 2B79     	 ldrb r3,[r5,#4]
+ 504 0104 4006     	 lsl r0,r0,#25
+ 505 0106 07D5     	 bpl .L80
+ 506 0108 0298     	 ldr r0,[sp,#8]
+ 507 010a 0B43     	 orr r3,r1
+ 508 010c 2B71     	 strb r3,[r5,#4]
+ 509 010e 0731     	 add r1,r1,#7
+ 510 0110 C006     	 lsl r0,r0,#27
+ 511 0112 01D5     	 bpl .L80
+ 512 0114 0B43     	 orr r3,r1
+ 513 0116 00E0     	 b .L100
+ 514              	.L80:
+ 515 0118 8B43     	 bic r3,r1
+ 516              	.L100:
+ 517 011a 2B71     	 strb r3,[r5,#4]
+ 518 011c 224B     	 ldr r3,.L105
+ 519 011e 1B68     	 ldr r3,[r3]
+ 520 0120 9A18     	 add r2,r3,r2
+ 521 0122 5068     	 ldr r0,[r2,#4]
+ 522 0124 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks
+ 523 0128 B36D     	 ldr r3,[r6,#88]
+ 524 012a 8342     	 cmp r3,r0
+ 525 012c 02D1     	 bne .L83
+ 526 012e 2B79     	 ldrb r3,[r5,#4]
+ 527 0130 0222     	 mov r2,#2
+ 528 0132 05E0     	 b .L85
+ 529              	.L83:
+ 530 0134 2B79     	 ldrb r3,[r5,#4]
+ 531 0136 0222     	 mov r2,#2
+ 532 0138 D907     	 lsl r1,r3,#31
+ 533 013a 01D5     	 bpl .L85
+ 534 013c 9343     	 bic r3,r2
+ 535 013e 00E0     	 b .L101
+ 536              	.L85:
+ 537 0140 1343     	 orr r3,r2
+ 538              	.L101:
+ 539 0142 2B71     	 strb r3,[r5,#4]
+ 540 0144 C223     	 mov r3,#194
+ 541 0146 FF22     	 mov r2,#255
+ 542 0148 5B00     	 lsl r3,r3,#1
+ 543 014a F250     	 str r2,[r6,r3]
+ 544 014c 0023     	 mov r3,#0
+ 545 014e B365     	 str r3,[r6,#88]
+ 546 0150 C5E7     	 b .L79
+ 547              	.L78:
+ 548 0152 FF22     	 mov r2,#255
+ 549 0154 F250     	 str r2,[r6,r3]
+ 550 0156 00E0     	 b .L102
+ 551              	.L77:
+ 552 0158 F050     	 str r0,[r6,r3]
+ 553              	.L102:
+ 554 015a B765     	 str r7,[r6,#88]
+ 555 015c BFE7     	 b .L79
+ 556              	.L76:
+ 557 015e C222     	 mov r2,#194
+ 558 0160 5200     	 lsl r2,r2,#1
+ 559 0162 A358     	 ldr r3,[r4,r2]
+ 560 0164 FF2B     	 cmp r3,#255
+ 561 0166 03D0     	 beq .L86
+ 562 0168 0121     	 mov r1,#1
+ 563 016a DB00     	 lsl r3,r3,#3
+ 564 016c 4942     	 neg r1,r1
+ 565 016e 1951     	 str r1,[r3,r4]
+ 566              	.L86:
+ 567 0170 FF23     	 mov r3,#255
+ 568 0172 A350     	 str r3,[r4,r2]
+ 569 0174 0023     	 mov r3,#0
+ 570 0176 A365     	 str r3,[r4,#88]
+ 571 0178 B1E7     	 b .L79
+ 572              	.L87:
+ 573 017a 039B     	 ldr r3,[sp,#12]
+ 574 017c 5D68     	 ldr r5,[r3,#4]
+ 575 017e 2B6D     	 ldr r3,[r5,#80]
+ 576 0180 103B     	 sub r3,r3,#16
+ 577 0182 2B65     	 str r3,[r5,#80]
+ 578 0184 FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 579 0188 291C     	 mov r1,r5
+ 580 018a 286D     	 ldr r0,[r5,#80]
+ 581 018c 5C31     	 add r1,r1,#92
+ 582 018e 0122     	 mov r2,#1
+ 583 0190 FFF7FEFF 	 bl XMC_FLASH_ReadBlocks
+ 584 0194 AB6D     	 ldr r3,[r5,#88]
+ 585 0196 0133     	 add r3,r3,#1
+ 586 0198 AB65     	 str r3,[r5,#88]
+ 587 019a FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 588 019e 0190     	 str r0,[sp,#4]
+ 589 01a0 A5E7     	 b .L75
+ 590              	.L104:
+ 591 01a2 05B0     	 add sp,sp,#20
+ 592              	 
+ 593 01a4 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 594              	.L106:
+ 595 01a6 C046     	 .align 2
+ 596              	.L105:
+ 597 01a8 00000000 	 .word E_EEPROM_XMC1_0
+ 598 01ac 000E0110 	 .word 268504576
+ 599 01b0 000B0110 	 .word 268503808
+ 601              	 .section .text.E_EEPROM_XMC1_lGCWrite,"ax",%progbits
+ 602              	 .align 1
+ 603              	 .code 16
+ 604              	 .thumb_func
+ 606              	E_EEPROM_XMC1_lGCWrite:
+ 607 0000 38B5     	 push {r3,r4,r5,lr}
+ 608 0002 074B     	 ldr r3,.L108
+ 609 0004 051C     	 mov r5,r0
+ 610 0006 5C68     	 ldr r4,[r3,#4]
+ 611 0008 FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 612 000c 0122     	 mov r2,#1
+ 613 000e 211C     	 mov r1,r4
+ 614 0010 281C     	 mov r0,r5
+ 615 0012 5C31     	 add r1,r1,#92
+ 616 0014 131C     	 mov r3,r2
+ 617 0016 FFF7FEFF 	 bl XMC_FLASH_WriteBlocks
+ 618              	 
+ 619 001a FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 620 001e 38BD     	 pop {r3,r4,r5,pc}
+ 621              	.L109:
+ 622              	 .align 2
+ 623              	.L108:
+ 624 0020 00000000 	 .word E_EEPROM_XMC1_0
+ 626              	 .section .text.E_EEPROM_XMC1_lErasedDirtyStateRecovery.constprop.2,"ax",%progbits
+ 627              	 .align 1
+ 628              	 .code 16
+ 629              	 .thumb_func
+ 631              	E_EEPROM_XMC1_lErasedDirtyStateRecovery.constprop.2:
+ 632 0000 38B5     	 push {r3,r4,r5,lr}
+ 633 0002 0D4B     	 ldr r3,.L115
+ 634 0004 5D68     	 ldr r5,[r3,#4]
+ 635 0006 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCurrBankInfo
+ 636 000a A86C     	 ldr r0,[r5,#72]
+ 637 000c 2C1C     	 mov r4,r5
+ 638 000e FFF7FEFF 	 bl E_EEPROM_XMC1_lEraseBank
+ 639 0012 FC34     	 add r4,r4,#252
+ 640 0014 0028     	 cmp r0,#0
+ 641 0016 0BD1     	 bne .L111
+ 642 0018 FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerBlockBuffer
+ 643 001c E86B     	 ldr r0,[r5,#60]
+ 644 001e 3030     	 add r0,r0,#48
+ 645 0020 FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 646 0024 0028     	 cmp r0,#0
+ 647 0026 03D1     	 bne .L111
+ 648 0028 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCache
+ 649 002c 0A23     	 mov r3,#10
+ 650 002e 00E0     	 b .L114
+ 651              	.L111:
+ 652 0030 0923     	 mov r3,#9
+ 653              	.L114:
+ 654 0032 A367     	 str r3,[r4,#120]
+ 655              	 
+ 656 0034 38BD     	 pop {r3,r4,r5,pc}
+ 657              	.L116:
+ 658 0036 C046     	 .align 2
+ 659              	.L115:
+ 660 0038 00000000 	 .word E_EEPROM_XMC1_0
+ 662              	 .section .text.E_EEPROM_XMC1_lReadBlockContents,"ax",%progbits
+ 663              	 .align 1
+ 664              	 .code 16
+ 665              	 .thumb_func
+ 667              	E_EEPROM_XMC1_lReadBlockContents:
+ 668 0000 274B     	 ldr r3,.L130
+ 669 0002 F0B5     	 push {r4,r5,r6,r7,lr}
+ 670 0004 5F68     	 ldr r7,[r3,#4]
+ 671 0006 C623     	 mov r3,#198
+ 672 0008 85B0     	 sub sp,sp,#20
+ 673 000a 5B00     	 lsl r3,r3,#1
+ 674 000c 0E1C     	 mov r6,r1
+ 675 000e 0390     	 str r0,[sp,#12]
+ 676 0010 F958     	 ldr r1,[r7,r3]
+ 677 0012 0B2A     	 cmp r2,#11
+ 678 0014 0AD9     	 bls .L118
+ 679 0016 0C3A     	 sub r2,r2,#12
+ 680 0018 141C     	 mov r4,r2
+ 681 001a 8C3B     	 sub r3,r3,#140
+ 682 001c FF3B     	 sub r3,r3,#255
+ 683              	.L119:
+ 684 001e 0D2C     	 cmp r4,#13
+ 685 0020 02D9     	 bls .L129
+ 686 0022 0133     	 add r3,r3,#1
+ 687 0024 0E3C     	 sub r4,r4,#14
+ 688 0026 FAE7     	 b .L119
+ 689              	.L129:
+ 690 0028 0234     	 add r4,r4,#2
+ 691 002a 01E0     	 b .L121
+ 692              	.L118:
+ 693 002c 0023     	 mov r3,#0
+ 694 002e 141D     	 add r4,r2,#4
+ 695              	.L121:
+ 696 0030 1022     	 mov r2,#16
+ 697 0032 0025     	 mov r5,#0
+ 698 0034 1B01     	 lsl r3,r3,#4
+ 699 0036 121B     	 sub r2,r2,r4
+ 700 0038 5B18     	 add r3,r3,r1
+ 701 003a 0292     	 str r2,[sp,#8]
+ 702 003c 0193     	 str r3,[sp,#4]
+ 703              	.L127:
+ 704 003e FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 705 0042 391C     	 mov r1,r7
+ 706 0044 0198     	 ldr r0,[sp,#4]
+ 707 0046 5C31     	 add r1,r1,#92
+ 708 0048 0122     	 mov r2,#1
+ 709 004a FFF7FEFF 	 bl XMC_FLASH_ReadBlocks
+ 710 004e FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 711 0052 8446     	 mov ip,r0
+ 712 0054 0028     	 cmp r0,#0
+ 713 0056 1FD1     	 bne .L122
+ 714 0058 2A1C     	 mov r2,r5
+ 715 005a 331C     	 mov r3,r6
+ 716              	.L124:
+ 717 005c 611B     	 sub r1,r4,r5
+ 718 005e 5118     	 add r1,r2,r1
+ 719 0060 5C31     	 add r1,r1,#92
+ 720 0062 795C     	 ldrb r1,[r7,r1]
+ 721 0064 0398     	 ldr r0,[sp,#12]
+ 722 0066 013B     	 sub r3,r3,#1
+ 723 0068 8154     	 strb r1,[r0,r2]
+ 724 006a 0299     	 ldr r1,[sp,#8]
+ 725 006c 0132     	 add r2,r2,#1
+ 726 006e C918     	 add r1,r1,r3
+ 727 0070 B142     	 cmp r1,r6
+ 728 0072 03D0     	 beq .L123
+ 729 0074 002B     	 cmp r3,#0
+ 730 0076 F1D1     	 bne .L124
+ 731 0078 1E1C     	 mov r6,r3
+ 732 007a 05E0     	 b .L125
+ 733              	.L123:
+ 734 007c 0E21     	 mov r1,#14
+ 735 007e 1E1C     	 mov r6,r3
+ 736 0080 151C     	 mov r5,r2
+ 737 0082 0291     	 str r1,[sp,#8]
+ 738 0084 8B42     	 cmp r3,r1
+ 739 0086 01D8     	 bhi .L126
+ 740              	.L125:
+ 741 0088 151C     	 mov r5,r2
+ 742 008a 0293     	 str r3,[sp,#8]
+ 743              	.L126:
+ 744 008c 019A     	 ldr r2,[sp,#4]
+ 745 008e 0224     	 mov r4,#2
+ 746 0090 1032     	 add r2,r2,#16
+ 747 0092 0192     	 str r2,[sp,#4]
+ 748 0094 002B     	 cmp r3,#0
+ 749 0096 D2D1     	 bne .L127
+ 750              	.L122:
+ 751 0098 6046     	 mov r0,ip
+ 752 009a 05B0     	 add sp,sp,#20
+ 753              	 
+ 754 009c F0BD     	 pop {r4,r5,r6,r7,pc}
+ 755              	.L131:
+ 756 009e C046     	 .align 2
+ 757              	.L130:
+ 758 00a0 00000000 	 .word E_EEPROM_XMC1_0
+ 760              	 .section .text.E_EEPROM_XMC1_lGarbageCollection,"ax",%progbits
+ 761              	 .align 1
+ 762              	 .code 16
+ 763              	 .thumb_func
+ 765              	E_EEPROM_XMC1_lGarbageCollection:
+ 766 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 767 0002 794D     	 ldr r5,.L170
+ 768 0004 85B0     	 sub sp,sp,#20
+ 769 0006 6E68     	 ldr r6,[r5,#4]
+ 770              	.L158:
+ 771 0008 341C     	 mov r4,r6
+ 772 000a FC34     	 add r4,r4,#252
+ 773 000c A36F     	 ldr r3,[r4,#120]
+ 774 000e 581E     	 sub r0,r3,#1
+ 775 0010 0728     	 cmp r0,#7
+ 776 0012 00D9     	 bls .LCB943
+ 777 0014 9FE0     	 b .L133
+ 778              	.LCB943:
+ 779 0016 FFF7FEFF 	 bl __gnu_thumb1_case_uqi
+ 780              	.L135:
+ 781 001a 04       	 .byte (.L134-.L135)/2
+ 782 001b 5F       	 .byte (.L136-.L135)/2
+ 783 001c 89       	 .byte (.L137-.L135)/2
+ 784 001d 9E       	 .byte (.L133-.L135)/2
+ 785 001e 1C       	 .byte (.L138-.L135)/2
+ 786 001f 69       	 .byte (.L139-.L135)/2
+ 787 0020 7E       	 .byte (.L140-.L135)/2
+ 788 0021 92       	 .byte (.L141-.L135)/2
+ 789              	 .p2align 1
+ 790              	.L134:
+ 791 0022 BE23     	 mov r3,#190
+ 792 0024 6C68     	 ldr r4,[r5,#4]
+ 793 0026 5B00     	 lsl r3,r3,#1
+ 794 0028 E758     	 ldr r7,[r4,r3]
+ 795 002a 6A7A     	 ldrb r2,[r5,#9]
+ 796 002c FB00     	 lsl r3,r7,#3
+ 797 002e E318     	 add r3,r4,r3
+ 798 0030 0192     	 str r2,[sp,#4]
+ 799              	.L142:
+ 800 0032 019A     	 ldr r2,[sp,#4]
+ 801 0034 9742     	 cmp r7,r2
+ 802 0036 00D1     	 bne .LCB962
+ 803 0038 B9E0     	 b .L169
+ 804              	.LCB962:
+ 805 003a 1968     	 ldr r1,[r3]
+ 806 003c 0029     	 cmp r1,#0
+ 807 003e 05D0     	 beq .L143
+ 808 0040 0622     	 mov r2,#6
+ 809 0042 1879     	 ldrb r0,[r3,#4]
+ 810 0044 0240     	 and r2,r0
+ 811 0046 022A     	 cmp r2,#2
+ 812 0048 00D1     	 bne .LCB971
+ 813 004a BBE0     	 b .L144
+ 814              	.LCB971:
+ 815              	.L143:
+ 816 004c 0137     	 add r7,r7,#1
+ 817 004e 0833     	 add r3,r3,#8
+ 818 0050 EFE7     	 b .L142
+ 819              	.L138:
+ 820 0052 BE23     	 mov r3,#190
+ 821 0054 6C68     	 ldr r4,[r5,#4]
+ 822 0056 5B00     	 lsl r3,r3,#1
+ 823 0058 E358     	 ldr r3,[r4,r3]
+ 824 005a E06B     	 ldr r0,[r4,#60]
+ 825 005c 0193     	 str r3,[sp,#4]
+ 826 005e FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 827 0062 231C     	 mov r3,r4
+ 828 0064 FC33     	 add r3,r3,#252
+ 829 0066 0393     	 str r3,[sp,#12]
+ 830 0068 0028     	 cmp r0,#0
+ 831 006a 2DD1     	 bne .L148
+ 832 006c 636D     	 ldr r3,[r4,#84]
+ 833 006e 0133     	 add r3,r3,#1
+ 834 0070 0293     	 str r3,[sp,#8]
+ 835 0072 6365     	 str r3,[r4,#84]
+ 836 0074 019B     	 ldr r3,[sp,#4]
+ 837 0076 DF00     	 lsl r7,r3,#3
+ 838 0078 2B68     	 ldr r3,[r5]
+ 839 007a DB19     	 add r3,r3,r7
+ 840 007c 5868     	 ldr r0,[r3,#4]
+ 841 007e FFF7FEFF 	 bl E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks
+ 842 0082 029B     	 ldr r3,[sp,#8]
+ 843 0084 8342     	 cmp r3,r0
+ 844 0086 03D0     	 beq .L149
+ 845 0088 E319     	 add r3,r4,r7
+ 846 008a 1B79     	 ldrb r3,[r3,#4]
+ 847 008c DB07     	 lsl r3,r3,#31
+ 848 008e 13D4     	 bmi .L150
+ 849              	.L149:
+ 850 0090 0421     	 mov r1,#4
+ 851 0092 E219     	 add r2,r4,r7
+ 852 0094 1379     	 ldrb r3,[r2,#4]
+ 853 0096 0B43     	 orr r3,r1
+ 854 0098 1371     	 strb r3,[r2,#4]
+ 855 009a 231C     	 mov r3,r4
+ 856 009c 0122     	 mov r2,#1
+ 857 009e FC33     	 add r3,r3,#252
+ 858 00a0 9A67     	 str r2,[r3,#120]
+ 859 00a2 029A     	 ldr r2,[sp,#8]
+ 860 00a4 E36B     	 ldr r3,[r4,#60]
+ 861 00a6 8A40     	 lsl r2,r2,r1
+ 862 00a8 1033     	 add r3,r3,#16
+ 863 00aa E363     	 str r3,[r4,#60]
+ 864 00ac 9B1A     	 sub r3,r3,r2
+ 865 00ae E351     	 str r3,[r4,r7]
+ 866 00b0 019B     	 ldr r3,[sp,#4]
+ 867 00b2 0133     	 add r3,r3,#1
+ 868 00b4 0193     	 str r3,[sp,#4]
+ 869 00b6 0AE0     	 b .L151
+ 870              	.L150:
+ 871 00b8 236C     	 ldr r3,[r4,#64]
+ 872 00ba 1033     	 add r3,r3,#16
+ 873 00bc 2364     	 str r3,[r4,#64]
+ 874 00be E36B     	 ldr r3,[r4,#60]
+ 875 00c0 1033     	 add r3,r3,#16
+ 876 00c2 E363     	 str r3,[r4,#60]
+ 877 00c4 0223     	 mov r3,#2
+ 878 00c6 00E0     	 b .L165
+ 879              	.L148:
+ 880 00c8 0923     	 mov r3,#9
+ 881              	.L165:
+ 882 00ca 039A     	 ldr r2,[sp,#12]
+ 883 00cc 9367     	 str r3,[r2,#120]
+ 884              	.L151:
+ 885 00ce BE23     	 mov r3,#190
+ 886 00d0 019A     	 ldr r2,[sp,#4]
+ 887 00d2 5B00     	 lsl r3,r3,#1
+ 888 00d4 E250     	 str r2,[r4,r3]
+ 889 00d6 61E0     	 b .L147
+ 890              	.L136:
+ 891 00d8 FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 892 00dc 311C     	 mov r1,r6
+ 893 00de 306C     	 ldr r0,[r6,#64]
+ 894 00e0 5C31     	 add r1,r1,#92
+ 895 00e2 0122     	 mov r2,#1
+ 896 00e4 FFF7FEFF 	 bl XMC_FLASH_ReadBlocks
+ 897 00e8 0523     	 mov r3,#5
+ 898 00ea 56E0     	 b .L168
+ 899              	.L139:
+ 900 00ec 6C68     	 ldr r4,[r5,#4]
+ 901 00ee FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerBlockBuffer
+ 902 00f2 206C     	 ldr r0,[r4,#64]
+ 903 00f4 271C     	 mov r7,r4
+ 904 00f6 2030     	 add r0,r0,#32
+ 905 00f8 FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 906 00fc FC37     	 add r7,r7,#252
+ 907 00fe 0923     	 mov r3,#9
+ 908 0100 0028     	 cmp r0,#0
+ 909 0102 06D1     	 bne .L167
+ 910 0104 0123     	 mov r3,#1
+ 911 0106 A26B     	 ldr r2,[r4,#56]
+ 912 0108 5340     	 eor r3,r2
+ 913 010a A363     	 str r3,[r4,#56]
+ 914 010c FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCurrBankInfo
+ 915 0110 0723     	 mov r3,#7
+ 916              	.L167:
+ 917 0112 BB67     	 str r3,[r7,#120]
+ 918 0114 42E0     	 b .L147
+ 919              	.L140:
+ 920 0116 6C68     	 ldr r4,[r5,#4]
+ 921 0118 FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerBlockBuffer
+ 922 011c 206C     	 ldr r0,[r4,#64]
+ 923 011e FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 924 0122 FC34     	 add r4,r4,#252
+ 925 0124 0323     	 mov r3,#3
+ 926 0126 0028     	 cmp r0,#0
+ 927 0128 36D1     	 bne .L166
+ 928 012a 36E0     	 b .L168
+ 929              	.L137:
+ 930 012c 6C68     	 ldr r4,[r5,#4]
+ 931 012e A06C     	 ldr r0,[r4,#72]
+ 932 0130 FFF7FEFF 	 bl E_EEPROM_XMC1_lEraseBank
+ 933 0134 FC34     	 add r4,r4,#252
+ 934 0136 0823     	 mov r3,#8
+ 935 0138 0028     	 cmp r0,#0
+ 936 013a 2DD1     	 bne .L166
+ 937 013c 2DE0     	 b .L168
+ 938              	.L141:
+ 939 013e 6C68     	 ldr r4,[r5,#4]
+ 940 0140 FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerBlockBuffer
+ 941 0144 E06B     	 ldr r0,[r4,#60]
+ 942 0146 FC34     	 add r4,r4,#252
+ 943 0148 3030     	 add r0,r0,#48
+ 944 014a FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 945 014e 0A23     	 mov r3,#10
+ 946 0150 0028     	 cmp r0,#0
+ 947 0152 21D1     	 bne .L166
+ 948 0154 21E0     	 b .L168
+ 949              	.L133:
+ 950 0156 6C68     	 ldr r4,[r5,#4]
+ 951 0158 FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerBlockBuffer
+ 952 015c E06B     	 ldr r0,[r4,#60]
+ 953 015e 1030     	 add r0,r0,#16
+ 954 0160 FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 955 0164 0028     	 cmp r0,#0
+ 956 0166 16D1     	 bne .L156
+ 957 0168 231C     	 mov r3,r4
+ 958              	.L157:
+ 959 016a 0421     	 mov r1,#4
+ 960 016c 1A79     	 ldrb r2,[r3,#4]
+ 961 016e 0130     	 add r0,r0,#1
+ 962 0170 8A43     	 bic r2,r1
+ 963 0172 1A71     	 strb r2,[r3,#4]
+ 964 0174 6A7A     	 ldrb r2,[r5,#9]
+ 965 0176 0833     	 add r3,r3,#8
+ 966 0178 9042     	 cmp r0,r2
+ 967 017a F6D1     	 bne .L157
+ 968 017c BE23     	 mov r3,#190
+ 969 017e 0022     	 mov r2,#0
+ 970 0180 5B00     	 lsl r3,r3,#1
+ 971 0182 E250     	 str r2,[r4,r3]
+ 972 0184 231C     	 mov r3,r4
+ 973 0186 0132     	 add r2,r2,#1
+ 974 0188 FC33     	 add r3,r3,#252
+ 975 018a 9A67     	 str r2,[r3,#120]
+ 976 018c E36B     	 ldr r3,[r4,#60]
+ 977 018e 0133     	 add r3,r3,#1
+ 978 0190 FF33     	 add r3,r3,#255
+ 979 0192 E363     	 str r3,[r4,#60]
+ 980 0194 02E0     	 b .L147
+ 981              	.L156:
+ 982 0196 FC34     	 add r4,r4,#252
+ 983              	.L166:
+ 984 0198 0923     	 mov r3,#9
+ 985              	.L168:
+ 986 019a A367     	 str r3,[r4,#120]
+ 987              	.L147:
+ 988 019c 331C     	 mov r3,r6
+ 989 019e FC33     	 add r3,r3,#252
+ 990 01a0 9B6F     	 ldr r3,[r3,#120]
+ 991 01a2 093B     	 sub r3,r3,#9
+ 992 01a4 012B     	 cmp r3,#1
+ 993 01a6 00D9     	 bls .LCB1191
+ 994 01a8 2EE7     	 b .L158
+ 995              	.LCB1191:
+ 996 01aa 05B0     	 add sp,sp,#20
+ 997              	 
+ 998 01ac F0BD     	 pop {r4,r5,r6,r7,pc}
+ 999              	.L169:
+ 1000 01ae E36B     	 ldr r3,[r4,#60]
+ 1001 01b0 E364     	 str r3,[r4,#76]
+ 1002 01b2 236D     	 ldr r3,[r4,#80]
+ 1003 01b4 2364     	 str r3,[r4,#64]
+ 1004 01b6 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCurrBankInfo
+ 1005 01ba 231C     	 mov r3,r4
+ 1006 01bc 0622     	 mov r2,#6
+ 1007 01be FC33     	 add r3,r3,#252
+ 1008 01c0 9A67     	 str r2,[r3,#120]
+ 1009 01c2 84E7     	 b .L151
+ 1010              	.L144:
+ 1011 01c4 0023     	 mov r3,#0
+ 1012 01c6 2164     	 str r1,[r4,#64]
+ 1013 01c8 6365     	 str r3,[r4,#84]
+ 1014 01ca FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 1015 01ce 211C     	 mov r1,r4
+ 1016 01d0 0122     	 mov r2,#1
+ 1017 01d2 206C     	 ldr r0,[r4,#64]
+ 1018 01d4 5C31     	 add r1,r1,#92
+ 1019 01d6 FFF7FEFF 	 bl XMC_FLASH_ReadBlocks
+ 1020 01da 231C     	 mov r3,r4
+ 1021 01dc 0522     	 mov r2,#5
+ 1022 01de FC33     	 add r3,r3,#252
+ 1023 01e0 9A67     	 str r2,[r3,#120]
+ 1024 01e2 0197     	 str r7,[sp,#4]
+ 1025 01e4 73E7     	 b .L151
+ 1026              	.L171:
+ 1027 01e6 C046     	 .align 2
+ 1028              	.L170:
+ 1029 01e8 00000000 	 .word E_EEPROM_XMC1_0
+ 1031              	 .section .text.E_EEPROM_XMC1_lInitGcNormalStates,"ax",%progbits
+ 1032              	 .align 1
+ 1033              	 .code 16
+ 1034              	 .thumb_func
+ 1036              	E_EEPROM_XMC1_lInitGcNormalStates:
+ 1037 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 1038 0002 264F     	 ldr r7,.L188
+ 1039 0004 051C     	 mov r5,r0
+ 1040 0006 7C68     	 ldr r4,[r7,#4]
+ 1041 0008 0E1C     	 mov r6,r1
+ 1042 000a FC34     	 add r4,r4,#252
+ 1043 000c FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCurrBankInfo
+ 1044 0010 012E     	 cmp r6,#1
+ 1045 0012 36D1     	 bne .L173
+ 1046 0014 A567     	 str r5,[r4,#120]
+ 1047 0016 7D68     	 ldr r5,[r7,#4]
+ 1048              	.L182:
+ 1049 0018 2C1C     	 mov r4,r5
+ 1050 001a FC34     	 add r4,r4,#252
+ 1051 001c A36F     	 ldr r3,[r4,#120]
+ 1052 001e 042B     	 cmp r3,#4
+ 1053 0020 02D0     	 beq .L175
+ 1054 0022 052B     	 cmp r3,#5
+ 1055 0024 10D0     	 beq .L176
+ 1056 0026 18E0     	 b .L187
+ 1057              	.L175:
+ 1058 0028 2020     	 mov r0,#32
+ 1059 002a FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerPageBuffer
+ 1060 002e FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 1061 0032 291C     	 mov r1,r5
+ 1062 0034 1A48     	 ldr r0,.L188+4
+ 1063 0036 7031     	 add r1,r1,#112
+ 1064 0038 FFF7FEFF 	 bl XMC_FLASH_ProgramPage
+ 1065 003c FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 1066 0040 0523     	 mov r3,#5
+ 1067 0042 0028     	 cmp r0,#0
+ 1068 0044 15D0     	 beq .L186
+ 1069 0046 13E0     	 b .L180
+ 1070              	.L176:
+ 1071 0048 FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerBlockBuffer
+ 1072 004c 1548     	 ldr r0,.L188+8
+ 1073 004e FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 1074 0052 0A23     	 mov r3,#10
+ 1075 0054 0028     	 cmp r0,#0
+ 1076 0056 0CD0     	 beq .L186
+ 1077 0058 0AE0     	 b .L180
+ 1078              	.L187:
+ 1079 005a 686C     	 ldr r0,[r5,#68]
+ 1080 005c FFF7FEFF 	 bl E_EEPROM_XMC1_lEraseBank
+ 1081 0060 0028     	 cmp r0,#0
+ 1082 0062 05D1     	 bne .L180
+ 1083 0064 A86C     	 ldr r0,[r5,#72]
+ 1084 0066 FFF7FEFF 	 bl E_EEPROM_XMC1_lEraseBank
+ 1085 006a 0423     	 mov r3,#4
+ 1086 006c 0028     	 cmp r0,#0
+ 1087 006e 00D0     	 beq .L186
+ 1088              	.L180:
+ 1089 0070 0923     	 mov r3,#9
+ 1090              	.L186:
+ 1091 0072 A367     	 str r3,[r4,#120]
+ 1092 0074 A36F     	 ldr r3,[r4,#120]
+ 1093 0076 093B     	 sub r3,r3,#9
+ 1094 0078 012B     	 cmp r3,#1
+ 1095 007a CDD8     	 bhi .L182
+ 1096 007c FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCache
+ 1097 0080 0AE0     	 b .L172
+ 1098              	.L173:
+ 1099 0082 022E     	 cmp r6,#2
+ 1100 0084 05D1     	 bne .L184
+ 1101 0086 A567     	 str r5,[r4,#120]
+ 1102 0088 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCache
+ 1103 008c FFF7FEFF 	 bl E_EEPROM_XMC1_lGarbageCollection
+ 1104 0090 02E0     	 b .L172
+ 1105              	.L184:
+ 1106 0092 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCache
+ 1107 0096 A567     	 str r5,[r4,#120]
+ 1108              	.L172:
+ 1109              	 
+ 1110 0098 F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 1111              	.L189:
+ 1112 009a C046     	 .align 2
+ 1113              	.L188:
+ 1114 009c 00000000 	 .word E_EEPROM_XMC1_0
+ 1115 00a0 000A0110 	 .word 268503552
+ 1116 00a4 300D0110 	 .word 268504368
+ 1118              	 .section .text.E_EEPROM_XMC1_lInitllegalStateMachine,"ax",%progbits
+ 1119              	 .align 1
+ 1120              	 .code 16
+ 1121              	 .thumb_func
+ 1123              	E_EEPROM_XMC1_lInitllegalStateMachine:
+ 1124 0000 08B5     	 push {r3,lr}
+ 1125 0002 074A     	 ldr r2,.L193
+ 1126 0004 917A     	 ldrb r1,[r2,#10]
+ 1127 0006 5368     	 ldr r3,[r2,#4]
+ 1128 0008 0129     	 cmp r1,#1
+ 1129 000a 05D1     	 bne .L191
+ 1130 000c 0022     	 mov r2,#0
+ 1131 000e 081C     	 mov r0,r1
+ 1132 0010 9A63     	 str r2,[r3,#56]
+ 1133 0012 FFF7FEFF 	 bl E_EEPROM_XMC1_lInitGcNormalStates
+ 1134 0016 02E0     	 b .L190
+ 1135              	.L191:
+ 1136 0018 0922     	 mov r2,#9
+ 1137 001a FC33     	 add r3,r3,#252
+ 1138 001c 9A67     	 str r2,[r3,#120]
+ 1139              	.L190:
+ 1140              	 
+ 1141 001e 08BD     	 pop {r3,pc}
+ 1142              	.L194:
+ 1143              	 .align 2
+ 1144              	.L193:
+ 1145 0020 00000000 	 .word E_EEPROM_XMC1_0
+ 1147              	 .section .text.E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery,"ax",%progbits
+ 1148              	 .align 1
+ 1149              	 .code 16
+ 1150              	 .thumb_func
+ 1152              	E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery:
+ 1153 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 1154 0002 071C     	 mov r7,r0
+ 1155 0004 104B     	 ldr r3,.L201
+ 1156 0006 0D1C     	 mov r5,r1
+ 1157 0008 5C68     	 ldr r4,[r3,#4]
+ 1158 000a 161C     	 mov r6,r2
+ 1159 000c FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCurrBankInfo
+ 1160 0010 381C     	 mov r0,r7
+ 1161 0012 FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerPageBuffer
+ 1162 0016 FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 1163 001a 211C     	 mov r1,r4
+ 1164 001c 7031     	 add r1,r1,#112
+ 1165 001e 012E     	 cmp r6,#1
+ 1166 0020 01D1     	 bne .L196
+ 1167 0022 E06B     	 ldr r0,[r4,#60]
+ 1168 0024 00E0     	 b .L200
+ 1169              	.L196:
+ 1170 0026 206C     	 ldr r0,[r4,#64]
+ 1171              	.L200:
+ 1172 0028 FFF7FEFF 	 bl XMC_FLASH_ProgramPage
+ 1173 002c FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 1174 0030 FC34     	 add r4,r4,#252
+ 1175 0032 0028     	 cmp r0,#0
+ 1176 0034 05D1     	 bne .L198
+ 1177 0036 A567     	 str r5,[r4,#120]
+ 1178 0038 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCache
+ 1179 003c FFF7FEFF 	 bl E_EEPROM_XMC1_lGarbageCollection
+ 1180 0040 01E0     	 b .L195
+ 1181              	.L198:
+ 1182 0042 0923     	 mov r3,#9
+ 1183 0044 A367     	 str r3,[r4,#120]
+ 1184              	.L195:
+ 1185              	 
+ 1186 0046 F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 1187              	.L202:
+ 1188              	 .align 2
+ 1189              	.L201:
+ 1190 0048 00000000 	 .word E_EEPROM_XMC1_0
+ 1192              	 .section .text.E_EEPROM_XMC1_lInitDirtyStateMachine,"ax",%progbits
+ 1193              	 .align 1
+ 1194              	 .code 16
+ 1195              	 .thumb_func
+ 1197              	E_EEPROM_XMC1_lInitDirtyStateMachine:
+ 1198 0000 08B5     	 push {r3,lr}
+ 1199 0002 194B     	 ldr r3,.L215
+ 1200 0004 5B68     	 ldr r3,[r3,#4]
+ 1201 0006 1A1C     	 mov r2,r3
+ 1202 0008 FC32     	 add r2,r2,#252
+ 1203 000a D26F     	 ldr r2,[r2,#124]
+ 1204 000c AD2A     	 cmp r2,#173
+ 1205 000e 16D0     	 beq .L205
+ 1206 0010 05D8     	 bhi .L206
+ 1207 0012 0D2A     	 cmp r2,#13
+ 1208 0014 1DD0     	 beq .L207
+ 1209 0016 2D2A     	 cmp r2,#45
+ 1210 0018 23D1     	 bne .L204
+ 1211 001a 0022     	 mov r2,#0
+ 1212 001c 0BE0     	 b .L214
+ 1213              	.L206:
+ 1214 001e D22A     	 cmp r2,#210
+ 1215 0020 08D0     	 beq .L209
+ 1216 0022 DA2A     	 cmp r2,#218
+ 1217 0024 10D0     	 beq .L210
+ 1218 0026 D02A     	 cmp r2,#208
+ 1219 0028 1BD1     	 bne .L204
+ 1220 002a 0022     	 mov r2,#0
+ 1221 002c 2020     	 mov r0,#32
+ 1222 002e 9A63     	 str r2,[r3,#56]
+ 1223 0030 0321     	 mov r1,#3
+ 1224 0032 13E0     	 b .L213
+ 1225              	.L209:
+ 1226 0034 0122     	 mov r2,#1
+ 1227              	.L214:
+ 1228 0036 9A63     	 str r2,[r3,#56]
+ 1229 0038 FFF7FEFF 	 bl E_EEPROM_XMC1_lErasedDirtyStateRecovery.constprop.2
+ 1230 003c 13E0     	 b .L203
+ 1231              	.L205:
+ 1232 003e 0020     	 mov r0,#0
+ 1233 0040 0721     	 mov r1,#7
+ 1234 0042 9863     	 str r0,[r3,#56]
+ 1235 0044 0122     	 mov r2,#1
+ 1236 0046 09E0     	 b .L213
+ 1237              	.L210:
+ 1238 0048 0122     	 mov r2,#1
+ 1239 004a 0020     	 mov r0,#0
+ 1240 004c 9A63     	 str r2,[r3,#56]
+ 1241 004e 0721     	 mov r1,#7
+ 1242 0050 04E0     	 b .L213
+ 1243              	.L207:
+ 1244 0052 0122     	 mov r2,#1
+ 1245 0054 2020     	 mov r0,#32
+ 1246 0056 9A63     	 str r2,[r3,#56]
+ 1247 0058 0321     	 mov r1,#3
+ 1248 005a 0022     	 mov r2,#0
+ 1249              	.L213:
+ 1250 005c FFF7FEFF 	 bl E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery
+ 1251 0060 01E0     	 b .L203
+ 1252              	.L204:
+ 1253 0062 FFF7FEFF 	 bl E_EEPROM_XMC1_lInitllegalStateMachine
+ 1254              	.L203:
+ 1255              	 
+ 1256 0066 08BD     	 pop {r3,pc}
+ 1257              	.L216:
+ 1258              	 .align 2
+ 1259              	.L215:
+ 1260 0068 00000000 	 .word E_EEPROM_XMC1_0
+ 1262              	 .section .text.E_EEPROM_XMC1_lLocalWrite,"ax",%progbits
+ 1263              	 .align 1
+ 1264              	 .code 16
+ 1265              	 .thumb_func
+ 1267              	E_EEPROM_XMC1_lLocalWrite:
+ 1268 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 1269 0002 814E     	 ldr r6,.L258
+ 1270 0004 87B0     	 sub sp,sp,#28
+ 1271 0006 7368     	 ldr r3,[r6,#4]
+ 1272 0008 0391     	 str r1,[sp,#12]
+ 1273 000a 0592     	 str r2,[sp,#20]
+ 1274 000c 0193     	 str r3,[sp,#4]
+ 1275 000e 0090     	 str r0,[sp]
+ 1276 0010 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetUsrBlockIndex
+ 1277 0014 3368     	 ldr r3,[r6]
+ 1278 0016 C400     	 lsl r4,r0,#3
+ 1279 0018 1D19     	 add r5,r3,r4
+ 1280 001a 0290     	 str r0,[sp,#8]
+ 1281 001c 6868     	 ldr r0,[r5,#4]
+ 1282 001e FFF7FEFF 	 bl E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks
+ 1283 0022 0490     	 str r0,[sp,#16]
+ 1284 0024 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetFreeDFLASHBlocks
+ 1285 0028 049B     	 ldr r3,[sp,#16]
+ 1286 002a 371C     	 mov r7,r6
+ 1287 002c 9842     	 cmp r0,r3
+ 1288 002e 19D2     	 bcs .L218
+ 1289 0030 337B     	 ldrb r3,[r6,#12]
+ 1290 0032 0620     	 mov r0,#6
+ 1291 0034 012B     	 cmp r3,#1
+ 1292 0036 00D0     	 beq .LCB1556
+ 1293 0038 E4E0     	 b .L250
+ 1294              	.LCB1556:
+ 1295 003a 019E     	 ldr r6,[sp,#4]
+ 1296 003c 0333     	 add r3,r3,#3
+ 1297 003e FC36     	 add r6,r6,#252
+ 1298 0040 B367     	 str r3,[r6,#120]
+ 1299 0042 FFF7FEFF 	 bl E_EEPROM_XMC1_lGarbageCollection
+ 1300 0046 6868     	 ldr r0,[r5,#4]
+ 1301 0048 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks
+ 1302 004c 051C     	 mov r5,r0
+ 1303 004e FFF7FEFF 	 bl E_EEPROM_XMC1_lGetFreeDFLASHBlocks
+ 1304 0052 031C     	 mov r3,r0
+ 1305 0054 0520     	 mov r0,#5
+ 1306 0056 AB42     	 cmp r3,r5
+ 1307 0058 00D2     	 bcs .LCB1569
+ 1308 005a D3E0     	 b .L250
+ 1309              	.LCB1569:
+ 1310 005c B36F     	 ldr r3,[r6,#120]
+ 1311 005e 0A2B     	 cmp r3,#10
+ 1312 0060 00D0     	 beq .LCB1572
+ 1313 0062 CFE0     	 b .L250
+ 1314              	.LCB1572:
+ 1315              	.L218:
+ 1316 0064 0025     	 mov r5,#0
+ 1317 0066 019B     	 ldr r3,[sp,#4]
+ 1318 0068 9D65     	 str r5,[r3,#88]
+ 1319 006a 059B     	 ldr r3,[sp,#20]
+ 1320 006c 012B     	 cmp r3,#1
+ 1321 006e 29D1     	 bne .L254
+ 1322 0070 7D68     	 ldr r5,[r7,#4]
+ 1323 0072 6A46     	 mov r2,sp
+ 1324 0074 2B1C     	 mov r3,r5
+ 1325 0076 1278     	 ldrb r2,[r2]
+ 1326 0078 5C33     	 add r3,r3,#92
+ 1327 007a 1A70     	 strb r2,[r3]
+ 1328 007c 8022     	 mov r2,#128
+ 1329 007e 5A70     	 strb r2,[r3,#1]
+ 1330 0080 2A1C     	 mov r2,r5
+ 1331 0082 0233     	 add r3,r3,#2
+ 1332 0084 6C32     	 add r2,r2,#108
+ 1333              	.L220:
+ 1334 0086 FF21     	 mov r1,#255
+ 1335 0088 1970     	 strb r1,[r3]
+ 1336 008a 0133     	 add r3,r3,#1
+ 1337 008c 9342     	 cmp r3,r2
+ 1338 008e FAD1     	 bne .L220
+ 1339 0090 FFF7FEFF 	 bl E_EEPROM_XMC1_lWriteDataBlock
+ 1340 0094 0226     	 mov r6,#2
+ 1341 0096 EB6C     	 ldr r3,[r5,#76]
+ 1342 0098 0028     	 cmp r0,#0
+ 1343 009a 05D1     	 bne .L221
+ 1344 009c 2919     	 add r1,r5,r4
+ 1345 009e 0A79     	 ldrb r2,[r1,#4]
+ 1346 00a0 3243     	 orr r2,r6
+ 1347 00a2 0A71     	 strb r2,[r1,#4]
+ 1348 00a4 2B51     	 str r3,[r5,r4]
+ 1349 00a6 05E0     	 b .L222
+ 1350              	.L221:
+ 1351 00a8 029A     	 ldr r2,[sp,#8]
+ 1352 00aa D200     	 lsl r2,r2,#3
+ 1353 00ac AA18     	 add r2,r5,r2
+ 1354 00ae 1179     	 ldrb r1,[r2,#4]
+ 1355 00b0 B143     	 bic r1,r6
+ 1356 00b2 1171     	 strb r1,[r2,#4]
+ 1357              	.L222:
+ 1358 00b4 0121     	 mov r1,#1
+ 1359 00b6 2C19     	 add r4,r5,r4
+ 1360 00b8 2279     	 ldrb r2,[r4,#4]
+ 1361 00ba 1033     	 add r3,r3,#16
+ 1362 00bc 8A43     	 bic r2,r1
+ 1363 00be 2271     	 strb r2,[r4,#4]
+ 1364 00c0 EB64     	 str r3,[r5,#76]
+ 1365 00c2 9CE0     	 b .L223
+ 1366              	.L254:
+ 1367 00c4 0098     	 ldr r0,[sp]
+ 1368 00c6 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetUsrBlockIndex
+ 1369 00ca 3A68     	 ldr r2,[r7]
+ 1370 00cc 7C68     	 ldr r4,[r7,#4]
+ 1371 00ce C300     	 lsl r3,r0,#3
+ 1372 00d0 D318     	 add r3,r2,r3
+ 1373 00d2 5E68     	 ldr r6,[r3,#4]
+ 1374 00d4 231C     	 mov r3,r4
+ 1375 00d6 FC33     	 add r3,r3,#252
+ 1376 00d8 5D67     	 str r5,[r3,#116]
+ 1377 00da C423     	 mov r3,#196
+ 1378 00dc 0122     	 mov r2,#1
+ 1379 00de 5B00     	 lsl r3,r3,#1
+ 1380 00e0 0190     	 str r0,[sp,#4]
+ 1381 00e2 E250     	 str r2,[r4,r3]
+ 1382              	.L243:
+ 1383 00e4 C423     	 mov r3,#196
+ 1384 00e6 5B00     	 lsl r3,r3,#1
+ 1385 00e8 E258     	 ldr r2,[r4,r3]
+ 1386 00ea 022A     	 cmp r2,#2
+ 1387 00ec 02D0     	 beq .L225
+ 1388 00ee 032A     	 cmp r2,#3
+ 1389 00f0 2DD0     	 beq .L226
+ 1390 00f2 48E0     	 b .L257
+ 1391              	.L225:
+ 1392 00f4 FFF7FEFF 	 bl E_EEPROM_XMC1_lWriteDataBlock
+ 1393 00f8 0028     	 cmp r0,#0
+ 1394 00fa 70D1     	 bne .L242
+ 1395 00fc 7B68     	 ldr r3,[r7,#4]
+ 1396 00fe 6946     	 mov r1,sp
+ 1397 0100 1A1C     	 mov r2,r3
+ 1398 0102 1D1C     	 mov r5,r3
+ 1399 0104 0978     	 ldrb r1,[r1]
+ 1400 0106 5C32     	 add r2,r2,#92
+ 1401 0108 1170     	 strb r1,[r2]
+ 1402 010a 6C35     	 add r5,r5,#108
+ 1403 010c 4021     	 mov r1,#64
+ 1404 010e AC46     	 mov ip,r5
+ 1405 0110 5170     	 strb r1,[r2,#1]
+ 1406 0112 0232     	 add r2,r2,#2
+ 1407              	.L230:
+ 1408 0114 191C     	 mov r1,r3
+ 1409 0116 FC31     	 add r1,r1,#252
+ 1410 0118 486F     	 ldr r0,[r1,#116]
+ 1411 011a B042     	 cmp r0,r6
+ 1412 011c 06D2     	 bcs .L228
+ 1413 011e 039D     	 ldr r5,[sp,#12]
+ 1414 0120 285C     	 ldrb r0,[r5,r0]
+ 1415 0122 1070     	 strb r0,[r2]
+ 1416 0124 486F     	 ldr r0,[r1,#116]
+ 1417 0126 0130     	 add r0,r0,#1
+ 1418 0128 4867     	 str r0,[r1,#116]
+ 1419 012a 04E0     	 b .L229
+ 1420              	.L228:
+ 1421 012c FF21     	 mov r1,#255
+ 1422 012e 0320     	 mov r0,#3
+ 1423 0130 1170     	 strb r1,[r2]
+ 1424 0132 8931     	 add r1,r1,#137
+ 1425 0134 5850     	 str r0,[r3,r1]
+ 1426              	.L229:
+ 1427 0136 0132     	 add r2,r2,#1
+ 1428 0138 6245     	 cmp r2,ip
+ 1429 013a EBD1     	 bne .L230
+ 1430 013c 1A1C     	 mov r2,r3
+ 1431 013e FC32     	 add r2,r2,#252
+ 1432 0140 526F     	 ldr r2,[r2,#116]
+ 1433 0142 B242     	 cmp r2,r6
+ 1434 0144 46D3     	 bcc .L232
+ 1435 0146 C422     	 mov r2,#196
+ 1436 0148 0321     	 mov r1,#3
+ 1437 014a 5200     	 lsl r2,r2,#1
+ 1438 014c 41E0     	 b .L256
+ 1439              	.L226:
+ 1440 014e FFF7FEFF 	 bl E_EEPROM_XMC1_lWriteDataBlock
+ 1441 0152 0028     	 cmp r0,#0
+ 1442 0154 43D1     	 bne .L242
+ 1443 0156 019B     	 ldr r3,[sp,#4]
+ 1444 0158 E26C     	 ldr r2,[r4,#76]
+ 1445 015a DB00     	 lsl r3,r3,#3
+ 1446 015c 1A51     	 str r2,[r3,r4]
+ 1447 015e 0322     	 mov r2,#3
+ 1448 0160 E318     	 add r3,r4,r3
+ 1449 0162 1979     	 ldrb r1,[r3,#4]
+ 1450 0164 0A43     	 orr r2,r1
+ 1451 0166 1A71     	 strb r2,[r3,#4]
+ 1452 0168 274A     	 ldr r2,.L258
+ 1453 016a 0821     	 mov r1,#8
+ 1454 016c D07A     	 ldrb r0,[r2,#11]
+ 1455 016e 1A79     	 ldrb r2,[r3,#4]
+ 1456 0170 0128     	 cmp r0,#1
+ 1457 0172 01D1     	 bne .L233
+ 1458 0174 0A43     	 orr r2,r1
+ 1459 0176 00E0     	 b .L255
+ 1460              	.L233:
+ 1461 0178 8A43     	 bic r2,r1
+ 1462              	.L255:
+ 1463 017a 1A71     	 strb r2,[r3,#4]
+ 1464 017c C423     	 mov r3,#196
+ 1465 017e 0022     	 mov r2,#0
+ 1466 0180 5B00     	 lsl r3,r3,#1
+ 1467 0182 E250     	 str r2,[r4,r3]
+ 1468 0184 26E0     	 b .L232
+ 1469              	.L257:
+ 1470 0186 0221     	 mov r1,#2
+ 1471 0188 7A68     	 ldr r2,[r7,#4]
+ 1472 018a D150     	 str r1,[r2,r3]
+ 1473 018c C023     	 mov r3,#192
+ 1474 018e 151C     	 mov r5,r2
+ 1475 0190 0099     	 ldr r1,[sp]
+ 1476 0192 1B02     	 lsl r3,r3,#8
+ 1477 0194 0B43     	 orr r3,r1
+ 1478 0196 D365     	 str r3,[r2,#92]
+ 1479 0198 6C35     	 add r5,r5,#108
+ 1480 019a 131C     	 mov r3,r2
+ 1481 019c AC46     	 mov ip,r5
+ 1482 019e 6033     	 add r3,r3,#96
+ 1483              	.L237:
+ 1484 01a0 111C     	 mov r1,r2
+ 1485 01a2 FC31     	 add r1,r1,#252
+ 1486 01a4 486F     	 ldr r0,[r1,#116]
+ 1487 01a6 B042     	 cmp r0,r6
+ 1488 01a8 06D2     	 bcs .L235
+ 1489 01aa 039D     	 ldr r5,[sp,#12]
+ 1490 01ac 285C     	 ldrb r0,[r5,r0]
+ 1491 01ae 1870     	 strb r0,[r3]
+ 1492 01b0 486F     	 ldr r0,[r1,#116]
+ 1493 01b2 0130     	 add r0,r0,#1
+ 1494 01b4 4867     	 str r0,[r1,#116]
+ 1495 01b6 01E0     	 b .L236
+ 1496              	.L235:
+ 1497 01b8 FF21     	 mov r1,#255
+ 1498 01ba 1970     	 strb r1,[r3]
+ 1499              	.L236:
+ 1500 01bc 0133     	 add r3,r3,#1
+ 1501 01be 6345     	 cmp r3,ip
+ 1502 01c0 EED1     	 bne .L237
+ 1503 01c2 131C     	 mov r3,r2
+ 1504 01c4 FC33     	 add r3,r3,#252
+ 1505 01c6 5B6F     	 ldr r3,[r3,#116]
+ 1506 01c8 B342     	 cmp r3,r6
+ 1507 01ca 03D3     	 bcc .L232
+ 1508 01cc C423     	 mov r3,#196
+ 1509 01ce 0321     	 mov r1,#3
+ 1510 01d0 5B00     	 lsl r3,r3,#1
+ 1511              	.L256:
+ 1512 01d2 D150     	 str r1,[r2,r3]
+ 1513              	.L232:
+ 1514 01d4 C423     	 mov r3,#196
+ 1515 01d6 5B00     	 lsl r3,r3,#1
+ 1516 01d8 E058     	 ldr r0,[r4,r3]
+ 1517 01da 0028     	 cmp r0,#0
+ 1518 01dc 82D1     	 bne .L243
+ 1519              	.L242:
+ 1520 01de A36D     	 ldr r3,[r4,#88]
+ 1521 01e0 E26C     	 ldr r2,[r4,#76]
+ 1522 01e2 1B01     	 lsl r3,r3,#4
+ 1523 01e4 D318     	 add r3,r2,r3
+ 1524 01e6 E364     	 str r3,[r4,#76]
+ 1525 01e8 0028     	 cmp r0,#0
+ 1526 01ea 08D0     	 beq .L223
+ 1527 01ec 0122     	 mov r2,#1
+ 1528 01ee 019B     	 ldr r3,[sp,#4]
+ 1529 01f0 DF00     	 lsl r7,r3,#3
+ 1530 01f2 E419     	 add r4,r4,r7
+ 1531 01f4 2379     	 ldrb r3,[r4,#4]
+ 1532 01f6 1343     	 orr r3,r2
+ 1533 01f8 9218     	 add r2,r2,r2
+ 1534 01fa 9343     	 bic r3,r2
+ 1535 01fc 2371     	 strb r3,[r4,#4]
+ 1536              	.L223:
+ 1537 01fe 431E     	 sub r3,r0,#1
+ 1538 0200 9841     	 sbc r0,r0,r3
+ 1539 0202 C0B2     	 uxtb r0,r0
+ 1540              	.L250:
+ 1541 0204 07B0     	 add sp,sp,#28
+ 1542              	 
+ 1543 0206 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 1544              	.L259:
+ 1545              	 .align 2
+ 1546              	.L258:
+ 1547 0208 00000000 	 .word E_EEPROM_XMC1_0
+ 1549              	 .section .text.E_EEPROM_XMC1_lInitGcDataCopyState.constprop.3,"ax",%progbits
+ 1550              	 .align 1
+ 1551              	 .code 16
+ 1552              	 .thumb_func
+ 1554              	E_EEPROM_XMC1_lInitGcDataCopyState.constprop.3:
+ 1555 0000 38B5     	 push {r3,r4,r5,lr}
+ 1556 0002 0E4B     	 ldr r3,.L264
+ 1557 0004 5D68     	 ldr r5,[r3,#4]
+ 1558 0006 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCurrBankInfo
+ 1559 000a 2C1C     	 mov r4,r5
+ 1560 000c 0423     	 mov r3,#4
+ 1561 000e FC34     	 add r4,r4,#252
+ 1562 0010 A367     	 str r3,[r4,#120]
+ 1563 0012 FFF7FEFF 	 bl E_EEPROM_XMC1_lUpdateCache
+ 1564 0016 A86C     	 ldr r0,[r5,#72]
+ 1565 0018 FFF7FEFF 	 bl E_EEPROM_XMC1_lEraseBank
+ 1566 001c 0028     	 cmp r0,#0
+ 1567 001e 0AD1     	 bne .L261
+ 1568 0020 FFF7FEFF 	 bl E_EEPROM_XMC1_lSetMarkerBlockBuffer
+ 1569 0024 E86B     	 ldr r0,[r5,#60]
+ 1570 0026 3030     	 add r0,r0,#48
+ 1571 0028 FFF7FEFF 	 bl E_EEPROM_XMC1_lGCWrite
+ 1572 002c 0028     	 cmp r0,#0
+ 1573 002e 02D1     	 bne .L261
+ 1574 0030 FFF7FEFF 	 bl E_EEPROM_XMC1_lGarbageCollection
+ 1575 0034 01E0     	 b .L260
+ 1576              	.L261:
+ 1577 0036 0923     	 mov r3,#9
+ 1578 0038 A367     	 str r3,[r4,#120]
+ 1579              	.L260:
+ 1580              	 
+ 1581 003a 38BD     	 pop {r3,r4,r5,pc}
+ 1582              	.L265:
+ 1583              	 .align 2
+ 1584              	.L264:
+ 1585 003c 00000000 	 .word E_EEPROM_XMC1_0
+ 1587              	 .section .text.E_EEPROM_XMC1_GetAppVersion,"ax",%progbits
+ 1588              	 .align 1
+ 1589              	 .global E_EEPROM_XMC1_GetAppVersion
+ 1590              	 .code 16
+ 1591              	 .thumb_func
+ 1593              	E_EEPROM_XMC1_GetAppVersion:
+ 1594 0000 0148     	 ldr r0,.L267
+ 1595 0002 82B0     	 sub sp,sp,#8
+ 1596 0004 02B0     	 add sp,sp,#8
+ 1597              	 
+ 1598 0006 7047     	 bx lr
+ 1599              	.L268:
+ 1600              	 .align 2
+ 1601              	.L267:
+ 1602 0008 04010600 	 .word 393476
+ 1604              	 .section .text.E_EEPROM_XMC1_Init,"ax",%progbits
+ 1605              	 .align 1
+ 1606              	 .global E_EEPROM_XMC1_Init
+ 1607              	 .code 16
+ 1608              	 .thumb_func
+ 1610              	E_EEPROM_XMC1_Init:
+ 1611 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 1612 0002 037A     	 ldrb r3,[r0,#8]
+ 1613 0004 85B0     	 sub sp,sp,#20
+ 1614 0006 041C     	 mov r4,r0
+ 1615 0008 002B     	 cmp r3,#0
+ 1616 000a 00D1     	 bne .LCB1937
+ 1617 000c 0AE1     	 b .L270
+ 1618              	.LCB1937:
+ 1619 000e 0026     	 mov r6,#0
+ 1620 0010 4268     	 ldr r2,[r0,#4]
+ 1621              	.L271:
+ 1622 0012 0023     	 mov r3,#0
+ 1623 0014 0225     	 mov r5,#2
+ 1624 0016 0127     	 mov r7,#1
+ 1625 0018 F100     	 lsl r1,r6,#3
+ 1626 001a 5350     	 str r3,[r2,r1]
+ 1627 001c 5118     	 add r1,r2,r1
+ 1628 001e 0879     	 ldrb r0,[r1,#4]
+ 1629 0020 0136     	 add r6,r6,#1
+ 1630 0022 A843     	 bic r0,r5
+ 1631 0024 3843     	 orr r0,r7
+ 1632 0026 F237     	 add r7,r7,#242
+ 1633 0028 3840     	 and r0,r7
+ 1634 002a 0871     	 strb r0,[r1,#4]
+ 1635 002c 617A     	 ldrb r1,[r4,#9]
+ 1636 002e 8E42     	 cmp r6,r1
+ 1637 0030 EFD3     	 bcc .L271
+ 1638 0032 C221     	 mov r1,#194
+ 1639 0034 4900     	 lsl r1,r1,#1
+ 1640 0036 5350     	 str r3,[r2,r1]
+ 1641 0038 0439     	 sub r1,r1,#4
+ 1642 003a 5350     	 str r3,[r2,r1]
+ 1643 003c BE20     	 mov r0,#190
+ 1644 003e 111C     	 mov r1,r2
+ 1645 0040 1F1C     	 mov r7,r3
+ 1646 0042 1E1C     	 mov r6,r3
+ 1647 0044 FC31     	 add r1,r1,#252
+ 1648 0046 4000     	 lsl r0,r0,#1
+ 1649 0048 8B67     	 str r3,[r1,#120]
+ 1650 004a CB67     	 str r3,[r1,#124]
+ 1651 004c 1350     	 str r3,[r2,r0]
+ 1652 004e D366     	 str r3,[r2,#108]
+ 1653 0050 9365     	 str r3,[r2,#88]
+ 1654 0052 1365     	 str r3,[r2,#80]
+ 1655 0054 1364     	 str r3,[r2,#64]
+ 1656 0056 D363     	 str r3,[r2,#60]
+ 1657 0058 D364     	 str r3,[r2,#76]
+ 1658 005a 5365     	 str r3,[r2,#84]
+ 1659 005c 4B67     	 str r3,[r1,#116]
+ 1660 005e 9363     	 str r3,[r2,#56]
+ 1661 0060 724A     	 ldr r2,.L324
+ 1662 0062 7738     	 sub r0,r0,#119
+ 1663 0064 1189     	 ldrh r1,[r2,#8]
+ 1664 0066 FF38     	 sub r0,r0,#255
+ 1665 0068 8143     	 bic r1,r0
+ 1666 006a 1181     	 strh r1,[r2,#8]
+ 1667 006c 1189     	 ldrh r1,[r2,#8]
+ 1668 006e 0D43     	 orr r5,r1
+ 1669 0070 1581     	 strh r5,[r2,#8]
+ 1670 0072 6F4A     	 ldr r2,.L324+4
+ 1671 0074 0093     	 str r3,[sp]
+ 1672 0076 5268     	 ldr r2,[r2,#4]
+ 1673 0078 0392     	 str r2,[sp,#12]
+ 1674              	.L277:
+ 1675 007a 009B     	 ldr r3,[sp]
+ 1676 007c 5B00     	 lsl r3,r3,#1
+ 1677 007e 0093     	 str r3,[sp]
+ 1678 0080 B308     	 lsr r3,r6,#2
+ 1679 0082 0193     	 str r3,[sp,#4]
+ 1680 0084 6A4B     	 ldr r3,.L324+4
+ 1681 0086 5B68     	 ldr r3,[r3,#4]
+ 1682 0088 1D1C     	 mov r5,r3
+ 1683 008a 0293     	 str r3,[sp,#8]
+ 1684 008c FFF7FEFF 	 bl XMC_FLASH_ClearStatus
+ 1685 0090 3020     	 mov r0,#48
+ 1686 0092 019B     	 ldr r3,[sp,#4]
+ 1687 0094 5C35     	 add r5,r5,#92
+ 1688 0096 5843     	 mul r0,r3
+ 1689 0098 664B     	 ldr r3,.L324+8
+ 1690 009a 291C     	 mov r1,r5
+ 1691 009c F318     	 add r3,r6,r3
+ 1692 009e 1818     	 add r0,r3,r0
+ 1693 00a0 019B     	 ldr r3,[sp,#4]
+ 1694 00a2 0122     	 mov r2,#1
+ 1695 00a4 9B00     	 lsl r3,r3,#2
+ 1696 00a6 C01A     	 sub r0,r0,r3
+ 1697 00a8 0001     	 lsl r0,r0,#4
+ 1698 00aa FFF7FEFF 	 bl XMC_FLASH_ReadBlocks
+ 1699 00ae FFF7FEFF 	 bl XMC_FLASH_GetStatus
+ 1700 00b2 0028     	 cmp r0,#0
+ 1701 00b4 00D0     	 beq .LCB2034
+ 1702 00b6 B0E0     	 b .L272
+ 1703              	.LCB2034:
+ 1704 00b8 029B     	 ldr r3,[sp,#8]
+ 1705 00ba 021C     	 mov r2,r0
+ 1706 00bc 6C33     	 add r3,r3,#108
+ 1707 00be 9C46     	 mov ip,r3
+ 1708              	.L275:
+ 1709 00c0 2B68     	 ldr r3,[r5]
+ 1710 00c2 002B     	 cmp r3,#0
+ 1711 00c4 01D1     	 bne .L273
+ 1712 00c6 0132     	 add r2,r2,#1
+ 1713 00c8 03E0     	 b .L274
+ 1714              	.L273:
+ 1715 00ca 0133     	 add r3,r3,#1
+ 1716 00cc 5942     	 neg r1,r3
+ 1717 00ce 5941     	 adc r1,r1,r3
+ 1718 00d0 4018     	 add r0,r0,r1
+ 1719              	.L274:
+ 1720 00d2 0435     	 add r5,r5,#4
+ 1721 00d4 6545     	 cmp r5,ip
+ 1722 00d6 F3D1     	 bne .L275
+ 1723 00d8 0428     	 cmp r0,#4
+ 1724 00da 71D0     	 beq .L276
+ 1725 00dc 042A     	 cmp r2,#4
+ 1726 00de 00D0     	 beq .LCB2060
+ 1727 00e0 9BE0     	 b .L272
+ 1728              	.LCB2060:
+ 1729              	.L301:
+ 1730 00e2 0136     	 add r6,r6,#1
+ 1731 00e4 082E     	 cmp r6,#8
+ 1732 00e6 C8D1     	 bne .L277
+ 1733 00e8 039B     	 ldr r3,[sp,#12]
+ 1734 00ea 009A     	 ldr r2,[sp]
+ 1735 00ec FC33     	 add r3,r3,#252
+ 1736 00ee DA67     	 str r2,[r3,#124]
+ 1737 00f0 4F4B     	 ldr r3,.L324+4
+ 1738 00f2 5B68     	 ldr r3,[r3,#4]
+ 1739 00f4 1A1C     	 mov r2,r3
+ 1740 00f6 FC32     	 add r2,r2,#252
+ 1741 00f8 032F     	 cmp r7,#3
+ 1742 00fa 02D1     	 bne .L278
+ 1743 00fc DD23     	 mov r3,#221
+ 1744 00fe D367     	 str r3,[r2,#124]
+ 1745 0100 88E0     	 b .L304
+ 1746              	.L278:
+ 1747 0102 012F     	 cmp r7,#1
+ 1748 0104 04D1     	 bne .L280
+ 1749 0106 0F23     	 mov r3,#15
+ 1750 0108 D16F     	 ldr r1,[r2,#124]
+ 1751 010a 0B40     	 and r3,r1
+ 1752 010c D021     	 mov r1,#208
+ 1753 010e 05E0     	 b .L312
+ 1754              	.L280:
+ 1755 0110 022F     	 cmp r7,#2
+ 1756 0112 08D1     	 bne .L281
+ 1757 0114 F023     	 mov r3,#240
+ 1758 0116 D16F     	 ldr r1,[r2,#124]
+ 1759 0118 0B40     	 and r3,r1
+ 1760 011a 0D21     	 mov r1,#13
+ 1761              	.L312:
+ 1762 011c 0B43     	 orr r3,r1
+ 1763 011e D367     	 str r3,[r2,#124]
+ 1764 0120 FFF7FEFF 	 bl E_EEPROM_XMC1_lInitDirtyStateMachine
+ 1765 0124 42E0     	 b .L279
+ 1766              	.L281:
+ 1767 0126 D16F     	 ldr r1,[r2,#124]
+ 1768 0128 2E29     	 cmp r1,#46
+ 1769 012a 0CD0     	 beq .L283
+ 1770 012c 05D8     	 bhi .L284
+ 1771 012e 2029     	 cmp r1,#32
+ 1772 0130 0DD0     	 beq .L285
+ 1773 0132 0022     	 mov r2,#0
+ 1774 0134 2A29     	 cmp r1,#42
+ 1775 0136 15D0     	 beq .L313
+ 1776 0138 11E0     	 b .L282
+ 1777              	.L284:
+ 1778 013a 2F29     	 cmp r1,#47
+ 1779 013c 0BD0     	 beq .L287
+ 1780 013e 0022     	 mov r2,#0
+ 1781 0140 A029     	 cmp r1,#160
+ 1782 0142 16D0     	 beq .L316
+ 1783 0144 0BE0     	 b .L282
+ 1784              	.L283:
+ 1785 0146 0021     	 mov r1,#0
+ 1786 0148 0A20     	 mov r0,#10
+ 1787 014a 9963     	 str r1,[r3,#56]
+ 1788 014c 23E0     	 b .L311
+ 1789              	.L285:
+ 1790 014e 0022     	 mov r2,#0
+ 1791 0150 0320     	 mov r0,#3
+ 1792 0152 9A63     	 str r2,[r3,#56]
+ 1793 0154 15E0     	 b .L315
+ 1794              	.L287:
+ 1795 0156 0022     	 mov r2,#0
+ 1796 0158 301C     	 mov r0,r6
+ 1797 015a 9A63     	 str r2,[r3,#56]
+ 1798 015c 11E0     	 b .L315
+ 1799              	.L282:
+ 1800 015e A229     	 cmp r1,#162
+ 1801 0160 11D1     	 bne .L317
+ 1802 0162 0122     	 mov r2,#1
+ 1803              	.L313:
+ 1804 0164 9A63     	 str r2,[r3,#56]
+ 1805 0166 FFF7FEFF 	 bl E_EEPROM_XMC1_lInitGcDataCopyState.constprop.3
+ 1806 016a 1FE0     	 b .L279
+ 1807              	.L320:
+ 1808 016c 0122     	 mov r2,#1
+ 1809 016e 0A29     	 cmp r1,#10
+ 1810 0170 31D1     	 bne .L302
+ 1811              	.L316:
+ 1812 0172 9A63     	 str r2,[r3,#56]
+ 1813 0174 0720     	 mov r0,#7
+ 1814 0176 04E0     	 b .L315
+ 1815              	.L319:
+ 1816 0178 F229     	 cmp r1,#242
+ 1817 017a 2CD1     	 bne .L302
+ 1818 017c 0122     	 mov r2,#1
+ 1819 017e 0820     	 mov r0,#8
+ 1820 0180 9A63     	 str r2,[r3,#56]
+ 1821              	.L315:
+ 1822 0182 0221     	 mov r1,#2
+ 1823 0184 07E0     	 b .L311
+ 1824              	.L317:
+ 1825 0186 A229     	 cmp r1,#162
+ 1826 0188 1FD9     	 bls .L318
+ 1827 018a E229     	 cmp r1,#226
+ 1828 018c F4D1     	 bne .L319
+ 1829 018e 0122     	 mov r2,#1
+ 1830 0190 0A20     	 mov r0,#10
+ 1831 0192 0021     	 mov r1,#0
+ 1832 0194 9A63     	 str r2,[r3,#56]
+ 1833              	.L311:
+ 1834 0196 FFF7FEFF 	 bl E_EEPROM_XMC1_lInitGcNormalStates
+ 1835 019a 07E0     	 b .L279
+ 1836              	.L322:
+ 1837 019c AF29     	 cmp r1,#175
+ 1838 019e 39D1     	 bne .L304
+ 1839 01a0 0020     	 mov r0,#0
+ 1840 01a2 0721     	 mov r1,#7
+ 1841 01a4 0122     	 mov r2,#1
+ 1842 01a6 9863     	 str r0,[r3,#56]
+ 1843              	.L310:
+ 1844 01a8 FFF7FEFF 	 bl E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery
+ 1845              	.L279:
+ 1846 01ac 6368     	 ldr r3,[r4,#4]
+ 1847 01ae FC33     	 add r3,r3,#252
+ 1848 01b0 9B6F     	 ldr r3,[r3,#120]
+ 1849 01b2 0A2B     	 cmp r3,#10
+ 1850 01b4 01D1     	 bne .L300
+ 1851 01b6 0023     	 mov r3,#0
+ 1852 01b8 00E0     	 b .L314
+ 1853              	.L300:
+ 1854 01ba 0123     	 mov r3,#1
+ 1855              	.L314:
+ 1856 01bc 2372     	 strb r3,[r4,#8]
+ 1857 01be 31E0     	 b .L270
+ 1858              	.L276:
+ 1859 01c0 0123     	 mov r3,#1
+ 1860 01c2 009A     	 ldr r2,[sp]
+ 1861 01c4 1A43     	 orr r2,r3
+ 1862 01c6 0092     	 str r2,[sp]
+ 1863 01c8 8BE7     	 b .L301
+ 1864              	.L318:
+ 1865 01ca 0229     	 cmp r1,#2
+ 1866 01cc CED1     	 bne .L320
+ 1867 01ce 0122     	 mov r2,#1
+ 1868 01d0 0320     	 mov r0,#3
+ 1869 01d2 9A63     	 str r2,[r3,#56]
+ 1870 01d4 DFE7     	 b .L311
+ 1871              	.L302:
+ 1872 01d6 F029     	 cmp r1,#240
+ 1873 01d8 04D1     	 bne .L321
+ 1874 01da 0022     	 mov r2,#0
+ 1875 01dc 2020     	 mov r0,#32
+ 1876 01de 9A63     	 str r2,[r3,#56]
+ 1877 01e0 0321     	 mov r1,#3
+ 1878 01e2 E1E7     	 b .L310
+ 1879              	.L321:
+ 1880 01e4 F029     	 cmp r1,#240
+ 1881 01e6 07D8     	 bhi .L305
+ 1882 01e8 0F29     	 cmp r1,#15
+ 1883 01ea D7D1     	 bne .L322
+ 1884 01ec 0122     	 mov r2,#1
+ 1885 01ee 2020     	 mov r0,#32
+ 1886 01f0 9A63     	 str r2,[r3,#56]
+ 1887 01f2 0321     	 mov r1,#3
+ 1888 01f4 0022     	 mov r2,#0
+ 1889 01f6 D7E7     	 b .L310
+ 1890              	.L305:
+ 1891 01f8 FA29     	 cmp r1,#250
+ 1892 01fa 04D1     	 bne .L323
+ 1893 01fc 0122     	 mov r2,#1
+ 1894 01fe 0020     	 mov r0,#0
+ 1895 0200 9A63     	 str r2,[r3,#56]
+ 1896 0202 0721     	 mov r1,#7
+ 1897 0204 D0E7     	 b .L310
+ 1898              	.L323:
+ 1899 0206 FF29     	 cmp r1,#255
+ 1900 0208 04D1     	 bne .L304
+ 1901 020a 0022     	 mov r2,#0
+ 1902 020c 0120     	 mov r0,#1
+ 1903 020e 9A63     	 str r2,[r3,#56]
+ 1904 0210 011C     	 mov r1,r0
+ 1905 0212 C0E7     	 b .L311
+ 1906              	.L304:
+ 1907 0214 FFF7FEFF 	 bl E_EEPROM_XMC1_lInitllegalStateMachine
+ 1908 0218 C8E7     	 b .L279
+ 1909              	.L272:
+ 1910 021a 0123     	 mov r3,#1
+ 1911 021c 019A     	 ldr r2,[sp,#4]
+ 1912 021e 9340     	 lsl r3,r3,r2
+ 1913 0220 1F43     	 orr r7,r3
+ 1914 0222 5EE7     	 b .L301
+ 1915              	.L270:
+ 1916 0224 207A     	 ldrb r0,[r4,#8]
+ 1917 0226 05B0     	 add sp,sp,#20
+ 1918              	 
+ 1919 0228 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 1920              	.L325:
+ 1921 022a C046     	 .align 2
+ 1922              	.L324:
+ 1923 022c 00000540 	 .word 1074069504
+ 1924 0230 00000000 	 .word E_EEPROM_XMC1_0
+ 1925 0234 A0100001 	 .word 16781472
+ 1927              	 .section .text.E_EEPROM_XMC1_Write,"ax",%progbits
+ 1928              	 .align 1
+ 1929              	 .global E_EEPROM_XMC1_Write
+ 1930              	 .code 16
+ 1931              	 .thumb_func
+ 1933              	E_EEPROM_XMC1_Write:
+ 1934 0000 08B5     	 push {r3,lr}
+ 1935 0002 064B     	 ldr r3,.L329
+ 1936 0004 5B68     	 ldr r3,[r3,#4]
+ 1937 0006 FC33     	 add r3,r3,#252
+ 1938 0008 9A6F     	 ldr r2,[r3,#120]
+ 1939 000a 0523     	 mov r3,#5
+ 1940 000c 0A2A     	 cmp r2,#10
+ 1941 000e 03D1     	 bne .L327
+ 1942 0010 0022     	 mov r2,#0
+ 1943 0012 FFF7FEFF 	 bl E_EEPROM_XMC1_lLocalWrite
+ 1944 0016 C3B2     	 uxtb r3,r0
+ 1945              	.L327:
+ 1946 0018 181C     	 mov r0,r3
+ 1947              	 
+ 1948 001a 08BD     	 pop {r3,pc}
+ 1949              	.L330:
+ 1950              	 .align 2
+ 1951              	.L329:
+ 1952 001c 00000000 	 .word E_EEPROM_XMC1_0
+ 1954              	 .section .text.E_EEPROM_XMC1_InvalidateBlock,"ax",%progbits
+ 1955              	 .align 1
+ 1956              	 .global E_EEPROM_XMC1_InvalidateBlock
+ 1957              	 .code 16
+ 1958              	 .thumb_func
+ 1960              	E_EEPROM_XMC1_InvalidateBlock:
+ 1961 0000 08B5     	 push {r3,lr}
+ 1962 0002 074B     	 ldr r3,.L334
+ 1963 0004 5968     	 ldr r1,[r3,#4]
+ 1964 0006 0B1C     	 mov r3,r1
+ 1965 0008 FC33     	 add r3,r3,#252
+ 1966 000a 9A6F     	 ldr r2,[r3,#120]
+ 1967 000c 0523     	 mov r3,#5
+ 1968 000e 0A2A     	 cmp r2,#10
+ 1969 0010 04D1     	 bne .L332
+ 1970 0012 5C31     	 add r1,r1,#92
+ 1971 0014 093A     	 sub r2,r2,#9
+ 1972 0016 FFF7FEFF 	 bl E_EEPROM_XMC1_lLocalWrite
+ 1973 001a C3B2     	 uxtb r3,r0
+ 1974              	.L332:
+ 1975 001c 181C     	 mov r0,r3
+ 1976              	 
+ 1977 001e 08BD     	 pop {r3,pc}
+ 1978              	.L335:
+ 1979              	 .align 2
+ 1980              	.L334:
+ 1981 0020 00000000 	 .word E_EEPROM_XMC1_0
+ 1983              	 .section .text.E_EEPROM_XMC1_Read,"ax",%progbits
+ 1984              	 .align 1
+ 1985              	 .global E_EEPROM_XMC1_Read
+ 1986              	 .code 16
+ 1987              	 .thumb_func
+ 1989              	E_EEPROM_XMC1_Read:
+ 1990 0000 F7B5     	 push {r0,r1,r2,r4,r5,r6,r7,lr}
+ 1991 0002 154E     	 ldr r6,.L344
+ 1992 0004 0D1C     	 mov r5,r1
+ 1993 0006 7468     	 ldr r4,[r6,#4]
+ 1994 0008 0192     	 str r2,[sp,#4]
+ 1995 000a 1F1C     	 mov r7,r3
+ 1996 000c FFF7FEFF 	 bl E_EEPROM_XMC1_lGetUsrBlockIndex
+ 1997 0010 211C     	 mov r1,r4
+ 1998 0012 3268     	 ldr r2,[r6]
+ 1999 0014 FC31     	 add r1,r1,#252
+ 2000 0016 C300     	 lsl r3,r0,#3
+ 2001 0018 896F     	 ldr r1,[r1,#120]
+ 2002 001a D218     	 add r2,r2,r3
+ 2003 001c 5268     	 ldr r2,[r2,#4]
+ 2004 001e 0520     	 mov r0,#5
+ 2005 0020 0A29     	 cmp r1,#10
+ 2006 0022 17D1     	 bne .L337
+ 2007 0024 E919     	 add r1,r5,r7
+ 2008 0026 9142     	 cmp r1,r2
+ 2009 0028 14D8     	 bhi .L337
+ 2010 002a E218     	 add r2,r4,r3
+ 2011 002c 1279     	 ldrb r2,[r2,#4]
+ 2012 002e 0238     	 sub r0,r0,#2
+ 2013 0030 D107     	 lsl r1,r2,#31
+ 2014 0032 0FD5     	 bpl .L337
+ 2015 0034 0138     	 sub r0,r0,#1
+ 2016 0036 9207     	 lsl r2,r2,#30
+ 2017 0038 0CD5     	 bpl .L337
+ 2018 003a 1A59     	 ldr r2,[r3,r4]
+ 2019 003c C623     	 mov r3,#198
+ 2020 003e 5B00     	 lsl r3,r3,#1
+ 2021 0040 E250     	 str r2,[r4,r3]
+ 2022 0042 0198     	 ldr r0,[sp,#4]
+ 2023 0044 391C     	 mov r1,r7
+ 2024 0046 2A1C     	 mov r2,r5
+ 2025 0048 FFF7FEFF 	 bl E_EEPROM_XMC1_lReadBlockContents
+ 2026 004c C0B2     	 uxtb r0,r0
+ 2027 004e 431E     	 sub r3,r0,#1
+ 2028 0050 9841     	 sbc r0,r0,r3
+ 2029 0052 C0B2     	 uxtb r0,r0
+ 2030              	.L337:
+ 2031              	 
+ 2032 0054 FEBD     	 pop {r1,r2,r3,r4,r5,r6,r7,pc}
+ 2033              	.L345:
+ 2034 0056 C046     	 .align 2
+ 2035              	.L344:
+ 2036 0058 00000000 	 .word E_EEPROM_XMC1_0
+ 2038              	 .section .text.E_EEPROM_XMC1_StartGarbageCollection,"ax",%progbits
+ 2039              	 .align 1
+ 2040              	 .global E_EEPROM_XMC1_StartGarbageCollection
+ 2041              	 .code 16
+ 2042              	 .thumb_func
+ 2044              	E_EEPROM_XMC1_StartGarbageCollection:
+ 2045 0000 084B     	 ldr r3,.L349
+ 2046 0002 10B5     	 push {r4,lr}
+ 2047 0004 5C68     	 ldr r4,[r3,#4]
+ 2048 0006 0520     	 mov r0,#5
+ 2049 0008 FC34     	 add r4,r4,#252
+ 2050 000a A36F     	 ldr r3,[r4,#120]
+ 2051 000c 0A2B     	 cmp r3,#10
+ 2052 000e 08D1     	 bne .L347
+ 2053 0010 063B     	 sub r3,r3,#6
+ 2054 0012 A367     	 str r3,[r4,#120]
+ 2055 0014 FFF7FEFF 	 bl E_EEPROM_XMC1_lGarbageCollection
+ 2056 0018 A06F     	 ldr r0,[r4,#120]
+ 2057 001a 0938     	 sub r0,r0,#9
+ 2058 001c 4242     	 neg r2,r0
+ 2059 001e 4241     	 adc r2,r2,r0
+ 2060 0020 D0B2     	 uxtb r0,r2
+ 2061              	.L347:
+ 2062              	 
+ 2063 0022 10BD     	 pop {r4,pc}
+ 2064              	.L350:
+ 2065              	 .align 2
+ 2066              	.L349:
+ 2067 0024 00000000 	 .word E_EEPROM_XMC1_0
+ 2069              	 .section .text.E_EEPROM_XMC1_GetStatus,"ax",%progbits
+ 2070              	 .align 1
+ 2071              	 .global E_EEPROM_XMC1_GetStatus
+ 2072              	 .code 16
+ 2073              	 .thumb_func
+ 2075              	E_EEPROM_XMC1_GetStatus:
+ 2076 0000 054B     	 ldr r3,.L356
+ 2077 0002 0320     	 mov r0,#3
+ 2078 0004 5B68     	 ldr r3,[r3,#4]
+ 2079 0006 FC33     	 add r3,r3,#252
+ 2080 0008 9B6F     	 ldr r3,[r3,#120]
+ 2081 000a 0A2B     	 cmp r3,#10
+ 2082 000c 03D0     	 beq .L352
+ 2083 000e 0238     	 sub r0,r0,#2
+ 2084 0010 092B     	 cmp r3,#9
+ 2085 0012 00D0     	 beq .L352
+ 2086 0014 0330     	 add r0,r0,#3
+ 2087              	.L352:
+ 2088              	 
+ 2089 0016 7047     	 bx lr
+ 2090              	.L357:
+ 2091              	 .align 2
+ 2092              	.L356:
+ 2093 0018 00000000 	 .word E_EEPROM_XMC1_0
+ 2095              	 .section .text.E_EEPROM_XMC1_IsGarbageCollectionNeeded,"ax",%progbits
+ 2096              	 .align 1
+ 2097              	 .global E_EEPROM_XMC1_IsGarbageCollectionNeeded
+ 2098              	 .code 16
+ 2099              	 .thumb_func
+ 2101              	E_EEPROM_XMC1_IsGarbageCollectionNeeded:
+ 2102 0000 10B5     	 push {r4,lr}
+ 2103 0002 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetUsrBlockIndex
+ 2104 0006 074B     	 ldr r3,.L359
+ 2105 0008 C000     	 lsl r0,r0,#3
+ 2106 000a 1B68     	 ldr r3,[r3]
+ 2107              	 
+ 2108 000c 1818     	 add r0,r3,r0
+ 2109 000e 4068     	 ldr r0,[r0,#4]
+ 2110 0010 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks
+ 2111 0014 041C     	 mov r4,r0
+ 2112 0016 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetFreeDFLASHBlocks
+ 2113 001a A042     	 cmp r0,r4
+ 2114 001c 8041     	 sbc r0,r0,r0
+ 2115 001e 4042     	 neg r0,r0
+ 2116 0020 10BD     	 pop {r4,pc}
+ 2117              	.L360:
+ 2118 0022 C046     	 .align 2
+ 2119              	.L359:
+ 2120 0024 00000000 	 .word E_EEPROM_XMC1_0
+ 2122              	 .section .text.E_EEPROM_XMC1_GetPreviousData,"ax",%progbits
+ 2123              	 .align 1
+ 2124              	 .global E_EEPROM_XMC1_GetPreviousData
+ 2125              	 .code 16
+ 2126              	 .thumb_func
+ 2128              	E_EEPROM_XMC1_GetPreviousData:
+ 2129 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 2130 0002 274D     	 ldr r5,.L382
+ 2131 0004 85B0     	 sub sp,sp,#20
+ 2132 0006 6C68     	 ldr r4,[r5,#4]
+ 2133 0008 0392     	 str r2,[sp,#12]
+ 2134 000a 1F1C     	 mov r7,r3
+ 2135 000c 061C     	 mov r6,r0
+ 2136 000e 0191     	 str r1,[sp,#4]
+ 2137 0010 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetUsrBlockIndex
+ 2138 0014 221C     	 mov r2,r4
+ 2139 0016 2B68     	 ldr r3,[r5]
+ 2140 0018 FC32     	 add r2,r2,#252
+ 2141 001a C000     	 lsl r0,r0,#3
+ 2142 001c 926F     	 ldr r2,[r2,#120]
+ 2143 001e 1818     	 add r0,r3,r0
+ 2144 0020 4368     	 ldr r3,[r0,#4]
+ 2145 0022 0520     	 mov r0,#5
+ 2146 0024 0A2A     	 cmp r2,#10
+ 2147 0026 39D1     	 bne .L377
+ 2148 0028 019A     	 ldr r2,[sp,#4]
+ 2149 002a D219     	 add r2,r2,r7
+ 2150 002c 9A42     	 cmp r2,r3
+ 2151 002e 35D8     	 bhi .L377
+ 2152 0030 181C     	 mov r0,r3
+ 2153 0032 FFF7FEFF 	 bl E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks
+ 2154 0036 A36B     	 ldr r3,[r4,#56]
+ 2155 0038 0290     	 str r0,[sp,#8]
+ 2156 003a 002B     	 cmp r3,#0
+ 2157 003c 01D0     	 beq .L368
+ 2158 003e 194D     	 ldr r5,.L382+4
+ 2159 0040 00E0     	 b .L363
+ 2160              	.L368:
+ 2161 0042 194D     	 ldr r5,.L382+8
+ 2162              	.L363:
+ 2163 0044 301C     	 mov r0,r6
+ 2164 0046 E16C     	 ldr r1,[r4,#76]
+ 2165 0048 2A1C     	 mov r2,r5
+ 2166 004a FFF7FEFF 	 bl E_EEPROM_XMC1_lSearchBlockCopy
+ 2167 004e 0028     	 cmp r0,#0
+ 2168 0050 23D0     	 beq .L364
+ 2169 0052 A842     	 cmp r0,r5
+ 2170 0054 21D9     	 bls .L364
+ 2171 0056 011C     	 mov r1,r0
+ 2172 0058 2A1C     	 mov r2,r5
+ 2173 005a 1039     	 sub r1,r1,#16
+ 2174 005c 301C     	 mov r0,r6
+ 2175 005e FFF7FEFF 	 bl E_EEPROM_XMC1_lSearchBlockCopy
+ 2176 0062 0028     	 cmp r0,#0
+ 2177 0064 19D0     	 beq .L364
+ 2178 0066 A842     	 cmp r0,r5
+ 2179 0068 17D3     	 bcc .L364
+ 2180 006a 231C     	 mov r3,r4
+ 2181 006c 3433     	 add r3,r3,#52
+ 2182 006e 1B78     	 ldrb r3,[r3]
+ 2183 0070 9A07     	 lsl r2,r3,#30
+ 2184 0072 12D5     	 bpl .L364
+ 2185 0074 226B     	 ldr r2,[r4,#48]
+ 2186 0076 0299     	 ldr r1,[sp,#8]
+ 2187 0078 8A42     	 cmp r2,r1
+ 2188 007a 0ED1     	 bne .L364
+ 2189 007c DB07     	 lsl r3,r3,#31
+ 2190 007e 0CD5     	 bpl .L364
+ 2191 0080 C623     	 mov r3,#198
+ 2192 0082 5B00     	 lsl r3,r3,#1
+ 2193 0084 E050     	 str r0,[r4,r3]
+ 2194 0086 391C     	 mov r1,r7
+ 2195 0088 0398     	 ldr r0,[sp,#12]
+ 2196 008a 019A     	 ldr r2,[sp,#4]
+ 2197 008c FFF7FEFF 	 bl E_EEPROM_XMC1_lReadBlockContents
+ 2198 0090 C0B2     	 uxtb r0,r0
+ 2199 0092 431E     	 sub r3,r0,#1
+ 2200 0094 9841     	 sbc r0,r0,r3
+ 2201 0096 C0B2     	 uxtb r0,r0
+ 2202 0098 00E0     	 b .L377
+ 2203              	.L364:
+ 2204 009a 0220     	 mov r0,#2
+ 2205              	.L377:
+ 2206 009c 05B0     	 add sp,sp,#20
+ 2207              	 
+ 2208 009e F0BD     	 pop {r4,r5,r6,r7,pc}
+ 2209              	.L383:
+ 2210              	 .align 2
+ 2211              	.L382:
+ 2212 00a0 00000000 	 .word E_EEPROM_XMC1_0
+ 2213 00a4 000E0110 	 .word 268504576
+ 2214 00a8 000B0110 	 .word 268503808
+ 2216              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 e_eeprom_xmc1.c
+    {standard input}:15     .text.E_EEPROM_XMC1_lGetUsrBlockIndex:00000000 $t
+    {standard input}:19     .text.E_EEPROM_XMC1_lGetUsrBlockIndex:00000000 E_EEPROM_XMC1_lGetUsrBlockIndex
+    {standard input}:47     .text.E_EEPROM_XMC1_lGetUsrBlockIndex:00000028 $d
+    {standard input}:50     .text.E_EEPROM_XMC1_lGetFreeDFLASHBlocks:00000000 $t
+    {standard input}:54     .text.E_EEPROM_XMC1_lGetFreeDFLASHBlocks:00000000 E_EEPROM_XMC1_lGetFreeDFLASHBlocks
+    {standard input}:76     .text.E_EEPROM_XMC1_lGetFreeDFLASHBlocks:00000020 $d
+    {standard input}:81     .text.E_EEPROM_XMC1_lUpdateCurrBankInfo:00000000 $t
+    {standard input}:85     .text.E_EEPROM_XMC1_lUpdateCurrBankInfo:00000000 E_EEPROM_XMC1_lUpdateCurrBankInfo
+    {standard input}:114    .text.E_EEPROM_XMC1_lUpdateCurrBankInfo:0000002c $d
+    {standard input}:121    .text.E_EEPROM_XMC1_lSetMarkerBlockBuffer:00000000 $t
+    {standard input}:125    .text.E_EEPROM_XMC1_lSetMarkerBlockBuffer:00000000 E_EEPROM_XMC1_lSetMarkerBlockBuffer
+    {standard input}:138    .text.E_EEPROM_XMC1_lSetMarkerBlockBuffer:00000010 $d
+    {standard input}:141    .text.E_EEPROM_XMC1_lSetMarkerPageBuffer:00000000 $t
+    {standard input}:145    .text.E_EEPROM_XMC1_lSetMarkerPageBuffer:00000000 E_EEPROM_XMC1_lSetMarkerPageBuffer
+    {standard input}:182    .text.E_EEPROM_XMC1_lSetMarkerPageBuffer:0000003c $d
+    {standard input}:185    .text.E_EEPROM_XMC1_lSearchBlockCopy:00000000 $t
+    {standard input}:189    .text.E_EEPROM_XMC1_lSearchBlockCopy:00000000 E_EEPROM_XMC1_lSearchBlockCopy
+    {standard input}:274    .text.E_EEPROM_XMC1_lSearchBlockCopy:0000009c $d
+    {standard input}:277    .text.E_EEPROM_XMC1_lWriteDataBlock:00000000 $t
+    {standard input}:281    .text.E_EEPROM_XMC1_lWriteDataBlock:00000000 E_EEPROM_XMC1_lWriteDataBlock
+    {standard input}:304    .text.E_EEPROM_XMC1_lWriteDataBlock:0000002c $d
+    {standard input}:307    .text.E_EEPROM_XMC1_lEraseBank:00000000 $t
+    {standard input}:311    .text.E_EEPROM_XMC1_lEraseBank:00000000 E_EEPROM_XMC1_lEraseBank
+    {standard input}:335    .text.E_EEPROM_XMC1_lEraseBank:00000028 $d
+    {standard input}:338    .text.E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks:00000000 $t
+    {standard input}:342    .text.E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks:00000000 E_EEPROM_XMC1_lGetDFLASHPhysicalBlocks
+    {standard input}:360    .text.E_EEPROM_XMC1_lUpdateCache:00000000 $t
+    {standard input}:364    .text.E_EEPROM_XMC1_lUpdateCache:00000000 E_EEPROM_XMC1_lUpdateCache
+    {standard input}:597    .text.E_EEPROM_XMC1_lUpdateCache:000001a8 $d
+    {standard input}:602    .text.E_EEPROM_XMC1_lGCWrite:00000000 $t
+    {standard input}:606    .text.E_EEPROM_XMC1_lGCWrite:00000000 E_EEPROM_XMC1_lGCWrite
+    {standard input}:624    .text.E_EEPROM_XMC1_lGCWrite:00000020 $d
+    {standard input}:627    .text.E_EEPROM_XMC1_lErasedDirtyStateRecovery.constprop.2:00000000 $t
+    {standard input}:631    .text.E_EEPROM_XMC1_lErasedDirtyStateRecovery.constprop.2:00000000 E_EEPROM_XMC1_lErasedDirtyStateRecovery.constprop.2
+    {standard input}:660    .text.E_EEPROM_XMC1_lErasedDirtyStateRecovery.constprop.2:00000038 $d
+    {standard input}:663    .text.E_EEPROM_XMC1_lReadBlockContents:00000000 $t
+    {standard input}:667    .text.E_EEPROM_XMC1_lReadBlockContents:00000000 E_EEPROM_XMC1_lReadBlockContents
+    {standard input}:758    .text.E_EEPROM_XMC1_lReadBlockContents:000000a0 $d
+    {standard input}:761    .text.E_EEPROM_XMC1_lGarbageCollection:00000000 $t
+    {standard input}:765    .text.E_EEPROM_XMC1_lGarbageCollection:00000000 E_EEPROM_XMC1_lGarbageCollection
+    {standard input}:781    .text.E_EEPROM_XMC1_lGarbageCollection:0000001a $d
+    {standard input}:789    .text.E_EEPROM_XMC1_lGarbageCollection:00000022 $t
+    {standard input}:1029   .text.E_EEPROM_XMC1_lGarbageCollection:000001e8 $d
+    {standard input}:1032   .text.E_EEPROM_XMC1_lInitGcNormalStates:00000000 $t
+    {standard input}:1036   .text.E_EEPROM_XMC1_lInitGcNormalStates:00000000 E_EEPROM_XMC1_lInitGcNormalStates
+    {standard input}:1114   .text.E_EEPROM_XMC1_lInitGcNormalStates:0000009c $d
+    {standard input}:1119   .text.E_EEPROM_XMC1_lInitllegalStateMachine:00000000 $t
+    {standard input}:1123   .text.E_EEPROM_XMC1_lInitllegalStateMachine:00000000 E_EEPROM_XMC1_lInitllegalStateMachine
+    {standard input}:1145   .text.E_EEPROM_XMC1_lInitllegalStateMachine:00000020 $d
+    {standard input}:1148   .text.E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery:00000000 $t
+    {standard input}:1152   .text.E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery:00000000 E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery
+    {standard input}:1190   .text.E_EEPROM_XMC1_lCopyProcessDirtyStateRecovery:00000048 $d
+    {standard input}:1193   .text.E_EEPROM_XMC1_lInitDirtyStateMachine:00000000 $t
+    {standard input}:1197   .text.E_EEPROM_XMC1_lInitDirtyStateMachine:00000000 E_EEPROM_XMC1_lInitDirtyStateMachine
+    {standard input}:1260   .text.E_EEPROM_XMC1_lInitDirtyStateMachine:00000068 $d
+    {standard input}:1263   .text.E_EEPROM_XMC1_lLocalWrite:00000000 $t
+    {standard input}:1267   .text.E_EEPROM_XMC1_lLocalWrite:00000000 E_EEPROM_XMC1_lLocalWrite
+    {standard input}:1547   .text.E_EEPROM_XMC1_lLocalWrite:00000208 $d
+    {standard input}:1550   .text.E_EEPROM_XMC1_lInitGcDataCopyState.constprop.3:00000000 $t
+    {standard input}:1554   .text.E_EEPROM_XMC1_lInitGcDataCopyState.constprop.3:00000000 E_EEPROM_XMC1_lInitGcDataCopyState.constprop.3
+    {standard input}:1585   .text.E_EEPROM_XMC1_lInitGcDataCopyState.constprop.3:0000003c $d
+    {standard input}:1588   .text.E_EEPROM_XMC1_GetAppVersion:00000000 $t
+    {standard input}:1593   .text.E_EEPROM_XMC1_GetAppVersion:00000000 E_EEPROM_XMC1_GetAppVersion
+    {standard input}:1602   .text.E_EEPROM_XMC1_GetAppVersion:00000008 $d
+    {standard input}:1605   .text.E_EEPROM_XMC1_Init:00000000 $t
+    {standard input}:1610   .text.E_EEPROM_XMC1_Init:00000000 E_EEPROM_XMC1_Init
+    {standard input}:1923   .text.E_EEPROM_XMC1_Init:0000022c $d
+    {standard input}:1928   .text.E_EEPROM_XMC1_Write:00000000 $t
+    {standard input}:1933   .text.E_EEPROM_XMC1_Write:00000000 E_EEPROM_XMC1_Write
+    {standard input}:1952   .text.E_EEPROM_XMC1_Write:0000001c $d
+    {standard input}:1955   .text.E_EEPROM_XMC1_InvalidateBlock:00000000 $t
+    {standard input}:1960   .text.E_EEPROM_XMC1_InvalidateBlock:00000000 E_EEPROM_XMC1_InvalidateBlock
+    {standard input}:1981   .text.E_EEPROM_XMC1_InvalidateBlock:00000020 $d
+    {standard input}:1984   .text.E_EEPROM_XMC1_Read:00000000 $t
+    {standard input}:1989   .text.E_EEPROM_XMC1_Read:00000000 E_EEPROM_XMC1_Read
+    {standard input}:2036   .text.E_EEPROM_XMC1_Read:00000058 $d
+    {standard input}:2039   .text.E_EEPROM_XMC1_StartGarbageCollection:00000000 $t
+    {standard input}:2044   .text.E_EEPROM_XMC1_StartGarbageCollection:00000000 E_EEPROM_XMC1_StartGarbageCollection
+    {standard input}:2067   .text.E_EEPROM_XMC1_StartGarbageCollection:00000024 $d
+    {standard input}:2070   .text.E_EEPROM_XMC1_GetStatus:00000000 $t
+    {standard input}:2075   .text.E_EEPROM_XMC1_GetStatus:00000000 E_EEPROM_XMC1_GetStatus
+    {standard input}:2093   .text.E_EEPROM_XMC1_GetStatus:00000018 $d
+    {standard input}:2096   .text.E_EEPROM_XMC1_IsGarbageCollectionNeeded:00000000 $t
+    {standard input}:2101   .text.E_EEPROM_XMC1_IsGarbageCollectionNeeded:00000000 E_EEPROM_XMC1_IsGarbageCollectionNeeded
+    {standard input}:2120   .text.E_EEPROM_XMC1_IsGarbageCollectionNeeded:00000024 $d
+    {standard input}:2123   .text.E_EEPROM_XMC1_GetPreviousData:00000000 $t
+    {standard input}:2128   .text.E_EEPROM_XMC1_GetPreviousData:00000000 E_EEPROM_XMC1_GetPreviousData
+    {standard input}:2212   .text.E_EEPROM_XMC1_GetPreviousData:000000a0 $d
+
+UNDEFINED SYMBOLS
+E_EEPROM_XMC1_0
+XMC_FLASH_ClearStatus
+XMC_FLASH_GetStatus
+XMC_FLASH_WriteBlocks
+XMC_FLASH_ErasePages
+XMC_FLASH_ReadBlocks
+__gnu_thumb1_case_uqi
+XMC_FLASH_ProgramPage

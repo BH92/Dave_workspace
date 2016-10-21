@@ -1,0 +1,133 @@
+package Model.APPS.PDM_DIMMED_LED_LAMP.v4_0_4.Templates;
+
+import Model.APPS.PDM_DIMMED_LED_LAMP.v4_0_4.PDM_DIMMED_LED_LAMP
+
+out.print("""
+/**
+ * @cond
+ ***********************************************************************************************************************
+ *
+ * Copyright (c) 2015-2016, Infineon Technologies AG
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,are permitted provided that the
+ * following conditions are met:
+ *
+ *   Redistributions of source code must retain the above copyright notice, this list of conditions and the  following
+ *   disclaimer.
+ *
+ *   Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *   following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ *   Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ *   products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT  OF THE
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * To improve the quality of the software, users are encouraged to share modifications, enhancements or bug fixes
+ * with Infineon Technologies AG (dave@infineon.com).
+ ***********************************************************************************************************************
+ *
+ * Change History
+ * --------------
+ *
+ * 2015-09-11:
+ *     - Initial version.<br>
+ *
+ * 2016-07-08:
+ *     - Fixed incorrect case for an included header.<br>
+ *
+ * @endcond
+ *
+ */
+/***********************************************************************************************************************
+ * HEADER FILES
+ **********************************************************************************************************************/
+
+#ifndef PDM_DIMMED_LED_LAMP_CONF_H
+#define PDM_DIMMED_LED_LAMP_CONF_H
+
+/**********************************************************************************************************************
+ * MACROS
+ **********************************************************************************************************************/
+
+#define PDM_DIMMED_LED_LAMP_MAJOR_VERSION (${(PDM_DIMMED_LED_LAMP.version).findAll( /\d+/ )*.toInteger()[0]}U)
+#define PDM_DIMMED_LED_LAMP_MINOR_VERSION (${(PDM_DIMMED_LED_LAMP.version).findAll( /\d+/ )*.toInteger()[1]}U)
+#define PDM_DIMMED_LED_LAMP_PATCH_VERSION (${(PDM_DIMMED_LED_LAMP.version).findAll( /\d+/ )*.toInteger()[2]}U)
+
+""");
+
+/* Begin : User variable section */
+/* variable to hold instance label of PDM_DIMMED_LED_LAMP APP */
+String appInst = null;
+/* variable to hold status of DIM_BCCU APP consumption */
+boolean dimapp_used = false
+boolean pwm_ccu4_app_used = false
+boolean pwm_ccu8_app_used = false
+boolean comp_ref_app_used = false
+boolean comp_ref_app_internal_ref = false
+boolean peak_cur_ctrl_enabled = false
+boolean simple_dcdc_pdm = false
+/* End   : User variable section */
+
+/* itteration to identify the number of instances created in the project */
+for (PDM_DIMMED_LED_LAMP Instance : appInstancesList ) {
+ appInst = Instance.getInstanceLabel()
+  if (Instance.gcombo_SourceOfDimming.value == "Dimming Engine"){
+	dimapp_used = true
+  }
+  if ((Instance.gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM")){
+	pwm_ccu4_app_used = true
+  }
+  if (Instance.gcombo_DriverSel.value == "Fast DCDC Buck with PDM"){
+	pwm_ccu8_app_used = true
+  }
+  if (Instance.gcombo_DriverSel.value != "Direct PDM (External LED Drivers)"){
+    comp_ref_app_used = true
+	peak_cur_ctrl_enabled = true
+  }
+  for(int index in 0..8) {
+	  int loop_count = index;
+    if ((Instance.gcombo_DriverSel.value != "Direct PDM (External LED Drivers)") && (Instance.gcombo_pcc_ref_gen_arr[index].value != "External Reference") \
+		&& (Integer.parseInt(Instance.gcombo_NoOfChannels.value) > loop_count)){
+		
+      	comp_ref_app_internal_ref = true
+	}
+  }
+  
+  if (Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM")
+  {
+	  simple_dcdc_pdm = true
+  }
+}
+
+out.print("""
+#define PDM_DIMMED_LED_LAMP_DIMAPP_USED (${(dimapp_used == true)?1:0}U)
+"""); 
+out.print("""
+#define PDM_DIMMED_LED_LAMP_PEAK_CUR_CTRL_ENABLE (${(peak_cur_ctrl_enabled == true)?1:0}U)
+"""); 
+out.print("""
+#define PDM_DIMMED_LED_LAMP_PWM_CCU4_APP_USED (${(pwm_ccu4_app_used == true)?1:0}U)
+"""); 
+out.print("""
+#define PDM_DIMMED_LED_LAMP_PWM_CCU8_APP_USED (${(pwm_ccu8_app_used == true)?1:0}U)
+"""); 
+out.print("""
+#define PDM_DIMMED_LED_LAMP_COMP_REF_APP_USED (${(comp_ref_app_used == true)?1:0}U)
+"""); 
+out.print("""
+#define PDM_DIMMED_LED_LAMP_PEAK_CUR_INTERNAL_REF (${(comp_ref_app_internal_ref == true)?1:0}U)
+"""); 
+out.print("""
+#define PDM_DIMMED_LED_LAMP_SIMPLE_DCDC_USED (${(simple_dcdc_pdm == true)?1:0}U)
+""");
+out.print("""
+#endif /* End of PDM_DIMMED_LED_LAMP_CONF_H */
+""");

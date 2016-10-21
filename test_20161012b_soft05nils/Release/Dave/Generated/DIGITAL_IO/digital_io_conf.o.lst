@@ -1,0 +1,86 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "digital_io_conf.c"
+  14              	 .global VCC_LED_shtdwn
+  15              	 .global xmc_sel_gain
+  16              	 .global xmc_lin_en
+  17              	 .global xmc_int_bmc
+  18              	 .global xmc_int_tcs
+  19              	 .section .rodata.VCC_LED_shtdwn,"a",%progbits
+  20              	 .align 2
+  23              	VCC_LED_shtdwn:
+  24 0000 00000440 	 .word 1074003968
+  25 0004 00       	 .byte 0
+  26 0005 00       	 .byte 0
+  27 0006 00000000 	 .space 6
+  27      0000
+  28 000c 0D       	 .byte 13
+  29 000d 00       	 .byte 0
+  30 000e 0000     	 .space 2
+  31              	 .section .rodata.xmc_int_bmc,"a",%progbits
+  32              	 .align 2
+  35              	xmc_int_bmc:
+  36 0000 00020440 	 .word 1074004480
+  37 0004 00       	 .byte 0
+  38 0005 00       	 .byte 0
+  39 0006 00000000 	 .space 6
+  39      0000
+  40 000c 07       	 .byte 7
+  41 000d 00       	 .byte 0
+  42 000e 0000     	 .space 2
+  43              	 .section .rodata.xmc_sel_gain,"a",%progbits
+  44              	 .align 2
+  47              	xmc_sel_gain:
+  48 0000 00000440 	 .word 1074003968
+  49 0004 80       	 .byte -128
+  50 0005 000000   	 .space 3
+  51 0008 00000100 	 .word 65536
+  52 000c 0C       	 .byte 12
+  53 000d 00       	 .byte 0
+  54 000e 0000     	 .space 2
+  55              	 .section .rodata.xmc_int_tcs,"a",%progbits
+  56              	 .align 2
+  59              	xmc_int_tcs:
+  60 0000 00020440 	 .word 1074004480
+  61 0004 00       	 .byte 0
+  62 0005 00       	 .byte 0
+  63 0006 00000000 	 .space 6
+  63      0000
+  64 000c 02       	 .byte 2
+  65 000d 00       	 .byte 0
+  66 000e 0000     	 .space 2
+  67              	 .section .rodata.xmc_lin_en,"a",%progbits
+  68              	 .align 2
+  71              	xmc_lin_en:
+  72 0000 00000440 	 .word 1074003968
+  73 0004 80       	 .byte -128
+  74 0005 000000   	 .space 3
+  75 0008 00000100 	 .word 65536
+  76 000c 00       	 .byte 0
+  77 000d 00       	 .byte 0
+  78 000e 0000     	 .space 2
+  79              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 digital_io_conf.c
+    {standard input}:23     .rodata.VCC_LED_shtdwn:00000000 VCC_LED_shtdwn
+    {standard input}:47     .rodata.xmc_sel_gain:00000000 xmc_sel_gain
+    {standard input}:71     .rodata.xmc_lin_en:00000000 xmc_lin_en
+    {standard input}:35     .rodata.xmc_int_bmc:00000000 xmc_int_bmc
+    {standard input}:59     .rodata.xmc_int_tcs:00000000 xmc_int_tcs
+    {standard input}:20     .rodata.VCC_LED_shtdwn:00000000 $d
+    {standard input}:32     .rodata.xmc_int_bmc:00000000 $d
+    {standard input}:44     .rodata.xmc_sel_gain:00000000 $d
+    {standard input}:56     .rodata.xmc_int_tcs:00000000 $d
+    {standard input}:68     .rodata.xmc_lin_en:00000000 $d
+
+NO UNDEFINED SYMBOLS

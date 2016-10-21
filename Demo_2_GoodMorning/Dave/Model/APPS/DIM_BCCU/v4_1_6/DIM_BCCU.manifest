@@ -1,0 +1,234 @@
+package Model.APPS.DIM_BCCU.v4_1_6;
+
+/*
+ *  Copyright (c) 2015, Infineon Technologies AG
+ *
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,are permitted provided that the
+ * following conditions are met:
+ *
+ *   Redistributions of source code must retain the above copyright notice, this list of conditions and the  following
+ *   disclaimer.
+ *
+ *   Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *   following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ *   Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ *   products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT  OF THE
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * To improve the quality of the software, users are encouraged to share modifications, enhancements or bug fixes
+ * with Infineon Technologies AG (dave@infineon.com).
+ */
+
+/*************** Revision History **********************************************
+Version        Date          Description 
+
+  4.0.0       16-Feb-2015   Initial version for DAVEv4.<br>
+  4.0.1       20-Feb-2015   1). APP Help documentation improved.<br>
+  			                2). XMC_ASSERT bug fixed.<br>
+  4.1.0       07-May-2015   1). New API's DIM_BCCU_SetDimCurveAndDither(),DIM_BCCU_IsDitherEnable() added.<br>
+  			                2). DIM_BCCU_DitherDisable(), DIM_BCCU_DitherEnable() and DIM_BCCU_SetDimCurv() are removed.<br>
+  			                3). XMC_ASSERT debug statement is added in all API's.<br>
+  			                
+  4.1.2       20-Jun-2015   1). Version check added for XMCLib dependency.<br>
+                            2). _Add Pin is removed.<br>
+                            
+  4.1.4       16-Jul-2015   Added support for XMC14xx devices.<br>
+  4.1.6       15-Jul-2016   Added support for XMC14xx_T38 and Q40 devices.<br>
+*******************************************************************************/
+/* Import statements */
+import ifx.davex.app.manifest.*
+
+class  DIM_BCCU extends DIM_BCCU_GUI {
+
+ /* ----------------------------------------------- Begin : APP Properties -------------------------------------------------------------- */
+	/**
+	 * App version
+	 * Format: a string with three digit separated by a dot.
+	 */
+	def version            = '4.1.6'
+	
+	/**
+	 * App categories declaration. 
+	 * It is list of strings. Subcategories are separated by slash.
+	 * No limits on number of categories and subcategories depth.
+	 */
+
+	def categoriesDescription = ["LED Lighting"] 
+
+	/** 
+	 * Minimum DAVE version required for this app.
+	 * 
+	 * It is string with three digit separated by a dot.
+	 */
+	def minDaveVersion           = '4.0.0'
+	
+	/** 
+	 * Keywords used by search feature in Apps selection view
+	 * 
+	 * It is a list of string.
+	 */
+	def keywords      = [
+	    	'Channel',
+		'BCCU',
+		'LED Lighting',
+		'DIM_BCCU',
+		'Dimming',
+		'ALL'	
+	    	]
+	
+	/** 
+	 * softwareIDs is used to declare which devices are compatible with this app.
+	 * It is a map with key a string containing a pattern that shall match the SW id of
+	 * the device and as value the minimal version of the app.
+	 * 
+	 * 
+	 */
+	
+	def softwareIDs       = [
+		"XMC1.2.00.T038.*":"1.0.0", 
+		"XMC1.2.02.(T028|T016|Q024|Q040).*":"1.0.0", 
+		"XMC1.3.02.(T016|T038|Q024|Q040).*":"1.0.0",
+		"XMC1.4.02.*.*":"1.0.0",
+		"XMC1.4.04.*.*":"1.0.0",
+		]
+
+	/**
+	 * Singleton property:
+	 * When it is true the app can be instantiated only once.
+	 */
+	def singleton     = false
+	
+	/**
+	 * initProvider property
+	 * It shall be true to add a call to <AppName>_Init()
+	 */
+	def initProvider  = true
+	
+	/**
+	 * Sharable property.
+	 * It shall be true to allows multiple apps to require the same instance of this app.
+	 */
+	def deprecated    = false
+	
+	/**
+	 * Sharable property.
+	 * It shall be true to allows multiple apps to require the same instance of this app.
+	 */
+	def sharable      = false
+
+	/**
+	 *  App function description.
+	 */ 
+	def description = "DIM_BCCU APP configures the dimming engine registers of\nthe Brightness and Color Control Unit (BCCU).\nIt also provides dynamic APIs to high level APPs such as \nDALI_CG and PDM_DIMMED_LED_LAMP."
+/* --------------------------------------------------------- End: APP Properties ------------------------------------------------------------- */
+
+/* ----------------------- Begin : User Variables for hardware resources and virtual signals ------------------------------------------------- */
+	
+	/* virtual resource group for DIM_BCCU */
+	MVirtualResourceGroup hwres_dimming_engine
+	
+	MVirtualSignal vs_dimout
+	
+	
+	/* Required APP consumption for DIM_BCCU */
+	MRequiredApp appres_global_bccu /* CLOCK app consumption for  XMC1xxx device */
+	
+	
+	/* dummy variable to hold actual system frequency value  */
+	GFloat dimming_clock = GFloat(widgetName:"dimming_clock")
+			
+/*----------------------- End : User Variables for hardware resources and virtual signals ---------------------------------------------------- */
+	
+/*------------------------------------------------------- Begin : APP Constructor and Logic -------------------------------------------------*/
+	// DIM_BCCU Constructor
+	public DIM_BCCU(DaveEnv daveEnv) {
+	    
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+/*                          					App consumption Block                                                        */
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+	    
+	    appres_global_bccu   =  MRequiredApp("GLOBAL_BCCU","GLOBAL_BCCU APP", RSHARABLE, "4.0.2")
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------	Hardware resource consumption block ------------------------------------------------------------------- */
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+		
+		hwres_dimming_engine =  MVirtualResourceGroup("Dimming Engine", ["peripheral", "bccu", "*", "dimming_engine","*"], true)
+		
+		
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+/*                                 Virtual Signals Definitions                                                                               */
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+		
+		vs_dimout   =  MVirtualSignal(hwres_dimming_engine, "dimming_level_output", "dimout", true, true)
+
+		dimming_clock.value = MF({appres_global_bccu.getVal(["gfloat_actual_dimming_clock_freq", "value"])}, Float)
+		gcombo_dimming_curve_selection.enabled = MF({gcheck_dither_function_enable.value == false}, Boolean)
+		gcheck_dither_function_enable.enabled = MF({gcombo_dimming_curve_selection.value == "Coarse Curve"}, Boolean)
+	
+		gtab_dummy.visible = MF({false}, Boolean)
+		
+		
+		/* Updating desired transition time max value based on dimming clock. TransitionTime = (DIMDIV * 20479)/ fBCCUdclk */
+		gFloat_desired_transition_time.maxValue = MF({			
+						((1023 * 20479)/(dimming_clock.value * 1000))
+					  }, Float)
+		
+		/* Updating desired transition time min value based on dimming clock */
+		gFloat_desired_transition_time.minValue = MF({
+			          ((0 * 20479)/(dimming_clock.value * 1000))
+					  }, Float)
+	
+		/* Updating dim divider value based on desired transition time and dimming clock */
+		ginteger_dimdiv.value =MF({
+			Math.round((gFloat_desired_transition_time.value  * dimming_clock.value * 1000)/(20479));			
+		  }, Integer)
+		
+		/* Updating actual transition time based on dim divider and dimming clock */
+		gFloat_actual_transition_time.value =MF({
+			float a
+			a = ((20479 * ginteger_dimdiv.value)/ (dimming_clock.value * 1000));
+			return a			   	
+		  }, Float)
+		
+		/* Updating actual transition time max value based on dimming clock */
+		gFloat_actual_transition_time.maxValue = MF({
+			((1023 * 20479)/(dimming_clock.value * 1000))
+		  }, Float)
+		
+		/* Updating actual transition time min value based on dimming clock */
+                 gFloat_actual_transition_time.minValue = MF({
+			((0 * 20479)/(dimming_clock.value * 1000))
+		  }, Float)	
+	
+				
+	}
+
+/*------------------------------------------------------- End : APP Constructor and Logic -------------------------------------------------*/
+	/* File Generation */
+	def generateFiles(){
+	
+		/* Copy dim_bccu.c static file as it is */
+		copy("dim_bccu.c", "dim_bccu.c")
+		/* Copy dim_bccu.h static file as it is */
+		copy("dim_bccu.h", "dim_bccu.h")
+		/* generate dim_bccu_confh.h file dynamically according to user configuration */
+		generate("dim_bccu_confh.tmpl", "dim_bccu_conf.h")
+		/* generate dim_bccu.c file dynamically according to user configuration */
+		generate("dim_bccu_confc.tmpl", "dim_bccu_conf.c")
+		/* generate dim_bccu.h file for extern declaration*/
+		generate("dim_bccu_externh.tmpl", "dim_bccu_extern.h")
+	}
+	
+
+}

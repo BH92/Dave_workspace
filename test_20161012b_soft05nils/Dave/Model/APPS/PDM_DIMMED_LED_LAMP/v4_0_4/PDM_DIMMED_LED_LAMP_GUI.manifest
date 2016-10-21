@@ -1,0 +1,437 @@
+package Model.APPS.PDM_DIMMED_LED_LAMP.v4_0_4;
+
+/* Import statements */
+import ifx.davex.app.manifest.*
+
+abstract class PDM_DIMMED_LED_LAMP_GUI extends AppManifest {
+	/* Begin : UI variable section */
+	 public GTab gtab_pcc;
+	 public GTab gtab_control;
+	 public GImage gimage_1led_dimengine;
+	 public GImage gimage_1led_globdim;
+	 public GImage gimage_pcc_simple_1led_dimengine;
+	 public GImage gimage_pcc_simple_1led_globdim;
+	 public GImage gimage_pcc_simple_2led_dimengine;
+	 public GImage gimage_pcc_simple_2led_globdim;
+	 public GImage gimage_pcc_simple_3led_dimengine;
+	 public GImage gimage_pcc_simple_3led_globdim;
+	 public GImage gimage_pcc_simple_4led_dimengine;
+	 public GImage gimage_pcc_simple_4led_globdim;
+	 public GImage gimage_pcc_slow_1led_dimengine;
+	 public GImage gimage_pcc_slow_1led_globdim;
+	 public GImage gimage_pcc_slow_2led_dimengine;
+	 public GImage gimage_pcc_slow_2led_globdim;
+	 public GImage gimage_pcc_slow_3led_dimengine;
+	 public GImage gimage_pcc_slow_3led_globdim;
+	 public GImage gimage_pcc_slow_4led_dimengine;
+	 public GImage gimage_pcc_slow_4led_globdim;
+	 public GImage gimage_pcc_fast_1led_dimengine;
+	 public GImage gimage_pcc_fast_1led_globdim;
+	 public GImage gimage_pcc_fast_2led_dimengine;
+	 public GImage gimage_pcc_fast_2led_globdim;
+	 public GImage gimage_pcc_fast_3led_dimengine;
+	 public GImage gimage_pcc_fast_3led_globdim;
+	 public GImage gimage_pcc_fast_4led_dimengine;
+	 public GImage gimage_pcc_fast_4led_globdim;
+	 public GImage gimage_2led_dimengine;
+	 public GImage gimage_2led_globdim;
+	 public GImage gimage_3led_dimengine;
+	 public GImage gimage_3led_globdim;
+	 public GImage gimage_4led_dimengine;
+	 public GImage gimage_4led_globdim;
+	 public GImage gimage_5led_dimengine;
+	 public GImage gimage_5led_globdim;
+	 public GImage gimage_6led_dimengine;
+	 public GImage gimage_6led_globdim;
+	 public GImage gimage_7led_dimengine;
+	 public GImage gimage_7led_globdim;
+	 public GImage gimage_8led_dimengine;
+	 public GImage gimage_8led_globdim;
+	 public GImage gimage_9led_dimengine;
+	 public GImage gimage_9led_globdim;
+	 public GInteger gint_DimLvl_LED_0;
+	 public GInteger gint_Inten_LED_0;
+	 public GInteger gint_Brightness_LED_0;
+	 public GInteger gint_DimLvl_LED_1;
+	 public GInteger gint_Inten_LED_1;
+	 public GInteger gint_Brightness_LED_1;
+	 public GInteger gint_DimLvl_LED_2;
+	 public GInteger gint_Inten_LED_2;
+	 public GInteger gint_Brightness_LED_2;
+	 public GInteger gint_DimLvl_LED_3;
+	 public GInteger gint_Inten_LED_3;
+	 public GInteger gint_Brightness_LED_3;
+	 public GInteger gint_DimLvl_LED_4;
+	 public GInteger gint_Inten_LED_4;
+	 public GInteger gint_Brightness_LED_4;
+	 public GInteger gint_DimLvl_LED_5;
+	 public GInteger gint_Inten_LED_5;
+	 public GInteger gint_Brightness_LED_5;
+	 public GInteger gint_DimLvl_LED_6;
+	 public GInteger gint_Inten_LED_6;
+	 public GInteger gint_Brightness_LED_6;
+	 public GInteger gint_DimLvl_LED_7;
+	 public GInteger gint_Inten_LED_7;
+	 public GInteger gint_Brightness_LED_7;
+	 public GInteger gint_DimLvl_LED_8;
+	 public GInteger gint_Inten_LED_8;
+	 public GInteger gint_Brightness_LED_8;
+	 public GInteger ginteger_linpres;
+	 public GInteger gint_dimming_clk_prescaler;
+	 public GInteger gint_dimdiv;
+	 public GInteger ginteger_pcc_gen_off_time_val_0;
+	 public GInteger ginteger_pcc_gen_off_time_val_1;
+	 public GInteger ginteger_pcc_gen_off_time_val_2;
+	 public GInteger ginteger_pcc_gen_off_time_val_3;
+	 public GInteger ginteger_pcc_gen_off_time_val_4;
+	 public GInteger ginteger_pcc_gen_off_time_val_5;
+	 public GInteger ginteger_pcc_gen_off_time_val_6;
+	 public GInteger ginteger_pcc_gen_off_time_val_7;
+	 public GInteger ginteger_pcc_gen_off_time_val_8;
+	 public GInteger ginteger_pcc_gen_off_time_period;
+	 public GCombo gcombo_DriverSel;
+	 public GCombo gcombo_NoOfChannels;
+	 public GCombo gcombo_SourceOfDimming;
+	 public GCombo gcombo_pcc_ref_gen_0;
+	 public GCombo gcombo_pcc_ref_src_0;
+	 public GCombo gcombo_pcc_ref_gen_1;
+	 public GCombo gcombo_pcc_ref_src_1;
+	 public GCombo gcombo_pcc_ref_gen_2;
+	 public GCombo gcombo_pcc_ref_src_2;
+	 public GCombo gcombo_pcc_ref_gen_3;
+	 public GCombo gcombo_pcc_ref_src_3;
+	 public GCombo gcombo_pcc_ref_gen_4;
+	 public GCombo gcombo_pcc_ref_src_4;
+	 public GCombo gcombo_pcc_ref_gen_5;
+	 public GCombo gcombo_pcc_ref_src_5;
+	 public GCombo gcombo_pcc_ref_gen_6;
+	 public GCombo gcombo_pcc_ref_src_6;
+	 public GCombo gcombo_pcc_ref_gen_7;
+	 public GCombo gcombo_pcc_ref_src_7;
+	 public GCombo gcombo_pcc_ref_gen_8;
+	 public GCombo gcombo_pcc_ref_src_8;
+	 public GFloat gfloat_DimLvlPer_LED_0;
+	 public GFloat gfloat_IntenPer_LED_0;
+	 public GFloat gfloat_BrightnessPer_LED_0;
+	 public GFloat gfloat_DimLvlPer_LED_1;
+	 public GFloat gfloat_IntenPer_LED_1;
+	 public GFloat gfloat_BrightnessPer_LED_1;
+	 public GFloat gfloat_DimLvlPer_LED_2;
+	 public GFloat gfloat_IntenPer_LED_2;
+	 public GFloat gfloat_BrightnessPer_LED_2;
+	 public GFloat gfloat_DimLvlPer_LED_3;
+	 public GFloat gfloat_IntenPer_LED_3;
+	 public GFloat gfloat_BrightnessPer_LED_3;
+	 public GFloat gfloat_DimLvlPer_LED_4;
+	 public GFloat gfloat_IntenPer_LED_4;
+	 public GFloat gfloat_BrightnessPer_LED_4;
+	 public GFloat gfloat_DimLvlPer_LED_5;
+	 public GFloat gfloat_IntenPer_LED_5;
+	 public GFloat gfloat_BrightnessPer_LED_5;
+	 public GFloat gfloat_DimLvlPer_LED_6;
+	 public GFloat gfloat_IntenPer_LED_6;
+	 public GFloat gfloat_BrightnessPer_LED_6;
+	 public GFloat gfloat_DimLvlPer_LED_7;
+	 public GFloat gfloat_IntenPer_LED_7;
+	 public GFloat gfloat_BrightnessPer_LED_7;
+	 public GFloat gfloat_DimLvlPer_LED_8;
+	 public GFloat gfloat_IntenPer_LED_8;
+	 public GFloat gfloat_BrightnessPer_LED_8;
+	 public GFloat gfloat_lin_walk_time;
+	 public GFloat gfloat_dim_trans_time;
+	 public GFloat gfloat_pcc_peak_ref_mv_0;
+	 public GFloat gfloat_pcc_gen_off_time_ns_0;
+	 public GFloat gfloat_pcc_peak_ref_mv_1;
+	 public GFloat gfloat_pcc_gen_off_time_ns_1;
+	 public GFloat gfloat_pcc_peak_ref_mv_2;
+	 public GFloat gfloat_pcc_gen_off_time_ns_2;
+	 public GFloat gfloat_pcc_peak_ref_mv_3;
+	 public GFloat gfloat_pcc_gen_off_time_ns_3;
+	 public GFloat gfloat_pcc_peak_ref_mv_4;
+	 public GFloat gfloat_pcc_gen_off_time_ns_4;
+	 public GFloat gfloat_pcc_peak_ref_mv_5;
+	 public GFloat gfloat_pcc_gen_off_time_ns_5;
+	 public GFloat gfloat_pcc_peak_ref_mv_6;
+	 public GFloat gfloat_pcc_gen_off_time_ns_6;
+	 public GFloat gfloat_pcc_peak_ref_mv_7;
+	 public GFloat gfloat_pcc_gen_off_time_ns_7;
+	 public GFloat gfloat_pcc_peak_ref_mv_8;
+	 public GFloat gfloat_pcc_gen_off_time_ns_8;
+	 public GFloat gfloat_pcc_gen_off_time_freq;
+	 public GCheck gcheck_EnLamp;
+	 public GLabel glabel_LEDChannel_0;
+	 public GLabel glabel_LEDChannel_1;
+	 public GLabel glabel_LEDChannel_2;
+	 public GLabel glabel_LEDChannel_3;
+	 public GLabel glabel_LEDChannel_4;
+	 public GLabel glabel_LEDChannel_5;
+	 public GLabel glabel_LEDChannel_6;
+	 public GLabel glabel_LEDChannel_7;
+	 public GLabel glabel_LEDChannel_8;
+	 public GLabel glabel_321;
+	 public GLabel glabel_lin_walk_time;
+	 public GLabel glabel_linpres;
+	 public GLabel glabel_dim_trans_time;
+	 public GLabel glabel_dimming_clk_prescaler;
+	 public GLabel glabel_dimdiv;
+	 public GLabel glabel_pcc_LEDChannel_0;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_0;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_0;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_0;
+	 public GLabel glabel_pcc_LEDChannel_1;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_1;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_1;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_1;
+	 public GLabel glabel_pcc_LEDChannel_2;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_2;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_2;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_2;
+	 public GLabel glabel_pcc_LEDChannel_3;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_3;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_3;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_3;
+	 public GLabel glabel_pcc_LEDChannel_4;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_4;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_4;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_4;
+	 public GLabel glabel_pcc_LEDChannel_5;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_5;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_5;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_5;
+	 public GLabel glabel_pcc_LEDChannel_6;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_6;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_6;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_6;
+	 public GLabel glabel_pcc_LEDChannel_7;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_7;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_7;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_7;
+	 public GLabel glabel_pcc_LEDChannel_8;
+	 public GLabel glabel_pcc_peak_ref_mv_unit_8;
+	 public GLabel glabel_pcc_gen_off_time_ns_unit_8;
+	 public GLabel glabel_pcc_gen_off_time_val_unit_8;
+	 public GLabel glabel_pcc_gen_off_time_freq;
+	 public GLabel glabel_pcc_gen_off_time_period;
+	 public GGroup ggroup_dimming_intensities;
+	 public GGroup ggroup_fading_at_init;
+	 public GGroup ggroup_pcc_parameters;
+	 public GGroup ggroup_pcc_gen_off_time_freq;
+
+	 public PDM_DIMMED_LED_LAMP_GUI(DaveEnv daveEnv){
+
+	 gtab_pcc = GTab(widgetName:"gtab_pcc", text:"Peak Current Control", enabled:true, visible:true)
+	 gtab_control = GTab(widgetName:"gtab_control", text:"New Tab", enabled:false, visible:true)
+	 gimage_1led_dimengine = GImage(widgetName:"gimage_1led_dimengine", path: "doc/UI-General_background_1.png", enabled:true, visible:true)
+	 gimage_1led_globdim = GImage(widgetName:"gimage_1led_globdim", path: "doc/UI-General_background_1g.png", enabled:true, visible:true)
+	 gimage_pcc_simple_1led_dimengine = GImage(widgetName:"gimage_pcc_simple_1led_dimengine", path: "doc/UI_PeakCurrent_Simple_1.png", enabled:true, visible:true)
+	 gimage_pcc_simple_1led_globdim = GImage(widgetName:"gimage_pcc_simple_1led_globdim", path: "doc/UI_PeakCurrent_Simple_1g.png", enabled:true, visible:true)
+	 gimage_pcc_simple_2led_dimengine = GImage(widgetName:"gimage_pcc_simple_2led_dimengine", path: "doc/UI_PeakCurrent_Simple_2.png", enabled:true, visible:true)
+	 gimage_pcc_simple_2led_globdim = GImage(widgetName:"gimage_pcc_simple_2led_globdim", path: "doc/UI_PeakCurrent_Simple_2g.png", enabled:true, visible:true)
+	 gimage_pcc_simple_3led_dimengine = GImage(widgetName:"gimage_pcc_simple_3led_dimengine", path: "doc/UI_PeakCurrent_Simple_3.png", enabled:true, visible:true)
+	 gimage_pcc_simple_3led_globdim = GImage(widgetName:"gimage_pcc_simple_3led_globdim", path: "doc/UI_PeakCurrent_Simple_3g.png", enabled:true, visible:true)
+	 gimage_pcc_simple_4led_dimengine = GImage(widgetName:"gimage_pcc_simple_4led_dimengine", path: "doc/UI_PeakCurrent_Simple_4.png", enabled:true, visible:true)
+	 gimage_pcc_simple_4led_globdim = GImage(widgetName:"gimage_pcc_simple_4led_globdim", path: "doc/UI_PeakCurrent_Simple_4g.png", enabled:true, visible:true)
+	 gimage_pcc_slow_1led_dimengine = GImage(widgetName:"gimage_pcc_slow_1led_dimengine", path: "doc/UI_PeakCurrent_Slow_1.png", enabled:true, visible:true)
+	 gimage_pcc_slow_1led_globdim = GImage(widgetName:"gimage_pcc_slow_1led_globdim", path: "doc/UI_PeakCurrent_Slow_1g.png", enabled:true, visible:true)
+	 gimage_pcc_slow_2led_dimengine = GImage(widgetName:"gimage_pcc_slow_2led_dimengine", path: "doc/UI_PeakCurrent_Slow_2.png", enabled:true, visible:true)
+	 gimage_pcc_slow_2led_globdim = GImage(widgetName:"gimage_pcc_slow_2led_globdim", path: "doc/UI_PeakCurrent_Slow_2g.png", enabled:true, visible:true)
+	 gimage_pcc_slow_3led_dimengine = GImage(widgetName:"gimage_pcc_slow_3led_dimengine", path: "doc/UI_PeakCurrent_Slow_3.png", enabled:true, visible:true)
+	 gimage_pcc_slow_3led_globdim = GImage(widgetName:"gimage_pcc_slow_3led_globdim", path: "doc/UI_PeakCurrent_Slow_3g.png", enabled:true, visible:true)
+	 gimage_pcc_slow_4led_dimengine = GImage(widgetName:"gimage_pcc_slow_4led_dimengine", path: "doc/UI_PeakCurrent_Slow_4.png", enabled:true, visible:true)
+	 gimage_pcc_slow_4led_globdim = GImage(widgetName:"gimage_pcc_slow_4led_globdim", path: "doc/UI_PeakCurrent_Slow_4g.png", enabled:true, visible:true)
+	 gimage_pcc_fast_1led_dimengine = GImage(widgetName:"gimage_pcc_fast_1led_dimengine", path: "doc/UI_PeakCurrent_Fast_1.png", enabled:true, visible:true)
+	 gimage_pcc_fast_1led_globdim = GImage(widgetName:"gimage_pcc_fast_1led_globdim", path: "doc/UI_PeakCurrent_Fast_1g.png", enabled:true, visible:true)
+	 gimage_pcc_fast_2led_dimengine = GImage(widgetName:"gimage_pcc_fast_2led_dimengine", path: "doc/UI_PeakCurrent_Fast_2.png", enabled:true, visible:true)
+	 gimage_pcc_fast_2led_globdim = GImage(widgetName:"gimage_pcc_fast_2led_globdim", path: "doc/UI_PeakCurrent_Fast_2g.png", enabled:true, visible:true)
+	 gimage_pcc_fast_3led_dimengine = GImage(widgetName:"gimage_pcc_fast_3led_dimengine", path: "doc/UI_PeakCurrent_Fast_3.png", enabled:true, visible:true)
+	 gimage_pcc_fast_3led_globdim = GImage(widgetName:"gimage_pcc_fast_3led_globdim", path: "doc/UI_PeakCurrent_Fast_3g.png", enabled:true, visible:true)
+	 gimage_pcc_fast_4led_dimengine = GImage(widgetName:"gimage_pcc_fast_4led_dimengine", path: "doc/UI_PeakCurrent_Fast_4.png", enabled:true, visible:true)
+	 gimage_pcc_fast_4led_globdim = GImage(widgetName:"gimage_pcc_fast_4led_globdim", path: "doc/UI_PeakCurrent_Fast_4g.png", enabled:true, visible:true)
+	 gimage_2led_dimengine = GImage(widgetName:"gimage_2led_dimengine", path: "doc/UI-General_background_2.png", enabled:true, visible:true)
+	 gimage_2led_globdim = GImage(widgetName:"gimage_2led_globdim", path: "doc/UI-General_background_2g.png", enabled:true, visible:true)
+	 gimage_3led_dimengine = GImage(widgetName:"gimage_3led_dimengine", path: "doc/UI-General_background_3.png", enabled:true, visible:true)
+	 gimage_3led_globdim = GImage(widgetName:"gimage_3led_globdim", path: "doc/UI-General_background_3g.png", enabled:true, visible:true)
+	 gimage_4led_dimengine = GImage(widgetName:"gimage_4led_dimengine", path: "doc/UI-General_background_4.png", enabled:true, visible:true)
+	 gimage_4led_globdim = GImage(widgetName:"gimage_4led_globdim", path: "doc/UI-General_background_4g.png", enabled:true, visible:true)
+	 gimage_5led_dimengine = GImage(widgetName:"gimage_5led_dimengine", path: "doc/UI-General_background_5.png", enabled:true, visible:true)
+	 gimage_5led_globdim = GImage(widgetName:"gimage_5led_globdim", path: "doc/UI-General_background_5g.png", enabled:true, visible:true)
+	 gimage_6led_dimengine = GImage(widgetName:"gimage_6led_dimengine", path: "doc/UI-General_background_6.png", enabled:true, visible:true)
+	 gimage_6led_globdim = GImage(widgetName:"gimage_6led_globdim", path: "doc/UI-General_background_6g.png", enabled:true, visible:true)
+	 gimage_7led_dimengine = GImage(widgetName:"gimage_7led_dimengine", path: "doc/UI-General_background_7.png", enabled:true, visible:true)
+	 gimage_7led_globdim = GImage(widgetName:"gimage_7led_globdim", path: "doc/UI-General_background_7g.png", enabled:true, visible:true)
+	 gimage_8led_dimengine = GImage(widgetName:"gimage_8led_dimengine", path: "doc/UI-General_background_8.png", enabled:true, visible:true)
+	 gimage_8led_globdim = GImage(widgetName:"gimage_8led_globdim", path: "doc/UI-General_background_8g.png", enabled:true, visible:true)
+	 gimage_9led_dimengine = GImage(widgetName:"gimage_9led_dimengine", path: "doc/UI-General_background_9.png", enabled:true, visible:true)
+	 gimage_9led_globdim = GImage(widgetName:"gimage_9led_globdim", path: "doc/UI-General_background_9g.png", enabled:true, visible:true)
+	 gint_DimLvl_LED_0 = GInteger(widgetName:"gint_DimLvl_LED_0", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_0 = GInteger(widgetName:"gint_Inten_LED_0", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_0 = GInteger(widgetName:"gint_Brightness_LED_0", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_1 = GInteger(widgetName:"gint_DimLvl_LED_1", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_1 = GInteger(widgetName:"gint_Inten_LED_1", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_1 = GInteger(widgetName:"gint_Brightness_LED_1", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_2 = GInteger(widgetName:"gint_DimLvl_LED_2", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_2 = GInteger(widgetName:"gint_Inten_LED_2", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_2 = GInteger(widgetName:"gint_Brightness_LED_2", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_3 = GInteger(widgetName:"gint_DimLvl_LED_3", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_3 = GInteger(widgetName:"gint_Inten_LED_3", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_3 = GInteger(widgetName:"gint_Brightness_LED_3", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_4 = GInteger(widgetName:"gint_DimLvl_LED_4", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_4 = GInteger(widgetName:"gint_Inten_LED_4", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_4 = GInteger(widgetName:"gint_Brightness_LED_4", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_5 = GInteger(widgetName:"gint_DimLvl_LED_5", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_5 = GInteger(widgetName:"gint_Inten_LED_5", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_5 = GInteger(widgetName:"gint_Brightness_LED_5", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_6 = GInteger(widgetName:"gint_DimLvl_LED_6", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_6 = GInteger(widgetName:"gint_Inten_LED_6", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_6 = GInteger(widgetName:"gint_Brightness_LED_6", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_7 = GInteger(widgetName:"gint_DimLvl_LED_7", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_7 = GInteger(widgetName:"gint_Inten_LED_7", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_7 = GInteger(widgetName:"gint_Brightness_LED_7", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_DimLvl_LED_8 = GInteger(widgetName:"gint_DimLvl_LED_8", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Inten_LED_8 = GInteger(widgetName:"gint_Inten_LED_8", value:4095, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 gint_Brightness_LED_8 = GInteger(widgetName:"gint_Brightness_LED_8", value:4095, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_linpres = GInteger(widgetName:"ginteger_linpres", value:0, minValue:0, maxValue:1023, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_dimming_clk_prescaler = GInteger(widgetName:"gint_dimming_clk_prescaler", value:110, minValue:0, maxValue:4095, enabled:false, visible:true, isMandatoryValue:false)
+	 gint_dimdiv = GInteger(widgetName:"gint_dimdiv", value:0, minValue:0, maxValue:1023, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_0 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_0", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_1 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_1", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_2 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_2", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_3 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_3", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_4 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_4", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_5 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_5", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_6 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_6", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_7 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_7", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_val_8 = GInteger(widgetName:"ginteger_pcc_gen_off_time_val_8", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 ginteger_pcc_gen_off_time_period = GInteger(widgetName:"ginteger_pcc_gen_off_time_period", value:0, minValue:0, maxValue:65535, enabled:false, visible:true, isMandatoryValue:false)
+	 gcombo_DriverSel = GCombo(widgetName:"gcombo_DriverSel", options:["Direct PDM (External LED Drivers)","Slow DCDC Buck with PDM","Simple DCDC Buck with PDM","Fast DCDC Buck with PDM"], value:"Direct PDM (External LED Drivers)", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_NoOfChannels = GCombo(widgetName:"gcombo_NoOfChannels", options:["1","2","3","4","5","6","7","8","9"], value:"1", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_SourceOfDimming = GCombo(widgetName:"gcombo_SourceOfDimming", options:["Dimming Engine","Global Dimming"], value:"Dimming Engine", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_0 = GCombo(widgetName:"gcombo_pcc_ref_gen_0", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_0 = GCombo(widgetName:"gcombo_pcc_ref_src_0", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_1 = GCombo(widgetName:"gcombo_pcc_ref_gen_1", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_1 = GCombo(widgetName:"gcombo_pcc_ref_src_1", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_2 = GCombo(widgetName:"gcombo_pcc_ref_gen_2", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_2 = GCombo(widgetName:"gcombo_pcc_ref_src_2", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_3 = GCombo(widgetName:"gcombo_pcc_ref_gen_3", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_3 = GCombo(widgetName:"gcombo_pcc_ref_src_3", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_4 = GCombo(widgetName:"gcombo_pcc_ref_gen_4", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_4 = GCombo(widgetName:"gcombo_pcc_ref_src_4", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_5 = GCombo(widgetName:"gcombo_pcc_ref_gen_5", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_5 = GCombo(widgetName:"gcombo_pcc_ref_src_5", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_6 = GCombo(widgetName:"gcombo_pcc_ref_gen_6", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_6 = GCombo(widgetName:"gcombo_pcc_ref_src_6", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_7 = GCombo(widgetName:"gcombo_pcc_ref_gen_7", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_7 = GCombo(widgetName:"gcombo_pcc_ref_src_7", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_gen_8 = GCombo(widgetName:"gcombo_pcc_ref_gen_8", options:["External Reference","Internal Reference with External Filter"], value:"External Reference", enabled:true, visible:true, isMandatoryValue:false)
+	 gcombo_pcc_ref_src_8 = GCombo(widgetName:"gcombo_pcc_ref_src_8", options:["BCCU","CCU4"], value:"BCCU", enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_0 = GFloat(widgetName:"gfloat_DimLvlPer_LED_0", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_0 = GFloat(widgetName:"gfloat_IntenPer_LED_0", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_0 = GFloat(widgetName:"gfloat_BrightnessPer_LED_0", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_1 = GFloat(widgetName:"gfloat_DimLvlPer_LED_1", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_1 = GFloat(widgetName:"gfloat_IntenPer_LED_1", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_1 = GFloat(widgetName:"gfloat_BrightnessPer_LED_1", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_2 = GFloat(widgetName:"gfloat_DimLvlPer_LED_2", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_2 = GFloat(widgetName:"gfloat_IntenPer_LED_2", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_2 = GFloat(widgetName:"gfloat_BrightnessPer_LED_2", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_3 = GFloat(widgetName:"gfloat_DimLvlPer_LED_3", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_3 = GFloat(widgetName:"gfloat_IntenPer_LED_3", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_3 = GFloat(widgetName:"gfloat_BrightnessPer_LED_3", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_4 = GFloat(widgetName:"gfloat_DimLvlPer_LED_4", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_4 = GFloat(widgetName:"gfloat_IntenPer_LED_4", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_4 = GFloat(widgetName:"gfloat_BrightnessPer_LED_4", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_5 = GFloat(widgetName:"gfloat_DimLvlPer_LED_5", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_5 = GFloat(widgetName:"gfloat_IntenPer_LED_5", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_5 = GFloat(widgetName:"gfloat_BrightnessPer_LED_5", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_6 = GFloat(widgetName:"gfloat_DimLvlPer_LED_6", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_6 = GFloat(widgetName:"gfloat_IntenPer_LED_6", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_6 = GFloat(widgetName:"gfloat_BrightnessPer_LED_6", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_7 = GFloat(widgetName:"gfloat_DimLvlPer_LED_7", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_7 = GFloat(widgetName:"gfloat_IntenPer_LED_7", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_7 = GFloat(widgetName:"gfloat_BrightnessPer_LED_7", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_DimLvlPer_LED_8 = GFloat(widgetName:"gfloat_DimLvlPer_LED_8", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_IntenPer_LED_8 = GFloat(widgetName:"gfloat_IntenPer_LED_8", value:100.0, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_BrightnessPer_LED_8 = GFloat(widgetName:"gfloat_BrightnessPer_LED_8", value:100, minValue:0, maxValue:100, enabled:false, visible:true, isMandatoryValue:false)
+	 gfloat_lin_walk_time = GFloat(widgetName:"gfloat_lin_walk_time", value:0.0, minValue:0.0, maxValue:10485.76, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_dim_trans_time = GFloat(widgetName:"gfloat_dim_trans_time", value:0.0, minValue:0.0, maxValue:71688.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_0 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_0", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_0 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_0", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_1 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_1", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_1 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_1", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_2 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_2", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_2 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_2", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_3 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_3", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_3 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_3", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_4 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_4", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_4 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_4", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_5 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_5", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_5 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_5", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_6 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_6", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_6 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_6", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_7 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_7", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_7 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_7", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_peak_ref_mv_8 = GFloat(widgetName:"gfloat_pcc_peak_ref_mv_8", value:0, minValue:0, maxValue:5000.0, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_ns_8 = GFloat(widgetName:"gfloat_pcc_gen_off_time_ns_8", value:1000, minValue:0, maxValue:512000, enabled:true, visible:true, isMandatoryValue:false)
+	 gfloat_pcc_gen_off_time_freq = GFloat(widgetName:"gfloat_pcc_gen_off_time_freq", value:100.0, minValue:0.0, maxValue:30000, enabled:true, visible:true, isMandatoryValue:false)
+	 gcheck_EnLamp = GCheck(widgetName:"gcheck_EnLamp", value:true, enabled:true, visible:true)
+	 glabel_LEDChannel_0 = GLabel(widgetName:"glabel_LEDChannel_0", text:"LED channel 0:", enabled:true, visible:true)
+	 glabel_LEDChannel_1 = GLabel(widgetName:"glabel_LEDChannel_1", text:"LED channel 1:", enabled:true, visible:true)
+	 glabel_LEDChannel_2 = GLabel(widgetName:"glabel_LEDChannel_2", text:"LED channel 2:", enabled:true, visible:true)
+	 glabel_LEDChannel_3 = GLabel(widgetName:"glabel_LEDChannel_3", text:"LED channel 3:", enabled:true, visible:true)
+	 glabel_LEDChannel_4 = GLabel(widgetName:"glabel_LEDChannel_4", text:"LED channel 4:", enabled:true, visible:true)
+	 glabel_LEDChannel_5 = GLabel(widgetName:"glabel_LEDChannel_5", text:"LED channel 5:", enabled:true, visible:true)
+	 glabel_LEDChannel_6 = GLabel(widgetName:"glabel_LEDChannel_6", text:"LED channel 6:", enabled:true, visible:true)
+	 glabel_LEDChannel_7 = GLabel(widgetName:"glabel_LEDChannel_7", text:"LED channel 7:", enabled:true, visible:true)
+	 glabel_LEDChannel_8 = GLabel(widgetName:"glabel_LEDChannel_8", text:"LED channel 8:", enabled:true, visible:true)
+	 glabel_321 = GLabel(widgetName:"glabel_321", text:"*Note: When global dimming is selected, the initial global dimming level has to be entered in \r\nGLOBAL_BCCU APP UI", enabled:true, visible:true)
+	 glabel_lin_walk_time = GLabel(widgetName:"glabel_lin_walk_time", text:"Intensity linear walk time [ms]:", enabled:true, visible:true)
+	 glabel_linpres = GLabel(widgetName:"glabel_linpres", text:"Prescaler \r\n(LINPRES):", enabled:true, visible:true)
+	 glabel_dim_trans_time = GLabel(widgetName:"glabel_dim_trans_time", text:"0-100% dimming transition time [ms]:", enabled:true, visible:true)
+	 glabel_dimming_clk_prescaler = GLabel(widgetName:"glabel_dimming_clk_prescaler", text:"Prescaler \r\n(DLCK_PS):", enabled:true, visible:true)
+	 glabel_dimdiv = GLabel(widgetName:"glabel_dimdiv", text:"Divider \r\n(DIMDIV):", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_0 = GLabel(widgetName:"glabel_pcc_LEDChannel_0", text:"LED channel 0:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_0 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_0", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_0 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_0", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_0 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_0", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_1 = GLabel(widgetName:"glabel_pcc_LEDChannel_1", text:"LED channel 1:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_1 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_1", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_1 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_1", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_1 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_1", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_2 = GLabel(widgetName:"glabel_pcc_LEDChannel_2", text:"LED channel 2:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_2 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_2", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_2 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_2", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_2 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_2", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_3 = GLabel(widgetName:"glabel_pcc_LEDChannel_3", text:"LED channel 3:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_3 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_3", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_3 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_3", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_3 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_3", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_4 = GLabel(widgetName:"glabel_pcc_LEDChannel_4", text:"LED channel 4:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_4 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_4", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_4 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_4", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_4 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_4", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_5 = GLabel(widgetName:"glabel_pcc_LEDChannel_5", text:"LED channel 5:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_5 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_5", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_5 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_5", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_5 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_5", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_6 = GLabel(widgetName:"glabel_pcc_LEDChannel_6", text:"LED channel 6:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_6 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_6", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_6 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_6", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_6 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_6", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_7 = GLabel(widgetName:"glabel_pcc_LEDChannel_7", text:"LED channel 7:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_7 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_7", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_7 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_7", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_7 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_7", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_LEDChannel_8 = GLabel(widgetName:"glabel_pcc_LEDChannel_8", text:"LED channel 8:", enabled:true, visible:true)
+	 glabel_pcc_peak_ref_mv_unit_8 = GLabel(widgetName:"glabel_pcc_peak_ref_mv_unit_8", text:"mV", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_ns_unit_8 = GLabel(widgetName:"glabel_pcc_gen_off_time_ns_unit_8", text:"ns", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_val_unit_8 = GLabel(widgetName:"glabel_pcc_gen_off_time_val_unit_8", text:"Compare", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_freq = GLabel(widgetName:"glabel_pcc_gen_off_time_freq", text:"Frequency [kHz]:", enabled:true, visible:true)
+	 glabel_pcc_gen_off_time_period = GLabel(widgetName:"glabel_pcc_gen_off_time_period", text:"Period value:", enabled:true, visible:true)
+	 ggroup_dimming_intensities = GGroup(widgetName:"ggroup_dimming_intensities", text:"Initial Dimming and Intensity Levels", enabled:true, visible:true)
+	 ggroup_fading_at_init = GGroup(widgetName:"ggroup_fading_at_init", text:"Initial Fade Rates", enabled:true, visible:true)
+	 ggroup_pcc_parameters = GGroup(widgetName:"ggroup_pcc_parameters", text:"Peak Current Control Parameters", enabled:true, visible:true)
+	 ggroup_pcc_gen_off_time_freq = GGroup(widgetName:"ggroup_pcc_gen_off_time_freq", text:"Free running frequency setting", enabled:true, visible:true)
+
+
+	 }
+	/* End : UI variable section */
+}

@@ -1,0 +1,2360 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "xmc_vadc.c"
+  14              	 .section .text.XMC_VADC_GLOBAL_EnableModule,"ax",%progbits
+  15              	 .align 1
+  16              	 .global XMC_VADC_GLOBAL_EnableModule
+  17              	 .code 16
+  18              	 .thumb_func
+  20              	XMC_VADC_GLOBAL_EnableModule:
+  21 0000 FF22     	 mov r2,#255
+  22 0002 08B5     	 push {r3,lr}
+  23 0004 024B     	 ldr r3,.L2
+  24 0006 0120     	 mov r0,#1
+  25 0008 1A60     	 str r2,[r3]
+  26 000a FFF7FEFF 	 bl XMC_SCU_CLOCK_UngatePeripheralClock
+  27              	 
+  28 000e 08BD     	 pop {r3,pc}
+  29              	.L3:
+  30              	 .align 2
+  31              	.L2:
+  32 0010 00050140 	 .word 1073808640
+  34              	 .section .text.XMC_VADC_GLOBAL_DisableModule,"ax",%progbits
+  35              	 .align 1
+  36              	 .global XMC_VADC_GLOBAL_DisableModule
+  37              	 .code 16
+  38              	 .thumb_func
+  40              	XMC_VADC_GLOBAL_DisableModule:
+  41 0000 08B5     	 push {r3,lr}
+  42 0002 0120     	 mov r0,#1
+  43 0004 FFF7FEFF 	 bl XMC_SCU_CLOCK_GatePeripheralClock
+  44              	 
+  45 0008 08BD     	 pop {r3,pc}
+  47              	 .section .text.XMC_VADC_GLOBAL_Init,"ax",%progbits
+  48              	 .align 1
+  49              	 .global XMC_VADC_GLOBAL_Init
+  50              	 .code 16
+  51              	 .thumb_func
+  53              	XMC_VADC_GLOBAL_Init:
+  54 0000 38B5     	 push {r3,r4,r5,lr}
+  55 0002 041C     	 mov r4,r0
+  56 0004 0D1C     	 mov r5,r1
+  57 0006 FFF7FEFF 	 bl XMC_VADC_GLOBAL_EnableModule
+  58 000a 231C     	 mov r3,r4
+  59 000c 6A69     	 ldr r2,[r5,#20]
+  60              	 
+  61 000e 04C3     	 stmia r3!,{r2}
+  62 0010 8022     	 mov r2,#128
+  63 0012 6968     	 ldr r1,[r5,#4]
+  64 0014 1202     	 lsl r2,r2,#8
+  65 0016 0A43     	 orr r2,r1
+  66 0018 DA67     	 str r2,[r3,#124]
+  67 001a 231C     	 mov r3,r4
+  68 001c AA68     	 ldr r2,[r5,#8]
+  69 001e A033     	 add r3,r3,#160
+  70 0020 1A60     	 str r2,[r3]
+  71 0022 EA68     	 ldr r2,[r5,#12]
+  72 0024 5A60     	 str r2,[r3,#4]
+  73 0026 A023     	 mov r3,#160
+  74 0028 2A69     	 ldr r2,[r5,#16]
+  75 002a 9B00     	 lsl r3,r3,#2
+  76 002c E250     	 str r2,[r4,r3]
+  77 002e 2B68     	 ldr r3,[r5]
+  78 0030 B834     	 add r4,r4,#184
+  79 0032 2360     	 str r3,[r4]
+  80 0034 38BD     	 pop {r3,r4,r5,pc}
+  82              	 .section .text.XMC_VADC_GLOBAL_InputClassInit,"ax",%progbits
+  83              	 .align 1
+  84              	 .global XMC_VADC_GLOBAL_InputClassInit
+  85              	 .code 16
+  86              	 .thumb_func
+  88              	XMC_VADC_GLOBAL_InputClassInit:
+  89 0000 2833     	 add r3,r3,#40
+  90 0002 002A     	 cmp r2,#0
+  91 0004 01D1     	 bne .L7
+  92 0006 034A     	 ldr r2,.L11
+  93 0008 00E0     	 b .L9
+  94              	.L7:
+  95 000a 034A     	 ldr r2,.L11+4
+  96              	.L9:
+  97 000c 1140     	 and r1,r2
+  98 000e 9B00     	 lsl r3,r3,#2
+  99 0010 1950     	 str r1,[r3,r0]
+ 100              	 
+ 101 0012 7047     	 bx lr
+ 102              	.L12:
+ 103              	 .align 2
+ 104              	.L11:
+ 105 0014 1F070000 	 .word 1823
+ 106 0018 00001F07 	 .word 119472128
+ 108              	 .section .text.XMC_VADC_GLOBAL_StartupCalibration,"ax",%progbits
+ 109              	 .align 1
+ 110              	 .global XMC_VADC_GLOBAL_StartupCalibration
+ 111              	 .code 16
+ 112              	 .thumb_func
+ 114              	XMC_VADC_GLOBAL_StartupCalibration:
+ 115 0000 8022     	 mov r2,#128
+ 116 0002 0430     	 add r0,r0,#4
+ 117 0004 C36F     	 ldr r3,[r0,#124]
+ 118 0006 1206     	 lsl r2,r2,#24
+ 119 0008 1343     	 orr r3,r2
+ 120 000a C022     	 mov r2,#192
+ 121 000c C367     	 str r3,[r0,#124]
+ 122 000e 084B     	 ldr r3,.L24
+ 123 0010 9202     	 lsl r2,r2,#10
+ 124 0012 D96F     	 ldr r1,[r3,#124]
+ 125 0014 1142     	 tst r1,r2
+ 126 0016 02D0     	 beq .L14
+ 127              	.L15:
+ 128 0018 D96F     	 ldr r1,[r3,#124]
+ 129 001a C900     	 lsl r1,r1,#3
+ 130 001c FCD4     	 bmi .L15
+ 131              	.L14:
+ 132 001e 054B     	 ldr r3,.L24+4
+ 133 0020 D96F     	 ldr r1,[r3,#124]
+ 134 0022 1142     	 tst r1,r2
+ 135 0024 02D0     	 beq .L13
+ 136              	.L17:
+ 137 0026 DA6F     	 ldr r2,[r3,#124]
+ 138 0028 D200     	 lsl r2,r2,#3
+ 139 002a FCD4     	 bmi .L17
+ 140              	.L13:
+ 141              	 
+ 142 002c 7047     	 bx lr
+ 143              	.L25:
+ 144 002e C046     	 .align 2
+ 145              	.L24:
+ 146 0030 04040348 	 .word 1208157188
+ 147 0034 04080348 	 .word 1208158212
+ 149              	 .section .text.XMC_VADC_GLOBAL_SetBoundaries,"ax",%progbits
+ 150              	 .align 1
+ 151              	 .global XMC_VADC_GLOBAL_SetBoundaries
+ 152              	 .code 16
+ 153              	 .thumb_func
+ 155              	XMC_VADC_GLOBAL_SetBoundaries:
+ 156 0000 1204     	 lsl r2,r2,#16
+ 157 0002 1143     	 orr r1,r2
+ 158 0004 B830     	 add r0,r0,#184
+ 159 0006 0160     	 str r1,[r0]
+ 160              	 
+ 161 0008 7047     	 bx lr
+ 163              	 .section .text.XMC_VADC_GLOBAL_SetIndividualBoundary,"ax",%progbits
+ 164              	 .align 1
+ 165              	 .global XMC_VADC_GLOBAL_SetIndividualBoundary
+ 166              	 .code 16
+ 167              	 .thumb_func
+ 169              	XMC_VADC_GLOBAL_SetIndividualBoundary:
+ 170 0000 B830     	 add r0,r0,#184
+ 171 0002 0368     	 ldr r3,[r0]
+ 172 0004 0229     	 cmp r1,#2
+ 173 0006 02D1     	 bne .L28
+ 174 0008 1B0B     	 lsr r3,r3,#12
+ 175 000a 1B03     	 lsl r3,r3,#12
+ 176 000c 04E0     	 b .L30
+ 177              	.L28:
+ 178 000e 0329     	 cmp r1,#3
+ 179 0010 03D1     	 bne .L29
+ 180 0012 0349     	 ldr r1,.L31
+ 181 0014 1204     	 lsl r2,r2,#16
+ 182 0016 0B40     	 and r3,r1
+ 183              	.L30:
+ 184 0018 1343     	 orr r3,r2
+ 185              	.L29:
+ 186 001a 0360     	 str r3,[r0]
+ 187              	 
+ 188 001c 7047     	 bx lr
+ 189              	.L32:
+ 190 001e C046     	 .align 2
+ 191              	.L31:
+ 192 0020 FFFF00F0 	 .word -268369921
+ 194              	 .section .text.XMC_VADC_GLOBAL_SetCompareValue,"ax",%progbits
+ 195              	 .align 1
+ 196              	 .global XMC_VADC_GLOBAL_SetCompareValue
+ 197              	 .code 16
+ 198              	 .thumb_func
+ 200              	XMC_VADC_GLOBAL_SetCompareValue:
+ 201 0000 C022     	 mov r2,#192
+ 202 0002 9200     	 lsl r2,r2,#2
+ 203 0004 8358     	 ldr r3,[r0,r2]
+ 204 0006 8900     	 lsl r1,r1,#2
+ 205 0008 1B0C     	 lsr r3,r3,#16
+ 206 000a 1B04     	 lsl r3,r3,#16
+ 207 000c 8350     	 str r3,[r0,r2]
+ 208 000e 8358     	 ldr r3,[r0,r2]
+ 209              	 
+ 210 0010 1943     	 orr r1,r3
+ 211 0012 8150     	 str r1,[r0,r2]
+ 212 0014 7047     	 bx lr
+ 214              	 .section .text.XMC_VADC_GLOBAL_GetCompareResult,"ax",%progbits
+ 215              	 .align 1
+ 216              	 .global XMC_VADC_GLOBAL_GetCompareResult
+ 217              	 .code 16
+ 218              	 .thumb_func
+ 220              	XMC_VADC_GLOBAL_GetCompareResult:
+ 221 0000 C023     	 mov r3,#192
+ 222 0002 9B00     	 lsl r3,r3,#2
+ 223 0004 C358     	 ldr r3,[r0,r3]
+ 224 0006 0220     	 mov r0,#2
+ 225 0008 002B     	 cmp r3,#0
+ 226 000a 01DA     	 bge .L35
+ 227 000c 5B00     	 lsl r3,r3,#1
+ 228 000e D80F     	 lsr r0,r3,#31
+ 229              	.L35:
+ 230              	 
+ 231 0010 7047     	 bx lr
+ 233              	 .section .text.XMC_VADC_GLOBAL_BindGroupToEMux,"ax",%progbits
+ 234              	 .align 1
+ 235              	 .global XMC_VADC_GLOBAL_BindGroupToEMux
+ 236              	 .code 16
+ 237              	 .thumb_func
+ 239              	XMC_VADC_GLOBAL_BindGroupToEMux:
+ 240 0000 30B5     	 push {r4,r5,lr}
+ 241 0002 0F25     	 mov r5,#15
+ 242 0004 0029     	 cmp r1,#0
+ 243 0006 01D0     	 beq .L38
+ 244 0008 0421     	 mov r1,#4
+ 245 000a F025     	 mov r5,#240
+ 246              	.L38:
+ 247 000c 8A40     	 lsl r2,r2,r1
+ 248 000e FC23     	 mov r3,#252
+ 249 0010 111C     	 mov r1,r2
+ 250 0012 9B00     	 lsl r3,r3,#2
+ 251 0014 C458     	 ldr r4,[r0,r3]
+ 252              	 
+ 253 0016 AC43     	 bic r4,r5
+ 254 0018 C450     	 str r4,[r0,r3]
+ 255 001a C458     	 ldr r4,[r0,r3]
+ 256 001c 2143     	 orr r1,r4
+ 257 001e C150     	 str r1,[r0,r3]
+ 258 0020 30BD     	 pop {r4,r5,pc}
+ 260              	 .section .text.XMC_VADC_GLOBAL_SetResultEventInterruptNode,"ax",%progbits
+ 261              	 .align 1
+ 262              	 .global XMC_VADC_GLOBAL_SetResultEventInterruptNode
+ 263              	 .code 16
+ 264              	 .thumb_func
+ 266              	XMC_VADC_GLOBAL_SetResultEventInterruptNode:
+ 267 0000 0329     	 cmp r1,#3
+ 268 0002 00D9     	 bls .L42
+ 269 0004 0439     	 sub r1,r1,#4
+ 270              	.L42:
+ 271 0006 FC30     	 add r0,r0,#252
+ 272 0008 426C     	 ldr r2,[r0,#68]
+ 273 000a 044B     	 ldr r3,.L43
+ 274 000c 0904     	 lsl r1,r1,#16
+ 275 000e 1340     	 and r3,r2
+ 276 0010 4364     	 str r3,[r0,#68]
+ 277 0012 436C     	 ldr r3,[r0,#68]
+ 278              	 
+ 279 0014 1943     	 orr r1,r3
+ 280 0016 4164     	 str r1,[r0,#68]
+ 281 0018 7047     	 bx lr
+ 282              	.L44:
+ 283 001a C046     	 .align 2
+ 284              	.L43:
+ 285 001c FFFFF0FF 	 .word -983041
+ 287              	 .section .text.XMC_VADC_GLOBAL_BackgroundSetReqSrcEventInterruptNode,"ax",%progbits
+ 288              	 .align 1
+ 289              	 .global XMC_VADC_GLOBAL_BackgroundSetReqSrcEventInterruptNode
+ 290              	 .code 16
+ 291              	 .thumb_func
+ 293              	XMC_VADC_GLOBAL_BackgroundSetReqSrcEventInterruptNode:
+ 294 0000 0329     	 cmp r1,#3
+ 295 0002 00D9     	 bls .L47
+ 296 0004 0439     	 sub r1,r1,#4
+ 297              	.L47:
+ 298 0006 0F22     	 mov r2,#15
+ 299 0008 FC30     	 add r0,r0,#252
+ 300 000a 436C     	 ldr r3,[r0,#68]
+ 301              	 
+ 302 000c 9343     	 bic r3,r2
+ 303 000e 4364     	 str r3,[r0,#68]
+ 304 0010 436C     	 ldr r3,[r0,#68]
+ 305 0012 1943     	 orr r1,r3
+ 306 0014 4164     	 str r1,[r0,#68]
+ 307 0016 7047     	 bx lr
+ 309              	 .section .text.XMC_VADC_GROUP_InputClassInit,"ax",%progbits
+ 310              	 .align 1
+ 311              	 .global XMC_VADC_GROUP_InputClassInit
+ 312              	 .code 16
+ 313              	 .thumb_func
+ 315              	XMC_VADC_GROUP_InputClassInit:
+ 316 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 317 0002 002A     	 cmp r2,#0
+ 318 0004 08D1     	 bne .L49
+ 319 0006 E026     	 mov r6,#224
+ 320 0008 CC06     	 lsl r4,r1,#27
+ 321 000a 4905     	 lsl r1,r1,#21
+ 322 000c E40E     	 lsr r4,r4,#27
+ 323 000e 490F     	 lsr r1,r1,#29
+ 324 0010 1F25     	 mov r5,#31
+ 325 0012 F600     	 lsl r6,r6,#3
+ 326 0014 0827     	 mov r7,#8
+ 327 0016 09E0     	 b .L50
+ 328              	.L49:
+ 329 0018 F825     	 mov r5,#248
+ 330 001a E026     	 mov r6,#224
+ 331 001c 1022     	 mov r2,#16
+ 332 001e 1827     	 mov r7,#24
+ 333 0020 CC02     	 lsl r4,r1,#11
+ 334 0022 4901     	 lsl r1,r1,#5
+ 335 0024 E40E     	 lsr r4,r4,#27
+ 336 0026 490F     	 lsr r1,r1,#29
+ 337 0028 6D03     	 lsl r5,r5,#13
+ 338 002a F604     	 lsl r6,r6,#19
+ 339              	.L50:
+ 340 002c B940     	 lsl r1,r1,r7
+ 341 002e 9440     	 lsl r4,r4,r2
+ 342 0030 9B00     	 lsl r3,r3,#2
+ 343 0032 C018     	 add r0,r0,r3
+ 344 0034 A030     	 add r0,r0,#160
+ 345 0036 0368     	 ldr r3,[r0]
+ 346              	 
+ 347 0038 B343     	 bic r3,r6
+ 348 003a 1943     	 orr r1,r3
+ 349 003c A943     	 bic r1,r5
+ 350 003e 2143     	 orr r1,r4
+ 351 0040 0160     	 str r1,[r0]
+ 352 0042 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 354              	 .section .text.XMC_VADC_GROUP_Init,"ax",%progbits
+ 355              	 .align 1
+ 356              	 .global XMC_VADC_GROUP_Init
+ 357              	 .code 16
+ 358              	 .thumb_func
+ 360              	XMC_VADC_GROUP_Init:
+ 361 0000 0022     	 mov r2,#0
+ 362 0002 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 363 0004 041C     	 mov r4,r0
+ 364 0006 0D1C     	 mov r5,r1
+ 365 0008 131C     	 mov r3,r2
+ 366 000a 4968     	 ldr r1,[r1,#4]
+ 367 000c FFF7FEFF 	 bl XMC_VADC_GROUP_InputClassInit
+ 368 0010 201C     	 mov r0,r4
+ 369 0012 6968     	 ldr r1,[r5,#4]
+ 370 0014 0122     	 mov r2,#1
+ 371 0016 0023     	 mov r3,#0
+ 372 0018 FFF7FEFF 	 bl XMC_VADC_GROUP_InputClassInit
+ 373 001c 201C     	 mov r0,r4
+ 374 001e A968     	 ldr r1,[r5,#8]
+ 375 0020 0022     	 mov r2,#0
+ 376 0022 0123     	 mov r3,#1
+ 377 0024 FFF7FEFF 	 bl XMC_VADC_GROUP_InputClassInit
+ 378 0028 0122     	 mov r2,#1
+ 379 002a 201C     	 mov r0,r4
+ 380 002c A968     	 ldr r1,[r5,#8]
+ 381 002e 131C     	 mov r3,r2
+ 382 0030 FFF7FEFF 	 bl XMC_VADC_GROUP_InputClassInit
+ 383 0034 2A69     	 ldr r2,[r5,#16]
+ 384 0036 231D     	 add r3,r4,#4
+ 385 0038 DA67     	 str r2,[r3,#124]
+ 386 003a EA68     	 ldr r2,[r5,#12]
+ 387 003c B433     	 add r3,r3,#180
+ 388 003e 1A60     	 str r2,[r3]
+ 389 0040 6E88     	 ldrh r6,[r5,#2]
+ 390 0042 EB78     	 ldrb r3,[r5,#3]
+ 391 0044 2D78     	 ldrb r5,[r5]
+ 392 0046 B605     	 lsl r6,r6,#22
+ 393 0048 6D07     	 lsl r5,r5,#29
+ 394 004a B609     	 lsr r6,r6,#6
+ 395 004c 6D0F     	 lsr r5,r5,#29
+ 396 004e 3543     	 orr r5,r6
+ 397 0050 F826     	 mov r6,#248
+ 398 0052 8027     	 mov r7,#128
+ 399 0054 7600     	 lsl r6,r6,#1
+ 400 0056 A551     	 str r5,[r4,r6]
+ 401 0058 A559     	 ldr r5,[r4,r6]
+ 402 005a D806     	 lsl r0,r3,#27
+ 403 005c 3F06     	 lsl r7,r7,#24
+ 404 005e 1907     	 lsl r1,r3,#28
+ 405 0060 C00F     	 lsr r0,r0,#31
+ 406 0062 3D43     	 orr r5,r7
+ 407 0064 9A06     	 lsl r2,r3,#26
+ 408 0066 890F     	 lsr r1,r1,#30
+ 409 0068 0007     	 lsl r0,r0,#28
+ 410 006a 2843     	 orr r0,r5
+ 411 006c D20F     	 lsr r2,r2,#31
+ 412 006e 5B06     	 lsl r3,r3,#25
+ 413 0070 8906     	 lsl r1,r1,#26
+ 414 0072 0143     	 orr r1,r0
+ 415 0074 DB0F     	 lsr r3,r3,#31
+ 416 0076 5207     	 lsl r2,r2,#29
+ 417 0078 0A43     	 orr r2,r1
+ 418 007a 9B07     	 lsl r3,r3,#30
+ 419 007c 1343     	 orr r3,r2
+ 420 007e A351     	 str r3,[r4,r6]
+ 421              	 
+ 422 0080 F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 424              	 .section .text.XMC_VADC_GROUP_SetPowerMode,"ax",%progbits
+ 425              	 .align 1
+ 426              	 .global XMC_VADC_GROUP_SetPowerMode
+ 427              	 .code 16
+ 428              	 .thumb_func
+ 430              	XMC_VADC_GROUP_SetPowerMode:
+ 431 0000 0322     	 mov r2,#3
+ 432 0002 0430     	 add r0,r0,#4
+ 433 0004 C36F     	 ldr r3,[r0,#124]
+ 434              	 
+ 435 0006 9343     	 bic r3,r2
+ 436 0008 1943     	 orr r1,r3
+ 437 000a C167     	 str r1,[r0,#124]
+ 438 000c 7047     	 bx lr
+ 440              	 .section .text.XMC_VADC_GROUP_SetSyncSlave,"ax",%progbits
+ 441              	 .align 1
+ 442              	 .global XMC_VADC_GROUP_SetSyncSlave
+ 443              	 .code 16
+ 444              	 .thumb_func
+ 446              	XMC_VADC_GROUP_SetSyncSlave:
+ 447 0000 9142     	 cmp r1,r2
+ 448 0002 9241     	 sbc r2,r2,r2
+ 449 0004 5242     	 neg r2,r2
+ 450 0006 8918     	 add r1,r1,r2
+ 451 0008 0322     	 mov r2,#3
+ 452 000a C030     	 add r0,r0,#192
+ 453 000c 0368     	 ldr r3,[r0]
+ 454              	 
+ 455 000e 9343     	 bic r3,r2
+ 456 0010 1943     	 orr r1,r3
+ 457 0012 0160     	 str r1,[r0]
+ 458 0014 7047     	 bx lr
+ 460              	 .section .text.XMC_VADC_GROUP_SetSyncMaster,"ax",%progbits
+ 461              	 .align 1
+ 462              	 .global XMC_VADC_GROUP_SetSyncMaster
+ 463              	 .code 16
+ 464              	 .thumb_func
+ 466              	XMC_VADC_GROUP_SetSyncMaster:
+ 467 0000 0322     	 mov r2,#3
+ 468 0002 C030     	 add r0,r0,#192
+ 469 0004 0368     	 ldr r3,[r0]
+ 470              	 
+ 471 0006 9343     	 bic r3,r2
+ 472 0008 0360     	 str r3,[r0]
+ 473 000a 7047     	 bx lr
+ 475              	 .section .text.XMC_VADC_GROUP_CheckSlaveReadiness,"ax",%progbits
+ 476              	 .align 1
+ 477              	 .global XMC_VADC_GROUP_CheckSlaveReadiness
+ 478              	 .code 16
+ 479              	 .thumb_func
+ 481              	XMC_VADC_GROUP_CheckSlaveReadiness:
+ 482 0000 1022     	 mov r2,#16
+ 483 0002 C030     	 add r0,r0,#192
+ 484 0004 0368     	 ldr r3,[r0]
+ 485              	 
+ 486 0006 1343     	 orr r3,r2
+ 487 0008 0360     	 str r3,[r0]
+ 488 000a 7047     	 bx lr
+ 490              	 .section .text.XMC_VADC_GROUP_IgnoreSlaveReadiness,"ax",%progbits
+ 491              	 .align 1
+ 492              	 .global XMC_VADC_GROUP_IgnoreSlaveReadiness
+ 493              	 .code 16
+ 494              	 .thumb_func
+ 496              	XMC_VADC_GROUP_IgnoreSlaveReadiness:
+ 497 0000 1022     	 mov r2,#16
+ 498 0002 C030     	 add r0,r0,#192
+ 499 0004 0368     	 ldr r3,[r0]
+ 500              	 
+ 501 0006 9343     	 bic r3,r2
+ 502 0008 0360     	 str r3,[r0]
+ 503 000a 7047     	 bx lr
+ 505              	 .section .text.XMC_VADC_GROUP_EnableChannelSyncRequest,"ax",%progbits
+ 506              	 .align 1
+ 507              	 .global XMC_VADC_GROUP_EnableChannelSyncRequest
+ 508              	 .code 16
+ 509              	 .thumb_func
+ 511              	XMC_VADC_GROUP_EnableChannelSyncRequest:
+ 512 0000 031C     	 mov r3,r0
+ 513 0002 C033     	 add r3,r3,#192
+ 514 0004 1B68     	 ldr r3,[r3]
+ 515 0006 9B07     	 lsl r3,r3,#30
+ 516 0008 08D1     	 bne .L58
+ 517 000a 8022     	 mov r2,#128
+ 518 000c 8900     	 lsl r1,r1,#2
+ 519 000e 4118     	 add r1,r0,r1
+ 520 0010 8020     	 mov r0,#128
+ 521 0012 9200     	 lsl r2,r2,#2
+ 522 0014 8B58     	 ldr r3,[r1,r2]
+ 523 0016 C000     	 lsl r0,r0,#3
+ 524 0018 0343     	 orr r3,r0
+ 525 001a 8B50     	 str r3,[r1,r2]
+ 526              	.L58:
+ 527              	 
+ 528 001c 7047     	 bx lr
+ 530              	 .section .text.XMC_VADC_GROUP_DisableChannelSyncRequest,"ax",%progbits
+ 531              	 .align 1
+ 532              	 .global XMC_VADC_GROUP_DisableChannelSyncRequest
+ 533              	 .code 16
+ 534              	 .thumb_func
+ 536              	XMC_VADC_GROUP_DisableChannelSyncRequest:
+ 537 0000 031C     	 mov r3,r0
+ 538 0002 C033     	 add r3,r3,#192
+ 539 0004 1B68     	 ldr r3,[r3]
+ 540 0006 9B07     	 lsl r3,r3,#30
+ 541 0008 07D0     	 beq .L60
+ 542 000a 8022     	 mov r2,#128
+ 543 000c 8900     	 lsl r1,r1,#2
+ 544 000e 4118     	 add r1,r0,r1
+ 545 0010 9200     	 lsl r2,r2,#2
+ 546 0012 8858     	 ldr r0,[r1,r2]
+ 547 0014 014B     	 ldr r3,.L65
+ 548 0016 0340     	 and r3,r0
+ 549 0018 8B50     	 str r3,[r1,r2]
+ 550              	.L60:
+ 551              	 
+ 552 001a 7047     	 bx lr
+ 553              	.L66:
+ 554              	 .align 2
+ 555              	.L65:
+ 556 001c FFFBFFFF 	 .word -1025
+ 558              	 .section .text.XMC_VADC_GROUP_IsConverterBusy,"ax",%progbits
+ 559              	 .align 1
+ 560              	 .global XMC_VADC_GROUP_IsConverterBusy
+ 561              	 .code 16
+ 562              	 .thumb_func
+ 564              	XMC_VADC_GROUP_IsConverterBusy:
+ 565 0000 0430     	 add r0,r0,#4
+ 566 0002 C06F     	 ldr r0,[r0,#124]
+ 567              	 
+ 568 0004 4000     	 lsl r0,r0,#1
+ 569 0006 C00F     	 lsr r0,r0,#31
+ 570 0008 7047     	 bx lr
+ 572              	 .section .text.XMC_VADC_GROUP_SetBoundaries,"ax",%progbits
+ 573              	 .align 1
+ 574              	 .global XMC_VADC_GROUP_SetBoundaries
+ 575              	 .code 16
+ 576              	 .thumb_func
+ 578              	XMC_VADC_GROUP_SetBoundaries:
+ 579 0000 10B5     	 push {r4,lr}
+ 580 0002 B830     	 add r0,r0,#184
+ 581 0004 0468     	 ldr r4,[r0]
+ 582 0006 034B     	 ldr r3,.L69
+ 583 0008 1204     	 lsl r2,r2,#16
+ 584 000a 2340     	 and r3,r4
+ 585 000c 1143     	 orr r1,r2
+ 586 000e 1943     	 orr r1,r3
+ 587 0010 0160     	 str r1,[r0]
+ 588              	 
+ 589 0012 10BD     	 pop {r4,pc}
+ 590              	.L70:
+ 591              	 .align 2
+ 592              	.L69:
+ 593 0014 00F000F0 	 .word -268374016
+ 595              	 .section .text.XMC_VADC_GROUP_SetIndividualBoundary,"ax",%progbits
+ 596              	 .align 1
+ 597              	 .global XMC_VADC_GROUP_SetIndividualBoundary
+ 598              	 .code 16
+ 599              	 .thumb_func
+ 601              	XMC_VADC_GROUP_SetIndividualBoundary:
+ 602 0000 B830     	 add r0,r0,#184
+ 603 0002 0368     	 ldr r3,[r0]
+ 604 0004 0029     	 cmp r1,#0
+ 605 0006 02D1     	 bne .L72
+ 606 0008 1B0B     	 lsr r3,r3,#12
+ 607 000a 1B03     	 lsl r3,r3,#12
+ 608 000c 04E0     	 b .L74
+ 609              	.L72:
+ 610 000e 0129     	 cmp r1,#1
+ 611 0010 03D1     	 bne .L73
+ 612 0012 0349     	 ldr r1,.L75
+ 613 0014 1204     	 lsl r2,r2,#16
+ 614 0016 0B40     	 and r3,r1
+ 615              	.L74:
+ 616 0018 1343     	 orr r3,r2
+ 617              	.L73:
+ 618 001a 0360     	 str r3,[r0]
+ 619              	 
+ 620 001c 7047     	 bx lr
+ 621              	.L76:
+ 622 001e C046     	 .align 2
+ 623              	.L75:
+ 624 0020 FFFF00F0 	 .word -268369921
+ 626              	 .section .text.XMC_VADC_GROUP_TriggerServiceRequest,"ax",%progbits
+ 627              	 .align 1
+ 628              	 .global XMC_VADC_GROUP_TriggerServiceRequest
+ 629              	 .code 16
+ 630              	 .thumb_func
+ 632              	XMC_VADC_GROUP_TriggerServiceRequest:
+ 633 0000 E423     	 mov r3,#228
+ 634 0002 5B00     	 lsl r3,r3,#1
+ 635 0004 30B5     	 push {r4,r5,lr}
+ 636 0006 C458     	 ldr r4,[r0,r3]
+ 637 0008 1D1C     	 mov r5,r3
+ 638 000a C83B     	 sub r3,r3,#200
+ 639 000c FF3B     	 sub r3,r3,#255
+ 640 000e 002A     	 cmp r2,#0
+ 641 0010 00D0     	 beq .L81
+ 642 0012 0831     	 add r1,r1,#8
+ 643              	.L81:
+ 644 0014 8B40     	 lsl r3,r3,r1
+ 645 0016 2343     	 orr r3,r4
+ 646 0018 4351     	 str r3,[r0,r5]
+ 647              	 
+ 648 001a 30BD     	 pop {r4,r5,pc}
+ 650              	 .section .text.XMC_VADC_GROUP_SetBoundaryEventInterruptNode,"ax",%progbits
+ 651              	 .align 1
+ 652              	 .global XMC_VADC_GROUP_SetBoundaryEventInterruptNode
+ 653              	 .code 16
+ 654              	 .thumb_func
+ 656              	XMC_VADC_GROUP_SetBoundaryEventInterruptNode:
+ 657 0000 10B5     	 push {r4,lr}
+ 658 0002 0F24     	 mov r4,#15
+ 659 0004 8900     	 lsl r1,r1,#2
+ 660 0006 8A40     	 lsl r2,r2,r1
+ 661 0008 8C40     	 lsl r4,r4,r1
+ 662 000a 111C     	 mov r1,r2
+ 663 000c D430     	 add r0,r0,#212
+ 664 000e 0368     	 ldr r3,[r0]
+ 665              	 
+ 666 0010 A343     	 bic r3,r4
+ 667 0012 0360     	 str r3,[r0]
+ 668 0014 0368     	 ldr r3,[r0]
+ 669 0016 1943     	 orr r1,r3
+ 670 0018 0160     	 str r1,[r0]
+ 671 001a 10BD     	 pop {r4,pc}
+ 673              	 .section .text.XMC_VADC_GLOBAL_SHS_Init,"ax",%progbits
+ 674              	 .align 1
+ 675              	 .global XMC_VADC_GLOBAL_SHS_Init
+ 676              	 .code 16
+ 677              	 .thumb_func
+ 679              	XMC_VADC_GLOBAL_SHS_Init:
+ 680 0000 8023     	 mov r3,#128
+ 681 0002 0A68     	 ldr r2,[r1]
+ 682 0004 1B02     	 lsl r3,r3,#8
+ 683 0006 1343     	 orr r3,r2
+ 684 0008 0122     	 mov r2,#1
+ 685 000a 0364     	 str r3,[r0,#64]
+ 686 000c BC30     	 add r0,r0,#188
+ 687 000e 0368     	 ldr r3,[r0]
+ 688              	 
+ 689 0010 9343     	 bic r3,r2
+ 690 0012 0360     	 str r3,[r0]
+ 691 0014 0368     	 ldr r3,[r0]
+ 692 0016 0A79     	 ldrb r2,[r1,#4]
+ 693 0018 1343     	 orr r3,r2
+ 694 001a 0360     	 str r3,[r0]
+ 695 001c 7047     	 bx lr
+ 697              	 .section .text.XMC_VADC_GLOBAL_SHS_EnableAcceleratedMode,"ax",%progbits
+ 698              	 .align 1
+ 699              	 .global XMC_VADC_GLOBAL_SHS_EnableAcceleratedMode
+ 700              	 .code 16
+ 701              	 .thumb_func
+ 703              	XMC_VADC_GLOBAL_SHS_EnableAcceleratedMode:
+ 704 0000 0029     	 cmp r1,#0
+ 705 0002 05D1     	 bne .L85
+ 706 0004 0122     	 mov r2,#1
+ 707 0006 0430     	 add r0,r0,#4
+ 708 0008 C36F     	 ldr r3,[r0,#124]
+ 709 000a 1343     	 orr r3,r2
+ 710 000c C367     	 str r3,[r0,#124]
+ 711 000e 05E0     	 b .L84
+ 712              	.L85:
+ 713 0010 0129     	 cmp r1,#1
+ 714 0012 03D1     	 bne .L84
+ 715 0014 0830     	 add r0,r0,#8
+ 716 0016 C36F     	 ldr r3,[r0,#124]
+ 717 0018 1943     	 orr r1,r3
+ 718 001a C167     	 str r1,[r0,#124]
+ 719              	.L84:
+ 720              	 
+ 721 001c 7047     	 bx lr
+ 723              	 .section .text.XMC_VADC_GLOBAL_SHS_DisableAcceleratedMode,"ax",%progbits
+ 724              	 .align 1
+ 725              	 .global XMC_VADC_GLOBAL_SHS_DisableAcceleratedMode
+ 726              	 .code 16
+ 727              	 .thumb_func
+ 729              	XMC_VADC_GLOBAL_SHS_DisableAcceleratedMode:
+ 730 0000 0029     	 cmp r1,#0
+ 731 0002 04D1     	 bne .L88
+ 732 0004 0122     	 mov r2,#1
+ 733 0006 0430     	 add r0,r0,#4
+ 734 0008 C36F     	 ldr r3,[r0,#124]
+ 735 000a 9343     	 bic r3,r2
+ 736 000c 04E0     	 b .L90
+ 737              	.L88:
+ 738 000e 0129     	 cmp r1,#1
+ 739 0010 03D1     	 bne .L87
+ 740 0012 0830     	 add r0,r0,#8
+ 741 0014 C36F     	 ldr r3,[r0,#124]
+ 742 0016 8B43     	 bic r3,r1
+ 743              	.L90:
+ 744 0018 C367     	 str r3,[r0,#124]
+ 745              	.L87:
+ 746              	 
+ 747 001a 7047     	 bx lr
+ 749              	 .section .text.XMC_VADC_GLOBAL_SHS_SetShortSampleTime,"ax",%progbits
+ 750              	 .align 1
+ 751              	 .global XMC_VADC_GLOBAL_SHS_SetShortSampleTime
+ 752              	 .code 16
+ 753              	 .thumb_func
+ 755              	XMC_VADC_GLOBAL_SHS_SetShortSampleTime:
+ 756 0000 0029     	 cmp r1,#0
+ 757 0002 01D1     	 bne .L92
+ 758 0004 0430     	 add r0,r0,#4
+ 759 0006 02E0     	 b .L94
+ 760              	.L92:
+ 761 0008 0129     	 cmp r1,#1
+ 762 000a 08D1     	 bne .L91
+ 763 000c 0830     	 add r0,r0,#8
+ 764              	.L94:
+ 765 000e C16F     	 ldr r1,[r0,#124]
+ 766 0010 034B     	 ldr r3,.L95
+ 767 0012 1202     	 lsl r2,r2,#8
+ 768 0014 0B40     	 and r3,r1
+ 769 0016 C367     	 str r3,[r0,#124]
+ 770 0018 C36F     	 ldr r3,[r0,#124]
+ 771 001a 1A43     	 orr r2,r3
+ 772 001c C267     	 str r2,[r0,#124]
+ 773              	.L91:
+ 774              	 
+ 775 001e 7047     	 bx lr
+ 776              	.L96:
+ 777              	 .align 2
+ 778              	.L95:
+ 779 0020 FFC0FFFF 	 .word -16129
+ 781              	 .section .text.XMC_VADC_GLOBAL_SHS_SetGainFactor,"ax",%progbits
+ 782              	 .align 1
+ 783              	 .global XMC_VADC_GLOBAL_SHS_SetGainFactor
+ 784              	 .code 16
+ 785              	 .thumb_func
+ 787              	XMC_VADC_GLOBAL_SHS_SetGainFactor:
+ 788 0000 30B5     	 push {r4,r5,lr}
+ 789 0002 9B00     	 lsl r3,r3,#2
+ 790 0004 002A     	 cmp r2,#0
+ 791 0006 01D1     	 bne .L98
+ 792 0008 8132     	 add r2,r2,#129
+ 793 000a 02E0     	 b .L100
+ 794              	.L98:
+ 795 000c 012A     	 cmp r2,#1
+ 796 000e 0BD1     	 bne .L97
+ 797 0010 9032     	 add r2,r2,#144
+ 798              	.L100:
+ 799 0012 0F25     	 mov r5,#15
+ 800 0014 9940     	 lsl r1,r1,r3
+ 801 0016 9D40     	 lsl r5,r5,r3
+ 802 0018 0B1C     	 mov r3,r1
+ 803 001a FF32     	 add r2,r2,#255
+ 804 001c 8458     	 ldr r4,[r0,r2]
+ 805 001e AC43     	 bic r4,r5
+ 806 0020 8450     	 str r4,[r0,r2]
+ 807 0022 8458     	 ldr r4,[r0,r2]
+ 808 0024 2343     	 orr r3,r4
+ 809 0026 8350     	 str r3,[r0,r2]
+ 810              	.L97:
+ 811              	 
+ 812 0028 30BD     	 pop {r4,r5,pc}
+ 814              	 .section .text.XMC_VADC_GLOBAL_SHS_EnableGainAndOffsetCalibrations,"ax",%progbits
+ 815              	 .align 1
+ 816              	 .global XMC_VADC_GLOBAL_SHS_EnableGainAndOffsetCalibrations
+ 817              	 .code 16
+ 818              	 .thumb_func
+ 820              	XMC_VADC_GLOBAL_SHS_EnableGainAndOffsetCalibrations:
+ 821 0000 0029     	 cmp r1,#0
+ 822 0002 01D1     	 bne .L102
+ 823 0004 E030     	 add r0,r0,#224
+ 824 0006 02E0     	 b .L104
+ 825              	.L102:
+ 826 0008 0129     	 cmp r1,#1
+ 827 000a 04D1     	 bne .L101
+ 828 000c E430     	 add r0,r0,#228
+ 829              	.L104:
+ 830 000e 0368     	 ldr r3,[r0]
+ 831 0010 5B00     	 lsl r3,r3,#1
+ 832 0012 5B08     	 lsr r3,r3,#1
+ 833 0014 0360     	 str r3,[r0]
+ 834              	.L101:
+ 835              	 
+ 836 0016 7047     	 bx lr
+ 838              	 .section .text.XMC_VADC_GLOBAL_SHS_DisableGainAndOffsetCalibrations,"ax",%progbits
+ 839              	 .align 1
+ 840              	 .global XMC_VADC_GLOBAL_SHS_DisableGainAndOffsetCalibrations
+ 841              	 .code 16
+ 842              	 .thumb_func
+ 844              	XMC_VADC_GLOBAL_SHS_DisableGainAndOffsetCalibrations:
+ 845 0000 0029     	 cmp r1,#0
+ 846 0002 01D1     	 bne .L106
+ 847 0004 E030     	 add r0,r0,#224
+ 848 0006 02E0     	 b .L108
+ 849              	.L106:
+ 850 0008 0129     	 cmp r1,#1
+ 851 000a 05D1     	 bne .L105
+ 852 000c E430     	 add r0,r0,#228
+ 853              	.L108:
+ 854 000e 8022     	 mov r2,#128
+ 855 0010 0368     	 ldr r3,[r0]
+ 856 0012 1206     	 lsl r2,r2,#24
+ 857 0014 1343     	 orr r3,r2
+ 858 0016 0360     	 str r3,[r0]
+ 859              	.L105:
+ 860              	 
+ 861 0018 7047     	 bx lr
+ 863              	 .section .text.XMC_VADC_GLOBAL_SHS_GetOffsetCalibrationValue,"ax",%progbits
+ 864              	 .align 1
+ 865              	 .global XMC_VADC_GLOBAL_SHS_GetOffsetCalibrationValue
+ 866              	 .code 16
+ 867              	 .thumb_func
+ 869              	XMC_VADC_GLOBAL_SHS_GetOffsetCalibrationValue:
+ 870 0000 0029     	 cmp r1,#0
+ 871 0002 01D1     	 bne .L110
+ 872 0004 E030     	 add r0,r0,#224
+ 873 0006 03E0     	 b .L113
+ 874              	.L110:
+ 875 0008 0023     	 mov r3,#0
+ 876 000a 0129     	 cmp r1,#1
+ 877 000c 05D1     	 bne .L111
+ 878 000e E430     	 add r0,r0,#228
+ 879              	.L113:
+ 880 0010 0168     	 ldr r1,[r0]
+ 881 0012 0B1C     	 mov r3,r1
+ 882 0014 7F21     	 mov r1,#127
+ 883 0016 D340     	 lsr r3,r3,r2
+ 884 0018 0B40     	 and r3,r1
+ 885              	.L111:
+ 886 001a D8B2     	 uxtb r0,r3
+ 887              	 
+ 888 001c 7047     	 bx lr
+ 890              	 .section .text.XMC_VADC_GLOBAL_SHS_SetOffsetCalibrationValue,"ax",%progbits
+ 891              	 .align 1
+ 892              	 .global XMC_VADC_GLOBAL_SHS_SetOffsetCalibrationValue
+ 893              	 .code 16
+ 894              	 .thumb_func
+ 896              	XMC_VADC_GLOBAL_SHS_SetOffsetCalibrationValue:
+ 897 0000 10B5     	 push {r4,lr}
+ 898 0002 0029     	 cmp r1,#0
+ 899 0004 0FD1     	 bne .L115
+ 900 0006 7F24     	 mov r4,#127
+ 901 0008 9440     	 lsl r4,r4,r2
+ 902 000a E030     	 add r0,r0,#224
+ 903 000c 0168     	 ldr r1,[r0]
+ 904 000e 9340     	 lsl r3,r3,r2
+ 905 0010 A143     	 bic r1,r4
+ 906 0012 8024     	 mov r4,#128
+ 907 0014 2402     	 lsl r4,r4,#8
+ 908 0016 2143     	 orr r1,r4
+ 909 0018 0160     	 str r1,[r0]
+ 910 001a 0168     	 ldr r1,[r0]
+ 911 001c 2143     	 orr r1,r4
+ 912 001e 0A1C     	 mov r2,r1
+ 913 0020 1A43     	 orr r2,r3
+ 914 0022 0260     	 str r2,[r0]
+ 915 0024 11E0     	 b .L114
+ 916              	.L115:
+ 917 0026 0129     	 cmp r1,#1
+ 918 0028 0FD1     	 bne .L114
+ 919 002a 7F24     	 mov r4,#127
+ 920 002c 9440     	 lsl r4,r4,r2
+ 921 002e E430     	 add r0,r0,#228
+ 922 0030 0168     	 ldr r1,[r0]
+ 923 0032 9340     	 lsl r3,r3,r2
+ 924 0034 A143     	 bic r1,r4
+ 925 0036 8024     	 mov r4,#128
+ 926 0038 2402     	 lsl r4,r4,#8
+ 927 003a 2143     	 orr r1,r4
+ 928 003c 0160     	 str r1,[r0]
+ 929 003e 0168     	 ldr r1,[r0]
+ 930 0040 1A1C     	 mov r2,r3
+ 931 0042 2143     	 orr r1,r4
+ 932 0044 0B1C     	 mov r3,r1
+ 933 0046 1343     	 orr r3,r2
+ 934 0048 0360     	 str r3,[r0]
+ 935              	.L114:
+ 936              	 
+ 937 004a 10BD     	 pop {r4,pc}
+ 939              	 .section .text.XMC_VADC_GLOBAL_SHS_SetSigmaDeltaLoop,"ax",%progbits
+ 940              	 .align 1
+ 941              	 .global XMC_VADC_GLOBAL_SHS_SetSigmaDeltaLoop
+ 942              	 .code 16
+ 943              	 .thumb_func
+ 945              	XMC_VADC_GLOBAL_SHS_SetSigmaDeltaLoop:
+ 946 0000 30B5     	 push {r4,r5,lr}
+ 947 0002 064D     	 ldr r5,.L118
+ 948 0004 0902     	 lsl r1,r1,#8
+ 949 0006 9540     	 lsl r5,r5,r2
+ 950 0008 0B43     	 orr r3,r1
+ 951 000a 9340     	 lsl r3,r3,r2
+ 952 000c 046D     	 ldr r4,[r0,#80]
+ 953              	 
+ 954 000e AC43     	 bic r4,r5
+ 955 0010 0465     	 str r4,[r0,#80]
+ 956 0012 046D     	 ldr r4,[r0,#80]
+ 957 0014 2343     	 orr r3,r4
+ 958 0016 0365     	 str r3,[r0,#80]
+ 959 0018 30BD     	 pop {r4,r5,pc}
+ 960              	.L119:
+ 961 001a C046     	 .align 2
+ 962              	.L118:
+ 963 001c 1F810000 	 .word 33055
+ 965              	 .section .text.XMC_VADC_GROUP_ScanInit,"ax",%progbits
+ 966              	 .align 1
+ 967              	 .global XMC_VADC_GROUP_ScanInit
+ 968              	 .code 16
+ 969              	 .thumb_func
+ 971              	XMC_VADC_GROUP_ScanInit:
+ 972 0000 30B5     	 push {r4,r5,lr}
+ 973 0002 041C     	 mov r4,r0
+ 974 0004 0834     	 add r4,r4,#8
+ 975 0006 E26F     	 ldr r2,[r4,#124]
+ 976 0008 134B     	 ldr r3,.L126
+ 977 000a 0D78     	 ldrb r5,[r1]
+ 978 000c 1340     	 and r3,r2
+ 979 000e 3022     	 mov r2,#48
+ 980 0010 E367     	 str r3,[r4,#124]
+ 981 0012 E36F     	 ldr r3,[r4,#124]
+ 982 0014 9343     	 bic r3,r2
+ 983 0016 1A1C     	 mov r2,r3
+ 984 0018 2B07     	 lsl r3,r5,#28
+ 985 001a 9B0F     	 lsr r3,r3,#30
+ 986 001c 1B01     	 lsl r3,r3,#4
+ 987 001e 1343     	 orr r3,r2
+ 988 0020 0322     	 mov r2,#3
+ 989 0022 2A40     	 and r2,r5
+ 990 0024 01D0     	 beq .L121
+ 991 0026 8025     	 mov r5,#128
+ 992 0028 2B43     	 orr r3,r5
+ 993              	.L121:
+ 994 002a E367     	 str r3,[r4,#124]
+ 995 002c 4D68     	 ldr r5,[r1,#4]
+ 996 002e 0B4B     	 ldr r3,.L126+4
+ 997 0030 FC30     	 add r0,r0,#252
+ 998 0032 2B43     	 orr r3,r5
+ 999 0034 4362     	 str r3,[r0,#36]
+ 1000 0036 8B68     	 ldr r3,[r1,#8]
+ 1001 0038 0121     	 mov r1,#1
+ 1002 003a 0B43     	 orr r3,r1
+ 1003 003c 8362     	 str r3,[r0,#40]
+ 1004 003e 022A     	 cmp r2,#2
+ 1005 0040 04D1     	 bne .L122
+ 1006 0042 8022     	 mov r2,#128
+ 1007 0044 836A     	 ldr r3,[r0,#40]
+ 1008 0046 5202     	 lsl r2,r2,#9
+ 1009 0048 1343     	 orr r3,r2
+ 1010 004a 8362     	 str r3,[r0,#40]
+ 1011              	.L122:
+ 1012 004c 8022     	 mov r2,#128
+ 1013 004e E36F     	 ldr r3,[r4,#124]
+ 1014 0050 9204     	 lsl r2,r2,#18
+ 1015 0052 1343     	 orr r3,r2
+ 1016 0054 E367     	 str r3,[r4,#124]
+ 1017              	 
+ 1018 0056 30BD     	 pop {r4,r5,pc}
+ 1019              	.L127:
+ 1020              	 .align 2
+ 1021              	.L126:
+ 1022 0058 FFFFFFFD 	 .word -33554433
+ 1023 005c 00808080 	 .word -2139062272
+ 1025              	 .section .text.XMC_VADC_GROUP_ScanSelectTrigger,"ax",%progbits
+ 1026              	 .align 1
+ 1027              	 .global XMC_VADC_GROUP_ScanSelectTrigger
+ 1028              	 .code 16
+ 1029              	 .thumb_func
+ 1031              	XMC_VADC_GROUP_ScanSelectTrigger:
+ 1032 0000 FC30     	 add r0,r0,#252
+ 1033 0002 426A     	 ldr r2,[r0,#36]
+ 1034 0004 044B     	 ldr r3,.L129
+ 1035 0006 0902     	 lsl r1,r1,#8
+ 1036 0008 1340     	 and r3,r2
+ 1037 000a 8022     	 mov r2,#128
+ 1038 000c 1202     	 lsl r2,r2,#8
+ 1039 000e 1343     	 orr r3,r2
+ 1040 0010 1943     	 orr r1,r3
+ 1041 0012 4162     	 str r1,[r0,#36]
+ 1042              	 
+ 1043 0014 7047     	 bx lr
+ 1044              	.L130:
+ 1045 0016 C046     	 .align 2
+ 1046              	.L129:
+ 1047 0018 FFF0FFFF 	 .word -3841
+ 1049              	 .section .text.XMC_VADC_GROUP_ScanSelectTriggerEdge,"ax",%progbits
+ 1050              	 .align 1
+ 1051              	 .global XMC_VADC_GROUP_ScanSelectTriggerEdge
+ 1052              	 .code 16
+ 1053              	 .thumb_func
+ 1055              	XMC_VADC_GROUP_ScanSelectTriggerEdge:
+ 1056 0000 FC30     	 add r0,r0,#252
+ 1057 0002 426A     	 ldr r2,[r0,#36]
+ 1058 0004 044B     	 ldr r3,.L132
+ 1059 0006 4903     	 lsl r1,r1,#13
+ 1060 0008 1340     	 and r3,r2
+ 1061 000a 8022     	 mov r2,#128
+ 1062 000c 1202     	 lsl r2,r2,#8
+ 1063 000e 1343     	 orr r3,r2
+ 1064 0010 1943     	 orr r1,r3
+ 1065 0012 4162     	 str r1,[r0,#36]
+ 1066              	 
+ 1067 0014 7047     	 bx lr
+ 1068              	.L133:
+ 1069 0016 C046     	 .align 2
+ 1070              	.L132:
+ 1071 0018 FF9FFFFF 	 .word -24577
+ 1073              	 .section .text.XMC_VADC_GROUP_ScanSelectGating,"ax",%progbits
+ 1074              	 .align 1
+ 1075              	 .global XMC_VADC_GROUP_ScanSelectGating
+ 1076              	 .code 16
+ 1077              	 .thumb_func
+ 1079              	XMC_VADC_GROUP_ScanSelectGating:
+ 1080 0000 FC30     	 add r0,r0,#252
+ 1081 0002 426A     	 ldr r2,[r0,#36]
+ 1082 0004 044B     	 ldr r3,.L135
+ 1083 0006 0904     	 lsl r1,r1,#16
+ 1084 0008 1340     	 and r3,r2
+ 1085 000a 8022     	 mov r2,#128
+ 1086 000c 1204     	 lsl r2,r2,#16
+ 1087 000e 1343     	 orr r3,r2
+ 1088 0010 1943     	 orr r1,r3
+ 1089 0012 4162     	 str r1,[r0,#36]
+ 1090              	 
+ 1091 0014 7047     	 bx lr
+ 1092              	.L136:
+ 1093 0016 C046     	 .align 2
+ 1094              	.L135:
+ 1095 0018 FFFFF0FF 	 .word -983041
+ 1097              	 .section .text.XMC_VADC_GROUP_ScanSequenceAbort,"ax",%progbits
+ 1098              	 .align 1
+ 1099              	 .global XMC_VADC_GROUP_ScanSequenceAbort
+ 1100              	 .code 16
+ 1101              	 .thumb_func
+ 1103              	XMC_VADC_GROUP_ScanSequenceAbort:
+ 1104 0000 031C     	 mov r3,r0
+ 1105 0002 70B5     	 push {r4,r5,r6,lr}
+ 1106 0004 0D4D     	 ldr r5,.L138
+ 1107 0006 FC33     	 add r3,r3,#252
+ 1108 0008 5A6A     	 ldr r2,[r3,#36]
+ 1109 000a 0830     	 add r0,r0,#8
+ 1110 000c 5D62     	 str r5,[r3,#36]
+ 1111 000e C66F     	 ldr r6,[r0,#124]
+ 1112 0010 0B49     	 ldr r1,.L138+4
+ 1113 0012 C46F     	 ldr r4,[r0,#124]
+ 1114 0014 2A43     	 orr r2,r5
+ 1115 0016 2140     	 and r1,r4
+ 1116 0018 0324     	 mov r4,#3
+ 1117 001a C167     	 str r1,[r0,#124]
+ 1118 001c 996A     	 ldr r1,[r3,#40]
+ 1119              	 
+ 1120 001e A143     	 bic r1,r4
+ 1121 0020 9962     	 str r1,[r3,#40]
+ 1122 0022 8021     	 mov r1,#128
+ 1123 0024 9C6A     	 ldr r4,[r3,#40]
+ 1124 0026 4900     	 lsl r1,r1,#1
+ 1125 0028 0C43     	 orr r4,r1
+ 1126 002a 8021     	 mov r1,#128
+ 1127 002c 9C62     	 str r4,[r3,#40]
+ 1128 002e C46F     	 ldr r4,[r0,#124]
+ 1129 0030 8904     	 lsl r1,r1,#18
+ 1130 0032 3140     	 and r1,r6
+ 1131 0034 2143     	 orr r1,r4
+ 1132 0036 C167     	 str r1,[r0,#124]
+ 1133 0038 5A62     	 str r2,[r3,#36]
+ 1134 003a 70BD     	 pop {r4,r5,r6,pc}
+ 1135              	.L139:
+ 1136              	 .align 2
+ 1137              	.L138:
+ 1138 003c 00808080 	 .word -2139062272
+ 1139 0040 FFFFFFFD 	 .word -33554433
+ 1141              	 .section .text.XMC_VADC_GROUP_ScanGetNumChannelsPending,"ax",%progbits
+ 1142              	 .align 1
+ 1143              	 .global XMC_VADC_GROUP_ScanGetNumChannelsPending
+ 1144              	 .code 16
+ 1145              	 .thumb_func
+ 1147              	XMC_VADC_GROUP_ScanGetNumChannelsPending:
+ 1148 0000 031C     	 mov r3,r0
+ 1149 0002 0020     	 mov r0,#0
+ 1150 0004 FC33     	 add r3,r3,#252
+ 1151 0006 1A6B     	 ldr r2,[r3,#48]
+ 1152 0008 8242     	 cmp r2,r0
+ 1153 000a 08D0     	 beq .L141
+ 1154 000c 1A6B     	 ldr r2,[r3,#48]
+ 1155 000e 0823     	 mov r3,#8
+ 1156              	.L143:
+ 1157 0010 0121     	 mov r1,#1
+ 1158 0012 013B     	 sub r3,r3,#1
+ 1159 0014 1140     	 and r1,r2
+ 1160 0016 4018     	 add r0,r0,r1
+ 1161 0018 5208     	 lsr r2,r2,#1
+ 1162 001a 002B     	 cmp r3,#0
+ 1163 001c F8D1     	 bne .L143
+ 1164              	.L141:
+ 1165              	 
+ 1166 001e 7047     	 bx lr
+ 1168              	 .section .text.XMC_VADC_GROUP_ScanSetReqSrcEventInterruptNode,"ax",%progbits
+ 1169              	 .align 1
+ 1170              	 .global XMC_VADC_GROUP_ScanSetReqSrcEventInterruptNode
+ 1171              	 .code 16
+ 1172              	 .thumb_func
+ 1174              	XMC_VADC_GROUP_ScanSetReqSrcEventInterruptNode:
+ 1175 0000 E022     	 mov r2,#224
+ 1176 0002 10B5     	 push {r4,lr}
+ 1177 0004 F024     	 mov r4,#240
+ 1178 0006 5200     	 lsl r2,r2,#1
+ 1179 0008 8358     	 ldr r3,[r0,r2]
+ 1180 000a 0901     	 lsl r1,r1,#4
+ 1181 000c A343     	 bic r3,r4
+ 1182 000e 1943     	 orr r1,r3
+ 1183 0010 8150     	 str r1,[r0,r2]
+ 1184              	 
+ 1185 0012 10BD     	 pop {r4,pc}
+ 1187              	 .section .text.XMC_VADC_GROUP_ScanRemoveChannel,"ax",%progbits
+ 1188              	 .align 1
+ 1189              	 .global XMC_VADC_GROUP_ScanRemoveChannel
+ 1190              	 .code 16
+ 1191              	 .thumb_func
+ 1193              	XMC_VADC_GROUP_ScanRemoveChannel:
+ 1194 0000 0122     	 mov r2,#1
+ 1195 0002 8A40     	 lsl r2,r2,r1
+ 1196 0004 FC30     	 add r0,r0,#252
+ 1197 0006 C36A     	 ldr r3,[r0,#44]
+ 1198              	 
+ 1199 0008 9343     	 bic r3,r2
+ 1200 000a C362     	 str r3,[r0,#44]
+ 1201 000c 7047     	 bx lr
+ 1203              	 .section .text.XMC_VADC_GLOBAL_BackgroundInit,"ax",%progbits
+ 1204              	 .align 1
+ 1205              	 .global XMC_VADC_GLOBAL_BackgroundInit
+ 1206              	 .code 16
+ 1207              	 .thumb_func
+ 1209              	XMC_VADC_GLOBAL_BackgroundInit:
+ 1210 0000 8C46     	 mov ip,r1
+ 1211 0002 F0B5     	 push {r4,r5,r6,r7,lr}
+ 1212 0004 1E4C     	 ldr r4,.L154
+ 1213 0006 1F4B     	 ldr r3,.L154+4
+ 1214 0008 E26F     	 ldr r2,[r4,#124]
+ 1215 000a 1F4F     	 ldr r7,.L154+8
+ 1216 000c 1A40     	 and r2,r3
+ 1217 000e E267     	 str r2,[r4,#124]
+ 1218 0010 1E4A     	 ldr r2,.L154+12
+ 1219 0012 D16F     	 ldr r1,[r2,#124]
+ 1220 0014 0B40     	 and r3,r1
+ 1221 0016 D367     	 str r3,[r2,#124]
+ 1222 0018 6346     	 mov r3,ip
+ 1223 001a 0321     	 mov r1,#3
+ 1224 001c 1B78     	 ldrb r3,[r3]
+ 1225 001e 1940     	 and r1,r3
+ 1226 0020 0E1C     	 mov r6,r1
+ 1227 0022 751E     	 sub r5,r6,#1
+ 1228 0024 AE41     	 sbc r6,r6,r5
+ 1229 0026 1B07     	 lsl r3,r3,#28
+ 1230 0028 E56F     	 ldr r5,[r4,#124]
+ 1231 002a 9B0F     	 lsr r3,r3,#30
+ 1232 002c 3D40     	 and r5,r7
+ 1233 002e 1B02     	 lsl r3,r3,#8
+ 1234 0030 F602     	 lsl r6,r6,#11
+ 1235 0032 1D43     	 orr r5,r3
+ 1236 0034 3543     	 orr r5,r6
+ 1237 0036 E567     	 str r5,[r4,#124]
+ 1238 0038 D56F     	 ldr r5,[r2,#124]
+ 1239 003a 2F40     	 and r7,r5
+ 1240 003c 6546     	 mov r5,ip
+ 1241 003e 3B43     	 orr r3,r7
+ 1242 0040 3343     	 orr r3,r6
+ 1243 0042 D367     	 str r3,[r2,#124]
+ 1244 0044 6D68     	 ldr r5,[r5,#4]
+ 1245 0046 124B     	 ldr r3,.L154+16
+ 1246 0048 2B43     	 orr r3,r5
+ 1247 004a 8025     	 mov r5,#128
+ 1248 004c AD00     	 lsl r5,r5,#2
+ 1249 004e 4351     	 str r3,[r0,r5]
+ 1250 0050 6346     	 mov r3,ip
+ 1251 0052 0125     	 mov r5,#1
+ 1252 0054 9B68     	 ldr r3,[r3,#8]
+ 1253 0056 1D43     	 orr r5,r3
+ 1254 0058 8123     	 mov r3,#129
+ 1255 005a 9B00     	 lsl r3,r3,#2
+ 1256 005c C550     	 str r5,[r0,r3]
+ 1257 005e 0229     	 cmp r1,#2
+ 1258 0060 04D1     	 bne .L152
+ 1259 0062 8025     	 mov r5,#128
+ 1260 0064 C158     	 ldr r1,[r0,r3]
+ 1261 0066 6D02     	 lsl r5,r5,#9
+ 1262 0068 2943     	 orr r1,r5
+ 1263 006a C150     	 str r1,[r0,r3]
+ 1264              	.L152:
+ 1265 006c 8020     	 mov r0,#128
+ 1266 006e E16F     	 ldr r1,[r4,#124]
+ 1267 0070 C004     	 lsl r0,r0,#19
+ 1268 0072 0143     	 orr r1,r0
+ 1269 0074 E167     	 str r1,[r4,#124]
+ 1270 0076 D36F     	 ldr r3,[r2,#124]
+ 1271              	 
+ 1272 0078 0343     	 orr r3,r0
+ 1273 007a D367     	 str r3,[r2,#124]
+ 1274 007c F0BD     	 pop {r4,r5,r6,r7,pc}
+ 1275              	.L155:
+ 1276 007e C046     	 .align 2
+ 1277              	.L154:
+ 1278 0080 08040348 	 .word 1208157192
+ 1279 0084 FFFFFFFB 	 .word -67108865
+ 1280 0088 FFFCFFFF 	 .word -769
+ 1281 008c 08080348 	 .word 1208158216
+ 1282 0090 00808000 	 .word 8421376
+ 1284              	 .section .text.XMC_VADC_GLOBAL_BackgroundSelectTrigger,"ax",%progbits
+ 1285              	 .align 1
+ 1286              	 .global XMC_VADC_GLOBAL_BackgroundSelectTrigger
+ 1287              	 .code 16
+ 1288              	 .thumb_func
+ 1290              	XMC_VADC_GLOBAL_BackgroundSelectTrigger:
+ 1291 0000 8022     	 mov r2,#128
+ 1292 0002 9200     	 lsl r2,r2,#2
+ 1293 0004 10B5     	 push {r4,lr}
+ 1294 0006 054B     	 ldr r3,.L157
+ 1295 0008 8458     	 ldr r4,[r0,r2]
+ 1296 000a 0902     	 lsl r1,r1,#8
+ 1297 000c 2340     	 and r3,r4
+ 1298 000e 8024     	 mov r4,#128
+ 1299 0010 2402     	 lsl r4,r4,#8
+ 1300 0012 2343     	 orr r3,r4
+ 1301 0014 1943     	 orr r1,r3
+ 1302 0016 8150     	 str r1,[r0,r2]
+ 1303              	 
+ 1304 0018 10BD     	 pop {r4,pc}
+ 1305              	.L158:
+ 1306 001a C046     	 .align 2
+ 1307              	.L157:
+ 1308 001c FFF0FFFF 	 .word -3841
+ 1310              	 .section .text.XMC_VADC_GLOBAL_BackgroundSelectTriggerEdge,"ax",%progbits
+ 1311              	 .align 1
+ 1312              	 .global XMC_VADC_GLOBAL_BackgroundSelectTriggerEdge
+ 1313              	 .code 16
+ 1314              	 .thumb_func
+ 1316              	XMC_VADC_GLOBAL_BackgroundSelectTriggerEdge:
+ 1317 0000 8022     	 mov r2,#128
+ 1318 0002 9200     	 lsl r2,r2,#2
+ 1319 0004 10B5     	 push {r4,lr}
+ 1320 0006 054B     	 ldr r3,.L160
+ 1321 0008 8458     	 ldr r4,[r0,r2]
+ 1322 000a 4903     	 lsl r1,r1,#13
+ 1323 000c 2340     	 and r3,r4
+ 1324 000e 8024     	 mov r4,#128
+ 1325 0010 2402     	 lsl r4,r4,#8
+ 1326 0012 2343     	 orr r3,r4
+ 1327 0014 1943     	 orr r1,r3
+ 1328 0016 8150     	 str r1,[r0,r2]
+ 1329              	 
+ 1330 0018 10BD     	 pop {r4,pc}
+ 1331              	.L161:
+ 1332 001a C046     	 .align 2
+ 1333              	.L160:
+ 1334 001c FF9FFFFF 	 .word -24577
+ 1336              	 .section .text.XMC_VADC_GLOBAL_BackgroundSelectGating,"ax",%progbits
+ 1337              	 .align 1
+ 1338              	 .global XMC_VADC_GLOBAL_BackgroundSelectGating
+ 1339              	 .code 16
+ 1340              	 .thumb_func
+ 1342              	XMC_VADC_GLOBAL_BackgroundSelectGating:
+ 1343 0000 8022     	 mov r2,#128
+ 1344 0002 9200     	 lsl r2,r2,#2
+ 1345 0004 10B5     	 push {r4,lr}
+ 1346 0006 054B     	 ldr r3,.L163
+ 1347 0008 8458     	 ldr r4,[r0,r2]
+ 1348 000a 0904     	 lsl r1,r1,#16
+ 1349 000c 2340     	 and r3,r4
+ 1350 000e 8024     	 mov r4,#128
+ 1351 0010 2404     	 lsl r4,r4,#16
+ 1352 0012 2343     	 orr r3,r4
+ 1353 0014 1943     	 orr r1,r3
+ 1354 0016 8150     	 str r1,[r0,r2]
+ 1355              	 
+ 1356 0018 10BD     	 pop {r4,pc}
+ 1357              	.L164:
+ 1358 001a C046     	 .align 2
+ 1359              	.L163:
+ 1360 001c FFFFF0FF 	 .word -983041
+ 1362              	 .section .text.XMC_VADC_GLOBAL_BackgroundAbortSequence,"ax",%progbits
+ 1363              	 .align 1
+ 1364              	 .global XMC_VADC_GLOBAL_BackgroundAbortSequence
+ 1365              	 .code 16
+ 1366              	 .thumb_func
+ 1368              	XMC_VADC_GLOBAL_BackgroundAbortSequence:
+ 1369 0000 F7B5     	 push {r0,r1,r2,r4,r5,r6,r7,lr}
+ 1370 0002 8022     	 mov r2,#128
+ 1371 0004 9200     	 lsl r2,r2,#2
+ 1372 0006 8358     	 ldr r3,[r0,r2]
+ 1373 0008 1549     	 ldr r1,.L168
+ 1374 000a 0093     	 str r3,[sp]
+ 1375 000c 154B     	 ldr r3,.L168+4
+ 1376 000e 164E     	 ldr r6,.L168+8
+ 1377 0010 8350     	 str r3,[r0,r2]
+ 1378 0012 CD6F     	 ldr r5,[r1,#124]
+ 1379 0014 CB6F     	 ldr r3,[r1,#124]
+ 1380 0016 8024     	 mov r4,#128
+ 1381 0018 3340     	 and r3,r6
+ 1382 001a CB67     	 str r3,[r1,#124]
+ 1383 001c 134B     	 ldr r3,.L168+12
+ 1384 001e 6400     	 lsl r4,r4,#1
+ 1385 0020 DF6F     	 ldr r7,[r3,#124]
+ 1386 0022 AD0E     	 lsr r5,r5,#26
+ 1387 0024 BF0E     	 lsr r7,r7,#26
+ 1388 0026 0197     	 str r7,[sp,#4]
+ 1389 0028 DF6F     	 ldr r7,[r3,#124]
+ 1390 002a 3E40     	 and r6,r7
+ 1391 002c 8127     	 mov r7,#129
+ 1392 002e DE67     	 str r6,[r3,#124]
+ 1393 0030 BF00     	 lsl r7,r7,#2
+ 1394 0032 C659     	 ldr r6,[r0,r7]
+ 1395 0034 2643     	 orr r6,r4
+ 1396 0036 C651     	 str r6,[r0,r7]
+ 1397 0038 0A4C     	 ldr r4,.L168+4
+ 1398 003a 012D     	 cmp r5,#1
+ 1399 003c 04D1     	 bne .L166
+ 1400 003e 8026     	 mov r6,#128
+ 1401 0040 CD6F     	 ldr r5,[r1,#124]
+ 1402 0042 F604     	 lsl r6,r6,#19
+ 1403 0044 3543     	 orr r5,r6
+ 1404 0046 CD67     	 str r5,[r1,#124]
+ 1405              	.L166:
+ 1406 0048 0199     	 ldr r1,[sp,#4]
+ 1407 004a 0129     	 cmp r1,#1
+ 1408 004c 04D1     	 bne .L167
+ 1409 004e 8025     	 mov r5,#128
+ 1410 0050 D96F     	 ldr r1,[r3,#124]
+ 1411 0052 ED04     	 lsl r5,r5,#19
+ 1412 0054 2943     	 orr r1,r5
+ 1413 0056 D967     	 str r1,[r3,#124]
+ 1414              	.L167:
+ 1415 0058 009B     	 ldr r3,[sp]
+ 1416              	 
+ 1417 005a 1C43     	 orr r4,r3
+ 1418 005c 8450     	 str r4,[r0,r2]
+ 1419 005e F7BD     	 pop {r0,r1,r2,r4,r5,r6,r7,pc}
+ 1420              	.L169:
+ 1421              	 .align 2
+ 1422              	.L168:
+ 1423 0060 08040348 	 .word 1208157192
+ 1424 0064 00808000 	 .word 8421376
+ 1425 0068 FFFFFFFB 	 .word -67108865
+ 1426 006c 08080348 	 .word 1208158216
+ 1428              	 .section .text.XMC_VADC_GLOBAL_BackgroundGetNumChannelsPending,"ax",%progbits
+ 1429              	 .align 1
+ 1430              	 .global XMC_VADC_GLOBAL_BackgroundGetNumChannelsPending
+ 1431              	 .code 16
+ 1432              	 .thumb_func
+ 1434              	XMC_VADC_GLOBAL_BackgroundGetNumChannelsPending:
+ 1435 0000 0023     	 mov r3,#0
+ 1436 0002 191C     	 mov r1,r3
+ 1437 0004 30B5     	 push {r4,r5,lr}
+ 1438              	.L174:
+ 1439 0006 C024     	 mov r4,#192
+ 1440 0008 8A00     	 lsl r2,r1,#2
+ 1441 000a 8218     	 add r2,r0,r2
+ 1442 000c 6400     	 lsl r4,r4,#1
+ 1443 000e 1459     	 ldr r4,[r2,r4]
+ 1444 0010 002C     	 cmp r4,#0
+ 1445 0012 0AD0     	 beq .L171
+ 1446 0014 E024     	 mov r4,#224
+ 1447 0016 6400     	 lsl r4,r4,#1
+ 1448 0018 1459     	 ldr r4,[r2,r4]
+ 1449 001a 0822     	 mov r2,#8
+ 1450              	.L173:
+ 1451 001c 0125     	 mov r5,#1
+ 1452 001e 013A     	 sub r2,r2,#1
+ 1453 0020 2540     	 and r5,r4
+ 1454 0022 5B19     	 add r3,r3,r5
+ 1455 0024 6408     	 lsr r4,r4,#1
+ 1456 0026 002A     	 cmp r2,#0
+ 1457 0028 F8D1     	 bne .L173
+ 1458              	.L171:
+ 1459 002a 0129     	 cmp r1,#1
+ 1460 002c 01D0     	 beq .L181
+ 1461 002e 0121     	 mov r1,#1
+ 1462 0030 E9E7     	 b .L174
+ 1463              	.L181:
+ 1464 0032 181C     	 mov r0,r3
+ 1465              	 
+ 1466 0034 30BD     	 pop {r4,r5,pc}
+ 1468              	 .section .text.XMC_VADC_GROUP_QueueInit,"ax",%progbits
+ 1469              	 .align 1
+ 1470              	 .global XMC_VADC_GROUP_QueueInit
+ 1471              	 .code 16
+ 1472              	 .thumb_func
+ 1474              	XMC_VADC_GROUP_QueueInit:
+ 1475 0000 70B5     	 push {r4,r5,r6,lr}
+ 1476 0002 041C     	 mov r4,r0
+ 1477 0004 0325     	 mov r5,#3
+ 1478 0006 0834     	 add r4,r4,#8
+ 1479 0008 E26F     	 ldr r2,[r4,#124]
+ 1480 000a 134B     	 ldr r3,.L188
+ 1481 000c 0E78     	 ldrb r6,[r1]
+ 1482 000e 1340     	 and r3,r2
+ 1483 0010 E367     	 str r3,[r4,#124]
+ 1484 0012 E36F     	 ldr r3,[r4,#124]
+ 1485 0014 AB43     	 bic r3,r5
+ 1486 0016 1A1C     	 mov r2,r3
+ 1487 0018 3307     	 lsl r3,r6,#28
+ 1488 001a 9B0F     	 lsr r3,r3,#30
+ 1489 001c 1343     	 orr r3,r2
+ 1490 001e 321C     	 mov r2,r6
+ 1491 0020 2A40     	 and r2,r5
+ 1492 0022 01D0     	 beq .L183
+ 1493 0024 0535     	 add r5,r5,#5
+ 1494 0026 2B43     	 orr r3,r5
+ 1495              	.L183:
+ 1496 0028 E367     	 str r3,[r4,#124]
+ 1497 002a 4D68     	 ldr r5,[r1,#4]
+ 1498 002c 0B4B     	 ldr r3,.L188+4
+ 1499 002e FC30     	 add r0,r0,#252
+ 1500 0030 2B43     	 orr r3,r5
+ 1501 0032 4360     	 str r3,[r0,#4]
+ 1502 0034 8B68     	 ldr r3,[r1,#8]
+ 1503 0036 0121     	 mov r1,#1
+ 1504 0038 0B43     	 orr r3,r1
+ 1505 003a 8360     	 str r3,[r0,#8]
+ 1506 003c 022A     	 cmp r2,#2
+ 1507 003e 04D1     	 bne .L184
+ 1508 0040 8022     	 mov r2,#128
+ 1509 0042 8368     	 ldr r3,[r0,#8]
+ 1510 0044 5202     	 lsl r2,r2,#9
+ 1511 0046 1343     	 orr r3,r2
+ 1512 0048 8360     	 str r3,[r0,#8]
+ 1513              	.L184:
+ 1514 004a 8022     	 mov r2,#128
+ 1515 004c E36F     	 ldr r3,[r4,#124]
+ 1516 004e 5204     	 lsl r2,r2,#17
+ 1517 0050 1343     	 orr r3,r2
+ 1518 0052 E367     	 str r3,[r4,#124]
+ 1519              	 
+ 1520 0054 70BD     	 pop {r4,r5,r6,pc}
+ 1521              	.L189:
+ 1522 0056 C046     	 .align 2
+ 1523              	.L188:
+ 1524 0058 FFFFFFFE 	 .word -16777217
+ 1525 005c 00808080 	 .word -2139062272
+ 1527              	 .section .text.XMC_VADC_GROUP_QueueSelectTrigger,"ax",%progbits
+ 1528              	 .align 1
+ 1529              	 .global XMC_VADC_GROUP_QueueSelectTrigger
+ 1530              	 .code 16
+ 1531              	 .thumb_func
+ 1533              	XMC_VADC_GROUP_QueueSelectTrigger:
+ 1534 0000 FC30     	 add r0,r0,#252
+ 1535 0002 4268     	 ldr r2,[r0,#4]
+ 1536 0004 044B     	 ldr r3,.L191
+ 1537 0006 0902     	 lsl r1,r1,#8
+ 1538 0008 1340     	 and r3,r2
+ 1539 000a 8022     	 mov r2,#128
+ 1540 000c 1202     	 lsl r2,r2,#8
+ 1541 000e 1343     	 orr r3,r2
+ 1542 0010 1943     	 orr r1,r3
+ 1543 0012 4160     	 str r1,[r0,#4]
+ 1544              	 
+ 1545 0014 7047     	 bx lr
+ 1546              	.L192:
+ 1547 0016 C046     	 .align 2
+ 1548              	.L191:
+ 1549 0018 FFF0FFFF 	 .word -3841
+ 1551              	 .section .text.XMC_VADC_GROUP_QueueSelectTriggerEdge,"ax",%progbits
+ 1552              	 .align 1
+ 1553              	 .global XMC_VADC_GROUP_QueueSelectTriggerEdge
+ 1554              	 .code 16
+ 1555              	 .thumb_func
+ 1557              	XMC_VADC_GROUP_QueueSelectTriggerEdge:
+ 1558 0000 FC30     	 add r0,r0,#252
+ 1559 0002 4268     	 ldr r2,[r0,#4]
+ 1560 0004 044B     	 ldr r3,.L194
+ 1561 0006 4903     	 lsl r1,r1,#13
+ 1562 0008 1340     	 and r3,r2
+ 1563 000a 8022     	 mov r2,#128
+ 1564 000c 1202     	 lsl r2,r2,#8
+ 1565 000e 1343     	 orr r3,r2
+ 1566 0010 1943     	 orr r1,r3
+ 1567 0012 4160     	 str r1,[r0,#4]
+ 1568              	 
+ 1569 0014 7047     	 bx lr
+ 1570              	.L195:
+ 1571 0016 C046     	 .align 2
+ 1572              	.L194:
+ 1573 0018 FF9FFFFF 	 .word -24577
+ 1575              	 .section .text.XMC_VADC_GROUP_QueueSelectGating,"ax",%progbits
+ 1576              	 .align 1
+ 1577              	 .global XMC_VADC_GROUP_QueueSelectGating
+ 1578              	 .code 16
+ 1579              	 .thumb_func
+ 1581              	XMC_VADC_GROUP_QueueSelectGating:
+ 1582 0000 FC30     	 add r0,r0,#252
+ 1583 0002 4268     	 ldr r2,[r0,#4]
+ 1584 0004 044B     	 ldr r3,.L197
+ 1585 0006 0904     	 lsl r1,r1,#16
+ 1586 0008 1340     	 and r3,r2
+ 1587 000a 8022     	 mov r2,#128
+ 1588 000c 1204     	 lsl r2,r2,#16
+ 1589 000e 1343     	 orr r3,r2
+ 1590 0010 1943     	 orr r1,r3
+ 1591 0012 4160     	 str r1,[r0,#4]
+ 1592              	 
+ 1593 0014 7047     	 bx lr
+ 1594              	.L198:
+ 1595 0016 C046     	 .align 2
+ 1596              	.L197:
+ 1597 0018 FFFFF0FF 	 .word -983041
+ 1599              	 .section .text.XMC_VADC_GROUP_QueueGetLength,"ax",%progbits
+ 1600              	 .align 1
+ 1601              	 .global XMC_VADC_GROUP_QueueGetLength
+ 1602              	 .code 16
+ 1603              	 .thumb_func
+ 1605              	XMC_VADC_GROUP_QueueGetLength:
+ 1606 0000 031C     	 mov r3,r0
+ 1607 0002 FC33     	 add r3,r3,#252
+ 1608 0004 D968     	 ldr r1,[r3,#12]
+ 1609 0006 0020     	 mov r0,#0
+ 1610 0008 5A69     	 ldr r2,[r3,#20]
+ 1611 000a 8B06     	 lsl r3,r1,#26
+ 1612 000c 03D4     	 bmi .L200
+ 1613 000e 0F23     	 mov r3,#15
+ 1614 0010 1940     	 and r1,r3
+ 1615 0012 081C     	 mov r0,r1
+ 1616 0014 0130     	 add r0,r0,#1
+ 1617              	.L200:
+ 1618 0016 D305     	 lsl r3,r2,#23
+ 1619 0018 DB0F     	 lsr r3,r3,#31
+ 1620 001a C018     	 add r0,r0,r3
+ 1621              	 
+ 1622 001c 7047     	 bx lr
+ 1624              	 .section .text.XMC_VADC_GROUP_QueueAbortSequence,"ax",%progbits
+ 1625              	 .align 1
+ 1626              	 .global XMC_VADC_GROUP_QueueAbortSequence
+ 1627              	 .code 16
+ 1628              	 .thumb_func
+ 1630              	XMC_VADC_GROUP_QueueAbortSequence:
+ 1631 0000 70B5     	 push {r4,r5,r6,lr}
+ 1632 0002 041C     	 mov r4,r0
+ 1633 0004 0D4B     	 ldr r3,.L208
+ 1634 0006 FC34     	 add r4,r4,#252
+ 1635 0008 6568     	 ldr r5,[r4,#4]
+ 1636 000a 0830     	 add r0,r0,#8
+ 1637 000c 6360     	 str r3,[r4,#4]
+ 1638 000e C26F     	 ldr r2,[r0,#124]
+ 1639 0010 0B49     	 ldr r1,.L208+4
+ 1640 0012 C66F     	 ldr r6,[r0,#124]
+ 1641 0014 D201     	 lsl r2,r2,#7
+ 1642 0016 3140     	 and r1,r6
+ 1643 0018 8026     	 mov r6,#128
+ 1644 001a C167     	 str r1,[r0,#124]
+ 1645 001c A168     	 ldr r1,[r4,#8]
+ 1646 001e F600     	 lsl r6,r6,#3
+ 1647 0020 3143     	 orr r1,r6
+ 1648 0022 D20F     	 lsr r2,r2,#31
+ 1649 0024 A160     	 str r1,[r4,#8]
+ 1650              	.L206:
+ 1651 0026 E168     	 ldr r1,[r4,#12]
+ 1652 0028 8906     	 lsl r1,r1,#26
+ 1653 002a FCD5     	 bpl .L206
+ 1654 002c C16F     	 ldr r1,[r0,#124]
+ 1655 002e 1206     	 lsl r2,r2,#24
+ 1656 0030 2B43     	 orr r3,r5
+ 1657 0032 0A43     	 orr r2,r1
+ 1658 0034 C267     	 str r2,[r0,#124]
+ 1659              	 
+ 1660 0036 6360     	 str r3,[r4,#4]
+ 1661 0038 70BD     	 pop {r4,r5,r6,pc}
+ 1662              	.L209:
+ 1663 003a C046     	 .align 2
+ 1664              	.L208:
+ 1665 003c 00808080 	 .word -2139062272
+ 1666 0040 FFFFFFFE 	 .word -16777217
+ 1668              	 .section .text.XMC_VADC_GROUP_QueueRemoveChannel,"ax",%progbits
+ 1669              	 .align 1
+ 1670              	 .global XMC_VADC_GROUP_QueueRemoveChannel
+ 1671              	 .code 16
+ 1672              	 .thumb_func
+ 1674              	XMC_VADC_GROUP_QueueRemoveChannel:
+ 1675 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 1676 0002 041C     	 mov r4,r0
+ 1677 0004 051C     	 mov r5,r0
+ 1678 0006 FC34     	 add r4,r4,#252
+ 1679 0008 6368     	 ldr r3,[r4,#4]
+ 1680 000a 85B0     	 sub sp,sp,#20
+ 1681 000c 0193     	 str r3,[sp,#4]
+ 1682 000e 144B     	 ldr r3,.L216
+ 1683 0010 0835     	 add r5,r5,#8
+ 1684 0012 6360     	 str r3,[r4,#4]
+ 1685 0014 EB6F     	 ldr r3,[r5,#124]
+ 1686 0016 EA6F     	 ldr r2,[r5,#124]
+ 1687 0018 DB01     	 lsl r3,r3,#7
+ 1688 001a DB0F     	 lsr r3,r3,#31
+ 1689 001c 0293     	 str r3,[sp,#8]
+ 1690 001e 114B     	 ldr r3,.L216+4
+ 1691 0020 061C     	 mov r6,r0
+ 1692 0022 1340     	 and r3,r2
+ 1693 0024 EB67     	 str r3,[r5,#124]
+ 1694 0026 FFF7FEFF 	 bl XMC_VADC_GROUP_QueueGetLength
+ 1695 002a 0D4B     	 ldr r3,.L216
+ 1696 002c 071E     	 sub r7,r0,#0
+ 1697 002e 0393     	 str r3,[sp,#12]
+ 1698 0030 0AD1     	 bne .L211
+ 1699              	.L214:
+ 1700 0032 029A     	 ldr r2,[sp,#8]
+ 1701 0034 EB6F     	 ldr r3,[r5,#124]
+ 1702 0036 1206     	 lsl r2,r2,#24
+ 1703 0038 1343     	 orr r3,r2
+ 1704 003a EB67     	 str r3,[r5,#124]
+ 1705 003c 019A     	 ldr r2,[sp,#4]
+ 1706 003e 039B     	 ldr r3,[sp,#12]
+ 1707 0040 1343     	 orr r3,r2
+ 1708 0042 6360     	 str r3,[r4,#4]
+ 1709 0044 05B0     	 add sp,sp,#20
+ 1710              	 
+ 1711 0046 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 1712              	.L211:
+ 1713 0048 8022     	 mov r2,#128
+ 1714 004a A368     	 ldr r3,[r4,#8]
+ 1715 004c 5200     	 lsl r2,r2,#1
+ 1716 004e 1343     	 orr r3,r2
+ 1717 0050 A360     	 str r3,[r4,#8]
+ 1718              	.L213:
+ 1719 0052 301C     	 mov r0,r6
+ 1720 0054 FFF7FEFF 	 bl XMC_VADC_GROUP_QueueGetLength
+ 1721 0058 B842     	 cmp r0,r7
+ 1722 005a FAD0     	 beq .L213
+ 1723 005c E9E7     	 b .L214
+ 1724              	.L217:
+ 1725 005e C046     	 .align 2
+ 1726              	.L216:
+ 1727 0060 00808080 	 .word -2139062272
+ 1728 0064 FFFFFFFE 	 .word -16777217
+ 1730              	 .section .text.XMC_VADC_GROUP_QueueGetNextChannel,"ax",%progbits
+ 1731              	 .align 1
+ 1732              	 .global XMC_VADC_GROUP_QueueGetNextChannel
+ 1733              	 .code 16
+ 1734              	 .thumb_func
+ 1736              	XMC_VADC_GROUP_QueueGetNextChannel:
+ 1737 0000 8023     	 mov r3,#128
+ 1738 0002 FC30     	 add r0,r0,#252
+ 1739 0004 4269     	 ldr r2,[r0,#20]
+ 1740 0006 5B00     	 lsl r3,r3,#1
+ 1741 0008 1A42     	 tst r2,r3
+ 1742 000a 01D0     	 beq .L219
+ 1743 000c 4069     	 ldr r0,[r0,#20]
+ 1744 000e 03E0     	 b .L222
+ 1745              	.L219:
+ 1746 0010 0269     	 ldr r2,[r0,#16]
+ 1747 0012 1A42     	 tst r2,r3
+ 1748 0014 03D0     	 beq .L221
+ 1749 0016 0069     	 ldr r0,[r0,#16]
+ 1750              	.L222:
+ 1751 0018 1F23     	 mov r3,#31
+ 1752 001a 1840     	 and r0,r3
+ 1753 001c 01E0     	 b .L220
+ 1754              	.L221:
+ 1755 001e 0120     	 mov r0,#1
+ 1756 0020 4042     	 neg r0,r0
+ 1757              	.L220:
+ 1758              	 
+ 1759 0022 7047     	 bx lr
+ 1761              	 .section .text.XMC_VADC_GROUP_QueueGetInterruptedChannel,"ax",%progbits
+ 1762              	 .align 1
+ 1763              	 .global XMC_VADC_GROUP_QueueGetInterruptedChannel
+ 1764              	 .code 16
+ 1765              	 .thumb_func
+ 1767              	XMC_VADC_GROUP_QueueGetInterruptedChannel:
+ 1768 0000 FC30     	 add r0,r0,#252
+ 1769 0002 4369     	 ldr r3,[r0,#20]
+ 1770 0004 DB05     	 lsl r3,r3,#23
+ 1771 0006 03D5     	 bpl .L225
+ 1772 0008 1F23     	 mov r3,#31
+ 1773 000a 4069     	 ldr r0,[r0,#20]
+ 1774 000c 1840     	 and r0,r3
+ 1775 000e 01E0     	 b .L224
+ 1776              	.L225:
+ 1777 0010 0120     	 mov r0,#1
+ 1778 0012 4042     	 neg r0,r0
+ 1779              	.L224:
+ 1780              	 
+ 1781 0014 7047     	 bx lr
+ 1783              	 .section .text.XMC_VADC_GROUP_QueueSetReqSrcEventInterruptNode,"ax",%progbits
+ 1784              	 .align 1
+ 1785              	 .global XMC_VADC_GROUP_QueueSetReqSrcEventInterruptNode
+ 1786              	 .code 16
+ 1787              	 .thumb_func
+ 1789              	XMC_VADC_GROUP_QueueSetReqSrcEventInterruptNode:
+ 1790 0000 E022     	 mov r2,#224
+ 1791 0002 10B5     	 push {r4,lr}
+ 1792 0004 0F24     	 mov r4,#15
+ 1793 0006 5200     	 lsl r2,r2,#1
+ 1794 0008 8358     	 ldr r3,[r0,r2]
+ 1795              	 
+ 1796 000a A343     	 bic r3,r4
+ 1797 000c 1943     	 orr r1,r3
+ 1798 000e 8150     	 str r1,[r0,r2]
+ 1799 0010 10BD     	 pop {r4,pc}
+ 1801              	 .section .text.XMC_VADC_GROUP_ChannelInit,"ax",%progbits
+ 1802              	 .align 1
+ 1803              	 .global XMC_VADC_GROUP_ChannelInit
+ 1804              	 .code 16
+ 1805              	 .thumb_func
+ 1807              	XMC_VADC_GROUP_ChannelInit:
+ 1808 0000 70B5     	 push {r4,r5,r6,lr}
+ 1809 0002 0124     	 mov r4,#1
+ 1810 0004 051C     	 mov r5,r0
+ 1811 0006 8C40     	 lsl r4,r4,r1
+ 1812 0008 8835     	 add r5,r5,#136
+ 1813 000a 2B68     	 ldr r3,[r5]
+ 1814 000c A343     	 bic r3,r4
+ 1815 000e 147B     	 ldrb r4,[r2,#12]
+ 1816 0010 8C40     	 lsl r4,r4,r1
+ 1817 0012 2343     	 orr r3,r4
+ 1818 0014 2B60     	 str r3,[r5]
+ 1819 0016 537B     	 ldrb r3,[r2,#13]
+ 1820 0018 7F2B     	 cmp r3,#127
+ 1821 001a 17D8     	 bhi .L228
+ 1822 001c 031C     	 mov r3,r0
+ 1823 001e B033     	 add r3,r3,#176
+ 1824 0020 0129     	 cmp r1,#1
+ 1825 0022 05D1     	 bne .L229
+ 1826 0024 1D68     	 ldr r5,[r3]
+ 1827 0026 114C     	 ldr r4,.L232
+ 1828 0028 0826     	 mov r6,#8
+ 1829 002a 2C40     	 and r4,r5
+ 1830 002c 1C60     	 str r4,[r3]
+ 1831 002e 07E0     	 b .L230
+ 1832              	.L229:
+ 1833 0030 0026     	 mov r6,#0
+ 1834 0032 B142     	 cmp r1,r6
+ 1835 0034 04D1     	 bne .L230
+ 1836 0036 1F25     	 mov r5,#31
+ 1837 0038 0E1C     	 mov r6,r1
+ 1838 003a 1C68     	 ldr r4,[r3]
+ 1839 003c AC43     	 bic r4,r5
+ 1840 003e 1C60     	 str r4,[r3]
+ 1841              	.L230:
+ 1842 0040 0D24     	 mov r4,#13
+ 1843 0042 1457     	 ldrsb r4,[r2,r4]
+ 1844 0044 1D68     	 ldr r5,[r3]
+ 1845 0046 B440     	 lsl r4,r4,r6
+ 1846 0048 2C43     	 orr r4,r5
+ 1847 004a 1C60     	 str r4,[r3]
+ 1848              	.L228:
+ 1849 004c 041C     	 mov r4,r0
+ 1850 004e C834     	 add r4,r4,#200
+ 1851 0050 2368     	 ldr r3,[r4]
+ 1852 0052 5568     	 ldr r5,[r2,#4]
+ 1853 0054 8031     	 add r1,r1,#128
+ 1854 0056 2B43     	 orr r3,r5
+ 1855 0058 2360     	 str r3,[r4]
+ 1856 005a 9568     	 ldr r5,[r2,#8]
+ 1857 005c A368     	 ldr r3,[r4,#8]
+ 1858 005e 8900     	 lsl r1,r1,#2
+ 1859 0060 2B43     	 orr r3,r5
+ 1860 0062 A360     	 str r3,[r4,#8]
+ 1861 0064 1368     	 ldr r3,[r2]
+ 1862              	 
+ 1863 0066 0B50     	 str r3,[r1,r0]
+ 1864 0068 70BD     	 pop {r4,r5,r6,pc}
+ 1865              	.L233:
+ 1866 006a C046     	 .align 2
+ 1867              	.L232:
+ 1868 006c FFE0FFFF 	 .word -7937
+ 1870              	 .section .text.XMC_VADC_GROUP_SetChannelAlias,"ax",%progbits
+ 1871              	 .align 1
+ 1872              	 .global XMC_VADC_GROUP_SetChannelAlias
+ 1873              	 .code 16
+ 1874              	 .thumb_func
+ 1876              	XMC_VADC_GROUP_SetChannelAlias:
+ 1877 0000 B030     	 add r0,r0,#176
+ 1878 0002 10B5     	 push {r4,lr}
+ 1879 0004 0368     	 ldr r3,[r0]
+ 1880 0006 1F24     	 mov r4,#31
+ 1881 0008 002A     	 cmp r2,#0
+ 1882 000a 02D0     	 beq .L235
+ 1883 000c F824     	 mov r4,#248
+ 1884 000e 0822     	 mov r2,#8
+ 1885 0010 6401     	 lsl r4,r4,#5
+ 1886              	.L235:
+ 1887 0012 9140     	 lsl r1,r1,r2
+ 1888 0014 A343     	 bic r3,r4
+ 1889 0016 1943     	 orr r1,r3
+ 1890 0018 0160     	 str r1,[r0]
+ 1891              	 
+ 1892 001a 10BD     	 pop {r4,pc}
+ 1894              	 .section .text.XMC_VADC_GROUP_ChannelIsResultOutOfBounds,"ax",%progbits
+ 1895              	 .align 1
+ 1896              	 .global XMC_VADC_GROUP_ChannelIsResultOutOfBounds
+ 1897              	 .code 16
+ 1898              	 .thumb_func
+ 1900              	XMC_VADC_GROUP_ChannelIsResultOutOfBounds:
+ 1901 0000 0B1C     	 mov r3,r1
+ 1902 0002 C022     	 mov r2,#192
+ 1903 0004 8033     	 add r3,r3,#128
+ 1904 0006 9B00     	 lsl r3,r3,#2
+ 1905 0008 1B58     	 ldr r3,[r3,r0]
+ 1906 000a 5200     	 lsl r2,r2,#1
+ 1907 000c 9B05     	 lsl r3,r3,#22
+ 1908 000e 9B0F     	 lsr r3,r3,#30
+ 1909 0010 013B     	 sub r3,r3,#1
+ 1910 0012 8258     	 ldr r2,[r0,r2]
+ 1911 0014 0020     	 mov r0,#0
+ 1912 0016 012B     	 cmp r3,#1
+ 1913 0018 06D8     	 bhi .L238
+ 1914 001a 0123     	 mov r3,#1
+ 1915 001c 8B40     	 lsl r3,r3,r1
+ 1916 001e 1A40     	 and r2,r3
+ 1917 0020 101C     	 mov r0,r2
+ 1918 0022 411E     	 sub r1,r0,#1
+ 1919 0024 8841     	 sbc r0,r0,r1
+ 1920 0026 C0B2     	 uxtb r0,r0
+ 1921              	.L238:
+ 1922              	 
+ 1923 0028 7047     	 bx lr
+ 1925              	 .section .text.XMC_VADC_GROUP_ChannelSetInputReference,"ax",%progbits
+ 1926              	 .align 1
+ 1927              	 .global XMC_VADC_GROUP_ChannelSetInputReference
+ 1928              	 .code 16
+ 1929              	 .thumb_func
+ 1931              	XMC_VADC_GROUP_ChannelSetInputReference:
+ 1932 0000 8900     	 lsl r1,r1,#2
+ 1933 0002 4118     	 add r1,r0,r1
+ 1934 0004 8020     	 mov r0,#128
+ 1935 0006 10B5     	 push {r4,lr}
+ 1936 0008 8000     	 lsl r0,r0,#2
+ 1937 000a 0C58     	 ldr r4,[r1,r0]
+ 1938 000c 024B     	 ldr r3,.L241
+ 1939 000e D202     	 lsl r2,r2,#11
+ 1940 0010 2340     	 and r3,r4
+ 1941 0012 1A43     	 orr r2,r3
+ 1942 0014 0A50     	 str r2,[r1,r0]
+ 1943              	 
+ 1944 0016 10BD     	 pop {r4,pc}
+ 1945              	.L242:
+ 1946              	 .align 2
+ 1947              	.L241:
+ 1948 0018 FFF7FFFF 	 .word -2049
+ 1950              	 .section .text.XMC_VADC_GROUP_ChannelSetResultRegister,"ax",%progbits
+ 1951              	 .align 1
+ 1952              	 .global XMC_VADC_GROUP_ChannelSetResultRegister
+ 1953              	 .code 16
+ 1954              	 .thumb_func
+ 1956              	XMC_VADC_GROUP_ChannelSetResultRegister:
+ 1957 0000 8900     	 lsl r1,r1,#2
+ 1958 0002 4118     	 add r1,r0,r1
+ 1959 0004 8020     	 mov r0,#128
+ 1960 0006 10B5     	 push {r4,lr}
+ 1961 0008 8000     	 lsl r0,r0,#2
+ 1962 000a 0C58     	 ldr r4,[r1,r0]
+ 1963 000c 024B     	 ldr r3,.L244
+ 1964 000e 1204     	 lsl r2,r2,#16
+ 1965 0010 2340     	 and r3,r4
+ 1966 0012 1A43     	 orr r2,r3
+ 1967 0014 0A50     	 str r2,[r1,r0]
+ 1968              	 
+ 1969 0016 10BD     	 pop {r4,pc}
+ 1970              	.L245:
+ 1971              	 .align 2
+ 1972              	.L244:
+ 1973 0018 FFFFF0FF 	 .word -983041
+ 1975              	 .section .text.XMC_VADC_GROUP_ChannelSetIclass,"ax",%progbits
+ 1976              	 .align 1
+ 1977              	 .global XMC_VADC_GROUP_ChannelSetIclass
+ 1978              	 .code 16
+ 1979              	 .thumb_func
+ 1981              	XMC_VADC_GROUP_ChannelSetIclass:
+ 1982 0000 8900     	 lsl r1,r1,#2
+ 1983 0002 4118     	 add r1,r0,r1
+ 1984 0004 8020     	 mov r0,#128
+ 1985 0006 10B5     	 push {r4,lr}
+ 1986 0008 0324     	 mov r4,#3
+ 1987 000a 8000     	 lsl r0,r0,#2
+ 1988 000c 0B58     	 ldr r3,[r1,r0]
+ 1989              	 
+ 1990 000e A343     	 bic r3,r4
+ 1991 0010 1A43     	 orr r2,r3
+ 1992 0012 0A50     	 str r2,[r1,r0]
+ 1993 0014 10BD     	 pop {r4,pc}
+ 1995              	 .section .text.XMC_VADC_GROUP_ChannelGetResultRegister,"ax",%progbits
+ 1996              	 .align 1
+ 1997              	 .global XMC_VADC_GROUP_ChannelGetResultRegister
+ 1998              	 .code 16
+ 1999              	 .thumb_func
+ 2001              	XMC_VADC_GROUP_ChannelGetResultRegister:
+ 2002 0000 8031     	 add r1,r1,#128
+ 2003 0002 8900     	 lsl r1,r1,#2
+ 2004 0004 0858     	 ldr r0,[r1,r0]
+ 2005              	 
+ 2006 0006 0003     	 lsl r0,r0,#12
+ 2007 0008 000F     	 lsr r0,r0,#28
+ 2008 000a 7047     	 bx lr
+ 2010              	 .section .text.XMC_VADC_GROUP_ChannelTriggerEvent,"ax",%progbits
+ 2011              	 .align 1
+ 2012              	 .global XMC_VADC_GROUP_ChannelTriggerEvent
+ 2013              	 .code 16
+ 2014              	 .thumb_func
+ 2016              	XMC_VADC_GROUP_ChannelTriggerEvent:
+ 2017 0000 0122     	 mov r2,#1
+ 2018 0002 8A40     	 lsl r2,r2,r1
+ 2019 0004 10B5     	 push {r4,lr}
+ 2020 0006 C024     	 mov r4,#192
+ 2021 0008 111C     	 mov r1,r2
+ 2022 000a 6400     	 lsl r4,r4,#1
+ 2023 000c 0359     	 ldr r3,[r0,r4]
+ 2024              	 
+ 2025 000e 1943     	 orr r1,r3
+ 2026 0010 0151     	 str r1,[r0,r4]
+ 2027 0012 10BD     	 pop {r4,pc}
+ 2029              	 .section .text.XMC_VADC_GROUP_ChannelSetEventInterruptNode,"ax",%progbits
+ 2030              	 .align 1
+ 2031              	 .global XMC_VADC_GROUP_ChannelSetEventInterruptNode
+ 2032              	 .code 16
+ 2033              	 .thumb_func
+ 2035              	XMC_VADC_GROUP_ChannelSetEventInterruptNode:
+ 2036 0000 30B5     	 push {r4,r5,lr}
+ 2037 0002 0F25     	 mov r5,#15
+ 2038 0004 D024     	 mov r4,#208
+ 2039 0006 8900     	 lsl r1,r1,#2
+ 2040 0008 8D40     	 lsl r5,r5,r1
+ 2041 000a 8A40     	 lsl r2,r2,r1
+ 2042 000c 6400     	 lsl r4,r4,#1
+ 2043 000e 0359     	 ldr r3,[r0,r4]
+ 2044              	 
+ 2045 0010 AB43     	 bic r3,r5
+ 2046 0012 1343     	 orr r3,r2
+ 2047 0014 0351     	 str r3,[r0,r4]
+ 2048 0016 30BD     	 pop {r4,r5,pc}
+ 2050              	 .section .text.XMC_VADC_GROUP_ChannelTriggerEventGenCriteria,"ax",%progbits
+ 2051              	 .align 1
+ 2052              	 .global XMC_VADC_GROUP_ChannelTriggerEventGenCriteria
+ 2053              	 .code 16
+ 2054              	 .thumb_func
+ 2056              	XMC_VADC_GROUP_ChannelTriggerEventGenCriteria:
+ 2057 0000 8900     	 lsl r1,r1,#2
+ 2058 0002 4118     	 add r1,r0,r1
+ 2059 0004 8020     	 mov r0,#128
+ 2060 0006 10B5     	 push {r4,lr}
+ 2061 0008 8000     	 lsl r0,r0,#2
+ 2062 000a 0C58     	 ldr r4,[r1,r0]
+ 2063 000c 024B     	 ldr r3,.L251
+ 2064 000e 1202     	 lsl r2,r2,#8
+ 2065 0010 2340     	 and r3,r4
+ 2066 0012 1A43     	 orr r2,r3
+ 2067 0014 0A50     	 str r2,[r1,r0]
+ 2068              	 
+ 2069 0016 10BD     	 pop {r4,pc}
+ 2070              	.L252:
+ 2071              	 .align 2
+ 2072              	.L251:
+ 2073 0018 FFFCFFFF 	 .word -769
+ 2075              	 .section .text.XMC_VADC_GROUP_ChannelSetBoundarySelection,"ax",%progbits
+ 2076              	 .align 1
+ 2077              	 .global XMC_VADC_GROUP_ChannelSetBoundarySelection
+ 2078              	 .code 16
+ 2079              	 .thumb_func
+ 2081              	XMC_VADC_GROUP_ChannelSetBoundarySelection:
+ 2082 0000 30B5     	 push {r4,r5,lr}
+ 2083 0002 3025     	 mov r5,#48
+ 2084 0004 9540     	 lsl r5,r5,r2
+ 2085 0006 0432     	 add r2,r2,#4
+ 2086 0008 9340     	 lsl r3,r3,r2
+ 2087 000a 8900     	 lsl r1,r1,#2
+ 2088 000c 4118     	 add r1,r0,r1
+ 2089 000e 8020     	 mov r0,#128
+ 2090 0010 1A1C     	 mov r2,r3
+ 2091 0012 8000     	 lsl r0,r0,#2
+ 2092 0014 0C58     	 ldr r4,[r1,r0]
+ 2093              	 
+ 2094 0016 AC43     	 bic r4,r5
+ 2095 0018 0C50     	 str r4,[r1,r0]
+ 2096 001a 0C58     	 ldr r4,[r1,r0]
+ 2097 001c 2243     	 orr r2,r4
+ 2098 001e 0A50     	 str r2,[r1,r0]
+ 2099 0020 30BD     	 pop {r4,r5,pc}
+ 2101              	 .section .text.XMC_VADC_GROUP_AddResultToFifo,"ax",%progbits
+ 2102              	 .align 1
+ 2103              	 .global XMC_VADC_GROUP_AddResultToFifo
+ 2104              	 .code 16
+ 2105              	 .thumb_func
+ 2107              	XMC_VADC_GROUP_AddResultToFifo:
+ 2108 0000 A022     	 mov r2,#160
+ 2109 0002 8900     	 lsl r1,r1,#2
+ 2110 0004 4118     	 add r1,r0,r1
+ 2111 0006 9200     	 lsl r2,r2,#2
+ 2112 0008 8858     	 ldr r0,[r1,r2]
+ 2113 000a 034B     	 ldr r3,.L255
+ 2114              	 
+ 2115 000c 0340     	 and r3,r0
+ 2116 000e 8020     	 mov r0,#128
+ 2117 0010 8004     	 lsl r0,r0,#18
+ 2118 0012 0343     	 orr r3,r0
+ 2119 0014 8B50     	 str r3,[r1,r2]
+ 2120 0016 7047     	 bx lr
+ 2121              	.L256:
+ 2122              	 .align 2
+ 2123              	.L255:
+ 2124 0018 FFFFFFF9 	 .word -100663297
+ 2126              	 .section .text.XMC_VADC_GROUP_SetResultFastCompareValue,"ax",%progbits
+ 2127              	 .align 1
+ 2128              	 .global XMC_VADC_GROUP_SetResultFastCompareValue
+ 2129              	 .code 16
+ 2130              	 .thumb_func
+ 2132              	XMC_VADC_GROUP_SetResultFastCompareValue:
+ 2133 0000 8900     	 lsl r1,r1,#2
+ 2134 0002 4118     	 add r1,r0,r1
+ 2135 0004 C020     	 mov r0,#192
+ 2136 0006 8000     	 lsl r0,r0,#2
+ 2137 0008 0B58     	 ldr r3,[r1,r0]
+ 2138 000a 9200     	 lsl r2,r2,#2
+ 2139 000c 1B0C     	 lsr r3,r3,#16
+ 2140 000e 1B04     	 lsl r3,r3,#16
+ 2141 0010 1A43     	 orr r2,r3
+ 2142 0012 0A50     	 str r2,[r1,r0]
+ 2143              	 
+ 2144 0014 7047     	 bx lr
+ 2146              	 .section .text.XMC_VADC_GROUP_GetFastCompareResult,"ax",%progbits
+ 2147              	 .align 1
+ 2148              	 .global XMC_VADC_GROUP_GetFastCompareResult
+ 2149              	 .code 16
+ 2150              	 .thumb_func
+ 2152              	XMC_VADC_GROUP_GetFastCompareResult:
+ 2153 0000 C031     	 add r1,r1,#192
+ 2154 0002 8900     	 lsl r1,r1,#2
+ 2155 0004 0B58     	 ldr r3,[r1,r0]
+ 2156 0006 0220     	 mov r0,#2
+ 2157 0008 002B     	 cmp r3,#0
+ 2158 000a 01DA     	 bge .L259
+ 2159 000c 5B00     	 lsl r3,r3,#1
+ 2160 000e D80F     	 lsr r0,r3,#31
+ 2161              	.L259:
+ 2162              	 
+ 2163 0010 7047     	 bx lr
+ 2165              	 .section .text.XMC_VADC_GROUP_SetResultSubtractionValue,"ax",%progbits
+ 2166              	 .align 1
+ 2167              	 .global XMC_VADC_GROUP_SetResultSubtractionValue
+ 2168              	 .code 16
+ 2169              	 .thumb_func
+ 2171              	XMC_VADC_GROUP_SetResultSubtractionValue:
+ 2172 0000 C022     	 mov r2,#192
+ 2173 0002 9200     	 lsl r2,r2,#2
+ 2174 0004 8358     	 ldr r3,[r0,r2]
+ 2175              	 
+ 2176 0006 1B0C     	 lsr r3,r3,#16
+ 2177 0008 1B04     	 lsl r3,r3,#16
+ 2178 000a 1943     	 orr r1,r3
+ 2179 000c 8150     	 str r1,[r0,r2]
+ 2180 000e 7047     	 bx lr
+ 2182              	 .section .text.XMC_VADC_GROUP_SetResultInterruptNode,"ax",%progbits
+ 2183              	 .align 1
+ 2184              	 .global XMC_VADC_GROUP_SetResultInterruptNode
+ 2185              	 .code 16
+ 2186              	 .thumb_func
+ 2188              	XMC_VADC_GROUP_SetResultInterruptNode:
+ 2189 0000 30B5     	 push {r4,r5,lr}
+ 2190 0002 0729     	 cmp r1,#7
+ 2191 0004 03D8     	 bhi .L263
+ 2192 0006 D824     	 mov r4,#216
+ 2193 0008 6400     	 lsl r4,r4,#1
+ 2194 000a 0359     	 ldr r3,[r0,r4]
+ 2195 000c 04E0     	 b .L265
+ 2196              	.L263:
+ 2197 000e DA24     	 mov r4,#218
+ 2198 0010 064D     	 ldr r5,.L266
+ 2199 0012 6400     	 lsl r4,r4,#1
+ 2200 0014 0359     	 ldr r3,[r0,r4]
+ 2201 0016 4919     	 add r1,r1,r5
+ 2202              	.L265:
+ 2203 0018 8900     	 lsl r1,r1,#2
+ 2204 001a 0F25     	 mov r5,#15
+ 2205 001c 8A40     	 lsl r2,r2,r1
+ 2206 001e 8D40     	 lsl r5,r5,r1
+ 2207 0020 111C     	 mov r1,r2
+ 2208 0022 AB43     	 bic r3,r5
+ 2209 0024 1943     	 orr r1,r3
+ 2210 0026 0151     	 str r1,[r0,r4]
+ 2211              	 
+ 2212 0028 30BD     	 pop {r4,r5,pc}
+ 2213              	.L267:
+ 2214 002a C046     	 .align 2
+ 2215              	.L266:
+ 2216 002c F8FFFF3F 	 .word 1073741816
+ 2218              	 .section .text.XMC_VADC_GROUP_IsResultRegisterFifoHead,"ax",%progbits
+ 2219              	 .align 1
+ 2220              	 .global XMC_VADC_GROUP_IsResultRegisterFifoHead
+ 2221              	 .code 16
+ 2222              	 .thumb_func
+ 2224              	XMC_VADC_GROUP_IsResultRegisterFifoHead:
+ 2225 0000 A023     	 mov r3,#160
+ 2226 0002 8900     	 lsl r1,r1,#2
+ 2227 0004 4118     	 add r1,r0,r1
+ 2228 0006 9B00     	 lsl r3,r3,#2
+ 2229 0008 10B5     	 push {r4,lr}
+ 2230 000a CC58     	 ldr r4,[r1,r3]
+ 2231 000c 043B     	 sub r3,r3,#4
+ 2232 000e CA58     	 ldr r2,[r1,r3]
+ 2233 0010 C023     	 mov r3,#192
+ 2234 0012 DB04     	 lsl r3,r3,#19
+ 2235 0014 0020     	 mov r0,#0
+ 2236 0016 1C42     	 tst r4,r3
+ 2237 0018 03D1     	 bne .L269
+ 2238 001a 1340     	 and r3,r2
+ 2239 001c 581E     	 sub r0,r3,#1
+ 2240 001e 8341     	 sbc r3,r3,r0
+ 2241 0020 D8B2     	 uxtb r0,r3
+ 2242              	.L269:
+ 2243              	 
+ 2244 0022 10BD     	 pop {r4,pc}
+ 2246              	 .section .text.XMC_VADC_GROUP_GetResultFifoTail,"ax",%progbits
+ 2247              	 .align 1
+ 2248              	 .global XMC_VADC_GROUP_GetResultFifoTail
+ 2249              	 .code 16
+ 2250              	 .thumb_func
+ 2252              	XMC_VADC_GROUP_GetResultFifoTail:
+ 2253 0000 38B5     	 push {r3,r4,r5,lr}
+ 2254 0002 0C1C     	 mov r4,r1
+ 2255 0004 051C     	 mov r5,r0
+ 2256 0006 FFF7FEFF 	 bl XMC_VADC_GROUP_IsResultRegisterFifoHead
+ 2257 000a 431E     	 sub r3,r0,#1
+ 2258 000c 9841     	 sbc r0,r0,r3
+ 2259 000e 241A     	 sub r4,r4,r0
+ 2260 0010 0020     	 mov r0,#0
+ 2261 0012 8442     	 cmp r4,r0
+ 2262 0014 11D0     	 beq .L283
+ 2263 0016 201C     	 mov r0,r4
+ 2264              	.L274:
+ 2265 0018 0028     	 cmp r0,#0
+ 2266 001a 0DDB     	 blt .L286
+ 2267 001c 031C     	 mov r3,r0
+ 2268 001e A033     	 add r3,r3,#160
+ 2269 0020 9B00     	 lsl r3,r3,#2
+ 2270 0022 5A59     	 ldr r2,[r3,r5]
+ 2271 0024 C023     	 mov r3,#192
+ 2272 0026 DB04     	 lsl r3,r3,#19
+ 2273 0028 1A42     	 tst r2,r3
+ 2274 002a 03D0     	 beq .L275
+ 2275 002c 0028     	 cmp r0,#0
+ 2276 002e 04D0     	 beq .L283
+ 2277 0030 0138     	 sub r0,r0,#1
+ 2278 0032 F1E7     	 b .L274
+ 2279              	.L275:
+ 2280 0034 0130     	 add r0,r0,#1
+ 2281 0036 00E0     	 b .L283
+ 2282              	.L286:
+ 2283 0038 0020     	 mov r0,#0
+ 2284              	.L283:
+ 2285              	 
+ 2286 003a 38BD     	 pop {r3,r4,r5,pc}
+ 2288              	 .section .text.XMC_VADC_GROUP_GetResultFifoHead,"ax",%progbits
+ 2289              	 .align 1
+ 2290              	 .global XMC_VADC_GROUP_GetResultFifoHead
+ 2291              	 .code 16
+ 2292              	 .thumb_func
+ 2294              	XMC_VADC_GROUP_GetResultFifoHead:
+ 2295 0000 38B5     	 push {r3,r4,r5,lr}
+ 2296 0002 0C1C     	 mov r4,r1
+ 2297 0004 051C     	 mov r5,r0
+ 2298 0006 FFF7FEFF 	 bl XMC_VADC_GROUP_IsResultRegisterFifoHead
+ 2299 000a 211C     	 mov r1,r4
+ 2300 000c 0028     	 cmp r0,#0
+ 2301 000e 0CD1     	 bne .L288
+ 2302              	.L289:
+ 2303 0010 0F29     	 cmp r1,#15
+ 2304 0012 09D8     	 bhi .L295
+ 2305 0014 0B1C     	 mov r3,r1
+ 2306 0016 A033     	 add r3,r3,#160
+ 2307 0018 9B00     	 lsl r3,r3,#2
+ 2308 001a 5A59     	 ldr r2,[r3,r5]
+ 2309 001c C023     	 mov r3,#192
+ 2310 001e DB04     	 lsl r3,r3,#19
+ 2311 0020 1A42     	 tst r2,r3
+ 2312 0022 02D0     	 beq .L288
+ 2313 0024 0131     	 add r1,r1,#1
+ 2314 0026 F3E7     	 b .L289
+ 2315              	.L295:
+ 2316 0028 0F21     	 mov r1,#15
+ 2317              	.L288:
+ 2318 002a 081C     	 mov r0,r1
+ 2319              	 
+ 2320 002c 38BD     	 pop {r3,r4,r5,pc}
+ 2322              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 xmc_vadc.c
+    {standard input}:15     .text.XMC_VADC_GLOBAL_EnableModule:00000000 $t
+    {standard input}:20     .text.XMC_VADC_GLOBAL_EnableModule:00000000 XMC_VADC_GLOBAL_EnableModule
+    {standard input}:32     .text.XMC_VADC_GLOBAL_EnableModule:00000010 $d
+    {standard input}:35     .text.XMC_VADC_GLOBAL_DisableModule:00000000 $t
+    {standard input}:40     .text.XMC_VADC_GLOBAL_DisableModule:00000000 XMC_VADC_GLOBAL_DisableModule
+    {standard input}:48     .text.XMC_VADC_GLOBAL_Init:00000000 $t
+    {standard input}:53     .text.XMC_VADC_GLOBAL_Init:00000000 XMC_VADC_GLOBAL_Init
+    {standard input}:83     .text.XMC_VADC_GLOBAL_InputClassInit:00000000 $t
+    {standard input}:88     .text.XMC_VADC_GLOBAL_InputClassInit:00000000 XMC_VADC_GLOBAL_InputClassInit
+    {standard input}:105    .text.XMC_VADC_GLOBAL_InputClassInit:00000014 $d
+    {standard input}:109    .text.XMC_VADC_GLOBAL_StartupCalibration:00000000 $t
+    {standard input}:114    .text.XMC_VADC_GLOBAL_StartupCalibration:00000000 XMC_VADC_GLOBAL_StartupCalibration
+    {standard input}:146    .text.XMC_VADC_GLOBAL_StartupCalibration:00000030 $d
+    {standard input}:150    .text.XMC_VADC_GLOBAL_SetBoundaries:00000000 $t
+    {standard input}:155    .text.XMC_VADC_GLOBAL_SetBoundaries:00000000 XMC_VADC_GLOBAL_SetBoundaries
+    {standard input}:164    .text.XMC_VADC_GLOBAL_SetIndividualBoundary:00000000 $t
+    {standard input}:169    .text.XMC_VADC_GLOBAL_SetIndividualBoundary:00000000 XMC_VADC_GLOBAL_SetIndividualBoundary
+    {standard input}:192    .text.XMC_VADC_GLOBAL_SetIndividualBoundary:00000020 $d
+    {standard input}:195    .text.XMC_VADC_GLOBAL_SetCompareValue:00000000 $t
+    {standard input}:200    .text.XMC_VADC_GLOBAL_SetCompareValue:00000000 XMC_VADC_GLOBAL_SetCompareValue
+    {standard input}:215    .text.XMC_VADC_GLOBAL_GetCompareResult:00000000 $t
+    {standard input}:220    .text.XMC_VADC_GLOBAL_GetCompareResult:00000000 XMC_VADC_GLOBAL_GetCompareResult
+    {standard input}:234    .text.XMC_VADC_GLOBAL_BindGroupToEMux:00000000 $t
+    {standard input}:239    .text.XMC_VADC_GLOBAL_BindGroupToEMux:00000000 XMC_VADC_GLOBAL_BindGroupToEMux
+    {standard input}:261    .text.XMC_VADC_GLOBAL_SetResultEventInterruptNode:00000000 $t
+    {standard input}:266    .text.XMC_VADC_GLOBAL_SetResultEventInterruptNode:00000000 XMC_VADC_GLOBAL_SetResultEventInterruptNode
+    {standard input}:285    .text.XMC_VADC_GLOBAL_SetResultEventInterruptNode:0000001c $d
+    {standard input}:288    .text.XMC_VADC_GLOBAL_BackgroundSetReqSrcEventInterruptNode:00000000 $t
+    {standard input}:293    .text.XMC_VADC_GLOBAL_BackgroundSetReqSrcEventInterruptNode:00000000 XMC_VADC_GLOBAL_BackgroundSetReqSrcEventInterruptNode
+    {standard input}:310    .text.XMC_VADC_GROUP_InputClassInit:00000000 $t
+    {standard input}:315    .text.XMC_VADC_GROUP_InputClassInit:00000000 XMC_VADC_GROUP_InputClassInit
+    {standard input}:355    .text.XMC_VADC_GROUP_Init:00000000 $t
+    {standard input}:360    .text.XMC_VADC_GROUP_Init:00000000 XMC_VADC_GROUP_Init
+    {standard input}:425    .text.XMC_VADC_GROUP_SetPowerMode:00000000 $t
+    {standard input}:430    .text.XMC_VADC_GROUP_SetPowerMode:00000000 XMC_VADC_GROUP_SetPowerMode
+    {standard input}:441    .text.XMC_VADC_GROUP_SetSyncSlave:00000000 $t
+    {standard input}:446    .text.XMC_VADC_GROUP_SetSyncSlave:00000000 XMC_VADC_GROUP_SetSyncSlave
+    {standard input}:461    .text.XMC_VADC_GROUP_SetSyncMaster:00000000 $t
+    {standard input}:466    .text.XMC_VADC_GROUP_SetSyncMaster:00000000 XMC_VADC_GROUP_SetSyncMaster
+    {standard input}:476    .text.XMC_VADC_GROUP_CheckSlaveReadiness:00000000 $t
+    {standard input}:481    .text.XMC_VADC_GROUP_CheckSlaveReadiness:00000000 XMC_VADC_GROUP_CheckSlaveReadiness
+    {standard input}:491    .text.XMC_VADC_GROUP_IgnoreSlaveReadiness:00000000 $t
+    {standard input}:496    .text.XMC_VADC_GROUP_IgnoreSlaveReadiness:00000000 XMC_VADC_GROUP_IgnoreSlaveReadiness
+    {standard input}:506    .text.XMC_VADC_GROUP_EnableChannelSyncRequest:00000000 $t
+    {standard input}:511    .text.XMC_VADC_GROUP_EnableChannelSyncRequest:00000000 XMC_VADC_GROUP_EnableChannelSyncRequest
+    {standard input}:531    .text.XMC_VADC_GROUP_DisableChannelSyncRequest:00000000 $t
+    {standard input}:536    .text.XMC_VADC_GROUP_DisableChannelSyncRequest:00000000 XMC_VADC_GROUP_DisableChannelSyncRequest
+    {standard input}:556    .text.XMC_VADC_GROUP_DisableChannelSyncRequest:0000001c $d
+    {standard input}:559    .text.XMC_VADC_GROUP_IsConverterBusy:00000000 $t
+    {standard input}:564    .text.XMC_VADC_GROUP_IsConverterBusy:00000000 XMC_VADC_GROUP_IsConverterBusy
+    {standard input}:573    .text.XMC_VADC_GROUP_SetBoundaries:00000000 $t
+    {standard input}:578    .text.XMC_VADC_GROUP_SetBoundaries:00000000 XMC_VADC_GROUP_SetBoundaries
+    {standard input}:593    .text.XMC_VADC_GROUP_SetBoundaries:00000014 $d
+    {standard input}:596    .text.XMC_VADC_GROUP_SetIndividualBoundary:00000000 $t
+    {standard input}:601    .text.XMC_VADC_GROUP_SetIndividualBoundary:00000000 XMC_VADC_GROUP_SetIndividualBoundary
+    {standard input}:624    .text.XMC_VADC_GROUP_SetIndividualBoundary:00000020 $d
+    {standard input}:627    .text.XMC_VADC_GROUP_TriggerServiceRequest:00000000 $t
+    {standard input}:632    .text.XMC_VADC_GROUP_TriggerServiceRequest:00000000 XMC_VADC_GROUP_TriggerServiceRequest
+    {standard input}:651    .text.XMC_VADC_GROUP_SetBoundaryEventInterruptNode:00000000 $t
+    {standard input}:656    .text.XMC_VADC_GROUP_SetBoundaryEventInterruptNode:00000000 XMC_VADC_GROUP_SetBoundaryEventInterruptNode
+    {standard input}:674    .text.XMC_VADC_GLOBAL_SHS_Init:00000000 $t
+    {standard input}:679    .text.XMC_VADC_GLOBAL_SHS_Init:00000000 XMC_VADC_GLOBAL_SHS_Init
+    {standard input}:698    .text.XMC_VADC_GLOBAL_SHS_EnableAcceleratedMode:00000000 $t
+    {standard input}:703    .text.XMC_VADC_GLOBAL_SHS_EnableAcceleratedMode:00000000 XMC_VADC_GLOBAL_SHS_EnableAcceleratedMode
+    {standard input}:724    .text.XMC_VADC_GLOBAL_SHS_DisableAcceleratedMode:00000000 $t
+    {standard input}:729    .text.XMC_VADC_GLOBAL_SHS_DisableAcceleratedMode:00000000 XMC_VADC_GLOBAL_SHS_DisableAcceleratedMode
+    {standard input}:750    .text.XMC_VADC_GLOBAL_SHS_SetShortSampleTime:00000000 $t
+    {standard input}:755    .text.XMC_VADC_GLOBAL_SHS_SetShortSampleTime:00000000 XMC_VADC_GLOBAL_SHS_SetShortSampleTime
+    {standard input}:779    .text.XMC_VADC_GLOBAL_SHS_SetShortSampleTime:00000020 $d
+    {standard input}:782    .text.XMC_VADC_GLOBAL_SHS_SetGainFactor:00000000 $t
+    {standard input}:787    .text.XMC_VADC_GLOBAL_SHS_SetGainFactor:00000000 XMC_VADC_GLOBAL_SHS_SetGainFactor
+    {standard input}:815    .text.XMC_VADC_GLOBAL_SHS_EnableGainAndOffsetCalibrations:00000000 $t
+    {standard input}:820    .text.XMC_VADC_GLOBAL_SHS_EnableGainAndOffsetCalibrations:00000000 XMC_VADC_GLOBAL_SHS_EnableGainAndOffsetCalibrations
+    {standard input}:839    .text.XMC_VADC_GLOBAL_SHS_DisableGainAndOffsetCalibrations:00000000 $t
+    {standard input}:844    .text.XMC_VADC_GLOBAL_SHS_DisableGainAndOffsetCalibrations:00000000 XMC_VADC_GLOBAL_SHS_DisableGainAndOffsetCalibrations
+    {standard input}:864    .text.XMC_VADC_GLOBAL_SHS_GetOffsetCalibrationValue:00000000 $t
+    {standard input}:869    .text.XMC_VADC_GLOBAL_SHS_GetOffsetCalibrationValue:00000000 XMC_VADC_GLOBAL_SHS_GetOffsetCalibrationValue
+    {standard input}:891    .text.XMC_VADC_GLOBAL_SHS_SetOffsetCalibrationValue:00000000 $t
+    {standard input}:896    .text.XMC_VADC_GLOBAL_SHS_SetOffsetCalibrationValue:00000000 XMC_VADC_GLOBAL_SHS_SetOffsetCalibrationValue
+    {standard input}:940    .text.XMC_VADC_GLOBAL_SHS_SetSigmaDeltaLoop:00000000 $t
+    {standard input}:945    .text.XMC_VADC_GLOBAL_SHS_SetSigmaDeltaLoop:00000000 XMC_VADC_GLOBAL_SHS_SetSigmaDeltaLoop
+    {standard input}:963    .text.XMC_VADC_GLOBAL_SHS_SetSigmaDeltaLoop:0000001c $d
+    {standard input}:966    .text.XMC_VADC_GROUP_ScanInit:00000000 $t
+    {standard input}:971    .text.XMC_VADC_GROUP_ScanInit:00000000 XMC_VADC_GROUP_ScanInit
+    {standard input}:1022   .text.XMC_VADC_GROUP_ScanInit:00000058 $d
+    {standard input}:1026   .text.XMC_VADC_GROUP_ScanSelectTrigger:00000000 $t
+    {standard input}:1031   .text.XMC_VADC_GROUP_ScanSelectTrigger:00000000 XMC_VADC_GROUP_ScanSelectTrigger
+    {standard input}:1047   .text.XMC_VADC_GROUP_ScanSelectTrigger:00000018 $d
+    {standard input}:1050   .text.XMC_VADC_GROUP_ScanSelectTriggerEdge:00000000 $t
+    {standard input}:1055   .text.XMC_VADC_GROUP_ScanSelectTriggerEdge:00000000 XMC_VADC_GROUP_ScanSelectTriggerEdge
+    {standard input}:1071   .text.XMC_VADC_GROUP_ScanSelectTriggerEdge:00000018 $d
+    {standard input}:1074   .text.XMC_VADC_GROUP_ScanSelectGating:00000000 $t
+    {standard input}:1079   .text.XMC_VADC_GROUP_ScanSelectGating:00000000 XMC_VADC_GROUP_ScanSelectGating
+    {standard input}:1095   .text.XMC_VADC_GROUP_ScanSelectGating:00000018 $d
+    {standard input}:1098   .text.XMC_VADC_GROUP_ScanSequenceAbort:00000000 $t
+    {standard input}:1103   .text.XMC_VADC_GROUP_ScanSequenceAbort:00000000 XMC_VADC_GROUP_ScanSequenceAbort
+    {standard input}:1138   .text.XMC_VADC_GROUP_ScanSequenceAbort:0000003c $d
+    {standard input}:1142   .text.XMC_VADC_GROUP_ScanGetNumChannelsPending:00000000 $t
+    {standard input}:1147   .text.XMC_VADC_GROUP_ScanGetNumChannelsPending:00000000 XMC_VADC_GROUP_ScanGetNumChannelsPending
+    {standard input}:1169   .text.XMC_VADC_GROUP_ScanSetReqSrcEventInterruptNode:00000000 $t
+    {standard input}:1174   .text.XMC_VADC_GROUP_ScanSetReqSrcEventInterruptNode:00000000 XMC_VADC_GROUP_ScanSetReqSrcEventInterruptNode
+    {standard input}:1188   .text.XMC_VADC_GROUP_ScanRemoveChannel:00000000 $t
+    {standard input}:1193   .text.XMC_VADC_GROUP_ScanRemoveChannel:00000000 XMC_VADC_GROUP_ScanRemoveChannel
+    {standard input}:1204   .text.XMC_VADC_GLOBAL_BackgroundInit:00000000 $t
+    {standard input}:1209   .text.XMC_VADC_GLOBAL_BackgroundInit:00000000 XMC_VADC_GLOBAL_BackgroundInit
+    {standard input}:1278   .text.XMC_VADC_GLOBAL_BackgroundInit:00000080 $d
+    {standard input}:1285   .text.XMC_VADC_GLOBAL_BackgroundSelectTrigger:00000000 $t
+    {standard input}:1290   .text.XMC_VADC_GLOBAL_BackgroundSelectTrigger:00000000 XMC_VADC_GLOBAL_BackgroundSelectTrigger
+    {standard input}:1308   .text.XMC_VADC_GLOBAL_BackgroundSelectTrigger:0000001c $d
+    {standard input}:1311   .text.XMC_VADC_GLOBAL_BackgroundSelectTriggerEdge:00000000 $t
+    {standard input}:1316   .text.XMC_VADC_GLOBAL_BackgroundSelectTriggerEdge:00000000 XMC_VADC_GLOBAL_BackgroundSelectTriggerEdge
+    {standard input}:1334   .text.XMC_VADC_GLOBAL_BackgroundSelectTriggerEdge:0000001c $d
+    {standard input}:1337   .text.XMC_VADC_GLOBAL_BackgroundSelectGating:00000000 $t
+    {standard input}:1342   .text.XMC_VADC_GLOBAL_BackgroundSelectGating:00000000 XMC_VADC_GLOBAL_BackgroundSelectGating
+    {standard input}:1360   .text.XMC_VADC_GLOBAL_BackgroundSelectGating:0000001c $d
+    {standard input}:1363   .text.XMC_VADC_GLOBAL_BackgroundAbortSequence:00000000 $t
+    {standard input}:1368   .text.XMC_VADC_GLOBAL_BackgroundAbortSequence:00000000 XMC_VADC_GLOBAL_BackgroundAbortSequence
+    {standard input}:1423   .text.XMC_VADC_GLOBAL_BackgroundAbortSequence:00000060 $d
+    {standard input}:1429   .text.XMC_VADC_GLOBAL_BackgroundGetNumChannelsPending:00000000 $t
+    {standard input}:1434   .text.XMC_VADC_GLOBAL_BackgroundGetNumChannelsPending:00000000 XMC_VADC_GLOBAL_BackgroundGetNumChannelsPending
+    {standard input}:1469   .text.XMC_VADC_GROUP_QueueInit:00000000 $t
+    {standard input}:1474   .text.XMC_VADC_GROUP_QueueInit:00000000 XMC_VADC_GROUP_QueueInit
+    {standard input}:1524   .text.XMC_VADC_GROUP_QueueInit:00000058 $d
+    {standard input}:1528   .text.XMC_VADC_GROUP_QueueSelectTrigger:00000000 $t
+    {standard input}:1533   .text.XMC_VADC_GROUP_QueueSelectTrigger:00000000 XMC_VADC_GROUP_QueueSelectTrigger
+    {standard input}:1549   .text.XMC_VADC_GROUP_QueueSelectTrigger:00000018 $d
+    {standard input}:1552   .text.XMC_VADC_GROUP_QueueSelectTriggerEdge:00000000 $t
+    {standard input}:1557   .text.XMC_VADC_GROUP_QueueSelectTriggerEdge:00000000 XMC_VADC_GROUP_QueueSelectTriggerEdge
+    {standard input}:1573   .text.XMC_VADC_GROUP_QueueSelectTriggerEdge:00000018 $d
+    {standard input}:1576   .text.XMC_VADC_GROUP_QueueSelectGating:00000000 $t
+    {standard input}:1581   .text.XMC_VADC_GROUP_QueueSelectGating:00000000 XMC_VADC_GROUP_QueueSelectGating
+    {standard input}:1597   .text.XMC_VADC_GROUP_QueueSelectGating:00000018 $d
+    {standard input}:1600   .text.XMC_VADC_GROUP_QueueGetLength:00000000 $t
+    {standard input}:1605   .text.XMC_VADC_GROUP_QueueGetLength:00000000 XMC_VADC_GROUP_QueueGetLength
+    {standard input}:1625   .text.XMC_VADC_GROUP_QueueAbortSequence:00000000 $t
+    {standard input}:1630   .text.XMC_VADC_GROUP_QueueAbortSequence:00000000 XMC_VADC_GROUP_QueueAbortSequence
+    {standard input}:1665   .text.XMC_VADC_GROUP_QueueAbortSequence:0000003c $d
+    {standard input}:1669   .text.XMC_VADC_GROUP_QueueRemoveChannel:00000000 $t
+    {standard input}:1674   .text.XMC_VADC_GROUP_QueueRemoveChannel:00000000 XMC_VADC_GROUP_QueueRemoveChannel
+    {standard input}:1727   .text.XMC_VADC_GROUP_QueueRemoveChannel:00000060 $d
+    {standard input}:1731   .text.XMC_VADC_GROUP_QueueGetNextChannel:00000000 $t
+    {standard input}:1736   .text.XMC_VADC_GROUP_QueueGetNextChannel:00000000 XMC_VADC_GROUP_QueueGetNextChannel
+    {standard input}:1762   .text.XMC_VADC_GROUP_QueueGetInterruptedChannel:00000000 $t
+    {standard input}:1767   .text.XMC_VADC_GROUP_QueueGetInterruptedChannel:00000000 XMC_VADC_GROUP_QueueGetInterruptedChannel
+    {standard input}:1784   .text.XMC_VADC_GROUP_QueueSetReqSrcEventInterruptNode:00000000 $t
+    {standard input}:1789   .text.XMC_VADC_GROUP_QueueSetReqSrcEventInterruptNode:00000000 XMC_VADC_GROUP_QueueSetReqSrcEventInterruptNode
+    {standard input}:1802   .text.XMC_VADC_GROUP_ChannelInit:00000000 $t
+    {standard input}:1807   .text.XMC_VADC_GROUP_ChannelInit:00000000 XMC_VADC_GROUP_ChannelInit
+    {standard input}:1868   .text.XMC_VADC_GROUP_ChannelInit:0000006c $d
+    {standard input}:1871   .text.XMC_VADC_GROUP_SetChannelAlias:00000000 $t
+    {standard input}:1876   .text.XMC_VADC_GROUP_SetChannelAlias:00000000 XMC_VADC_GROUP_SetChannelAlias
+    {standard input}:1895   .text.XMC_VADC_GROUP_ChannelIsResultOutOfBounds:00000000 $t
+    {standard input}:1900   .text.XMC_VADC_GROUP_ChannelIsResultOutOfBounds:00000000 XMC_VADC_GROUP_ChannelIsResultOutOfBounds
+    {standard input}:1926   .text.XMC_VADC_GROUP_ChannelSetInputReference:00000000 $t
+    {standard input}:1931   .text.XMC_VADC_GROUP_ChannelSetInputReference:00000000 XMC_VADC_GROUP_ChannelSetInputReference
+    {standard input}:1948   .text.XMC_VADC_GROUP_ChannelSetInputReference:00000018 $d
+    {standard input}:1951   .text.XMC_VADC_GROUP_ChannelSetResultRegister:00000000 $t
+    {standard input}:1956   .text.XMC_VADC_GROUP_ChannelSetResultRegister:00000000 XMC_VADC_GROUP_ChannelSetResultRegister
+    {standard input}:1973   .text.XMC_VADC_GROUP_ChannelSetResultRegister:00000018 $d
+    {standard input}:1976   .text.XMC_VADC_GROUP_ChannelSetIclass:00000000 $t
+    {standard input}:1981   .text.XMC_VADC_GROUP_ChannelSetIclass:00000000 XMC_VADC_GROUP_ChannelSetIclass
+    {standard input}:1996   .text.XMC_VADC_GROUP_ChannelGetResultRegister:00000000 $t
+    {standard input}:2001   .text.XMC_VADC_GROUP_ChannelGetResultRegister:00000000 XMC_VADC_GROUP_ChannelGetResultRegister
+    {standard input}:2011   .text.XMC_VADC_GROUP_ChannelTriggerEvent:00000000 $t
+    {standard input}:2016   .text.XMC_VADC_GROUP_ChannelTriggerEvent:00000000 XMC_VADC_GROUP_ChannelTriggerEvent
+    {standard input}:2030   .text.XMC_VADC_GROUP_ChannelSetEventInterruptNode:00000000 $t
+    {standard input}:2035   .text.XMC_VADC_GROUP_ChannelSetEventInterruptNode:00000000 XMC_VADC_GROUP_ChannelSetEventInterruptNode
+    {standard input}:2051   .text.XMC_VADC_GROUP_ChannelTriggerEventGenCriteria:00000000 $t
+    {standard input}:2056   .text.XMC_VADC_GROUP_ChannelTriggerEventGenCriteria:00000000 XMC_VADC_GROUP_ChannelTriggerEventGenCriteria
+    {standard input}:2073   .text.XMC_VADC_GROUP_ChannelTriggerEventGenCriteria:00000018 $d
+    {standard input}:2076   .text.XMC_VADC_GROUP_ChannelSetBoundarySelection:00000000 $t
+    {standard input}:2081   .text.XMC_VADC_GROUP_ChannelSetBoundarySelection:00000000 XMC_VADC_GROUP_ChannelSetBoundarySelection
+    {standard input}:2102   .text.XMC_VADC_GROUP_AddResultToFifo:00000000 $t
+    {standard input}:2107   .text.XMC_VADC_GROUP_AddResultToFifo:00000000 XMC_VADC_GROUP_AddResultToFifo
+    {standard input}:2124   .text.XMC_VADC_GROUP_AddResultToFifo:00000018 $d
+    {standard input}:2127   .text.XMC_VADC_GROUP_SetResultFastCompareValue:00000000 $t
+    {standard input}:2132   .text.XMC_VADC_GROUP_SetResultFastCompareValue:00000000 XMC_VADC_GROUP_SetResultFastCompareValue
+    {standard input}:2147   .text.XMC_VADC_GROUP_GetFastCompareResult:00000000 $t
+    {standard input}:2152   .text.XMC_VADC_GROUP_GetFastCompareResult:00000000 XMC_VADC_GROUP_GetFastCompareResult
+    {standard input}:2166   .text.XMC_VADC_GROUP_SetResultSubtractionValue:00000000 $t
+    {standard input}:2171   .text.XMC_VADC_GROUP_SetResultSubtractionValue:00000000 XMC_VADC_GROUP_SetResultSubtractionValue
+    {standard input}:2183   .text.XMC_VADC_GROUP_SetResultInterruptNode:00000000 $t
+    {standard input}:2188   .text.XMC_VADC_GROUP_SetResultInterruptNode:00000000 XMC_VADC_GROUP_SetResultInterruptNode
+    {standard input}:2216   .text.XMC_VADC_GROUP_SetResultInterruptNode:0000002c $d
+    {standard input}:2219   .text.XMC_VADC_GROUP_IsResultRegisterFifoHead:00000000 $t
+    {standard input}:2224   .text.XMC_VADC_GROUP_IsResultRegisterFifoHead:00000000 XMC_VADC_GROUP_IsResultRegisterFifoHead
+    {standard input}:2247   .text.XMC_VADC_GROUP_GetResultFifoTail:00000000 $t
+    {standard input}:2252   .text.XMC_VADC_GROUP_GetResultFifoTail:00000000 XMC_VADC_GROUP_GetResultFifoTail
+    {standard input}:2289   .text.XMC_VADC_GROUP_GetResultFifoHead:00000000 $t
+    {standard input}:2294   .text.XMC_VADC_GROUP_GetResultFifoHead:00000000 XMC_VADC_GROUP_GetResultFifoHead
+
+UNDEFINED SYMBOLS
+XMC_SCU_CLOCK_UngatePeripheralClock
+XMC_SCU_CLOCK_GatePeripheralClock

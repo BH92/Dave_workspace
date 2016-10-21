@@ -1,0 +1,37 @@
+package Model.APPS.DIM_BCCU.v4_1_6;
+
+/* Import statements */
+import ifx.davex.app.manifest.*
+
+abstract class DIM_BCCU_GUI extends AppManifest {
+	/* Begin : UI variable section */
+	 public GTab gtab_1;
+	 public GTab gtab_dummy;
+	 public GImage gimage_1;
+	 public GImage gimage_2;
+	 public GInteger ginteger_initial_dimming_level;
+	 public GInteger ginteger_dimdiv;
+	 public GCombo gcombo_dimming_curve_selection;
+	 public GFloat gFloat_desired_transition_time;
+	 public GFloat gFloat_actual_transition_time;
+	 public GCheck gcheck_dither_function_enable;
+	 public GCheck gcheck_dimming_engine_enable_init;
+
+	 public DIM_BCCU_GUI(DaveEnv daveEnv){
+
+	 gtab_1 = GTab(widgetName:"gtab_1", text:"General Settings", enabled:true, visible:true)
+	 gtab_dummy = GTab(widgetName:"gtab_dummy", text:"Dummy", enabled:true, visible:true)
+	 gimage_1 = GImage(widgetName:"gimage_1", path: "doc/UI-Dimming_Engine_Configuration.png", enabled:true, visible:true)
+	 gimage_2 = GImage(widgetName:"gimage_2", path: "doc/UI-Dither.png", enabled:true, visible:true)
+	 ginteger_initial_dimming_level = GInteger(widgetName:"ginteger_initial_dimming_level", value:0, minValue:0, maxValue:4095, enabled:true, visible:true, isMandatoryValue:false)
+	 ginteger_dimdiv = GInteger(widgetName:"ginteger_dimdiv", value:0, minValue:0, maxValue:1023, enabled:false, visible:true, isMandatoryValue:false)
+	 gcombo_dimming_curve_selection = GCombo(widgetName:"gcombo_dimming_curve_selection", options:["Coarse Curve","Fine Curve"], value:"Coarse Curve", enabled:true, visible:true, isMandatoryValue:false)
+	 gFloat_desired_transition_time = GFloat(widgetName:"gFloat_desired_transition_time", value:0, minValue:0, maxValue:1000000, enabled:true, visible:true, isMandatoryValue:false)
+	 gFloat_actual_transition_time = GFloat(widgetName:"gFloat_actual_transition_time", value:0, minValue:0, maxValue:1000000, enabled:false, visible:true, isMandatoryValue:false)
+	 gcheck_dither_function_enable = GCheck(widgetName:"gcheck_dither_function_enable", value:false, enabled:true, visible:true)
+	 gcheck_dimming_engine_enable_init = GCheck(widgetName:"gcheck_dimming_engine_enable_init", value:false, enabled:true, visible:true)
+
+
+	 }
+	/* End : UI variable section */
+}

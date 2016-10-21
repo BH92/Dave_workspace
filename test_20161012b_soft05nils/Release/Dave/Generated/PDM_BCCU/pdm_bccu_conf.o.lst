@@ -1,0 +1,219 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "pdm_bccu_conf.c"
+  14              	 .global PDM_BCCU_3
+  15              	 .global PDM_BCCU_3_gpio_config
+  16              	 .global PDM_BCCU_3_config
+  17              	 .global PDM_BCCU_2
+  18              	 .global PDM_BCCU_2_gpio_config
+  19              	 .global PDM_BCCU_2_config
+  20              	 .global PDM_BCCU_1
+  21              	 .global PDM_BCCU_1_gpio_config
+  22              	 .global PDM_BCCU_1_config
+  23              	 .global PDM_BCCU_0
+  24              	 .global PDM_BCCU_0_gpio_config
+  25              	 .global PDM_BCCU_0_config
+  26              	 .section .data.PDM_BCCU_2_gpio_config,"aw",%progbits
+  27              	 .align 2
+  30              	PDM_BCCU_2_gpio_config:
+  31 0000 88       	 .byte -120
+  32 0001 00000000 	 .space 7
+  32      000000
+  33              	 .section .data.PDM_BCCU_1_config,"aw",%progbits
+  34              	 .align 2
+  37              	PDM_BCCU_1_config:
+  38 0000 02       	 .byte 2
+  39 0001 00       	 .byte 0
+  40 0002 0000     	 .space 2
+  41 0004 03       	 .byte 3
+  42 0005 00       	 .space 1
+  43 0006 03       	 .byte 3
+  44 0007 00       	 .space 1
+  45 0008 00       	 .byte 0
+  46 0009 00       	 .space 1
+  47 000a 00       	 .byte 0
+  48 000b 00       	 .space 1
+  49              	 .section .data.PDM_BCCU_3_config,"aw",%progbits
+  50              	 .align 2
+  53              	PDM_BCCU_3_config:
+  54 0000 02       	 .byte 2
+  55 0001 00       	 .byte 0
+  56 0002 0000     	 .space 2
+  57 0004 03       	 .byte 3
+  58 0005 00       	 .space 1
+  59 0006 03       	 .byte 3
+  60 0007 00       	 .space 1
+  61 0008 00       	 .byte 0
+  62 0009 00       	 .space 1
+  63 000a 00       	 .byte 0
+  64 000b 00       	 .space 1
+  65              	 .section .data.PDM_BCCU_1_gpio_config,"aw",%progbits
+  66              	 .align 2
+  69              	PDM_BCCU_1_gpio_config:
+  70 0000 88       	 .byte -120
+  71 0001 00000000 	 .space 7
+  71      000000
+  72              	 .section .data.PDM_BCCU_0_gpio_config,"aw",%progbits
+  73              	 .align 2
+  76              	PDM_BCCU_0_gpio_config:
+  77 0000 88       	 .byte -120
+  78 0001 00000000 	 .space 7
+  78      000000
+  79              	 .section .data.PDM_BCCU_0,"aw",%progbits
+  80              	 .align 2
+  83              	PDM_BCCU_0:
+  84 0000 00000350 	 .word 1342373888
+  85 0004 00000000 	 .word PDM_BCCU_0_config
+  86 0008 00000000 	 .word PDM_BCCU_0_gpio_config
+  87 000c 00010440 	 .word 1074004224
+  88 0010 3C000350 	 .word 1342373948
+  89 0014 00000000 	 .word GLOBAL_BCCU_0
+  90 0018 01       	 .byte 1
+  91 0019 01       	 .byte 1
+  92 001a 00       	 .byte 0
+  93 001b 00       	 .space 1
+  94 001c 00000000 	 .word 0
+  95 0020 D1030000 	 .word 977
+  96 0024 EF010000 	 .word 495
+  97 0028 00000000 	 .word 0
+  98 002c 00       	 .byte 0
+  99 002d 01       	 .byte 1
+ 100 002e 00       	 .byte 0
+ 101 002f 00       	 .space 1
+ 102              	 .section .data.PDM_BCCU_1,"aw",%progbits
+ 103              	 .align 2
+ 106              	PDM_BCCU_1:
+ 107 0000 00000350 	 .word 1342373888
+ 108 0004 00000000 	 .word PDM_BCCU_1_config
+ 109 0008 00000000 	 .word PDM_BCCU_1_gpio_config
+ 110 000c 00000440 	 .word 1074003968
+ 111 0010 50000350 	 .word 1342373968
+ 112 0014 00000000 	 .word GLOBAL_BCCU_0
+ 113 0018 01       	 .byte 1
+ 114 0019 01       	 .byte 1
+ 115 001a 00       	 .byte 0
+ 116 001b 00       	 .space 1
+ 117 001c 01000000 	 .word 1
+ 118 0020 D1030000 	 .word 977
+ 119 0024 EF010000 	 .word 495
+ 120 0028 00000000 	 .word 0
+ 121 002c 05       	 .byte 5
+ 122 002d 01       	 .byte 1
+ 123 002e 00       	 .byte 0
+ 124 002f 00       	 .space 1
+ 125              	 .section .data.PDM_BCCU_2,"aw",%progbits
+ 126              	 .align 2
+ 129              	PDM_BCCU_2:
+ 130 0000 00000350 	 .word 1342373888
+ 131 0004 00000000 	 .word PDM_BCCU_2_config
+ 132 0008 00000000 	 .word PDM_BCCU_2_gpio_config
+ 133 000c 00000440 	 .word 1074003968
+ 134 0010 8C000350 	 .word 1342374028
+ 135 0014 00000000 	 .word GLOBAL_BCCU_0
+ 136 0018 01       	 .byte 1
+ 137 0019 01       	 .byte 1
+ 138 001a 00       	 .byte 0
+ 139 001b 00       	 .space 1
+ 140 001c 04000000 	 .word 4
+ 141 0020 D1030000 	 .word 977
+ 142 0024 95010000 	 .word 405
+ 143 0028 00000000 	 .word 0
+ 144 002c 08       	 .byte 8
+ 145 002d 01       	 .byte 1
+ 146 002e 00       	 .byte 0
+ 147 002f 00       	 .space 1
+ 148              	 .section .data.PDM_BCCU_3,"aw",%progbits
+ 149              	 .align 2
+ 152              	PDM_BCCU_3:
+ 153 0000 00000350 	 .word 1342373888
+ 154 0004 00000000 	 .word PDM_BCCU_3_config
+ 155 0008 00000000 	 .word PDM_BCCU_3_gpio_config
+ 156 000c 00000440 	 .word 1074003968
+ 157 0010 A0000350 	 .word 1342374048
+ 158 0014 00000000 	 .word GLOBAL_BCCU_0
+ 159 0018 01       	 .byte 1
+ 160 0019 01       	 .byte 1
+ 161 001a 00       	 .byte 0
+ 162 001b 00       	 .space 1
+ 163 001c 05000000 	 .word 5
+ 164 0020 D1030000 	 .word 977
+ 165 0024 EF010000 	 .word 495
+ 166 0028 00000000 	 .word 0
+ 167 002c 09       	 .byte 9
+ 168 002d 01       	 .byte 1
+ 169 002e 00       	 .byte 0
+ 170 002f 00       	 .space 1
+ 171              	 .section .data.PDM_BCCU_2_config,"aw",%progbits
+ 172              	 .align 2
+ 175              	PDM_BCCU_2_config:
+ 176 0000 02       	 .byte 2
+ 177 0001 00       	 .byte 0
+ 178 0002 0000     	 .space 2
+ 179 0004 03       	 .byte 3
+ 180 0005 00       	 .space 1
+ 181 0006 03       	 .byte 3
+ 182 0007 00       	 .space 1
+ 183 0008 00       	 .byte 0
+ 184 0009 00       	 .space 1
+ 185 000a 00       	 .byte 0
+ 186 000b 00       	 .space 1
+ 187              	 .section .data.PDM_BCCU_3_gpio_config,"aw",%progbits
+ 188              	 .align 2
+ 191              	PDM_BCCU_3_gpio_config:
+ 192 0000 88       	 .byte -120
+ 193 0001 00000000 	 .space 7
+ 193      000000
+ 194              	 .section .data.PDM_BCCU_0_config,"aw",%progbits
+ 195              	 .align 2
+ 198              	PDM_BCCU_0_config:
+ 199 0000 02       	 .byte 2
+ 200 0001 00       	 .byte 0
+ 201 0002 0000     	 .space 2
+ 202 0004 03       	 .byte 3
+ 203 0005 00       	 .space 1
+ 204 0006 00       	 .byte 0
+ 205 0007 00       	 .space 1
+ 206 0008 00       	 .byte 0
+ 207 0009 00       	 .space 1
+ 208 000a 00       	 .byte 0
+ 209 000b 00       	 .space 1
+ 210              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pdm_bccu_conf.c
+    {standard input}:152    .data.PDM_BCCU_3:00000000 PDM_BCCU_3
+    {standard input}:191    .data.PDM_BCCU_3_gpio_config:00000000 PDM_BCCU_3_gpio_config
+    {standard input}:53     .data.PDM_BCCU_3_config:00000000 PDM_BCCU_3_config
+    {standard input}:129    .data.PDM_BCCU_2:00000000 PDM_BCCU_2
+    {standard input}:30     .data.PDM_BCCU_2_gpio_config:00000000 PDM_BCCU_2_gpio_config
+    {standard input}:175    .data.PDM_BCCU_2_config:00000000 PDM_BCCU_2_config
+    {standard input}:106    .data.PDM_BCCU_1:00000000 PDM_BCCU_1
+    {standard input}:69     .data.PDM_BCCU_1_gpio_config:00000000 PDM_BCCU_1_gpio_config
+    {standard input}:37     .data.PDM_BCCU_1_config:00000000 PDM_BCCU_1_config
+    {standard input}:83     .data.PDM_BCCU_0:00000000 PDM_BCCU_0
+    {standard input}:76     .data.PDM_BCCU_0_gpio_config:00000000 PDM_BCCU_0_gpio_config
+    {standard input}:198    .data.PDM_BCCU_0_config:00000000 PDM_BCCU_0_config
+    {standard input}:27     .data.PDM_BCCU_2_gpio_config:00000000 $d
+    {standard input}:34     .data.PDM_BCCU_1_config:00000000 $d
+    {standard input}:50     .data.PDM_BCCU_3_config:00000000 $d
+    {standard input}:66     .data.PDM_BCCU_1_gpio_config:00000000 $d
+    {standard input}:73     .data.PDM_BCCU_0_gpio_config:00000000 $d
+    {standard input}:80     .data.PDM_BCCU_0:00000000 $d
+    {standard input}:103    .data.PDM_BCCU_1:00000000 $d
+    {standard input}:126    .data.PDM_BCCU_2:00000000 $d
+    {standard input}:149    .data.PDM_BCCU_3:00000000 $d
+    {standard input}:172    .data.PDM_BCCU_2_config:00000000 $d
+    {standard input}:188    .data.PDM_BCCU_3_gpio_config:00000000 $d
+    {standard input}:195    .data.PDM_BCCU_0_config:00000000 $d
+
+UNDEFINED SYMBOLS
+GLOBAL_BCCU_0

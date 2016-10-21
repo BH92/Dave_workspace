@@ -1,0 +1,66 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "pdm_dimmed_led_lamp_conf.c"
+  14              	 .global PDM_DIMMED_LED_LAMP_0
+  15              	 .global PDM_DIMMED_LED_LAMP_0_config
+  16              	 .section .data.PDM_DIMMED_LED_LAMP_0,"aw",%progbits
+  17              	 .align 2
+  20              	PDM_DIMMED_LED_LAMP_0:
+  21 0000 00000000 	 .word PDM_BCCU_0
+  22 0004 00000000 	 .word PDM_BCCU_3
+  23 0008 00000000 	 .word PDM_BCCU_2
+  24 000c 00000000 	 .word PDM_BCCU_1
+  25 0010 00000000 	 .word 0
+  26 0014 00000000 	 .word 0
+  27 0018 00000000 	 .word 0
+  28 001c 00000000 	 .word 0
+  29 0020 00000000 	 .word 0
+  30 0024 00       	 .byte 0
+  31 0025 000000   	 .space 3
+  32 0028 00000000 	 .word DIM_BCCU_0
+  33 002c 00000000 	 .word PDM_DIMMED_LED_LAMP_0_config
+  34 0030 0000     	 .space 2
+  35 0032 D103     	 .short 977
+  36 0034 0000     	 .short 0
+  37 0036 4000     	 .short 64
+  38 0038 00       	 .space 1
+  39 0039 04       	 .byte 4
+  40 003a 01       	 .byte 1
+  41 003b 00       	 .space 1
+  42              	 .section .data.PDM_DIMMED_LED_LAMP_0_config,"aw",%progbits
+  43              	 .align 1
+  46              	PDM_DIMMED_LED_LAMP_0_config:
+  47 0000 EF01     	 .short 495
+  48 0002 EF01     	 .short 495
+  49 0004 9501     	 .short 405
+  50 0006 EF01     	 .short 495
+  51 0008 0000     	 .short 0
+  52 000a 0000     	 .short 0
+  53 000c 0000     	 .short 0
+  54 000e 0000     	 .short 0
+  55 0010 0000     	 .short 0
+  56 0012 E10F     	 .short 4065
+  57              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pdm_dimmed_led_lamp_conf.c
+    {standard input}:20     .data.PDM_DIMMED_LED_LAMP_0:00000000 PDM_DIMMED_LED_LAMP_0
+    {standard input}:46     .data.PDM_DIMMED_LED_LAMP_0_config:00000000 PDM_DIMMED_LED_LAMP_0_config
+    {standard input}:17     .data.PDM_DIMMED_LED_LAMP_0:00000000 $d
+    {standard input}:43     .data.PDM_DIMMED_LED_LAMP_0_config:00000000 $d
+
+UNDEFINED SYMBOLS
+PDM_BCCU_0
+PDM_BCCU_3
+PDM_BCCU_2
+PDM_BCCU_1
+DIM_BCCU_0

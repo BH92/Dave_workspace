@@ -1,0 +1,34 @@
+<p1:Tab  xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" xmlns:p1="clr-namespace:com.ifx.davex.ui.controls.app" x:Class="e" layout="{x:Null}">
+	<p1:TabFolder bounds="5, 5, 905, 642">
+		<p1:GTab text="General Settings" visible="true" enabled="true" manifestObj="true" widgetName="gtab_1">
+			<p1:GTab.control>
+				<p1:Tab widgetName="composite_1">
+					<p1:GImage visible="true" manifestObj="true" widgetName="gimage_1" bounds="3, 4, 895, 372" path="doc/UI-Dimming_Engine_Configuration.png">
+						<p1:GInteger bounds="505, 328, 73, 23" description="&lt;UL&gt;&lt;LI&gt;Configure desired initial dimming level.&lt;/UL&gt;&lt;/LI&gt;" format="(com.ifx.davex.ui.controls.util.AppUiConstants).DEC" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" toolTipText="Set initial dimming level." value="0" widgetName="ginteger_initial_dimming_level"/>
+						<p1:GCheck bounds="739, 178, 14, 12" description="&lt;UL&gt;&#13;&#10;&lt;LI&gt;Enable dither function.&lt;/LI&gt;&#13;&#10;&lt;LI&gt;If dithering is enabled (DTEN=1), curve Select (CSEL) bit is is ignored and the coarse curve is used.&lt;/LI&gt;&#13;&#10;&lt;/UL&gt;" manifestObj="true" toolTipText="Enable dithered dimming level &#13;&#10;transisitions for smoother dimming." widgetName="gcheck_dither_function_enable" text="Enable dither function"/>
+						<p1:GCombo bounds="663, 110, 101, 21" description="&lt;UL&gt;&lt;LI&gt;Select dimming curve either Coarse or Fine Curve&lt;/UL&gt;&lt;/LI&gt; &#13;&#10;&lt;OL&gt;&#13;&#10;&lt;LI&gt;Coarse Curve : Provides dither functionality&lt;/LI&gt;&#13;&#10;&lt;LI&gt;Fine Curve : Disable the dither functionality(DTEN=0)&lt;/LI&gt;  &#13;&#10;&lt;/OL&gt;&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;By default is Coarse Curve set. " mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" options="Coarse Curve&#13;&#10;Fine Curve" toolTipText="Piece-wise exponential curve resolution.&#13;&#10;Fine resolution is only available without dither." value="Coarse Curve" widgetName="gcombo_dimming_curve_selection"/>
+						<p1:GFloat bounds="241, 91, 72, 21" description="&lt;UL&gt;&lt;LI&gt;Configure desired transition time from 0% to 100% dimming level in msec. By default 160 is set.&lt;/UL&gt;&lt;/LI&gt;" format="*,6" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="1000000" minValue="0" toolTipText="Fade rate configuration." value="0" widgetName="gFloat_desired_transition_time" x:Style="BORDER"/>
+						<p1:GFloat bounds="240, 124, 72, 21" description="&lt;UL&gt;&lt;LI&gt;Reflects actual transition time from 0% to 100% dimming level in msec. &lt;/UL&gt;&lt;/LI&gt;" enabled="false" format="*,6" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="1000000" minValue="0" toolTipText="This reflect actual dimming transition time value to get desired fade rate." value="0" widgetName="gFloat_actual_transition_time" x:Style="BORDER"/>
+						<p1:GInteger bounds="208, 205, 57, 23" description="&lt;UL&gt;&lt;LI&gt;Reflects actual DIMDIV value. &lt;/UL&gt;&lt;/LI&gt;" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="1023" minValue="0" toolTipText="This reflects dimming divider value." value="0" widgetName="ginteger_dimdiv"/>
+						<p1:GCheck bounds="46, 35, 13, 15" description="&lt;UL&gt;&lt;LI&gt;Enable dimming engine at initialization.&lt;/UL&gt;&lt;/LI&gt;" manifestObj="true" toolTipText="" widgetName="gcheck_dimming_engine_enable_init" text="Enable Dimming engine"/>
+					</p1:GImage>
+					<p1:GImage visible="true" manifestObj="true" widgetName="gimage_2" bounds="3, 411, 788, 108" path="doc/UI-Dither.png"/>
+				</p1:Tab>
+			</p1:GTab.control>
+		</p1:GTab>
+		<p1:GTab text="Dummy" visible="true" widgetName="gtab_dummy" manifestObj="true" description="" enabled="true">
+			<p1:GTab.control>
+				<p1:Tab widgetName="composite_2">
+					<p1:Tab.layout>
+						<GridLayout/>
+					</p1:Tab.layout>
+					<p1:GLabel text="Initial dimming level" visible="true" widgetName="glabel_initial_dimming_level"/>
+					<p1:GLabel text="Select dimming curve " visible="true" widgetName="glabel_dimming_curve_selection"/>
+					<p1:GLabel text="Desired transition time" visible="true" widgetName="glabel_desired_transition_time"/>
+					<p1:GLabel text="Actual transition time" visible="true" widgetName="glabel_actual_transition_time"/>
+					<p1:GLabel text="Dimdiv" visible="true" widgetName="glabel_dimdiv"/>
+				</p1:Tab>
+			</p1:GTab.control>
+		</p1:GTab>
+	</p1:TabFolder>
+</p1:Tab>

@@ -1,0 +1,844 @@
+package Model.APPS.PDM_DIMMED_LED_LAMP.v4_0_4.Templates;
+
+import Model.APPS.PDM_DIMMED_LED_LAMP.v4_0_4.PDM_DIMMED_LED_LAMP
+
+out.print("""
+/**
+ * @cond
+ ***********************************************************************************************************************
+ *
+ * Copyright (c) 2015-2016, Infineon Technologies AG
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,are permitted provided that the
+ * following conditions are met:
+ *
+ *   Redistributions of source code must retain the above copyright notice, this list of conditions and the  following
+ *   disclaimer.
+ *
+ *   Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *   following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ *   Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ *   products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT  OF THE
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * To improve the quality of the software, users are encouraged to share modifications, enhancements or bug fixes
+ * with Infineon Technologies AG (dave@infineon.com).
+ ***********************************************************************************************************************
+ *
+ * Change History
+ * --------------
+ *
+ * 2015-09-11:
+ *     - Initial version.<br>
+ *
+ * 2016-07-08:
+ *     - Fixed incorrect case for an included header.<br>
+ *
+ * @endcond
+ *
+ */
+/***********************************************************************************************************************
+ * HEADER FILES
+ **********************************************************************************************************************/
+
+#include "pdm_dimmed_led_lamp.h"
+
+/**********************************************************************************************************************
+* DATA STRUCTURES
+**********************************************************************************************************************/
+
+""");
+
+/* Begin : User variable section */
+/* variable to hold instance label of PDM_DIMMED_LED_LAMP APP */
+String appInst = null
+String dummy_read
+
+List Consumed_io_port_ledcomp = null
+List Consumed_io_port_ledccuin = null
+
+
+List map_io_port_ledcomp = new Object[10]
+List map_io_port_ledccuin = new Object[10]
+
+List map_io_pin_ledcomp = new Object[10]
+List map_io_pin_ledccuin = new Object[10]
+
+
+	
+Map gpio_alternate_function_XMC14 = [
+	
+0 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL',
+	
+1 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT1',
+	
+2 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT2',
+	
+3 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT3',
+	
+4 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT4',
+	
+5 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT5',
+	
+6 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT6',
+	
+7 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT7',
+	
+8 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT8',
+	
+9 : 'XMC_GPIO_MODE_OUTPUT_PUSH_PULL_ALT9'
+	
+]
+	
+/* map to hold PDM_BCCU APP label and instance number  */
+Map pdm_bccu_arr = [
+	1: "NULL",
+	2: "NULL",
+	3: "NULL",
+	4: "NULL",
+	5: "NULL",
+	6: "NULL",
+	7: "NULL",
+	8: "NULL",
+	9: "NULL",
+]
+/* map to hold LED channel intensity value  */
+Map channel_intensity_arr = [
+	1: "NULL",
+	2: "NULL",
+	3: "NULL",
+	4: "NULL",
+	5: "NULL",
+	6: "NULL",
+	7: "NULL",
+	8: "NULL",
+	9: "NULL",
+]
+Map ctrl_method = ["Direct PDM (External LED Drivers)":"PDM_DIMMED_LED_LAMP_CTRL_METHOD_DIRECT_PDM", "Slow DCDC Buck with PDM":"PDM_DIMMED_LED_LAMP_CTRL_METHOD_SLOW_DCDC", "Simple DCDC Buck with PDM":"PDM_DIMMED_LED_LAMP_CTRL_METHOD_SIMPLE_DCDC", "Fast DCDC Buck with PDM":"PDM_DIMMED_LED_LAMP_CTRL_METHOD_FAST_DCDC"] //gcombo_DriverSel
+Map peak_cur_ref = ["External Reference":"PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL", "Internal Reference with External Filter":"PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_INTERNAL"] //gcombo_pcc_ref_gen_
+
+/* map to hold PWM_CCU4 APP label and instance number  */
+Map pwm_ccu4_arr = [
+	1: "NULL",
+	2: "NULL",
+	3: "NULL",
+	4: "NULL",
+	5: "NULL",
+	6: "NULL",
+	7: "NULL",
+	8: "NULL",
+	9: "NULL",
+]
+/* map to hold PWM_CCU8 APP label and instance number  */
+Map pwm_ccu8_arr = [
+	1: "NULL",
+	2: "NULL",
+	3: "NULL",
+	4: "NULL",
+	5: "NULL",
+	6: "NULL",
+	7: "NULL",
+	8: "NULL",
+	9: "NULL",
+]
+/* map to hold COMP_REF APP label and instance number  */
+Map comp_ref_arr = [
+	1: "NULL",
+	2: "NULL",
+	3: "NULL",
+	4: "NULL",
+	5: "NULL",
+	6: "NULL",
+	7: "NULL",
+	8: "NULL",
+	9: "NULL",
+]
+/* map to hold OFF time */
+Map pcc_offtime_arr = [
+	1: "0U",
+	2: "0U",
+	3: "0U",
+	4: "0U",
+	5: "0U",
+	6: "0U",
+	7: "0U",
+	8: "0U",
+	9: "0U",
+]
+
+Map pcc_refval_arr = [
+	1: "0U",
+	2: "0U",
+	3: "0U",
+	4: "0U",
+	5: "0U",
+	6: "0U",
+	7: "0U",
+	8: "0U",
+	9: "0U",
+]
+
+Map pcc_ref_arr = [
+	1: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	2: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	3: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	4: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	5: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	6: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	7: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	8: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+	9: "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL",
+]
+
+/* End   : User variable section */
+
+/* itteration to identify the number of instances created in the project */
+for (PDM_DIMMED_LED_LAMP Instance : appInstancesList) {
+ appInst= Instance.getInstanceLabel()
+
+  
+ Map io_comp_out_arr = [
+	 
+ 0: Instance.hwres_port_pin_comp_out_0,
+ 1: Instance.hwres_port_pin_comp_out_1,
+ 2: Instance.hwres_port_pin_comp_out_2,
+ 3: Instance.hwres_port_pin_comp_out_3,
+ 4: Instance.hwres_port_pin_comp_out_4,
+ 5: Instance.hwres_port_pin_comp_out_5,
+ 6: Instance.hwres_port_pin_comp_out_6,
+ 7: Instance.hwres_port_pin_comp_out_7,
+ 8: Instance.hwres_port_pin_comp_out_8,
+	 
+ ]
+	 
+ Map io_ccu4_in_arr = [
+	 
+ 0: Instance.hwres_port_pin_ccu4_in_0,
+ 1: Instance.hwres_port_pin_ccu4_in_1,
+ 2: Instance.hwres_port_pin_ccu4_in_2,
+ 3: Instance.hwres_port_pin_ccu4_in_3,
+ 4: Instance.hwres_port_pin_ccu4_in_4,
+ 5: Instance.hwres_port_pin_ccu4_in_5,
+ 6: Instance.hwres_port_pin_ccu4_in_6,
+ 7: Instance.hwres_port_pin_ccu4_in_7,
+ 8: Instance.hwres_port_pin_ccu4_in_8,
+ 
+ ]
+  if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM")) 
+ {
+  /* port and pin numbers extracting dynamically from solver for output and dummy read for pdisc and hwsel */
+ for(int loop_index_io = 0; loop_index_io <Integer.parseInt(Instance.gcombo_NoOfChannels.value); loop_index_io++)
+ {
+   
+   Consumed_io_port_ledcomp = io_comp_out_arr[loop_index_io].getSolverUri()
+
+   if(io_comp_out_arr[loop_index_io].getRegValue("","pdisc_pdis")!= null)
+   {
+	   dummy_read = io_comp_out_arr[loop_index_io].getRegValue("","pdisc_pdis")
+   }
+   
+   if(io_comp_out_arr[loop_index_io].getRegValue("","hwsel_hw")!= null)
+   {
+	   dummy_read = io_comp_out_arr[loop_index_io].getRegValue("","hwsel_hw")
+   }
+   if(io_comp_out_arr[loop_index_io].getRegValue("","iocr_oe")!= null)
+   {
+	   dummy_read = io_comp_out_arr[loop_index_io].getRegValue("","iocr_oe")
+   }
+   
+   if (Consumed_io_port_ledcomp != null)
+
+   {
+	 map_io_port_ledcomp[loop_index_io] = Consumed_io_port_ledcomp[-3];
+	 map_io_pin_ledcomp[loop_index_io] = Consumed_io_port_ledcomp[-1];
+	 
+   }
+ }
+ 
+ /* port and pin numbers extracting dynamically from solver for input and dummy read for pdisc and hwsel */
+for(int loop_index_io = 0; loop_index_io <Integer.parseInt(Instance.gcombo_NoOfChannels.value); loop_index_io++)
+ {
+   
+   Consumed_io_port_ledccuin = io_ccu4_in_arr[loop_index_io].getSolverUri()
+
+   if(io_ccu4_in_arr[loop_index_io].getRegValue("","pdisc_pdis")!= null)
+   {
+	   dummy_read = io_ccu4_in_arr[loop_index_io].getRegValue("","pdisc_pdis")
+   }
+   
+   if(io_ccu4_in_arr[loop_index_io].getRegValue("","hwsel_hw")!= null)
+   {
+	   dummy_read = io_ccu4_in_arr[loop_index_io].getRegValue("","hwsel_hw")
+   }
+   
+   if(io_ccu4_in_arr[loop_index_io].getRegValue("","iocr_oe")!= null)
+   {
+	   dummy_read = io_ccu4_in_arr[loop_index_io].getRegValue("","iocr_oe")
+   }
+   
+   if (Consumed_io_port_ledccuin != null)
+
+   {
+	 map_io_port_ledccuin[loop_index_io] = Consumed_io_port_ledccuin[-3];
+	 map_io_pin_ledccuin[loop_index_io] = Consumed_io_port_ledccuin[-1];
+   }
+ }
+ }
+ for(int index in 0..8) {
+	 pwm_ccu4_arr[index+1] = (Instance.appres_pwm_ccu4_arr[index].getInstanceLabel() != null)? "(PWM_CCU4_t *) &" + Instance.appres_pwm_ccu4_arr[index].getInstanceLabel():"NULL"
+	 pwm_ccu8_arr[index+1] = (Instance.appres_pwm_ccu8_arr[index].getInstanceLabel() != null)? "(PWM_CCU8_t *) &" + Instance.appres_pwm_ccu8_arr[index].getInstanceLabel():"NULL"
+	 comp_ref_arr[index+1] = (Instance.appres_comp_ref_arr[index].getInstanceLabel() != null)? "(COMP_REF_t *) &" + Instance.appres_comp_ref_arr[index].getInstanceLabel():"NULL"
+	 pcc_offtime_arr[index+1] = (Instance.gfloat_pcc_gen_off_time_ns_arr[index].value != null)? ((Integer.parseInt(Instance.gcombo_NoOfChannels.value)>index)?(int) \
+		 						(Instance.gfloat_pcc_gen_off_time_ns_arr[index].value) + "U":"0"): "0U"
+	 pcc_refval_arr[index+1] = (Instance.gfloat_pcc_peak_ref_mv_arr[index].value != null)? (int)(Instance.gfloat_pcc_peak_ref_mv_arr[index].value) + "U": "0U"
+	 pcc_ref_arr[index+1] =  (Instance.gcombo_pcc_ref_gen_arr[index].value != null)? (peak_cur_ref.get(Instance.gcombo_pcc_ref_gen_arr[index].value)): "PDM_DIMMED_LED_LAMP_PEAK_CUR_REF_EXTERNAL"
+  }
+  
+ /* Get PDM_BCCU instance label and LED channel intensity value */
+ if(Instance.appres_pdm_bccu_1.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[1] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_1.getInstanceLabel()
+	 channel_intensity_arr[1] = Instance.gint_Inten_LED_0.value
+ }
+ else
+ {
+	 pdm_bccu_arr[1] = "NULL";
+	 channel_intensity_arr[1] = "0";
+ }
+ if(Instance.appres_pdm_bccu_2.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[2] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_2.getInstanceLabel()
+	 channel_intensity_arr[2] = Instance.gint_Inten_LED_1.value
+ }
+ else
+ {
+	 pdm_bccu_arr[2] = "NULL";
+	 channel_intensity_arr[2] = "0";
+ }
+ if(Instance.appres_pdm_bccu_3.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[3] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_3.getInstanceLabel()
+	 channel_intensity_arr[3] = Instance.gint_Inten_LED_2.value
+ }
+ else
+ {
+	 pdm_bccu_arr[3] = "NULL";
+	 channel_intensity_arr[3] = "0";
+ }
+ if(Instance.appres_pdm_bccu_4.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[4] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_4.getInstanceLabel()
+	 channel_intensity_arr[4] = Instance.gint_Inten_LED_3.value
+ }
+ else
+ {
+	 pdm_bccu_arr[4] = "NULL";
+	 channel_intensity_arr[4] = "0";
+ }
+ if(Instance.appres_pdm_bccu_5.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[5] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_5.getInstanceLabel()
+	 channel_intensity_arr[5] = Instance.gint_Inten_LED_4.value
+ }
+ else
+ {
+	 pdm_bccu_arr[5] = "NULL";
+	 channel_intensity_arr[5] = "0";
+ }
+ if(Instance.appres_pdm_bccu_6.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[6] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_6.getInstanceLabel()
+	 channel_intensity_arr[6] = Instance.gint_Inten_LED_5.value
+ }
+ else
+ {
+	 pdm_bccu_arr[6] = "NULL";
+	 channel_intensity_arr[6] = "0";
+ }
+ if(Instance.appres_pdm_bccu_7.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[7] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_7.getInstanceLabel()
+	 channel_intensity_arr[7] = Instance.gint_Inten_LED_6.value
+ }
+ else
+ {
+	 pdm_bccu_arr[7] = "NULL";
+	 channel_intensity_arr[7] = "0";
+ }
+ if(Instance.appres_pdm_bccu_8.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[8] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_8.getInstanceLabel()
+	 channel_intensity_arr[8] = Instance.gint_Inten_LED_7.value
+ }
+ else
+ {
+	 pdm_bccu_arr[8] = "NULL";
+	 channel_intensity_arr[8] = "0";
+ }
+ if(Instance.appres_pdm_bccu_9.getInstanceLabel() != null)
+ {
+	 pdm_bccu_arr[9] = "(PDM_BCCU_t *) &" + Instance.appres_pdm_bccu_9.getInstanceLabel()
+	 channel_intensity_arr[9] = Instance.gint_Inten_LED_8.value
+ }
+ else
+ {
+	 pdm_bccu_arr[9] = "NULL";
+	 channel_intensity_arr[9] = "0";
+ }
+ 
+/* GPIO PORT configuration */ 
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 1))
+{
+	 
+out.print("""
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_0 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_0.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_0 /* GPIO input/output Characteristics */ 
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_0 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_0 /* GPIO input/output Characteristics */
+
+};
+
+""");
+}
+/* GPIO PORT configuration */
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 2))
+{
+out.print("""
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_0 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_0.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_0 /* GPIO input/output Characteristics */ 
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_1 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_1.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_1 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[1]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[1]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_1 /* GPIO input/output Characteristics */ 
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_0 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_0 /* GPIO input/output Characteristics */
+
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_1 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_1 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[1]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[1]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_1 /* GPIO input/output Characteristics */
+
+};
+
+""");
+}
+/* GPIO PORT configuration */
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 3))
+{
+out.print("""
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_0 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_0.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_0 /* GPIO input/output Characteristics */ 
+};
+
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_1 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_1.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_1 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[1]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[1]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_1 /* GPIO input/output Characteristics */ 
+};
+  
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_2 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_2.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_2 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[2]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[2]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_2 /* GPIO input/output Characteristics */ 
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_0 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_0 /* GPIO input/output Characteristics */
+
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_1 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_1 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[1]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[1]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_1 /* GPIO input/output Characteristics */
+
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_2 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_2 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[2]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[2]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_2 /* GPIO input/output Characteristics */
+
+};
+
+""");
+}
+
+/* GPIO PORT configuration */
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 4))
+{
+out.print("""
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_0 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_0.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_0 /* GPIO input/output Characteristics */ 
+};
+
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_1 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_1.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_1 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[1]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[1]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_1 /* GPIO input/output Characteristics */ 
+};
+  
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_2 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_2.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_2 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[2]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[2]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_2 /* GPIO input/output Characteristics */ 
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_out_config_3 = 
+{
+  .mode = ${gpio_alternate_function_XMC14[Instance.hwres_port_pin_comp_out_3.getRegValue("iocr","iocr_pcr").toInteger()]}
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_COMPOUT_CONFIG_t gpio_compout_config_3 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledcomp[3]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledcomp[3]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_out_config_3 /* GPIO input/output Characteristics */ 
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_0 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_0 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[0]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[0]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_0 /* GPIO input/output Characteristics */
+
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_1 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_1 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[1]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[1]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_1 /* GPIO input/output Characteristics */
+
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_2 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_2 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[2]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[2]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_2 /* GPIO input/output Characteristics */
+
+};
+
+const XMC_GPIO_CONFIG_t ${appInst}_gpio_in_config_3 = 
+{
+  .mode = XMC_GPIO_MODE_INPUT_TRISTATE
+
+};
+
+const PDM_DIMMED_LED_LAMP_GPIO_CCUIN_CONFIG_t gpio_ccuin_config_3 =
+{
+  .port = XMC_GPIO_PORT${map_io_port_ledccuin[3]}, /* GPIO Port Number */
+  .pin  = ${map_io_pin_ledccuin[3]}U, /* GPIO Pin Number */
+  .config = &${appInst}_gpio_in_config_3 /* GPIO input/output Characteristics */
+
+};
+
+""");
+}
+
+ /* PDM_DIMMED_LED_LAMP config structure */
+ out.print("""
+PDM_DIMMED_LED_LAMP_CONFIG_t ${appInst}_config =
+{
+  .led_intensity = {""");
+if (channel_intensity_arr[1] != "NULL"){out.print("""${channel_intensity_arr[1]}U,""");}
+else{out.print("""${channel_intensity_arr[1]},""");}
+if (channel_intensity_arr[2] != "NULL"){out.print("""${channel_intensity_arr[2]}U,""");}
+else{out.print("""${channel_intensity_arr[2]},""");}
+if (channel_intensity_arr[3] != "NULL"){out.print("""${channel_intensity_arr[3]}U,""");}
+else{out.print("""${channel_intensity_arr[3]},""");}
+if (channel_intensity_arr[4] != "NULL"){out.print("""${channel_intensity_arr[4]}U,""");}
+else{out.print("""${channel_intensity_arr[4]},""");}
+if (channel_intensity_arr[5] != "NULL"){out.print("""${channel_intensity_arr[5]}U,""");}
+else{out.print("""${channel_intensity_arr[5]},""");}
+if (channel_intensity_arr[6] != "NULL"){out.print("""${channel_intensity_arr[6]}U,""");}
+else{out.print("""${channel_intensity_arr[6]},""");}
+if (channel_intensity_arr[7] != "NULL"){out.print("""${channel_intensity_arr[7]}U,""");}
+else{out.print("""${channel_intensity_arr[7]},""");}
+if (channel_intensity_arr[8] != "NULL"){out.print("""${channel_intensity_arr[8]}U,""");}
+else{out.print("""${channel_intensity_arr[8]},""");}
+if (channel_intensity_arr[9] != "NULL"){out.print("""${channel_intensity_arr[9]}U},""");}
+else{out.print("""${channel_intensity_arr[9]}},""");}
+if (Instance.gcombo_SourceOfDimming.value == "Dimming Engine"){
+out.print("""
+  .dim_level = ${Instance.gint_DimLvl_LED_0.value}U,
+""");
+}
+if(Instance.gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")
+{
+out.print("""
+  .peakcur_ctrl_offtime = {${pcc_offtime_arr[1]}, ${pcc_offtime_arr[2]}, ${pcc_offtime_arr[3]}, 
+                           ${pcc_offtime_arr[4]}, ${pcc_offtime_arr[5]}, ${pcc_offtime_arr[6]}, 
+                           ${pcc_offtime_arr[7]}, ${pcc_offtime_arr[8]}, ${pcc_offtime_arr[9]}},""");
+}
+if(Instance.gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")
+{
+out.print("""
+  .peak_cur_ctrl_ref = {${pcc_ref_arr[1]}, ${pcc_ref_arr[2]}, ${pcc_ref_arr[3]}, 
+                           ${pcc_ref_arr[4]}, ${pcc_ref_arr[5]}, ${pcc_ref_arr[6]}, 
+                           ${pcc_ref_arr[7]}, ${pcc_ref_arr[8]}, ${pcc_ref_arr[9]}},
+
+  .peak_cur_ctrl_refval = {${pcc_refval_arr[1]}, ${pcc_refval_arr[2]}, ${pcc_refval_arr[3]}, 
+                           ${pcc_refval_arr[4]}, ${pcc_refval_arr[5]}, ${pcc_refval_arr[6]}, 
+                           ${pcc_refval_arr[7]}, ${pcc_refval_arr[8]}, ${pcc_refval_arr[9]}},""");
+}
+out.print("""
+};
+""");
+/* PDM_DIMMED_LED_LAMP handler */
+out.print("""
+PDM_DIMMED_LED_LAMP_t ${appInst} =
+{
+  .led = {${pdm_bccu_arr[1]}, ${pdm_bccu_arr[2]}, ${pdm_bccu_arr[3]}, 
+          ${pdm_bccu_arr[4]}, ${pdm_bccu_arr[5]}, ${pdm_bccu_arr[6]}, 
+          ${pdm_bccu_arr[7]}, ${pdm_bccu_arr[8]}, ${pdm_bccu_arr[9]}},
+  .method = ${ctrl_method.get(Instance.gcombo_DriverSel.value)},""");
+	  
+if((Instance.gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+{
+out.print("""
+  .peak_cur_ctrl_ccu4 = {${pwm_ccu4_arr[1]}, ${pwm_ccu4_arr[2]}, ${pwm_ccu4_arr[3]},
+          ${pwm_ccu4_arr[4]}, ${pwm_ccu4_arr[5]}, ${pwm_ccu4_arr[6]},
+          ${pwm_ccu4_arr[7]}, ${pwm_ccu4_arr[8]}, ${pwm_ccu4_arr[9]}},""");
+}
+
+if(Instance.gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+{
+out.print("""
+  .peak_cur_ctrl_ccu8 = {${pwm_ccu8_arr[1]}, ${pwm_ccu8_arr[2]}, ${pwm_ccu8_arr[3]},
+          ${pwm_ccu8_arr[4]}, ${pwm_ccu8_arr[5]}, ${pwm_ccu8_arr[6]},
+          ${pwm_ccu8_arr[7]}, ${pwm_ccu8_arr[8]}, ${pwm_ccu8_arr[9]}},""");
+}
+
+if(Instance.gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")
+{
+out.print("""
+  .peak_cur_ctrl_comp = {${comp_ref_arr[1]}, ${comp_ref_arr[2]},${comp_ref_arr[3]},
+          ${comp_ref_arr[4]}, ${comp_ref_arr[5]}, ${comp_ref_arr[6]},
+          ${comp_ref_arr[7]}, ${comp_ref_arr[8]}, ${comp_ref_arr[9]}},""");
+}
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 1))
+{
+out.print("""
+  .gpio_config_out = { & gpio_compout_config_0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+  .gpio_config_in = { & gpio_ccuin_config_0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+""");
+}
+
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 2))
+{
+out.print("""
+  .gpio_config_out = { & gpio_compout_config_0,&gpio_compout_config_1,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+  .gpio_config_in = { & gpio_ccuin_config_0,&gpio_ccuin_config_1,NULL,NULL,NULL,NULL,NULL,NULL,NULL},
+""");
+}
+
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 3))
+{
+out.print("""
+  .gpio_config_out = { & gpio_compout_config_0,&gpio_compout_config_1,&gpio_compout_config_2,NULL,NULL,NULL,NULL,NULL,NULL},
+  .gpio_config_in = { & gpio_ccuin_config_0,&gpio_ccuin_config_1,&gpio_ccuin_config_2,NULL,NULL,NULL,NULL,NULL,NULL},
+""");
+}
+
+if ((Instance.gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(Instance.gcombo_NoOfChannels.value) == 4))
+{
+out.print("""
+  .gpio_config_out = { & gpio_compout_config_0,&gpio_compout_config_1,&gpio_compout_config_2,&gpio_compout_config_3,NULL,NULL,NULL,NULL,NULL},
+  .gpio_config_in = { & gpio_ccuin_config_0,&gpio_ccuin_config_1,&gpio_ccuin_config_2,&gpio_ccuin_config_3,NULL,NULL,NULL,NULL,NULL},
+""");
+}
+
+if(Instance.gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")
+{
+out.print("""
+  .peak_cur_ctrl_freq = ${(int)(Instance.gfloat_pcc_gen_off_time_freq.value)}U,""");
+}
+out.print("""
+  .config = &${appInst}_config,
+  .linearwalk_prescaler = ${Instance.ginteger_linpres.value}U, 
+  .dim_div = ${Instance.gint_dimdiv.value}U,
+  .dim_prescaler = ${Instance.gint_dimming_clk_prescaler.value}U,
+  .no_of_leds_used = ${Integer.parseInt(Instance.gcombo_NoOfChannels.value)}U,""");
+if (Instance.gcombo_SourceOfDimming.value == "Dimming Engine"){
+out.print("""
+  .dim_engine = (DIM_BCCU_t *) &${Instance.appres_dim_bccu.getInstanceLabel()}, 
+  .dimming_used = true
+""");
+}
+else{
+out.print("""
+  .dimming_used = false
+ """);
+}
+out.print("""
+};
+""");
+}
+
+

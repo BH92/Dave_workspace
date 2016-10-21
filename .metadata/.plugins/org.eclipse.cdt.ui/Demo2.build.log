@@ -1,0 +1,11 @@
+22:42:13 **** Incremental Build of configuration Debug for project Demo2 ****
+"\"C:\\DAVEv4-64Bit\\DAVE-4.3.2\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j4 all 
+'Invoking: ARM-GCC Print Size'
+"C:/DAVEv4-64Bit/DAVE-4.3.2/eclipse/ARM-GCC-49/bin/arm-none-eabi-size" --format=berkeley "Demo2.elf"
+   text	   data	    bss	    dec	    hex	filename
+  35128	    540	   2268	  37936	   9430	Demo2.elf
+'Finished building: Demo2.siz'
+
+
+22:42:14 Build Finished (took 1s.259ms)
+

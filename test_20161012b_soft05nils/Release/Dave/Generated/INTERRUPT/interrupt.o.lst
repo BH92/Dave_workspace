@@ -1,0 +1,116 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "interrupt.c"
+  14              	 .section .text.INTERRUPT_GetAppVersion,"ax",%progbits
+  15              	 .align 1
+  16              	 .global INTERRUPT_GetAppVersion
+  17              	 .code 16
+  18              	 .thumb_func
+  20              	INTERRUPT_GetAppVersion:
+  21 0000 0148     	 ldr r0,.L2
+  22 0002 82B0     	 sub sp,sp,#8
+  23 0004 02B0     	 add sp,sp,#8
+  24              	 
+  25 0006 7047     	 bx lr
+  26              	.L3:
+  27              	 .align 2
+  28              	.L2:
+  29 0008 04000800 	 .word 524292
+  31              	 .section .text.INTERRUPT_Init,"ax",%progbits
+  32              	 .align 1
+  33              	 .global INTERRUPT_Init
+  34              	 .code 16
+  35              	 .thumb_func
+  37              	INTERRUPT_Init:
+  38 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  39 0002 0278     	 ldrb r2,[r0]
+  40 0004 4178     	 ldrb r1,[r0,#1]
+  41 0006 53B2     	 sxtb r3,r2
+  42 0008 8901     	 lsl r1,r1,#6
+  43 000a 002B     	 cmp r3,#0
+  44 000c 15DA     	 bge .L5
+  45 000e 0F23     	 mov r3,#15
+  46 0010 D4B2     	 uxtb r4,r2
+  47 0012 2340     	 and r3,r4
+  48 0014 083B     	 sub r3,r3,#8
+  49 0016 194D     	 ldr r5,.L12
+  50 0018 9B08     	 lsr r3,r3,#2
+  51 001a 9B00     	 lsl r3,r3,#2
+  52 001c 5B19     	 add r3,r3,r5
+  53 001e 0325     	 mov r5,#3
+  54 0020 2C40     	 and r4,r5
+  55 0022 AC40     	 lsl r4,r4,r5
+  56 0024 FC35     	 add r5,r5,#252
+  57 0026 2F1C     	 mov r7,r5
+  58 0028 A740     	 lsl r7,r7,r4
+  59 002a DE69     	 ldr r6,[r3,#28]
+  60 002c 0D40     	 and r5,r1
+  61 002e BE43     	 bic r6,r7
+  62 0030 A540     	 lsl r5,r5,r4
+  63 0032 311C     	 mov r1,r6
+  64 0034 2943     	 orr r1,r5
+  65 0036 D961     	 str r1,[r3,#28]
+  66 0038 14E0     	 b .L6
+  67              	.L5:
+  68 003a 114C     	 ldr r4,.L12+4
+  69 003c 9B08     	 lsr r3,r3,#2
+  70 003e 9B00     	 lsl r3,r3,#2
+  71 0040 1B19     	 add r3,r3,r4
+  72 0042 C024     	 mov r4,#192
+  73 0044 A400     	 lsl r4,r4,#2
+  74 0046 1E59     	 ldr r6,[r3,r4]
+  75 0048 0324     	 mov r4,#3
+  76 004a 1440     	 and r4,r2
+  77 004c E700     	 lsl r7,r4,#3
+  78 004e FF24     	 mov r4,#255
+  79 0050 251C     	 mov r5,r4
+  80 0052 BD40     	 lsl r5,r5,r7
+  81 0054 0C40     	 and r4,r1
+  82 0056 AE43     	 bic r6,r5
+  83 0058 BC40     	 lsl r4,r4,r7
+  84 005a 311C     	 mov r1,r6
+  85 005c 2143     	 orr r1,r4
+  86 005e C024     	 mov r4,#192
+  87 0060 A400     	 lsl r4,r4,#2
+  88 0062 1951     	 str r1,[r3,r4]
+  89              	.L6:
+  90 0064 8378     	 ldrb r3,[r0,#2]
+  91 0066 002B     	 cmp r3,#0
+  92 0068 06D0     	 beq .L7
+  93 006a 1F23     	 mov r3,#31
+  94 006c 1A40     	 and r2,r3
+  95 006e 1E3B     	 sub r3,r3,#30
+  96 0070 9340     	 lsl r3,r3,r2
+  97 0072 1A1C     	 mov r2,r3
+  98 0074 024B     	 ldr r3,.L12+4
+  99 0076 1A60     	 str r2,[r3]
+ 100              	.L7:
+ 101 0078 0020     	 mov r0,#0
+ 102              	 
+ 103 007a F0BD     	 pop {r4,r5,r6,r7,pc}
+ 104              	.L13:
+ 105              	 .align 2
+ 106              	.L12:
+ 107 007c 00ED00E0 	 .word -536810240
+ 108 0080 00E100E0 	 .word -536813312
+ 110              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 interrupt.c
+    {standard input}:15     .text.INTERRUPT_GetAppVersion:00000000 $t
+    {standard input}:20     .text.INTERRUPT_GetAppVersion:00000000 INTERRUPT_GetAppVersion
+    {standard input}:29     .text.INTERRUPT_GetAppVersion:00000008 $d
+    {standard input}:32     .text.INTERRUPT_Init:00000000 $t
+    {standard input}:37     .text.INTERRUPT_Init:00000000 INTERRUPT_Init
+    {standard input}:107    .text.INTERRUPT_Init:0000007c $d
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,264 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "pdm_dimmed_led_lamp.c"
+  14              	 .section .text.PDM_DIMMED_LED_LAMP_GetAppVersion,"ax",%progbits
+  15              	 .align 1
+  16              	 .global PDM_DIMMED_LED_LAMP_GetAppVersion
+  17              	 .code 16
+  18              	 .thumb_func
+  20              	PDM_DIMMED_LED_LAMP_GetAppVersion:
+  21 0000 0148     	 ldr r0,.L2
+  22 0002 82B0     	 sub sp,sp,#8
+  23 0004 02B0     	 add sp,sp,#8
+  24              	 
+  25 0006 7047     	 bx lr
+  26              	.L3:
+  27              	 .align 2
+  28              	.L2:
+  29 0008 04000400 	 .word 262148
+  31              	 .section .text.PDM_DIMMED_LED_LAMP_Init,"ax",%progbits
+  32              	 .align 1
+  33              	 .global PDM_DIMMED_LED_LAMP_Init
+  34              	 .code 16
+  35              	 .thumb_func
+  37              	PDM_DIMMED_LED_LAMP_Init:
+  38 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+  39 0002 0025     	 mov r5,#0
+  40 0004 041C     	 mov r4,r0
+  41 0006 2E1C     	 mov r6,r5
+  42              	.L6:
+  43 0008 B700     	 lsl r7,r6,#2
+  44 000a E059     	 ldr r0,[r4,r7]
+  45 000c FFF7FEFF 	 bl PDM_BCCU_Init
+  46 0010 E359     	 ldr r3,[r4,r7]
+  47 0012 0136     	 add r6,r6,#1
+  48 0014 DA69     	 ldr r2,[r3,#28]
+  49 0016 0123     	 mov r3,#1
+  50 0018 9340     	 lsl r3,r3,r2
+  51 001a 1D43     	 orr r5,r3
+  52 001c 231C     	 mov r3,r4
+  53 001e 3933     	 add r3,r3,#57
+  54 0020 1B78     	 ldrb r3,[r3]
+  55 0022 9E42     	 cmp r6,r3
+  56 0024 02D2     	 bcs .L5
+  57 0026 0028     	 cmp r0,#0
+  58 0028 EED0     	 beq .L6
+  59 002a 0EE0     	 b .L7
+  60              	.L5:
+  61 002c 0028     	 cmp r0,#0
+  62 002e 0CD1     	 bne .L7
+  63 0030 231C     	 mov r3,r4
+  64 0032 2586     	 strh r5,[r4,#48]
+  65 0034 3A33     	 add r3,r3,#58
+  66 0036 1B78     	 ldrb r3,[r3]
+  67 0038 002B     	 cmp r3,#0
+  68 003a 06D0     	 beq .L7
+  69 003c A06A     	 ldr r0,[r4,#40]
+  70 003e FFF7FEFF 	 bl DIM_BCCU_Init
+  71 0042 A36A     	 ldr r3,[r4,#40]
+  72 0044 3834     	 add r4,r4,#56
+  73 0046 5B7B     	 ldrb r3,[r3,#13]
+  74 0048 2370     	 strb r3,[r4]
+  75              	.L7:
+  76              	 
+  77 004a F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+  79              	 .section .text.PDM_DIMMED_LED_LAMP_SetColor,"ax",%progbits
+  80              	 .align 1
+  81              	 .global PDM_DIMMED_LED_LAMP_SetColor
+  82              	 .code 16
+  83              	 .thumb_func
+  85              	PDM_DIMMED_LED_LAMP_SetColor:
+  86 0000 70B5     	 push {r4,r5,r6,lr}
+  87 0002 041C     	 mov r4,r0
+  88 0004 0025     	 mov r5,#0
+  89              	.L15:
+  90 0006 231C     	 mov r3,r4
+  91 0008 3933     	 add r3,r3,#57
+  92 000a 1B78     	 ldrb r3,[r3]
+  93 000c 9D42     	 cmp r5,r3
+  94 000e 0ED2     	 bcs .L17
+  95 0010 AB00     	 lsl r3,r5,#2
+  96 0012 E358     	 ldr r3,[r4,r3]
+  97 0014 E26A     	 ldr r2,[r4,#44]
+  98 0016 1E69     	 ldr r6,[r3,#16]
+  99 0018 6B00     	 lsl r3,r5,#1
+ 100 001a 995A     	 ldrh r1,[r3,r2]
+ 101 001c 301C     	 mov r0,r6
+ 102 001e FFF7FEFF 	 bl XMC_BCCU_CH_SetTargetIntensity
+ 103 0022 618E     	 ldrh r1,[r4,#50]
+ 104 0024 301C     	 mov r0,r6
+ 105 0026 FFF7FEFF 	 bl XMC_BCCU_CH_SetLinearWalkPrescaler
+ 106 002a 0135     	 add r5,r5,#1
+ 107 002c EBE7     	 b .L15
+ 108              	.L17:
+ 109 002e 2368     	 ldr r3,[r4]
+ 110 0030 218E     	 ldrh r1,[r4,#48]
+ 111 0032 1868     	 ldr r0,[r3]
+ 112 0034 FFF7FEFF 	 bl XMC_BCCU_ConcurrentStartLinearWalk
+ 113              	 
+ 114 0038 70BD     	 pop {r4,r5,r6,pc}
+ 116              	 .section .text.PDM_DIMMED_LED_LAMP_SetColorAdv,"ax",%progbits
+ 117              	 .align 1
+ 118              	 .global PDM_DIMMED_LED_LAMP_SetColorAdv
+ 119              	 .code 16
+ 120              	 .thumb_func
+ 122              	PDM_DIMMED_LED_LAMP_SetColorAdv:
+ 123 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 124 0002 041C     	 mov r4,r0
+ 125 0004 0F1C     	 mov r7,r1
+ 126 0006 0025     	 mov r5,#0
+ 127              	.L19:
+ 128 0008 231C     	 mov r3,r4
+ 129 000a 3933     	 add r3,r3,#57
+ 130 000c 1B78     	 ldrb r3,[r3]
+ 131 000e 9D42     	 cmp r5,r3
+ 132 0010 0ED2     	 bcs .L21
+ 133 0012 AB00     	 lsl r3,r5,#2
+ 134 0014 E358     	 ldr r3,[r4,r3]
+ 135 0016 E26A     	 ldr r2,[r4,#44]
+ 136 0018 1E69     	 ldr r6,[r3,#16]
+ 137 001a 6B00     	 lsl r3,r5,#1
+ 138 001c 995A     	 ldrh r1,[r3,r2]
+ 139 001e 301C     	 mov r0,r6
+ 140 0020 FFF7FEFF 	 bl XMC_BCCU_CH_SetTargetIntensity
+ 141 0024 301C     	 mov r0,r6
+ 142 0026 391C     	 mov r1,r7
+ 143 0028 FFF7FEFF 	 bl XMC_BCCU_CH_SetLinearWalkPrescaler
+ 144 002c 0135     	 add r5,r5,#1
+ 145 002e EBE7     	 b .L19
+ 146              	.L21:
+ 147 0030 2368     	 ldr r3,[r4]
+ 148 0032 218E     	 ldrh r1,[r4,#48]
+ 149 0034 1868     	 ldr r0,[r3]
+ 150 0036 FFF7FEFF 	 bl XMC_BCCU_ConcurrentStartLinearWalk
+ 151              	 
+ 152 003a F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 154              	 .section .text.PDM_DIMMED_LED_LAMP_AbortColorChange,"ax",%progbits
+ 155              	 .align 1
+ 156              	 .global PDM_DIMMED_LED_LAMP_AbortColorChange
+ 157              	 .code 16
+ 158              	 .thumb_func
+ 160              	PDM_DIMMED_LED_LAMP_AbortColorChange:
+ 161 0000 08B5     	 push {r3,lr}
+ 162 0002 0368     	 ldr r3,[r0]
+ 163 0004 018E     	 ldrh r1,[r0,#48]
+ 164 0006 1868     	 ldr r0,[r3]
+ 165 0008 FFF7FEFF 	 bl XMC_BCCU_ConcurrentAbortLinearWalk
+ 166              	 
+ 167 000c 08BD     	 pop {r3,pc}
+ 169              	 .section .text.PDM_DIMMED_LED_LAMP_SetDimLevelExponential,"ax",%progbits
+ 170              	 .align 1
+ 171              	 .global PDM_DIMMED_LED_LAMP_SetDimLevelExponential
+ 172              	 .code 16
+ 173              	 .thumb_func
+ 175              	PDM_DIMMED_LED_LAMP_SetDimLevelExponential:
+ 176 0000 70B5     	 push {r4,r5,r6,lr}
+ 177 0002 041C     	 mov r4,r0
+ 178 0004 0368     	 ldr r3,[r0]
+ 179 0006 C18E     	 ldrh r1,[r0,#54]
+ 180 0008 1D68     	 ldr r5,[r3]
+ 181 000a 836A     	 ldr r3,[r0,#40]
+ 182 000c 281C     	 mov r0,r5
+ 183 000e 1E68     	 ldr r6,[r3]
+ 184 0010 FFF7FEFF 	 bl XMC_BCCU_SetDimClockPrescaler
+ 185 0014 301C     	 mov r0,r6
+ 186 0016 A18E     	 ldrh r1,[r4,#52]
+ 187 0018 FFF7FEFF 	 bl XMC_BCCU_DIM_SetDimDivider
+ 188 001c E36A     	 ldr r3,[r4,#44]
+ 189 001e 301C     	 mov r0,r6
+ 190 0020 598A     	 ldrh r1,[r3,#18]
+ 191 0022 FFF7FEFF 	 bl XMC_BCCU_DIM_SetTargetDimmingLevel
+ 192 0026 0123     	 mov r3,#1
+ 193 0028 3834     	 add r4,r4,#56
+ 194 002a 2278     	 ldrb r2,[r4]
+ 195              	 
+ 196 002c 9340     	 lsl r3,r3,r2
+ 197 002e 6B62     	 str r3,[r5,#36]
+ 198 0030 70BD     	 pop {r4,r5,r6,pc}
+ 200              	 .section .text.PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv,"ax",%progbits
+ 201              	 .align 1
+ 202              	 .global PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv
+ 203              	 .code 16
+ 204              	 .thumb_func
+ 206              	PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv:
+ 207 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 208 0002 0F1C     	 mov r7,r1
+ 209 0004 041C     	 mov r4,r0
+ 210 0006 0368     	 ldr r3,[r0]
+ 211 0008 111C     	 mov r1,r2
+ 212 000a 1D68     	 ldr r5,[r3]
+ 213 000c 836A     	 ldr r3,[r0,#40]
+ 214 000e 281C     	 mov r0,r5
+ 215 0010 1E68     	 ldr r6,[r3]
+ 216 0012 FFF7FEFF 	 bl XMC_BCCU_SetDimClockPrescaler
+ 217 0016 301C     	 mov r0,r6
+ 218 0018 391C     	 mov r1,r7
+ 219 001a FFF7FEFF 	 bl XMC_BCCU_DIM_SetDimDivider
+ 220 001e E36A     	 ldr r3,[r4,#44]
+ 221 0020 301C     	 mov r0,r6
+ 222 0022 598A     	 ldrh r1,[r3,#18]
+ 223 0024 FFF7FEFF 	 bl XMC_BCCU_DIM_SetTargetDimmingLevel
+ 224 0028 0123     	 mov r3,#1
+ 225 002a 3834     	 add r4,r4,#56
+ 226 002c 2278     	 ldrb r2,[r4]
+ 227              	 
+ 228 002e 9340     	 lsl r3,r3,r2
+ 229 0030 6B62     	 str r3,[r5,#36]
+ 230 0032 F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 232              	 .section .text.PDM_DIMMED_LED_LAMP_AbortDimming,"ax",%progbits
+ 233              	 .align 1
+ 234              	 .global PDM_DIMMED_LED_LAMP_AbortDimming
+ 235              	 .code 16
+ 236              	 .thumb_func
+ 238              	PDM_DIMMED_LED_LAMP_AbortDimming:
+ 239 0000 0368     	 ldr r3,[r0]
+ 240 0002 3830     	 add r0,r0,#56
+ 241 0004 1A68     	 ldr r2,[r3]
+ 242 0006 8023     	 mov r3,#128
+ 243 0008 0178     	 ldrb r1,[r0]
+ 244 000a 5B02     	 lsl r3,r3,#9
+ 245 000c 8B40     	 lsl r3,r3,r1
+ 246              	 
+ 247 000e 5362     	 str r3,[r2,#36]
+ 248 0010 7047     	 bx lr
+ 250              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pdm_dimmed_led_lamp.c
+    {standard input}:15     .text.PDM_DIMMED_LED_LAMP_GetAppVersion:00000000 $t
+    {standard input}:20     .text.PDM_DIMMED_LED_LAMP_GetAppVersion:00000000 PDM_DIMMED_LED_LAMP_GetAppVersion
+    {standard input}:29     .text.PDM_DIMMED_LED_LAMP_GetAppVersion:00000008 $d
+    {standard input}:32     .text.PDM_DIMMED_LED_LAMP_Init:00000000 $t
+    {standard input}:37     .text.PDM_DIMMED_LED_LAMP_Init:00000000 PDM_DIMMED_LED_LAMP_Init
+    {standard input}:80     .text.PDM_DIMMED_LED_LAMP_SetColor:00000000 $t
+    {standard input}:85     .text.PDM_DIMMED_LED_LAMP_SetColor:00000000 PDM_DIMMED_LED_LAMP_SetColor
+    {standard input}:117    .text.PDM_DIMMED_LED_LAMP_SetColorAdv:00000000 $t
+    {standard input}:122    .text.PDM_DIMMED_LED_LAMP_SetColorAdv:00000000 PDM_DIMMED_LED_LAMP_SetColorAdv
+    {standard input}:155    .text.PDM_DIMMED_LED_LAMP_AbortColorChange:00000000 $t
+    {standard input}:160    .text.PDM_DIMMED_LED_LAMP_AbortColorChange:00000000 PDM_DIMMED_LED_LAMP_AbortColorChange
+    {standard input}:170    .text.PDM_DIMMED_LED_LAMP_SetDimLevelExponential:00000000 $t
+    {standard input}:175    .text.PDM_DIMMED_LED_LAMP_SetDimLevelExponential:00000000 PDM_DIMMED_LED_LAMP_SetDimLevelExponential
+    {standard input}:201    .text.PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv:00000000 $t
+    {standard input}:206    .text.PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv:00000000 PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv
+    {standard input}:233    .text.PDM_DIMMED_LED_LAMP_AbortDimming:00000000 $t
+    {standard input}:238    .text.PDM_DIMMED_LED_LAMP_AbortDimming:00000000 PDM_DIMMED_LED_LAMP_AbortDimming
+
+UNDEFINED SYMBOLS
+PDM_BCCU_Init
+DIM_BCCU_Init
+XMC_BCCU_CH_SetTargetIntensity
+XMC_BCCU_CH_SetLinearWalkPrescaler
+XMC_BCCU_ConcurrentStartLinearWalk
+XMC_BCCU_ConcurrentAbortLinearWalk
+XMC_BCCU_SetDimClockPrescaler
+XMC_BCCU_DIM_SetDimDivider
+XMC_BCCU_DIM_SetTargetDimmingLevel

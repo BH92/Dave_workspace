@@ -1,0 +1,32 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "interrupt_conf.c"
+  14              	 .global INTERRUPT_1
+  15              	 .global INTERRUPT_0
+  16              	 .section .rodata.INTERRUPT_0,"a",%progbits
+  19              	INTERRUPT_0:
+  20 0000 0F       	 .byte 15
+  21 0001 03       	 .byte 3
+  22 0002 01       	 .byte 1
+  23              	 .section .rodata.INTERRUPT_1,"a",%progbits
+  26              	INTERRUPT_1:
+  27 0000 00       	 .byte 0
+  28 0001 03       	 .byte 3
+  29 0002 00       	 .byte 0
+  30              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 interrupt_conf.c
+    {standard input}:26     .rodata.INTERRUPT_1:00000000 INTERRUPT_1
+    {standard input}:19     .rodata.INTERRUPT_0:00000000 INTERRUPT_0
+
+NO UNDEFINED SYMBOLS

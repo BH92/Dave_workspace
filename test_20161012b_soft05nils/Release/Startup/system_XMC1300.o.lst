@@ -1,0 +1,159 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "system_XMC1300.c"
+  14              	 .section .text.SystemCoreSetup,"ax",%progbits
+  15              	 .align 1
+  16              	 .weak SystemCoreSetup
+  17              	 .code 16
+  18              	 .thumb_func
+  20              	SystemCoreSetup:
+  21 0000 8021     	 mov r1,#128
+  22 0002 064A     	 ldr r2,.L2
+  23 0004 4901     	 lsl r1,r1,#5
+  24 0006 1389     	 ldrh r3,[r2,#8]
+  25              	 
+  26 0008 0B43     	 orr r3,r1
+  27 000a 1381     	 strh r3,[r2,#8]
+  28 000c 8023     	 mov r3,#128
+  29 000e 044A     	 ldr r2,.L2+4
+  30 0010 1B01     	 lsl r3,r3,#4
+  31 0012 1168     	 ldr r1,[r2]
+  32 0014 0B43     	 orr r3,r1
+  33 0016 1360     	 str r3,[r2]
+  34 0018 7047     	 bx lr
+  35              	.L3:
+  36 001a C046     	 .align 2
+  37              	.L2:
+  38 001c 00000540 	 .word 1074069504
+  39 0020 48000540 	 .word 1074069576
+  41              	 .global __aeabi_uidiv
+  42              	 .section .text.SystemCoreClockUpdate,"ax",%progbits
+  43              	 .align 1
+  44              	 .weak SystemCoreClockUpdate
+  45              	 .code 16
+  46              	 .thumb_func
+  48              	SystemCoreClockUpdate:
+  49 0000 0C4B     	 ldr r3,.L8
+  50 0002 0D4A     	 ldr r2,.L8+4
+  51 0004 1968     	 ldr r1,[r3]
+  52 0006 10B5     	 push {r4,lr}
+  53 0008 0904     	 lsl r1,r1,#16
+  54 000a 090E     	 lsr r1,r1,#24
+  55 000c 1160     	 str r1,[r2]
+  56 000e 1B68     	 ldr r3,[r3]
+  57 0010 0A4A     	 ldr r2,.L8+8
+  58 0012 DBB2     	 uxtb r3,r3
+  59 0014 1360     	 str r3,[r2]
+  60 0016 0A4C     	 ldr r4,.L8+12
+  61 0018 0029     	 cmp r1,#0
+  62 001a 07D0     	 beq .L5
+  63 001c 0902     	 lsl r1,r1,#8
+  64 001e C918     	 add r1,r1,r3
+  65 0020 0848     	 ldr r0,.L8+16
+  66 0022 FFF7FEFF 	 bl __aeabi_uidiv
+  67 0026 4000     	 lsl r0,r0,#1
+  68 0028 2060     	 str r0,[r4]
+  69 002a 01E0     	 b .L4
+  70              	.L5:
+  71 002c 064B     	 ldr r3,.L8+20
+  72 002e 2360     	 str r3,[r4]
+  73              	.L4:
+  74              	 
+  75 0030 10BD     	 pop {r4,pc}
+  76              	.L9:
+  77 0032 C046     	 .align 2
+  78              	.L8:
+  79 0034 00030140 	 .word 1073808128
+  80 0038 00000000 	 .word .LANCHOR0
+  81 003c 00000000 	 .word .LANCHOR1
+  82 0040 00000000 	 .word .LANCHOR2
+  83 0044 000024F4 	 .word -198967296
+  84 0048 0048E801 	 .word 32000000
+  86              	 .section .text.SystemCoreClockSetup,"ax",%progbits
+  87              	 .align 1
+  88              	 .weak SystemCoreClockSetup
+  89              	 .code 16
+  90              	 .thumb_func
+  92              	SystemCoreClockSetup:
+  93 0000 C022     	 mov r2,#192
+  94 0002 08B5     	 push {r3,lr}
+  95 0004 064B     	 ldr r3,.L12
+  96 0006 0749     	 ldr r1,.L12+4
+  97 0008 5A62     	 str r2,[r3,#36]
+  98 000a 074A     	 ldr r2,.L12+8
+  99 000c 1160     	 str r1,[r2]
+ 100              	.L11:
+ 101 000e 1168     	 ldr r1,[r2]
+ 102 0010 4900     	 lsl r1,r1,#1
+ 103 0012 FCD4     	 bmi .L11
+ 104 0014 C322     	 mov r2,#195
+ 105 0016 5A62     	 str r2,[r3,#36]
+ 106 0018 FFF7FEFF 	 bl SystemCoreClockUpdate
+ 107              	 
+ 108 001c 08BD     	 pop {r3,pc}
+ 109              	.L13:
+ 110 001e C046     	 .align 2
+ 111              	.L12:
+ 112 0020 00000140 	 .word 1073807360
+ 113 0024 0001F13F 	 .word 1072759040
+ 114 0028 00030140 	 .word 1073808128
+ 116              	 .section .text.SystemInit,"ax",%progbits
+ 117              	 .align 1
+ 118              	 .weak SystemInit
+ 119              	 .code 16
+ 120              	 .thumb_func
+ 122              	SystemInit:
+ 123 0000 08B5     	 push {r3,lr}
+ 124 0002 FFF7FEFF 	 bl SystemCoreSetup
+ 125              	 
+ 126 0006 FFF7FEFF 	 bl SystemCoreClockSetup
+ 127 000a 08BD     	 pop {r3,pc}
+ 129              	 .global SystemCoreClock
+ 130              	 .section .bss.IDIV.4926,"aw",%nobits
+ 131              	 .align 2
+ 132              	 .set .LANCHOR0,.+0
+ 135              	IDIV.4926:
+ 136 0000 00000000 	 .space 4
+ 137              	 .section .no_init,"aw",%progbits
+ 138              	 .align 2
+ 139              	 .set .LANCHOR2,.+0
+ 142              	SystemCoreClock:
+ 143 0000 00000000 	 .space 4
+ 144              	 .section .bss.FDIV.4927,"aw",%nobits
+ 145              	 .align 2
+ 146              	 .set .LANCHOR1,.+0
+ 149              	FDIV.4927:
+ 150 0000 00000000 	 .space 4
+ 151              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 system_XMC1300.c
+    {standard input}:15     .text.SystemCoreSetup:00000000 $t
+    {standard input}:20     .text.SystemCoreSetup:00000000 SystemCoreSetup
+    {standard input}:38     .text.SystemCoreSetup:0000001c $d
+    {standard input}:43     .text.SystemCoreClockUpdate:00000000 $t
+    {standard input}:48     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
+    {standard input}:79     .text.SystemCoreClockUpdate:00000034 $d
+    {standard input}:87     .text.SystemCoreClockSetup:00000000 $t
+    {standard input}:92     .text.SystemCoreClockSetup:00000000 SystemCoreClockSetup
+    {standard input}:112    .text.SystemCoreClockSetup:00000020 $d
+    {standard input}:117    .text.SystemInit:00000000 $t
+    {standard input}:122    .text.SystemInit:00000000 SystemInit
+    {standard input}:142    .no_init:00000000 SystemCoreClock
+    {standard input}:131    .bss.IDIV.4926:00000000 $d
+    {standard input}:135    .bss.IDIV.4926:00000000 IDIV.4926
+    {standard input}:138    .no_init:00000000 $d
+    {standard input}:145    .bss.FDIV.4927:00000000 $d
+    {standard input}:149    .bss.FDIV.4927:00000000 FDIV.4927
+
+UNDEFINED SYMBOLS
+__aeabi_uidiv

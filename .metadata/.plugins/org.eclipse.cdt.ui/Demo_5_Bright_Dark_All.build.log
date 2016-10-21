@@ -1,0 +1,11 @@
+17:46:06 **** Incremental Build of configuration Debug for project Demo_5_Bright_Dark_All ****
+"\"C:\\DAVEv4-64Bit\\DAVE-4.3.2\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j4 all 
+'Invoking: ARM-GCC Print Size'
+"C:/DAVEv4-64Bit/DAVE-4.3.2/eclipse/ARM-GCC-49/bin/arm-none-eabi-size" --format=berkeley "Demo_5_Bright_Dark_All.elf"
+   text	   data	    bss	    dec	    hex	filename
+  35356	    540	   2268	  38164	   9514	Demo_5_Bright_Dark_All.elf
+'Finished building: Demo_5_Bright_Dark_All.siz'
+
+
+17:46:08 Build Finished (took 1s.491ms)
+

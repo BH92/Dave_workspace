@@ -1,0 +1,281 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "dim_bccu.c"
+  14              	 .section .text.DIM_BCCU_GetAppVersion,"ax",%progbits
+  15              	 .align 1
+  16              	 .global DIM_BCCU_GetAppVersion
+  17              	 .code 16
+  18              	 .thumb_func
+  20              	DIM_BCCU_GetAppVersion:
+  21 0000 0148     	 ldr r0,.L2
+  22 0002 82B0     	 sub sp,sp,#8
+  23 0004 02B0     	 add sp,sp,#8
+  24              	 
+  25 0006 7047     	 bx lr
+  26              	.L3:
+  27              	 .align 2
+  28              	.L2:
+  29 0008 04010600 	 .word 393476
+  31              	 .section .text.DIM_BCCU_Init,"ax",%progbits
+  32              	 .align 1
+  33              	 .global DIM_BCCU_Init
+  34              	 .code 16
+  35              	 .thumb_func
+  37              	DIM_BCCU_Init:
+  38 0000 10B5     	 push {r4,lr}
+  39 0002 041C     	 mov r4,r0
+  40 0004 8068     	 ldr r0,[r0,#8]
+  41 0006 FFF7FEFF 	 bl GLOBAL_BCCU_Init
+  42 000a 0128     	 cmp r0,#1
+  43 000c 13D0     	 beq .L5
+  44 000e 2068     	 ldr r0,[r4]
+  45 0010 6168     	 ldr r1,[r4,#4]
+  46 0012 FFF7FEFF 	 bl XMC_BCCU_DIM_Init
+  47 0016 2068     	 ldr r0,[r4]
+  48 0018 2169     	 ldr r1,[r4,#16]
+  49 001a FFF7FEFF 	 bl XMC_BCCU_DIM_SetTargetDimmingLevel
+  50 001e 237B     	 ldrb r3,[r4,#12]
+  51 0020 0020     	 mov r0,#0
+  52 0022 012B     	 cmp r3,#1
+  53 0024 07D1     	 bne .L5
+  54 0026 A268     	 ldr r2,[r4,#8]
+  55 0028 647B     	 ldrb r4,[r4,#13]
+  56 002a 1268     	 ldr r2,[r2]
+  57 002c A340     	 lsl r3,r3,r4
+  58 002e 116A     	 ldr r1,[r2,#32]
+  59 0030 1943     	 orr r1,r3
+  60 0032 1162     	 str r1,[r2,#32]
+  61 0034 5362     	 str r3,[r2,#36]
+  62              	.L5:
+  63              	 
+  64 0036 10BD     	 pop {r4,pc}
+  66              	 .section .text.DIM_BCCU_Enable,"ax",%progbits
+  67              	 .align 1
+  68              	 .global DIM_BCCU_Enable
+  69              	 .code 16
+  70              	 .thumb_func
+  72              	DIM_BCCU_Enable:
+  73 0000 8368     	 ldr r3,[r0,#8]
+  74 0002 407B     	 ldrb r0,[r0,#13]
+  75 0004 1968     	 ldr r1,[r3]
+  76 0006 0123     	 mov r3,#1
+  77 0008 8340     	 lsl r3,r3,r0
+  78 000a 0A6A     	 ldr r2,[r1,#32]
+  79              	 
+  80 000c 1343     	 orr r3,r2
+  81 000e 0B62     	 str r3,[r1,#32]
+  82 0010 7047     	 bx lr
+  84              	 .section .text.DIM_BCCU_Disable,"ax",%progbits
+  85              	 .align 1
+  86              	 .global DIM_BCCU_Disable
+  87              	 .code 16
+  88              	 .thumb_func
+  90              	DIM_BCCU_Disable:
+  91 0000 0122     	 mov r2,#1
+  92 0002 8368     	 ldr r3,[r0,#8]
+  93 0004 407B     	 ldrb r0,[r0,#13]
+  94 0006 1968     	 ldr r1,[r3]
+  95 0008 8240     	 lsl r2,r2,r0
+  96 000a 0B6A     	 ldr r3,[r1,#32]
+  97              	 
+  98 000c 9343     	 bic r3,r2
+  99 000e 0B62     	 str r3,[r1,#32]
+ 100 0010 7047     	 bx lr
+ 102              	 .section .text.DIM_BCCU_StartDimming,"ax",%progbits
+ 103              	 .align 1
+ 104              	 .global DIM_BCCU_StartDimming
+ 105              	 .code 16
+ 106              	 .thumb_func
+ 108              	DIM_BCCU_StartDimming:
+ 109 0000 8368     	 ldr r3,[r0,#8]
+ 110 0002 417B     	 ldrb r1,[r0,#13]
+ 111 0004 1A68     	 ldr r2,[r3]
+ 112 0006 0123     	 mov r3,#1
+ 113 0008 8B40     	 lsl r3,r3,r1
+ 114              	 
+ 115 000a 5362     	 str r3,[r2,#36]
+ 116 000c 7047     	 bx lr
+ 118              	 .section .text.DIM_BCCU_AbortDimming,"ax",%progbits
+ 119              	 .align 1
+ 120              	 .global DIM_BCCU_AbortDimming
+ 121              	 .code 16
+ 122              	 .thumb_func
+ 124              	DIM_BCCU_AbortDimming:
+ 125 0000 8368     	 ldr r3,[r0,#8]
+ 126 0002 417B     	 ldrb r1,[r0,#13]
+ 127 0004 1A68     	 ldr r2,[r3]
+ 128 0006 8023     	 mov r3,#128
+ 129 0008 5B02     	 lsl r3,r3,#9
+ 130 000a 8B40     	 lsl r3,r3,r1
+ 131              	 
+ 132 000c 5362     	 str r3,[r2,#36]
+ 133 000e 7047     	 bx lr
+ 135              	 .section .text.DIM_BCCU_SetDimLvl,"ax",%progbits
+ 136              	 .align 1
+ 137              	 .global DIM_BCCU_SetDimLvl
+ 138              	 .code 16
+ 139              	 .thumb_func
+ 141              	DIM_BCCU_SetDimLvl:
+ 142 0000 08B5     	 push {r3,lr}
+ 143 0002 0068     	 ldr r0,[r0]
+ 144 0004 FFF7FEFF 	 bl XMC_BCCU_DIM_SetTargetDimmingLevel
+ 145              	 
+ 146 0008 08BD     	 pop {r3,pc}
+ 148              	 .section .text.DIM_BCCU_GetDimLvl,"ax",%progbits
+ 149              	 .align 1
+ 150              	 .global DIM_BCCU_GetDimLvl
+ 151              	 .code 16
+ 152              	 .thumb_func
+ 154              	DIM_BCCU_GetDimLvl:
+ 155 0000 0368     	 ldr r3,[r0]
+ 156              	 
+ 157 0002 5868     	 ldr r0,[r3,#4]
+ 158 0004 0005     	 lsl r0,r0,#20
+ 159 0006 000D     	 lsr r0,r0,#20
+ 160 0008 7047     	 bx lr
+ 162              	 .section .text.DIM_BCCU_GetDimCurve,"ax",%progbits
+ 163              	 .align 1
+ 164              	 .global DIM_BCCU_GetDimCurve
+ 165              	 .code 16
+ 166              	 .thumb_func
+ 168              	DIM_BCCU_GetDimCurve:
+ 169 0000 0368     	 ldr r3,[r0]
+ 170              	 
+ 171 0002 9868     	 ldr r0,[r3,#8]
+ 172 0004 8003     	 lsl r0,r0,#14
+ 173 0006 C00F     	 lsr r0,r0,#31
+ 174 0008 7047     	 bx lr
+ 176              	 .section .text.DIM_BCCU_FadeCompletionStatus,"ax",%progbits
+ 177              	 .align 1
+ 178              	 .global DIM_BCCU_FadeCompletionStatus
+ 179              	 .code 16
+ 180              	 .thumb_func
+ 182              	DIM_BCCU_FadeCompletionStatus:
+ 183 0000 031C     	 mov r3,r0
+ 184 0002 8268     	 ldr r2,[r0,#8]
+ 185              	 
+ 186 0004 1268     	 ldr r2,[r2]
+ 187 0006 506A     	 ldr r0,[r2,#36]
+ 188 0008 5A7B     	 ldrb r2,[r3,#13]
+ 189 000a 0123     	 mov r3,#1
+ 190 000c 9340     	 lsl r3,r3,r2
+ 191 000e 1840     	 and r0,r3
+ 192 0010 D040     	 lsr r0,r0,r2
+ 193 0012 7047     	 bx lr
+ 195              	 .section .text.DIM_BCCU_AwaitFadeCompletion,"ax",%progbits
+ 196              	 .align 1
+ 197              	 .global DIM_BCCU_AwaitFadeCompletion
+ 198              	 .code 16
+ 199              	 .thumb_func
+ 201              	DIM_BCCU_AwaitFadeCompletion:
+ 202 0000 0122     	 mov r2,#1
+ 203 0002 417B     	 ldrb r1,[r0,#13]
+ 204 0004 8368     	 ldr r3,[r0,#8]
+ 205 0006 8A40     	 lsl r2,r2,r1
+ 206 0008 10B5     	 push {r4,lr}
+ 207 000a 1C68     	 ldr r4,[r3]
+ 208              	.L20:
+ 209 000c 636A     	 ldr r3,[r4,#36]
+ 210 000e 1340     	 and r3,r2
+ 211 0010 CB40     	 lsr r3,r3,r1
+ 212 0012 012B     	 cmp r3,#1
+ 213 0014 FAD0     	 beq .L20
+ 214              	 
+ 215 0016 10BD     	 pop {r4,pc}
+ 217              	 .section .text.DIM_BCCU_SetDimDiv,"ax",%progbits
+ 218              	 .align 1
+ 219              	 .global DIM_BCCU_SetDimDiv
+ 220              	 .code 16
+ 221              	 .thumb_func
+ 223              	DIM_BCCU_SetDimDiv:
+ 224 0000 08B5     	 push {r3,lr}
+ 225 0002 0068     	 ldr r0,[r0]
+ 226 0004 FFF7FEFF 	 bl XMC_BCCU_DIM_SetDimDivider
+ 227              	 
+ 228 0008 08BD     	 pop {r3,pc}
+ 230              	 .section .text.DIM_BCCU_GetDimDiv,"ax",%progbits
+ 231              	 .align 1
+ 232              	 .global DIM_BCCU_GetDimDiv
+ 233              	 .code 16
+ 234              	 .thumb_func
+ 236              	DIM_BCCU_GetDimDiv:
+ 237 0000 0368     	 ldr r3,[r0]
+ 238              	 
+ 239 0002 9868     	 ldr r0,[r3,#8]
+ 240 0004 8005     	 lsl r0,r0,#22
+ 241 0006 800D     	 lsr r0,r0,#22
+ 242 0008 7047     	 bx lr
+ 244              	 .section .text.DIM_BCCU_IsDitherEnable,"ax",%progbits
+ 245              	 .align 1
+ 246              	 .global DIM_BCCU_IsDitherEnable
+ 247              	 .code 16
+ 248              	 .thumb_func
+ 250              	DIM_BCCU_IsDitherEnable:
+ 251 0000 0368     	 ldr r3,[r0]
+ 252              	 
+ 253 0002 9868     	 ldr r0,[r3,#8]
+ 254 0004 C003     	 lsl r0,r0,#15
+ 255 0006 C00F     	 lsr r0,r0,#31
+ 256 0008 7047     	 bx lr
+ 258              	 .section .text.DIM_BCCU_SetDimCurveAndDither,"ax",%progbits
+ 259              	 .align 1
+ 260              	 .global DIM_BCCU_SetDimCurveAndDither
+ 261              	 .code 16
+ 262              	 .thumb_func
+ 264              	DIM_BCCU_SetDimCurveAndDither:
+ 265 0000 08B5     	 push {r3,lr}
+ 266 0002 0068     	 ldr r0,[r0]
+ 267 0004 FFF7FEFF 	 bl XMC_BCCU_DIM_ConfigDimCurve
+ 268              	 
+ 269 0008 08BD     	 pop {r3,pc}
+ 271              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 dim_bccu.c
+    {standard input}:15     .text.DIM_BCCU_GetAppVersion:00000000 $t
+    {standard input}:20     .text.DIM_BCCU_GetAppVersion:00000000 DIM_BCCU_GetAppVersion
+    {standard input}:29     .text.DIM_BCCU_GetAppVersion:00000008 $d
+    {standard input}:32     .text.DIM_BCCU_Init:00000000 $t
+    {standard input}:37     .text.DIM_BCCU_Init:00000000 DIM_BCCU_Init
+    {standard input}:67     .text.DIM_BCCU_Enable:00000000 $t
+    {standard input}:72     .text.DIM_BCCU_Enable:00000000 DIM_BCCU_Enable
+    {standard input}:85     .text.DIM_BCCU_Disable:00000000 $t
+    {standard input}:90     .text.DIM_BCCU_Disable:00000000 DIM_BCCU_Disable
+    {standard input}:103    .text.DIM_BCCU_StartDimming:00000000 $t
+    {standard input}:108    .text.DIM_BCCU_StartDimming:00000000 DIM_BCCU_StartDimming
+    {standard input}:119    .text.DIM_BCCU_AbortDimming:00000000 $t
+    {standard input}:124    .text.DIM_BCCU_AbortDimming:00000000 DIM_BCCU_AbortDimming
+    {standard input}:136    .text.DIM_BCCU_SetDimLvl:00000000 $t
+    {standard input}:141    .text.DIM_BCCU_SetDimLvl:00000000 DIM_BCCU_SetDimLvl
+    {standard input}:149    .text.DIM_BCCU_GetDimLvl:00000000 $t
+    {standard input}:154    .text.DIM_BCCU_GetDimLvl:00000000 DIM_BCCU_GetDimLvl
+    {standard input}:163    .text.DIM_BCCU_GetDimCurve:00000000 $t
+    {standard input}:168    .text.DIM_BCCU_GetDimCurve:00000000 DIM_BCCU_GetDimCurve
+    {standard input}:177    .text.DIM_BCCU_FadeCompletionStatus:00000000 $t
+    {standard input}:182    .text.DIM_BCCU_FadeCompletionStatus:00000000 DIM_BCCU_FadeCompletionStatus
+    {standard input}:196    .text.DIM_BCCU_AwaitFadeCompletion:00000000 $t
+    {standard input}:201    .text.DIM_BCCU_AwaitFadeCompletion:00000000 DIM_BCCU_AwaitFadeCompletion
+    {standard input}:218    .text.DIM_BCCU_SetDimDiv:00000000 $t
+    {standard input}:223    .text.DIM_BCCU_SetDimDiv:00000000 DIM_BCCU_SetDimDiv
+    {standard input}:231    .text.DIM_BCCU_GetDimDiv:00000000 $t
+    {standard input}:236    .text.DIM_BCCU_GetDimDiv:00000000 DIM_BCCU_GetDimDiv
+    {standard input}:245    .text.DIM_BCCU_IsDitherEnable:00000000 $t
+    {standard input}:250    .text.DIM_BCCU_IsDitherEnable:00000000 DIM_BCCU_IsDitherEnable
+    {standard input}:259    .text.DIM_BCCU_SetDimCurveAndDither:00000000 $t
+    {standard input}:264    .text.DIM_BCCU_SetDimCurveAndDither:00000000 DIM_BCCU_SetDimCurveAndDither
+
+UNDEFINED SYMBOLS
+GLOBAL_BCCU_Init
+XMC_BCCU_DIM_Init
+XMC_BCCU_DIM_SetTargetDimmingLevel
+XMC_BCCU_DIM_SetDimDivider
+XMC_BCCU_DIM_ConfigDimCurve

@@ -1,0 +1,437 @@
+<p1:Tab  xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" xmlns:p1="clr-namespace:com.ifx.davex.ui.controls.app" x:Class="e" layout="{x:Null}">
+	<p1:TabFolder bounds="5, 5, 1053, 1148">
+		<p1:GTab text="General Settings" widgetName="gtab_general" visible="true" enabled="true">
+			<p1:GTab.control>
+				<p1:Tab layout="{x:Null}">
+					<p1:GGroup text="Settings" widgetName="ggroup_general" layout="{x:Null}" bounds="5, 5, 305, 154">
+						<p1:GCheck manifestObj="true" text="Enable PDM_DIMMED_LED_LAMP at initialization" widgetName="gcheck_EnLamp" value="true" toolTipText="Enable all LED channels and the dimming engine(if used) at startup." bounds="8, 20, 280, 16" description="Enable all LED channels and the dimming engine(if used) at startup."/>
+						<p1:GLabel text="LED driver &#13;&#10;control method:" visible="true" widgetName="glabel_DriverSel" bounds="8, 49, 87, 27"/>
+						<p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_DriverSel" options="Direct PDM (External LED Drivers)&#13;&#10;Slow DCDC Buck with PDM&#13;&#10;Simple DCDC Buck with PDM&#13;&#10;Fast DCDC Buck with PDM" value="Direct PDM (External LED Drivers)" bounds="99, 60, 201, 21" description="LED drivers are primary source of constant current generation. Multiple methods are available to control a constant current.&lt;br&gt;&#13;&#10;&lt;OL&gt;&lt;LI&gt;Direct PDM (External LED Drivers): LEDs are directly controlled by BCCU peripheral using external LED drivers (Example: Infineon LED drivers BCR2xx, BCR3xx and BCR4xx). The overall brightness of LED is depending on average ON time. Useful for low and medium power applications.&lt;br&gt;&lt;/LI&gt;&#13;&#10;&lt;LI&gt;Slow DCDC Buck with PDM: LEDs are controlled by BCCU peripheral usinginverted DCDC buck topology. Useful for high power applications. More propagation delay due to internal routing of the comparator and CCU4 peripherals through ERU.&lt;br&gt;&lt;/LI&gt;&#13;&#10;&lt;LI&gt;Simple DCDC Buck with PDM): LEDs are controlled by BCCU peripheral using inverted DCDC buck topology.  Useful for high power applications. External wire connection is required between comparator output pin and CCU4 slice input pin.&lt;br&gt;&lt;/LI&gt;&#13;&#10;&lt;LI&gt;Fast DCDC Buck with PDM: LEDs are controlled by BCCU peripheral using inverted DCDC buck topology. Useful for high power applications. Short propagation delay due to direct internal connection between comparator and BCCU peripheral.&#13;&#10;&lt;/LI&gt;&#13;&#10;&lt;/OL&gt;"/>
+						<p1:GLabel text="Number of LED &#13;&#10;channels:" visible="true" widgetName="glabel_NoOfChannels" bounds="8, 92, 86, 28"/>
+						<p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_NoOfChannels" options="1&#13;&#10;2&#13;&#10;3&#13;&#10;4&#13;&#10;5&#13;&#10;6&#13;&#10;7&#13;&#10;8&#13;&#10;9" value="1" bounds="99, 94, 200, 21" description="Select number of LED channels required."/>
+						<p1:GLabel text="Dimming source:" visible="true" widgetName="glabel_SourceOfDimming" description="" toolTipText="" bounds="6, 127, 91, 15"/>
+						<p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_SourceOfDimming" options="Dimming Engine&#13;&#10;Global Dimming" description="Select dimming source&#13;&#10;&lt;OL&gt;&#13;&#10;&lt;LI&gt;Dimming Engine : Automatic exponential dimming&lt;/LI&gt;&#13;&#10;&lt;LI&gt;Global Dimming : Manual dimming level&lt;/LI&gt;&#13;&#10;&lt;/OL&gt;" toolTipText="Select between automatic exponential dimming by &#13;&#10;a dimming engine or manual dimming level control &#13;&#10;by a global dimming register." value="Dimming Engine" bounds="99, 124, 200, 21"/>
+					</p1:GGroup>
+					<p1:GImage bounds="316, 13, 493, 142" manifestObj="true" path="doc/UI-General_background_1.png" widgetName="gimage_1led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 142" manifestObj="true" path="doc/UI-General_background_1g.png" widgetName="gimage_1led_globdim"/>
+                    <p1:GImage bounds="316, 14, 654, 270" manifestObj="true" path="doc/UI_PeakCurrent_Simple_1.png" widgetName="gimage_pcc_simple_1led_dimengine"/>
+                    <p1:GImage bounds="316, 14, 654, 270" manifestObj="true" path="doc/UI_PeakCurrent_Simple_1g.png" widgetName="gimage_pcc_simple_1led_globdim"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_simple_2led_dimengine" path="doc/UI_PeakCurrent_Simple_2.png" bounds="316, 13, 656, 482"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_simple_2led_globdim" bounds="316, 13, 656, 480" path="doc/UI_PeakCurrent_Simple_2g.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_simple_3led_dimengine" bounds="316, 13, 656, 702" path="doc/UI_PeakCurrent_Simple_3.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_simple_3led_globdim" bounds="316, 13, 652, 702" path="doc/UI_PeakCurrent_Simple_3g.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_simple_4led_dimengine" bounds="316, 13, 656, 912" path="doc/UI_PeakCurrent_Simple_4.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_simple_4led_globdim" bounds="316, 13, 656, 912" path="doc/UI_PeakCurrent_Simple_4g.png"/>
+                    <p1:GImage bounds="316, 13, 645, 272" manifestObj="true" path="doc/UI_PeakCurrent_Slow_1.png" widgetName="gimage_pcc_slow_1led_dimengine"/>
+                    <p1:GImage bounds="316, 13, 645, 270" manifestObj="true" path="doc/UI_PeakCurrent_Slow_1g.png" widgetName="gimage_pcc_slow_1led_globdim"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_slow_2led_dimengine" path="doc/UI_PeakCurrent_Slow_2.png" bounds="316, 13, 656, 488"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_slow_2led_globdim" path="doc/UI_PeakCurrent_Slow_2g.png" bounds="316, 13, 656, 488"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_slow_3led_dimengine" path="doc/UI_PeakCurrent_Slow_3.png" bounds="316, 13, 656, 702"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_slow_3led_globdim" path="doc/UI_PeakCurrent_Slow_3g.png" bounds="316, 13, 656, 702"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_slow_4led_dimengine" bounds="316, 13, 656, 918" path="doc/UI_PeakCurrent_Slow_4.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_slow_4led_globdim" bounds="316, 13, 656, 918" path="doc/UI_PeakCurrent_Slow_4g.png"/>
+                    <p1:GImage bounds="316, 13, 709, 270" manifestObj="true" path="doc/UI_PeakCurrent_Fast_1.png" widgetName="gimage_pcc_fast_1led_dimengine"/>
+                    <p1:GImage bounds="316, 13, 709, 270" manifestObj="true" path="doc/UI_PeakCurrent_Fast_1g.png" widgetName="gimage_pcc_fast_1led_globdim"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_fast_2led_dimengine" bounds="316, 13, 709, 486" path="doc/UI_PeakCurrent_Fast_2.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_fast_2led_globdim" bounds="316, 13, 709, 488" path="doc/UI_PeakCurrent_Fast_2g.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_fast_3led_dimengine" bounds="316, 13, 709, 696" path="doc/UI_PeakCurrent_Fast_3.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_fast_3led_globdim" bounds="316, 13, 709, 696" path="doc/UI_PeakCurrent_Fast_3g.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_fast_4led_dimengine" bounds="316, 13, 709, 910" path="doc/UI_PeakCurrent_Fast_4.png"/>
+                    <p1:GImage visible="true" manifestObj="true" widgetName="gimage_pcc_fast_4led_globdim" bounds="316, 13, 709, 910" path="doc/UI_PeakCurrent_Fast_4g.png"/>
+
+					<p1:GImage bounds="316, 13, 493, 253" manifestObj="true" path="doc/UI-General_background_2.png" widgetName="gimage_2led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 253" manifestObj="true" path="doc/UI-General_background_2g.png" widgetName="gimage_2led_globdim"/>
+					<p1:GImage bounds="316, 13, 493, 370" manifestObj="true" path="doc/UI-General_background_3.png" widgetName="gimage_3led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 370" manifestObj="true" path="doc/UI-General_background_3g.png" widgetName="gimage_3led_globdim"/>
+					<p1:GImage bounds="316, 13, 493, 489" manifestObj="true" path="doc/UI-General_background_4.png" widgetName="gimage_4led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 489" manifestObj="true" path="doc/UI-General_background_4g.png" widgetName="gimage_4led_globdim"/>
+					<p1:GImage bounds="316, 13, 493, 607" manifestObj="true" path="doc/UI-General_background_5.png" widgetName="gimage_5led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 607" manifestObj="true" path="doc/UI-General_background_5g.png" widgetName="gimage_5led_globdim"/>
+					<p1:GImage bounds="316, 13, 493, 725" manifestObj="true" path="doc/UI-General_background_6.png" widgetName="gimage_6led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 725" manifestObj="true" path="doc/UI-General_background_6g.png" widgetName="gimage_6led_globdim"/>
+					<p1:GImage bounds="316, 13, 493, 843" manifestObj="true" path="doc/UI-General_background_7.png" widgetName="gimage_7led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 843" manifestObj="true" path="doc/UI-General_background_7g.png" widgetName="gimage_7led_globdim"/>
+					<p1:GImage bounds="316, 13, 493, 961" manifestObj="true" path="doc/UI-General_background_8.png" widgetName="gimage_8led_dimengine"/>
+					<p1:GImage bounds="316, 13, 493, 961" manifestObj="true" path="doc/UI-General_background_8g.png" widgetName="gimage_8led_globdim"/>
+					<p1:GImage visible="true" manifestObj="true" widgetName="gimage_9led_dimengine" bounds="316, 13, 493, 1080" path="doc/UI-General_background_9.png"/>
+					<p1:GImage visible="true" manifestObj="true" widgetName="gimage_9led_globdim" bounds="316, 13, 493, 1080" path="doc/UI-General_background_9g.png"/>
+				</p1:Tab>
+			</p1:GTab.control>
+		</p1:GTab>
+		<p1:GTab text="Dimming and Intensities Settings" visible="true" enabled="true" widgetName="gtab_settings_at_init">
+			<p1:GTab.control>
+				<p1:Tab widgetName="composite3">
+					<p1:Tab.layout>
+						<GridLayout marginHeight="1" marginWidth="1" verticalSpacing="1"/>
+					</p1:Tab.layout>
+					<p1:GGroup manifestObj="true" text="Initial Dimming and Intensity Levels" widgetName="ggroup_dimming_intensities">
+						<p1:GGroup.layoutData>
+							<GridData horizontalAlignment="FILL" widthHint="558" heightHint="309"/>
+						</p1:GGroup.layoutData>
+						<p1:GLabel bounds="103, 18, 88, 15" text="Dimming Level" widgetName="glabel_DimLevel"/>
+						<p1:GLabel bounds="214, 18, 14, 15" text="x" widgetName="glabel_MulOperator"/>
+						<p1:GLabel bounds="259, 18, 56, 15" text="Intensity" widgetName="glabel_intensity"/>
+						<p1:GLabel bounds="351, 18, 16, 15" text="=" widgetName="glabel_EqualOperator"/>
+						<p1:GLabel bounds="406, 18, 70, 15" text="Brightness" widgetName="glabel_Brightness"/>
+						<p1:GLabel bounds="8, 47, 79, 15" manifestObj="true" text="LED channel 0:" widgetName="glabel_LEDChannel_0" description=""/>
+						<p1:GInteger bounds="99, 43, 36, 19" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_0" description="LED Channel 0 Dimming Level"/>
+						<p1:GFloat bounds="142, 43, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_0" x:Style="BORDER" description="Dimming level percentage  for LED channel 0"/>
+						<p1:GLabel bounds="189, 47, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_0"/>
+						<p1:GLabel bounds="215, 46, 14, 15" text="x" widgetName="glabel_MulOperator_0"/>
+						<p1:GInteger bounds="239, 43, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_0" description="Intensity of LED channel 0"/>
+						<p1:GFloat bounds="280, 43, 45, 23" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_0" x:Style="BORDER" enabled="false" description="Intensity percentage  for LED channel 0"/>
+						<p1:GLabel bounds="326, 47, 10, 15" text="%" widgetName="glabel_IntenPer_LED_0"/>
+						<p1:GLabel bounds="352, 46, 16, 15" text="=" widgetName="glabel_EqualOperator_0"/>
+						<p1:GInteger bounds="378, 43, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_0" description="Brightness of LED channel 0"/>
+						<p1:GFloat bounds="443, 43, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_0" x:Style="BORDER" description="Brightness percentage of LED channel 0"/>
+						<p1:GLabel bounds="489, 47, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_0"/>
+						<p1:GLabel bounds="9, 75, 79, 15" manifestObj="true" text="LED channel 1:" widgetName="glabel_LEDChannel_1"/>
+						<p1:GInteger bounds="100, 71, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_1" description="LED Channel 1 Dimming Level"/>
+						<p1:GFloat bounds="143, 71, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_1" x:Style="BORDER" description="Dimming level percentage  for LED channel 1"/>
+						<p1:GLabel bounds="190, 75, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_1"/>
+						<p1:GLabel bounds="216, 74, 14, 15" text="x" widgetName="glabel_MulOperator_1"/>
+						<p1:GInteger bounds="240, 71, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_1" description="Intensity of LED channel 1"/>
+						<p1:GFloat bounds="281, 71, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_1" x:Style="BORDER" description="Intensity percentage  for LED channel 1"/>
+						<p1:GLabel bounds="327, 75, 10, 15" text="%" widgetName="glabel_IntenPer_LED_1"/>
+						<p1:GLabel bounds="353, 74, 16, 15" text="=" widgetName="glabel_EqualOperator_1"/>
+						<p1:GInteger bounds="379, 71, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_1" description="Brightness of LED channel 1"/>
+						<p1:GFloat bounds="444, 71, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_1" x:Style="BORDER" description="Brightness percentage of LED channel 1"/>
+						<p1:GLabel bounds="490, 75, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_1"/>
+						<p1:GLabel bounds="9, 102, 79, 15" manifestObj="true" text="LED channel 2:" widgetName="glabel_LEDChannel_2"/>
+						<p1:GInteger bounds="100, 98, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_2" description="LED Channel 2 Dimming Level"/>
+						<p1:GFloat bounds="143, 98, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_2" x:Style="BORDER" description="Dimming level percentage  for LED channel 2"/>
+						<p1:GLabel bounds="190, 102, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_2"/>
+						<p1:GLabel bounds="216, 101, 14, 15" text="x" widgetName="glabel_MulOperator_2"/>
+						<p1:GInteger bounds="240, 98, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_2" description="Intensity of LED channel 2"/>
+						<p1:GFloat bounds="281, 98, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_2" x:Style="BORDER" description="Intensity percentage  for LED channel 2"/>
+						<p1:GLabel bounds="327, 102, 10, 15" text="%" widgetName="glabel_IntenPer_LED_2"/>
+						<p1:GLabel bounds="353, 101, 16, 15" text="=" widgetName="glabel_EqualOperator_2"/>
+						<p1:GInteger bounds="379, 98, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_2" description="Brightness of LED channel 2"/>
+						<p1:GFloat bounds="444, 98, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_2" x:Style="BORDER" description="Brightness percentage of LED channel 2"/>
+						<p1:GLabel bounds="490, 102, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_2"/>
+						<p1:GLabel bounds="9, 129, 79, 15" manifestObj="true" text="LED channel 3:" widgetName="glabel_LEDChannel_3"/>
+						<p1:GInteger bounds="100, 125, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_3" description="LED Channel 3 Dimming Level"/>
+						<p1:GFloat bounds="143, 125, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_3" x:Style="BORDER" description="Dimming level percentage  for LED channel 3"/>
+						<p1:GLabel bounds="190, 129, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_3"/>
+						<p1:GLabel bounds="216, 128, 14, 15" text="x" widgetName="glabel_MulOperator_3"/>
+						<p1:GInteger bounds="240, 125, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_3" description="Intensity of LED channel 3"/>
+						<p1:GFloat bounds="281, 125, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_3" x:Style="BORDER" description="Intensity percentage  for LED channel 3"/>
+						<p1:GLabel bounds="327, 129, 10, 15" text="%" widgetName="glabel_IntenPer_LED_3"/>
+						<p1:GLabel bounds="353, 128, 16, 15" text="=" widgetName="glabel_EqualOperator_3"/>
+						<p1:GInteger bounds="379, 125, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_3" description="Brightness of LED channel 3"/>
+						<p1:GFloat bounds="444, 125, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_3" x:Style="BORDER" description="Brightness percentage of LED channel 3"/>
+						<p1:GLabel bounds="490, 129, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_3"/>
+						<p1:GLabel bounds="9, 156, 79, 15" manifestObj="true" text="LED channel 4:" widgetName="glabel_LEDChannel_4"/>
+						<p1:GInteger bounds="100, 152, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_4" description="LED Channel 4 Dimming Level"/>
+						<p1:GFloat bounds="143, 152, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_4" x:Style="BORDER" description="Dimming level percentage  for LED channel 4"/>
+						<p1:GLabel bounds="190, 156, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_4"/>
+						<p1:GLabel bounds="216, 155, 14, 15" text="x" widgetName="glabel_MulOperator_4"/>
+						<p1:GInteger bounds="240, 152, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_4" description="Intensity of LED channel 4"/>
+						<p1:GFloat bounds="281, 152, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_4" x:Style="BORDER" description="Intensity percentage  for LED channel 4"/>
+						<p1:GLabel bounds="327, 156, 10, 15" text="%" widgetName="glabel_IntenPer_LED_4"/>
+						<p1:GLabel bounds="353, 155, 16, 15" text="=" widgetName="glabel_EqualOperator_4"/>
+						<p1:GInteger bounds="379, 152, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_4" description="Brightness of LED channel 4"/>
+						<p1:GFloat bounds="444, 152, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_4" x:Style="BORDER" description="Brightness percentage of LED channel 4"/>
+						<p1:GLabel bounds="490, 156, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_4"/>
+						<p1:GLabel bounds="9, 182, 79, 15" manifestObj="true" text="LED channel 5:" widgetName="glabel_LEDChannel_5"/>
+						<p1:GInteger bounds="100, 178, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_5" description="LED Channel 5 Dimming Level"/>
+						<p1:GFloat bounds="143, 178, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_5" x:Style="BORDER" description="Dimming level percentage  for LED channel 5"/>
+						<p1:GLabel bounds="190, 182, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_5"/>
+						<p1:GLabel bounds="216, 181, 14, 15" text="x" widgetName="glabel_MulOperator_5"/>
+						<p1:GInteger bounds="240, 178, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_5" description="Intensity of LED channel 5"/>
+						<p1:GFloat bounds="281, 178, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_5" x:Style="BORDER" description="Intensity percentage  for LED channel 5"/>
+						<p1:GLabel bounds="327, 182, 10, 15" text="%" widgetName="glabel_IntenPer_LED_5"/>
+						<p1:GLabel bounds="353, 181, 16, 15" text="=" widgetName="glabel_EqualOperator_5"/>
+						<p1:GInteger bounds="379, 178, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_5" description="Brightness of LED channel 5"/>
+						<p1:GFloat bounds="444, 178, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_5" x:Style="BORDER" description="Brightness percentage of LED channel 5"/>
+						<p1:GLabel bounds="490, 182, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_5"/>
+						<p1:GLabel bounds="9, 209, 79, 15" manifestObj="true" text="LED channel 6:" widgetName="glabel_LEDChannel_6"/>
+						<p1:GInteger bounds="100, 205, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_6" description="LED Channel 6 Dimming Level"/>
+						<p1:GFloat bounds="143, 205, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_6" x:Style="BORDER" description="Dimming level percentage  for LED channel 6"/>
+						<p1:GLabel bounds="190, 209, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_6"/>
+						<p1:GLabel bounds="216, 208, 14, 15" text="x" widgetName="glabel_MulOperator_6"/>
+						<p1:GInteger bounds="240, 205, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_6" description="Intensity of LED channel 6"/>
+						<p1:GFloat bounds="281, 205, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_6" x:Style="BORDER" description="Intensity percentage  for LED channel 6"/>
+						<p1:GLabel bounds="327, 209, 10, 15" text="%" widgetName="glabel_IntenPer_LED_6"/>
+						<p1:GLabel bounds="353, 208, 16, 15" text="=" widgetName="glabel_EqualOperator_6"/>
+						<p1:GInteger bounds="379, 205, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_6" description="Brightness of LED channel 6"/>
+						<p1:GFloat bounds="444, 205, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_6" x:Style="BORDER" description="Brightness percentage of LED channel 6"/>
+						<p1:GLabel bounds="490, 209, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_6"/>
+						<p1:GLabel bounds="9, 236, 79, 15" manifestObj="true" text="LED channel 7:" widgetName="glabel_LEDChannel_7"/>
+						<p1:GInteger bounds="100, 232, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_7" description="LED Channel 7 Dimming Level"/>
+						<p1:GFloat bounds="143, 232, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_7" x:Style="BORDER" description="Dimming level percentage  for LED channel 7"/>
+						<p1:GLabel bounds="190, 236, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_7"/>
+						<p1:GLabel bounds="216, 235, 14, 15" text="x" widgetName="glabel_MulOperator_7"/>
+						<p1:GInteger bounds="240, 232, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_7" description="Intensity of LED channel 7"/>
+						<p1:GFloat bounds="281, 232, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_7" x:Style="BORDER" description="Intensity percentage  for LED channel 7"/>
+						<p1:GLabel bounds="327, 236, 10, 15" text="%" widgetName="glabel_IntenPer_LED_7"/>
+						<p1:GLabel bounds="353, 235, 16, 15" text="=" widgetName="glabel_EqualOperator_7"/>
+						<p1:GInteger bounds="379, 232, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_7" description="Brightness of LED channel 7"/>
+						<p1:GFloat bounds="444, 232, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_7" x:Style="BORDER" description="Brightness percentage of LED channel 7"/>
+						<p1:GLabel bounds="490, 236, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_7"/>
+						<p1:GLabel bounds="9, 263, 79, 15" manifestObj="true" text="LED channel 8:" widgetName="glabel_LEDChannel_8"/>
+						<p1:GInteger bounds="100, 259, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_DimLvl_LED_8" description="LED Channel 8 Dimming Level"/>
+						<p1:GFloat bounds="143, 259, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_DimLvlPer_LED_8" x:Style="BORDER" description="Dimming level percentage  for LED channel 8"/>
+						<p1:GLabel bounds="190, 263, 10, 15" text="%" widgetName="glabel_DimLvlPer_LED_8"/>
+						<p1:GLabel bounds="216, 262, 14, 15" text="x" widgetName="glabel_MulOperator_8"/>
+						<p1:GInteger bounds="240, 259, 36, 23" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Inten_LED_8" description="Intensity of LED channel 8"/>
+						<p1:GFloat bounds="281, 259, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100.0" widgetName="gfloat_IntenPer_LED_8" x:Style="BORDER" description="Intensity percentage  for LED channel 8"/>
+						<p1:GLabel bounds="327, 263, 10, 15" text="%" widgetName="glabel_IntenPer_LED_8"/>
+						<p1:GLabel bounds="353, 262, 16, 15" text="=" widgetName="glabel_EqualOperator_8"/>
+						<p1:GInteger bounds="379, 259, 60, 23" enabled="false" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" value="4095" widgetName="gint_Brightness_LED_8" description="Brightness of LED channel 8"/>
+						<p1:GFloat bounds="444, 259, 45, 23" enabled="false" format="*,1" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="100" minValue="0" value="100" widgetName="gfloat_BrightnessPer_LED_8" x:Style="BORDER" description="Brightness percentage of LED channel 8"/>
+						<p1:GLabel bounds="490, 263, 10, 15" text="%" widgetName="glabel_BrightnessPer_LED_8"/>
+						<p1:GLabel bounds="4, 288, 556, 33" manifestObj="true" text="*Note: When global dimming is selected, the initial global dimming level has to be entered in &#13;&#10;GLOBAL_BCCU APP UI" widgetName="glabel_321"/>
+					</p1:GGroup>
+					<p1:GGroup text="Initial Fade Rates" manifestObj="true" widgetName="ggroup_fading_at_init">
+						<p1:GGroup.layout>
+							<GridLayout numColumns="6"/>
+						</p1:GGroup.layout>
+						<p1:GGroup.layoutData>
+							<GridData widthHint="491" heightHint="92" horizontalAlignment="FILL"/>
+						</p1:GGroup.layoutData>
+						<p1:GLabel text="Intensity linear walk time [ms]:" visible="true" manifestObj="true" widgetName="glabel_lin_walk_time"/>
+						<p1:GFloat x:Style="BORDER" minValue="0.0" maxValue="10485.76" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,2" manifestObj="true" widgetName="gfloat_lin_walk_time" value="0.0" description="The intensity level (BCCU_INTy (y=0-8).CHINT) can be changed using a linear walk.">
+							<p1:GFloat.layoutData>
+								<GridData widthHint="48"/>
+							</p1:GFloat.layoutData>
+						</p1:GFloat>
+						<p1:GLabel text="Prescaler &#13;&#10;(LINPRES):" visible="true" manifestObj="true" widgetName="glabel_linpres"/>
+						<p1:GInteger x:Style="NONE" minValue="0" maxValue="1023" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" manifestObj="true" widgetName="ginteger_linpres" value="0" toolTipText="Linear walker clock prescaler value." description="Linear walker clock prescaler value." enabled="false">
+							<p1:GInteger.layoutData>
+								<GridData widthHint="44"/>
+							</p1:GInteger.layoutData>
+						</p1:GInteger>
+						<Label/>
+						<Label/>
+						<p1:GLabel text="0-100% dimming transition time [ms]:" visible="true" manifestObj="true" widgetName="glabel_dim_trans_time"/>
+						<p1:GFloat x:Style="BORDER" minValue="0.0" maxValue="71688.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,2" manifestObj="true" widgetName="gfloat_dim_trans_time" value="0.0" description="Dimming transition time">
+							<p1:GFloat.layoutData>
+								<GridData widthHint="48"/>
+							</p1:GFloat.layoutData>
+						</p1:GFloat>
+						<p1:GLabel manifestObj="true" text="Prescaler &#13;&#10;(DLCK_PS):" widgetName="glabel_dimming_clk_prescaler"/>
+						<p1:GInteger description="Reflecting prescaler factor (DCLK_PS) of dimming engine clock." format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="4095" minValue="0" toolTipText="Reflecting prescaler factor (DCLK_PS) of dimming engine clock." value="110" widgetName="gint_dimming_clk_prescaler" enabled="false">
+							<p1:GInteger.layoutData>
+								<GridData widthHint="44"/>
+							</p1:GInteger.layoutData>
+						</p1:GInteger>
+						<p1:GLabel text="Divider &#13;&#10;(DIMDIV):" visible="true" manifestObj="true" widgetName="glabel_dimdiv"/>
+						<p1:GInteger x:Style="NONE" minValue="0" maxValue="1023" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" manifestObj="true" widgetName="gint_dimdiv" value="0" toolTipText="This reflects dimming divider value." description="This reflects dimming divider value." enabled="false">
+							<p1:GInteger.layoutData>
+								<GridData widthHint="44"/>
+							</p1:GInteger.layoutData>
+						</p1:GInteger>
+					</p1:GGroup>
+				</p1:Tab>
+			</p1:GTab.control>
+		</p1:GTab>
+		<p1:GTab text="Peak Current Control" visible="true" enabled="true" manifestObj="true" widgetName="gtab_pcc">
+			<p1:GTab.control>
+				<p1:Tab widgetName="composite_2">
+					<p1:GGroup bounds="5, 6, 714, 294" manifestObj="true" text="Peak Current Control Parameters" widgetName="ggroup_pcc_parameters">
+						<p1:GLabel bounds="151, 16, 118, 15" text="Reference Generation" widgetName="glabel_pcc_ref_gen"/>
+						<p1:GLabel bounds="327, 15, 92, 16" text="Reference Source" widgetName="glabel_pcc_ref_src"/>
+						<p1:GLabel bounds="432, 16, 87, 15" text="Peak Reference" widgetName="glabel_pcc_peak_ref"/>
+
+						<p1:GLabel bounds="9, 47, 79, 15" description="" manifestObj="true" text="LED channel 0:" widgetName="glabel_pcc_LEDChannel_0"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_0" bounds="98, 44, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_0" bounds="340, 44, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source" description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_0" bounds="438, 44, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_0" bounds="487, 47, 21, 15"/>
+                        <p1:GFloat bounds="534, 44, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_0" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 47, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_0"/>
+                        <p1:GInteger bounds="606, 43, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_0" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 47, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_0"/>
+
+                        <p1:GLabel bounds="9, 75, 79, 15" manifestObj="true" text="LED channel 1:" widgetName="glabel_pcc_LEDChannel_1"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_1" bounds="98, 72, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_1" bounds="340, 72, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source" description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_1" bounds="438, 72, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_1" bounds="487, 75, 21, 15"/>
+                        <p1:GFloat bounds="534, 72, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_1" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 75, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_1"/>
+                        <p1:GInteger bounds="606, 71, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_1" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 75, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_1"/>
+
+						<p1:GLabel bounds="9, 102, 79, 15" manifestObj="true" text="LED channel 2:" widgetName="glabel_pcc_LEDChannel_2"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_2" bounds="98, 99, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_2" bounds="340, 99, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source." description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_2" bounds="438, 99, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_2" bounds="487, 102, 21, 15"/>
+                        <p1:GFloat bounds="534, 99, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_2" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 102, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_2"/>
+                        <p1:GInteger bounds="606, 98, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_2" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 102, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_2"/>
+
+						<p1:GLabel bounds="9, 129, 79, 15" manifestObj="true" text="LED channel 3:" widgetName="glabel_pcc_LEDChannel_3"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_3" bounds="98, 126, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_3" bounds="340, 126, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source." description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_3" bounds="438, 126, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_3" bounds="487, 129, 21, 15"/>
+                        <p1:GFloat bounds="534, 126, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_3" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 129, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_3"/>
+                        <p1:GInteger bounds="606, 125, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_3" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 129, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_3"/>
+
+						<p1:GLabel bounds="9, 156, 79, 15" manifestObj="true" text="LED channel 4:" widgetName="glabel_pcc_LEDChannel_4"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_4" bounds="98, 153, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_4" bounds="340, 153, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source." description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_4" bounds="438, 153, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_4" bounds="487, 156, 21, 15"/>
+                        <p1:GFloat bounds="534, 153, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_4" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 156, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_4"/>
+                        <p1:GInteger bounds="606, 152, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_4" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 156, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_4"/>
+
+						<p1:GLabel bounds="9, 182, 79, 15" manifestObj="true" text="LED channel 5:" widgetName="glabel_pcc_LEDChannel_5"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_5" bounds="98, 179, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_5" bounds="340, 179, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source." description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_5" bounds="438, 179, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_5" bounds="487, 182, 21, 15"/>
+                        <p1:GFloat bounds="534, 179, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_5" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 182, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_5"/>
+                        <p1:GInteger bounds="606, 178, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_5" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 182, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_5"/>
+
+						<p1:GLabel bounds="9, 209, 79, 15" manifestObj="true" text="LED channel 6:" widgetName="glabel_pcc_LEDChannel_6"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_6" bounds="98, 206, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_6" bounds="340, 206, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source." description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_6" bounds="438, 206, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_6" bounds="487, 209, 21, 15"/>
+                        <p1:GFloat bounds="534, 206, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_6" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 209, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_6"/>
+                        <p1:GInteger bounds="606, 205, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_6" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 209, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_6"/>
+
+						<p1:GLabel bounds="9, 236, 79, 15" manifestObj="true" text="LED channel 7:" widgetName="glabel_pcc_LEDChannel_7"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_7" bounds="98, 233, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_7" bounds="340, 233, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source." description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_7" bounds="438, 233, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_7" bounds="487, 236, 21, 15"/>
+                        <p1:GFloat bounds="534, 233, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_7" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 236, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_7"/>
+                        <p1:GInteger bounds="606, 232, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_7" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 236, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_7"/>
+
+						<p1:GLabel bounds="9, 263, 79, 15" manifestObj="true" text="LED channel 8:" widgetName="glabel_pcc_LEDChannel_8"/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_gen_8" bounds="98, 260, 224, 21" options="External Reference&#13;&#10;Internal Reference with External Filter" value="External Reference" toolTipText="Selects comparator reference." description="The reference generation selection configures comparator reference. &#13;&#10;&lt;OL&gt;&lt;LI&gt; External Reference: Comparator reference is fixed type of peak current reference. The comparator INN pin is directly connected to certain voltage.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;Internal Reference with External Filter: Comparator reference is adjustable type of peak current reference. The comparator INN pin is internally connected to either BCCU channel output or CCU4 slice output. External filter is required in hardware.&lt;/LI&gt;&lt;/OL&gt;"/>/>
+                        <p1:GCombo mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" widgetName="gcombo_pcc_ref_src_8" bounds="340, 260, 68, 21" options="BCCU&#13;&#10;CCU4" value="BCCU" toolTipText="Selects comparator reference source." description="The reference source selection configures comparator reference source. &#13;&#10;&lt;OL&gt;&lt;LI&gt; BCCU: Comparator reference is adjustable using BCCU channel output.&lt;/LI&gt;&lt;/B&gt;&#13;&#10;&lt;LI&gt;CCU4: Comparator reference is adjustable using CCU4 slice output.&lt;/LI&gt;&lt;/OL&gt;"/>
+                        <p1:GFloat x:Style="BORDER" minValue="0" maxValue="5000.0" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" format="*,3" manifestObj="true" widgetName="gfloat_pcc_peak_ref_mv_8" bounds="438, 260, 48, 21" value="0" toolTipText="Configures comparator reference value." description="The peak reference value configures comparator reference voltage.  The reference voltage derived from either average ON-time of BCCU channel output or duty cycle of CCU4 slice output."/>
+                        <p1:GLabel text="mV" visible="true" manifestObj="true" widgetName="glabel_pcc_peak_ref_mv_unit_8" bounds="487, 263, 21, 15"/>
+                        <p1:GFloat bounds="534, 260, 48, 21" format="*,3" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="512000" minValue="0" value="1000" widgetName="gfloat_pcc_gen_off_time_ns_8" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer duty cycle." description="The Generated OFF time and Free running frequency together controls the ripple in peak current. And it configures a duty cycle of CCU4/ CCU8 slice using the following formula. &lt;br&gt;&#13;&#10;&lt;b&gt;Duty cycle  = 100 - ((Generated_OFF_Time * 100) * Free_running_freq) / 1E9&lt;/b&gt;&#13;&#10;&lt;br&gt;The Duty cycle in turn configures a compare value."/>
+                        <p1:GLabel bounds="584, 263, 21, 15" manifestObj="true" text="ns" widgetName="glabel_pcc_gen_off_time_ns_unit_8"/>
+                        <p1:GInteger bounds="606, 259, 46, 23" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" value="0" widgetName="ginteger_pcc_gen_off_time_val_8" enabled="false" description="Read the compare value from CCU4/CCU8 timer."/>
+                        <p1:GLabel bounds="654, 263, 52, 15" manifestObj="true" text="Compare" widgetName="glabel_pcc_gen_off_time_val_unit_8"/>
+
+						<p1:GLabel bounds="560, 16, 115, 15" text="Generated OFF-time" widgetName="glabel_pcc_gen_off_time"/>
+					</p1:GGroup>
+					<p1:GGroup text="Free running frequency setting" manifestObj="true" widgetName="ggroup_pcc_gen_off_time_freq" bounds="5, 310, 714, 53">
+						<p1:GLabel bounds="11, 24, 89, 15" manifestObj="true" text="Frequency [kHz]:" widgetName="glabel_pcc_gen_off_time_freq"/>
+						<p1:GFloat bounds="110, 21, 60, 21" description="The Free running frequency and Generated OFF Time together controls the ripple in peak current. And it configures a PWM frequency of CCU4/ CCU8 slice. The PWM frequency in turn configures a period value.&lt;br&gt;&#13;&#10;&lt;b&gt;Note:&lt;/b&gt; Free running frequency is common for all LED channels.&#13;&#10;" format="*,2" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="30000" minValue="0.0" value="100.0" widgetName="gfloat_pcc_gen_off_time_freq" x:Style="BORDER" toolTipText="Configures CCU4/ CCU8 timer PWM frequency."/>
+						<p1:GLabel bounds="210, 22, 73, 18" manifestObj="true" text="Period value:" widgetName="glabel_pcc_gen_off_time_period"/>
+						<p1:GInteger bounds="286, 20, 44, 23" description="Read the period value from CCU4/CCU8 timer." enabled="false" format="(com.ifx.davex.ui.controls.util.AppUiConstants).HEX" mandatory="(com.ifx.davex.ui.controls.util.AppUiConstants).FALSE" manifestObj="true" maxValue="65535" minValue="0" toolTipText="" value="0" widgetName="ginteger_pcc_gen_off_time_period"/>
+					</p1:GGroup>
+				</p1:Tab>
+			</p1:GTab.control>
+		</p1:GTab>
+		<p1:GTab text="New Tab" visible="true" widgetName="gtab_control" manifestObj="true">
+			<p1:GTab.control>
+				<p1:Tab widgetName="composite_1">
+					<p1:Tab.layout>
+						<GridLayout numColumns="3"/>
+					</p1:Tab.layout>
+					<p1:GLabel text="LED Channel 0 Dimming Level" visible="true" widgetName="glabel_DimLvl_LED_0" enabled="false"/>
+					<p1:GLabel enabled="false" text="LED Channel 2 Dimming Level" widgetName="glabel_DimLvl_LED_2"/>
+					<p1:GLabel enabled="false" text="LED Channel 8 Dimming Level" widgetName="glabel_DimLvl_LED_8"/>
+					<p1:GLabel text="LED Channel 0 Intensity Level" visible="true" widgetName="glabel_Inten_LED_0" enabled="false"/>
+					<p1:GLabel enabled="false" text="LED Channel 2 Intensity Level" widgetName="glabel_Inten_LED_2"/>
+					<p1:GLabel enabled="false" text="LED Channel 8 Intensity Level" widgetName="glabel_Inten_LED_8"/>
+					<p1:GLabel enabled="false" text="LED Channel 0 Brightness Level" widgetName="glabel_Brightness_LED_0"/>
+					<p1:GLabel enabled="false" text="LED Channel 2 Brightness Level" widgetName="glabel_Brightness_LED_2"/>
+					<p1:GLabel enabled="false" text="LED Channel 8 Brightness Level" widgetName="glabel_Brightness_LED_8"/>
+					<p1:GLabel enabled="false" text="LED Channel 1 Dimming Level" widgetName="glabel_DimLvl_LED_1"/>
+					<p1:GLabel enabled="false" text="LED Channel 3 Dimming Level" widgetName="glabel_DimLvl_LED_3"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 1 Intensity Level" widgetName="glabel_Inten_LED_1"/>
+					<p1:GLabel enabled="false" text="LED Channel 3 Intensity Level" widgetName="glabel_Inten_LED_3"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 1 Brightness Level" widgetName="glabel_Brightness_LED_1"/>
+					<p1:GLabel enabled="false" text="LED Channel 3 Brightness Level" widgetName="glabel_Brightness_LED_3"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 5 Dimming Level" widgetName="glabel_DimLvl_LED_5"/>
+					<p1:GLabel enabled="false" text="LED Channel 4 Dimming Level" widgetName="glabel_DimLvl_LED_4"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 5 Intensity Level" widgetName="glabel_Inten_LED_5"/>
+					<p1:GLabel enabled="false" text="LED Channel 4 Intensity Level" widgetName="glabel_Inten_LED_4"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 5 Brightness Level" widgetName="glabel_Brightness_LED_5"/>
+					<p1:GLabel enabled="false" text="LED Channel 4 Brightness Level" widgetName="glabel_Brightness_LED_4"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 6 Dimming Level" widgetName="glabel_DimLvl_LED_6"/>
+					<p1:GLabel enabled="false" text="LED Channel 7 Dimming Level" widgetName="glabel_DimLvl_LED_7"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 6 Intensity Level" widgetName="glabel_Inten_LED_6"/>
+					<p1:GLabel enabled="false" text="LED Channel 7 Intensity Level" widgetName="glabel_Inten_LED_7"/>
+					<Label/>
+					<p1:GLabel enabled="false" text="LED Channel 6 Brightness Level" widgetName="glabel_Brightness_LED_6"/>
+					<p1:GLabel enabled="false" text="LED Channel 7 Brightness Level" widgetName="glabel_Brightness_LED_7"/>
+					<Label/>
+                    <p1:GLabel enabled="false" text="LED Channel 0 Reference Generation" widgetName="glabel_pcc_ref_gen_0"/>
+                    <p1:GLabel enabled="false" text="LED Channel 0 Reference Source" widgetName="glabel_pcc_ref_src_0"/>
+                    <p1:GLabel enabled="false" text="LED Channel 0 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_0"/>
+                    <p1:GLabel enabled="false" text="LED Channel 0 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_0"/>
+                    <p1:GLabel enabled="false" text="LED Channel 0 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_0"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 1 Reference Generation" widgetName="glabel_pcc_ref_gen_1"/>
+                    <p1:GLabel enabled="false" text="LED Channel 1 Reference Source" widgetName="glabel_pcc_ref_src_1"/>
+                    <p1:GLabel enabled="false" text="LED Channel 1 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_1"/>
+                    <p1:GLabel enabled="false" text="LED Channel 1 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_1"/>
+                    <p1:GLabel enabled="false" text="LED Channel 1 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_1"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 2 Reference Generation" widgetName="glabel_pcc_ref_gen_2"/>
+                    <p1:GLabel enabled="false" text="LED Channel 2 Reference Source" widgetName="glabel_pcc_ref_src_2"/>
+                    <p1:GLabel enabled="false" text="LED Channel 2 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_2"/>
+                    <p1:GLabel enabled="false" text="LED Channel 2 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_2"/>
+                    <p1:GLabel enabled="false" text="LED Channel 2 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_2"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 3 Reference Generation" widgetName="glabel_pcc_ref_gen_3"/>
+                    <p1:GLabel enabled="false" text="LED Channel 3 Reference Source" widgetName="glabel_pcc_ref_src_3"/>
+                    <p1:GLabel enabled="false" text="LED Channel 3 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_3"/>
+                    <p1:GLabel enabled="false" text="LED Channel 3 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_3"/>
+                    <p1:GLabel enabled="false" text="LED Channel 3 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_3"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 4 Reference Generation" widgetName="glabel_pcc_ref_gen_4"/>
+                    <p1:GLabel enabled="false" text="LED Channel 4 Reference Source" widgetName="glabel_pcc_ref_src_4"/>
+                    <p1:GLabel enabled="false" text="LED Channel 4 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_4"/>
+                    <p1:GLabel enabled="false" text="LED Channel 4 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_4"/>
+                    <p1:GLabel enabled="false" text="LED Channel 4 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_4"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 5 Reference Generation" widgetName="glabel_pcc_ref_gen_5"/>
+                    <p1:GLabel enabled="false" text="LED Channel 5 Reference Source" widgetName="glabel_pcc_ref_src_5"/>
+                    <p1:GLabel enabled="false" text="LED Channel 5 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_5"/>
+                    <p1:GLabel enabled="false" text="LED Channel 5 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_5"/>
+                    <p1:GLabel enabled="false" text="LED Channel 5 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_5"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 6 Reference Generation" widgetName="glabel_pcc_ref_gen_6"/>
+                    <p1:GLabel enabled="false" text="LED Channel 6 Reference Source" widgetName="glabel_pcc_ref_src_6"/>
+                    <p1:GLabel enabled="false" text="LED Channel 6 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_6"/>
+                    <p1:GLabel enabled="false" text="LED Channel 6 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_6"/>
+                    <p1:GLabel enabled="false" text="LED Channel 6 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_6"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 7 Reference Generation" widgetName="glabel_pcc_ref_gen_7"/>
+                    <p1:GLabel enabled="false" text="LED Channel 7 Reference Source" widgetName="glabel_pcc_ref_src_7"/>
+                    <p1:GLabel enabled="false" text="LED Channel 7 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_7"/>
+                    <p1:GLabel enabled="false" text="LED Channel 7 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_7"/>
+                    <p1:GLabel enabled="false" text="LED Channel 7 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_7"/>
+
+                    <p1:GLabel enabled="false" text="LED Channel 8 Reference Generation" widgetName="glabel_pcc_ref_gen_8"/>
+                    <p1:GLabel enabled="false" text="LED Channel 8 Reference Source" widgetName="glabel_pcc_ref_src_8"/>
+                    <p1:GLabel enabled="false" text="LED Channel 8 Peak Reference in mv" widgetName="glabel_pcc_peak_ref_mv_8"/>
+                    <p1:GLabel enabled="false" text="LED Channel 8 Generated OFF-time in ns" widgetName="glabel_pcc_gen_off_time_ns_8"/>
+                    <p1:GLabel enabled="false" text="LED Channel 8 Generated OFF-time raw value" widgetName="glabel_pcc_gen_off_time_val_8"/>
+				</p1:Tab>
+			</p1:GTab.control>
+		</p1:GTab>
+	</p1:TabFolder>
+</p1:Tab>

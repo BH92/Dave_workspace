@@ -1,0 +1,46 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "global_bccu_conf.c"
+  14              	 .global GLOBAL_BCCU_0
+  15              	 .global confighandle
+  16              	 .section .data.GLOBAL_BCCU_0,"aw",%progbits
+  17              	 .align 2
+  20              	GLOBAL_BCCU_0:
+  21 0000 00000350 	 .word 1342373888
+  22 0004 00000000 	 .word confighandle
+  23 0008 00000000 	 .word 0
+  24 000c 00       	 .byte 0
+  25 000d 00       	 .byte 0
+  26 000e 00       	 .byte 0
+  27 000f 00       	 .space 1
+  28              	 .section .data.confighandle,"aw",%progbits
+  29              	 .align 2
+  32              	confighandle:
+  33 0000 00       	 .byte 0
+  34 0001 00       	 .space 1
+  35 0002 20       	 .byte 32
+  36 0003 03       	 .byte 3
+  37 0004 80       	 .byte 128
+  38 0005 00       	 .byte 0
+  39 0006 40       	 .byte 64
+  40 0007 00       	 .byte 0
+  41 0008 00000000 	 .word 0
+  42              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 global_bccu_conf.c
+    {standard input}:20     .data.GLOBAL_BCCU_0:00000000 GLOBAL_BCCU_0
+    {standard input}:32     .data.confighandle:00000000 confighandle
+    {standard input}:17     .data.GLOBAL_BCCU_0:00000000 $d
+    {standard input}:29     .data.confighandle:00000000 $d
+
+NO UNDEFINED SYMBOLS

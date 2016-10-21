@@ -1,0 +1,2653 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,4
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "samuel_io.c"
+  14              	 .section .text.digitalo,"ax",%progbits
+  15              	 .align 1
+  16              	 .global digitalo
+  17              	 .code 16
+  18              	 .thumb_func
+  20              	digitalo:
+  21 0000 034B     	 ldr r3,.L2
+  22              	 
+  23 0002 1A68     	 ldr r2,[r3]
+  24 0004 501C     	 add r0,r2,#1
+  25 0006 1860     	 str r0,[r3]
+  26 0008 024A     	 ldr r2,.L2+4
+  27 000a 034B     	 ldr r3,.L2+8
+  28 000c 1A60     	 str r2,[r3]
+  29 000e 7047     	 bx lr
+  30              	.L3:
+  31              	 .align 2
+  32              	.L2:
+  33 0010 00000000 	 .word .LANCHOR0
+  34 0014 FFFF0F00 	 .word 1048575
+  35 0018 00000000 	 .word .LANCHOR1
+  37              	 .section .text.lightprog01,"ax",%progbits
+  38              	 .align 1
+  39              	 .global lightprog01
+  40              	 .code 16
+  41              	 .thumb_func
+  43              	lightprog01:
+  44 0000 314A     	 ldr r2,.L18
+  45 0002 38B5     	 push {r3,r4,r5,lr}
+  46 0004 1388     	 ldrh r3,[r2]
+  47 0006 0133     	 add r3,r3,#1
+  48 0008 9BB2     	 uxth r3,r3
+  49 000a 1380     	 strh r3,[r2]
+  50 000c 3D2B     	 cmp r3,#61
+  51 000e 02D1     	 bne .L5
+  52 0010 0023     	 mov r3,#0
+  53 0012 1380     	 strh r3,[r2]
+  54 0014 57E0     	 b .L4
+  55              	.L5:
+  56 0016 142B     	 cmp r3,#20
+  57 0018 07D1     	 bne .L7
+  58 001a 0024     	 mov r4,#0
+  59 001c 2B4D     	 ldr r5,.L18+4
+  60 001e EB6A     	 ldr r3,[r5,#44]
+  61 0020 1C80     	 strh r4,[r3]
+  62 0022 5C80     	 strh r4,[r3,#2]
+  63 0024 9C80     	 strh r4,[r3,#4]
+  64 0026 DC80     	 strh r4,[r3,#6]
+  65 0028 0AE0     	 b .L16
+  66              	.L7:
+  67 002a 282B     	 cmp r3,#40
+  68 002c 0FD1     	 bne .L8
+  69 002e FA22     	 mov r2,#250
+  70 0030 0024     	 mov r4,#0
+  71 0032 264D     	 ldr r5,.L18+4
+  72 0034 1201     	 lsl r2,r2,#4
+  73 0036 EB6A     	 ldr r3,[r5,#44]
+  74 0038 1C80     	 strh r4,[r3]
+  75 003a 5A80     	 strh r2,[r3,#2]
+  76 003c 9C80     	 strh r4,[r3,#4]
+  77 003e DA80     	 strh r2,[r3,#6]
+  78              	.L16:
+  79 0040 281C     	 mov r0,r5
+  80 0042 FFF7FEFF 	 bl PDM_DIMMED_LED_LAMP_SetColor
+  81 0046 281C     	 mov r0,r5
+  82 0048 211C     	 mov r1,r4
+  83 004a 214A     	 ldr r2,.L18+8
+  84 004c 39E0     	 b .L12
+  85              	.L8:
+  86 004e 2D2B     	 cmp r3,#45
+  87 0050 08D1     	 bne .L9
+  88 0052 0024     	 mov r4,#0
+  89 0054 0A22     	 mov r2,#10
+  90 0056 1D4D     	 ldr r5,.L18+4
+  91 0058 EB6A     	 ldr r3,[r5,#44]
+  92 005a 1C80     	 strh r4,[r3]
+  93 005c 5A80     	 strh r2,[r3,#2]
+  94 005e 9C80     	 strh r4,[r3,#4]
+  95 0060 DA80     	 strh r2,[r3,#6]
+  96 0062 17E0     	 b .L15
+  97              	.L9:
+  98 0064 322B     	 cmp r3,#50
+  99 0066 0BD1     	 bne .L10
+ 100 0068 FA22     	 mov r2,#250
+ 101 006a 184C     	 ldr r4,.L18+4
+ 102 006c 1201     	 lsl r2,r2,#4
+ 103 006e E36A     	 ldr r3,[r4,#44]
+ 104 0070 201C     	 mov r0,r4
+ 105 0072 1A80     	 strh r2,[r3]
+ 106 0074 5A80     	 strh r2,[r3,#2]
+ 107 0076 9A80     	 strh r2,[r3,#4]
+ 108 0078 DA80     	 strh r2,[r3,#6]
+ 109 007a FFF7FEFF 	 bl PDM_DIMMED_LED_LAMP_SetColor
+ 110 007e 1AE0     	 b .L14
+ 111              	.L10:
+ 112 0080 372B     	 cmp r3,#55
+ 113 0082 0DD1     	 bne .L11
+ 114 0084 C822     	 mov r2,#200
+ 115 0086 0024     	 mov r4,#0
+ 116 0088 104D     	 ldr r5,.L18+4
+ 117 008a EB6A     	 ldr r3,[r5,#44]
+ 118 008c 1A80     	 strh r2,[r3]
+ 119 008e 5C80     	 strh r4,[r3,#2]
+ 120 0090 9A80     	 strh r2,[r3,#4]
+ 121 0092 DC80     	 strh r4,[r3,#6]
+ 122              	.L15:
+ 123 0094 281C     	 mov r0,r5
+ 124 0096 FFF7FEFF 	 bl PDM_DIMMED_LED_LAMP_SetColor
+ 125 009a 281C     	 mov r0,r5
+ 126 009c 211C     	 mov r1,r4
+ 127 009e 0FE0     	 b .L13
+ 128              	.L11:
+ 129 00a0 3C2B     	 cmp r3,#60
+ 130 00a2 10D1     	 bne .L4
+ 131 00a4 FA22     	 mov r2,#250
+ 132 00a6 0A21     	 mov r1,#10
+ 133 00a8 084C     	 ldr r4,.L18+4
+ 134 00aa 1201     	 lsl r2,r2,#4
+ 135 00ac E36A     	 ldr r3,[r4,#44]
+ 136 00ae 1980     	 strh r1,[r3]
+ 137 00b0 5A80     	 strh r2,[r3,#2]
+ 138 00b2 9980     	 strh r1,[r3,#4]
+ 139 00b4 DA80     	 strh r2,[r3,#6]
+ 140              	.L14:
+ 141 00b6 201C     	 mov r0,r4
+ 142 00b8 FFF7FEFF 	 bl PDM_DIMMED_LED_LAMP_SetColor
+ 143 00bc 201C     	 mov r0,r4
+ 144 00be 0021     	 mov r1,#0
+ 145              	.L13:
+ 146 00c0 B722     	 mov r2,#183
+ 147              	.L12:
+ 148 00c2 FFF7FEFF 	 bl PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv
+ 149              	.L4:
+ 150              	 
+ 151 00c6 38BD     	 pop {r3,r4,r5,pc}
+ 152              	.L19:
+ 153              	 .align 2
+ 154              	.L18:
+ 155 00c8 00000000 	 .word .LANCHOR2
+ 156 00cc 00000000 	 .word PDM_DIMMED_LED_LAMP_0
+ 157 00d0 D1030000 	 .word 977
+ 159              	 .section .text.analog_start,"ax",%progbits
+ 160              	 .align 1
+ 161              	 .global analog_start
+ 162              	 .code 16
+ 163              	 .thumb_func
+ 165              	analog_start:
+ 166              	 
+ 167 0000 7047     	 bx lr
+ 169              	 .section .text.SCU_0_IRQHandler,"ax",%progbits
+ 170              	 .align 1
+ 171              	 .global SCU_0_IRQHandler
+ 172              	 .code 16
+ 173              	 .thumb_func
+ 175              	SCU_0_IRQHandler:
+ 176              	 
+ 177 0000 7047     	 bx lr
+ 179              	 .section .text.new_data_fill,"ax",%progbits
+ 180              	 .align 1
+ 181              	 .global new_data_fill
+ 182              	 .code 16
+ 183              	 .thumb_func
+ 185              	new_data_fill:
+ 186 0000 0B22     	 mov r2,#11
+ 187 0002 0D4B     	 ldr r3,.L23
+ 188              	 
+ 189 0004 1A70     	 strb r2,[r3]
+ 190 0006 0D4B     	 ldr r3,.L23+4
+ 191 0008 0A3A     	 sub r2,r2,#10
+ 192 000a 1A70     	 strb r2,[r3]
+ 193 000c 0132     	 add r2,r2,#1
+ 194 000e 5A70     	 strb r2,[r3,#1]
+ 195 0010 0132     	 add r2,r2,#1
+ 196 0012 9A70     	 strb r2,[r3,#2]
+ 197 0014 0132     	 add r2,r2,#1
+ 198 0016 DA70     	 strb r2,[r3,#3]
+ 199 0018 0132     	 add r2,r2,#1
+ 200 001a 1A71     	 strb r2,[r3,#4]
+ 201 001c 0132     	 add r2,r2,#1
+ 202 001e 5A71     	 strb r2,[r3,#5]
+ 203 0020 0132     	 add r2,r2,#1
+ 204 0022 9A71     	 strb r2,[r3,#6]
+ 205 0024 0132     	 add r2,r2,#1
+ 206 0026 DA71     	 strb r2,[r3,#7]
+ 207 0028 0132     	 add r2,r2,#1
+ 208 002a 1A72     	 strb r2,[r3,#8]
+ 209 002c 5832     	 add r2,r2,#88
+ 210 002e 5A72     	 strb r2,[r3,#9]
+ 211 0030 0132     	 add r2,r2,#1
+ 212 0032 9A72     	 strb r2,[r3,#10]
+ 213 0034 7047     	 bx lr
+ 214              	.L24:
+ 215 0036 C046     	 .align 2
+ 216              	.L23:
+ 217 0038 00000000 	 .word .LANCHOR3
+ 218 003c 00000000 	 .word new_data
+ 220              	 .section .text.new_data_unbekanntBack,"ax",%progbits
+ 221              	 .align 1
+ 222              	 .global new_data_unbekanntBack
+ 223              	 .code 16
+ 224              	 .thumb_func
+ 226              	new_data_unbekanntBack:
+ 227 0000 0B22     	 mov r2,#11
+ 228 0002 4C21     	 mov r1,#76
+ 229 0004 0B4B     	 ldr r3,.L26
+ 230              	 
+ 231 0006 1A70     	 strb r2,[r3]
+ 232 0008 0B4B     	 ldr r3,.L26+4
+ 233 000a 1970     	 strb r1,[r3]
+ 234 000c 0339     	 sub r1,r1,#3
+ 235 000e 5970     	 strb r1,[r3,#1]
+ 236 0010 0531     	 add r1,r1,#5
+ 237 0012 9970     	 strb r1,[r3,#2]
+ 238 0014 0949     	 ldr r1,.L26+8
+ 239 0016 1A71     	 strb r2,[r3,#4]
+ 240 0018 0978     	 ldrb r1,[r1]
+ 241 001a 2632     	 add r2,r2,#38
+ 242 001c D970     	 strb r1,[r3,#3]
+ 243 001e 6E21     	 mov r1,#110
+ 244 0020 5A71     	 strb r2,[r3,#5]
+ 245 0022 3E32     	 add r2,r2,#62
+ 246 0024 DA71     	 strb r2,[r3,#7]
+ 247 0026 5A72     	 strb r2,[r3,#9]
+ 248 0028 9032     	 add r2,r2,#144
+ 249 002a 9971     	 strb r1,[r3,#6]
+ 250 002c 1972     	 strb r1,[r3,#8]
+ 251 002e 9A72     	 strb r2,[r3,#10]
+ 252 0030 7047     	 bx lr
+ 253              	.L27:
+ 254 0032 C046     	 .align 2
+ 255              	.L26:
+ 256 0034 00000000 	 .word .LANCHOR3
+ 257 0038 00000000 	 .word new_data
+ 258 003c 00000000 	 .word node_id
+ 260              	 .section .text.new_data_BroadcastBack,"ax",%progbits
+ 261              	 .align 1
+ 262              	 .global new_data_BroadcastBack
+ 263              	 .code 16
+ 264              	 .thumb_func
+ 266              	new_data_BroadcastBack:
+ 267 0000 0B22     	 mov r2,#11
+ 268 0002 4C21     	 mov r1,#76
+ 269 0004 0D4B     	 ldr r3,.L29
+ 270              	 
+ 271 0006 1A70     	 strb r2,[r3]
+ 272 0008 0D4B     	 ldr r3,.L29+4
+ 273 000a 1970     	 strb r1,[r3]
+ 274 000c 0339     	 sub r1,r1,#3
+ 275 000e 5970     	 strb r1,[r3,#1]
+ 276 0010 1A71     	 strb r2,[r3,#4]
+ 277 0012 0531     	 add r1,r1,#5
+ 278 0014 6432     	 add r2,r2,#100
+ 279 0016 9970     	 strb r1,[r3,#2]
+ 280 0018 5A71     	 strb r2,[r3,#5]
+ 281 001a 0A49     	 ldr r1,.L29+8
+ 282 001c 0A4A     	 ldr r2,.L29+12
+ 283 001e 0978     	 ldrb r1,[r1]
+ 284 0020 1288     	 ldrh r2,[r2]
+ 285 0022 D970     	 strb r1,[r3,#3]
+ 286 0024 DA71     	 strb r2,[r3,#7]
+ 287 0026 110A     	 lsr r1,r2,#8
+ 288 0028 084A     	 ldr r2,.L29+16
+ 289 002a 9971     	 strb r1,[r3,#6]
+ 290 002c 1288     	 ldrh r2,[r2]
+ 291 002e 110A     	 lsr r1,r2,#8
+ 292 0030 5A72     	 strb r2,[r3,#9]
+ 293 0032 FF22     	 mov r2,#255
+ 294 0034 1972     	 strb r1,[r3,#8]
+ 295 0036 9A72     	 strb r2,[r3,#10]
+ 296 0038 7047     	 bx lr
+ 297              	.L30:
+ 298 003a C046     	 .align 2
+ 299              	.L29:
+ 300 003c 00000000 	 .word .LANCHOR3
+ 301 0040 00000000 	 .word new_data
+ 302 0044 00000000 	 .word node_id
+ 303 0048 00000000 	 .word Ser_NrH
+ 304 004c 00000000 	 .word Ser_NrL
+ 306              	 .section .text.new_data_analog1Back,"ax",%progbits
+ 307              	 .align 1
+ 308              	 .global new_data_analog1Back
+ 309              	 .code 16
+ 310              	 .thumb_func
+ 312              	new_data_analog1Back:
+ 313 0000 0B22     	 mov r2,#11
+ 314 0002 4C21     	 mov r1,#76
+ 315 0004 0D4B     	 ldr r3,.L32
+ 316              	 
+ 317 0006 1A70     	 strb r2,[r3]
+ 318 0008 0D4B     	 ldr r3,.L32+4
+ 319 000a 1970     	 strb r1,[r3]
+ 320 000c 0339     	 sub r1,r1,#3
+ 321 000e 5970     	 strb r1,[r3,#1]
+ 322 0010 1A71     	 strb r2,[r3,#4]
+ 323 0012 0531     	 add r1,r1,#5
+ 324 0014 5632     	 add r2,r2,#86
+ 325 0016 9970     	 strb r1,[r3,#2]
+ 326 0018 5A71     	 strb r2,[r3,#5]
+ 327 001a 0A49     	 ldr r1,.L32+8
+ 328 001c 0A4A     	 ldr r2,.L32+12
+ 329 001e 0978     	 ldrb r1,[r1]
+ 330 0020 1288     	 ldrh r2,[r2]
+ 331 0022 D970     	 strb r1,[r3,#3]
+ 332 0024 DA71     	 strb r2,[r3,#7]
+ 333 0026 110A     	 lsr r1,r2,#8
+ 334 0028 084A     	 ldr r2,.L32+16
+ 335 002a 9971     	 strb r1,[r3,#6]
+ 336 002c 1288     	 ldrh r2,[r2]
+ 337 002e 110A     	 lsr r1,r2,#8
+ 338 0030 5A72     	 strb r2,[r3,#9]
+ 339 0032 FF22     	 mov r2,#255
+ 340 0034 1972     	 strb r1,[r3,#8]
+ 341 0036 9A72     	 strb r2,[r3,#10]
+ 342 0038 7047     	 bx lr
+ 343              	.L33:
+ 344 003a C046     	 .align 2
+ 345              	.L32:
+ 346 003c 00000000 	 .word .LANCHOR3
+ 347 0040 00000000 	 .word new_data
+ 348 0044 00000000 	 .word node_id
+ 349 0048 00000000 	 .word resultA2
+ 350 004c 00000000 	 .word resultB2
+ 352              	 .section .text.new_data_analog2Back,"ax",%progbits
+ 353              	 .align 1
+ 354              	 .global new_data_analog2Back
+ 355              	 .code 16
+ 356              	 .thumb_func
+ 358              	new_data_analog2Back:
+ 359 0000 0B22     	 mov r2,#11
+ 360 0002 4C21     	 mov r1,#76
+ 361 0004 0D4B     	 ldr r3,.L35
+ 362              	 
+ 363 0006 1A70     	 strb r2,[r3]
+ 364 0008 0D4B     	 ldr r3,.L35+4
+ 365 000a 1970     	 strb r1,[r3]
+ 366 000c 0339     	 sub r1,r1,#3
+ 367 000e 5970     	 strb r1,[r3,#1]
+ 368 0010 1A71     	 strb r2,[r3,#4]
+ 369 0012 0531     	 add r1,r1,#5
+ 370 0014 5732     	 add r2,r2,#87
+ 371 0016 9970     	 strb r1,[r3,#2]
+ 372 0018 5A71     	 strb r2,[r3,#5]
+ 373 001a 0A49     	 ldr r1,.L35+8
+ 374 001c 0A4A     	 ldr r2,.L35+12
+ 375 001e 0978     	 ldrb r1,[r1]
+ 376 0020 1288     	 ldrh r2,[r2]
+ 377 0022 D970     	 strb r1,[r3,#3]
+ 378 0024 DA71     	 strb r2,[r3,#7]
+ 379 0026 110A     	 lsr r1,r2,#8
+ 380 0028 084A     	 ldr r2,.L35+16
+ 381 002a 9971     	 strb r1,[r3,#6]
+ 382 002c 1288     	 ldrh r2,[r2]
+ 383 002e 110A     	 lsr r1,r2,#8
+ 384 0030 5A72     	 strb r2,[r3,#9]
+ 385 0032 FF22     	 mov r2,#255
+ 386 0034 1972     	 strb r1,[r3,#8]
+ 387 0036 9A72     	 strb r2,[r3,#10]
+ 388 0038 7047     	 bx lr
+ 389              	.L36:
+ 390 003a C046     	 .align 2
+ 391              	.L35:
+ 392 003c 00000000 	 .word .LANCHOR3
+ 393 0040 00000000 	 .word new_data
+ 394 0044 00000000 	 .word node_id
+ 395 0048 00000000 	 .word resultC2
+ 396 004c 00000000 	 .word resultD2
+ 398              	 .section .text.new_data_aktLichtBack,"ax",%progbits
+ 399              	 .align 1
+ 400              	 .global new_data_aktLichtBack
+ 401              	 .code 16
+ 402              	 .thumb_func
+ 404              	new_data_aktLichtBack:
+ 405 0000 0B22     	 mov r2,#11
+ 406 0002 4C21     	 mov r1,#76
+ 407 0004 0D4B     	 ldr r3,.L38
+ 408              	 
+ 409 0006 1A70     	 strb r2,[r3]
+ 410 0008 0D4B     	 ldr r3,.L38+4
+ 411 000a 1970     	 strb r1,[r3]
+ 412 000c 0339     	 sub r1,r1,#3
+ 413 000e 5970     	 strb r1,[r3,#1]
+ 414 0010 1A71     	 strb r2,[r3,#4]
+ 415 0012 0531     	 add r1,r1,#5
+ 416 0014 5B32     	 add r2,r2,#91
+ 417 0016 9970     	 strb r1,[r3,#2]
+ 418 0018 5A71     	 strb r2,[r3,#5]
+ 419 001a 0A49     	 ldr r1,.L38+8
+ 420 001c 0A4A     	 ldr r2,.L38+12
+ 421 001e 0978     	 ldrb r1,[r1]
+ 422 0020 1288     	 ldrh r2,[r2]
+ 423 0022 D970     	 strb r1,[r3,#3]
+ 424 0024 DA71     	 strb r2,[r3,#7]
+ 425 0026 110A     	 lsr r1,r2,#8
+ 426 0028 084A     	 ldr r2,.L38+16
+ 427 002a 9971     	 strb r1,[r3,#6]
+ 428 002c 1288     	 ldrh r2,[r2]
+ 429 002e 110A     	 lsr r1,r2,#8
+ 430 0030 5A72     	 strb r2,[r3,#9]
+ 431 0032 FF22     	 mov r2,#255
+ 432 0034 1972     	 strb r1,[r3,#8]
+ 433 0036 9A72     	 strb r2,[r3,#10]
+ 434 0038 7047     	 bx lr
+ 435              	.L39:
+ 436 003a C046     	 .align 2
+ 437              	.L38:
+ 438 003c 00000000 	 .word .LANCHOR3
+ 439 0040 00000000 	 .word new_data
+ 440 0044 00000000 	 .word node_id
+ 441 0048 00000000 	 .word dimAkt_Ww
+ 442 004c 00000000 	 .word dimAkt_Cw
+ 444              	 .section .text.new_data_offLichtBack,"ax",%progbits
+ 445              	 .align 1
+ 446              	 .global new_data_offLichtBack
+ 447              	 .code 16
+ 448              	 .thumb_func
+ 450              	new_data_offLichtBack:
+ 451 0000 0D22     	 mov r2,#13
+ 452 0002 4C21     	 mov r1,#76
+ 453 0004 104B     	 ldr r3,.L41
+ 454              	 
+ 455 0006 1A70     	 strb r2,[r3]
+ 456 0008 104B     	 ldr r3,.L41+4
+ 457 000a 1970     	 strb r1,[r3]
+ 458 000c 0339     	 sub r1,r1,#3
+ 459 000e 5970     	 strb r1,[r3,#1]
+ 460 0010 1A71     	 strb r2,[r3,#4]
+ 461 0012 0531     	 add r1,r1,#5
+ 462 0014 5A32     	 add r2,r2,#90
+ 463 0016 9970     	 strb r1,[r3,#2]
+ 464 0018 5A71     	 strb r2,[r3,#5]
+ 465 001a 0D49     	 ldr r1,.L41+8
+ 466 001c 0D4A     	 ldr r2,.L41+12
+ 467 001e 0978     	 ldrb r1,[r1]
+ 468 0020 1288     	 ldrh r2,[r2]
+ 469 0022 D970     	 strb r1,[r3,#3]
+ 470 0024 DA71     	 strb r2,[r3,#7]
+ 471 0026 110A     	 lsr r1,r2,#8
+ 472 0028 0B4A     	 ldr r2,.L41+16
+ 473 002a 9971     	 strb r1,[r3,#6]
+ 474 002c 1288     	 ldrh r2,[r2]
+ 475 002e 110A     	 lsr r1,r2,#8
+ 476 0030 5A72     	 strb r2,[r3,#9]
+ 477 0032 0A4A     	 ldr r2,.L41+20
+ 478 0034 1972     	 strb r1,[r3,#8]
+ 479 0036 1278     	 ldrb r2,[r2]
+ 480 0038 9A72     	 strb r2,[r3,#10]
+ 481 003a 094A     	 ldr r2,.L41+24
+ 482 003c 1278     	 ldrb r2,[r2]
+ 483 003e DA72     	 strb r2,[r3,#11]
+ 484 0040 FF22     	 mov r2,#255
+ 485 0042 1A73     	 strb r2,[r3,#12]
+ 486 0044 7047     	 bx lr
+ 487              	.L42:
+ 488 0046 C046     	 .align 2
+ 489              	.L41:
+ 490 0048 00000000 	 .word .LANCHOR3
+ 491 004c 00000000 	 .word new_data
+ 492 0050 00000000 	 .word node_id
+ 493 0054 00000000 	 .word dimOff_Ww
+ 494 0058 00000000 	 .word dimOff_Cw
+ 495 005c 00000000 	 .word RegOnOff
+ 496 0060 00000000 	 .word RegOnOff2
+ 498              	 .section .text.new_data_Bright_Color_Back,"ax",%progbits
+ 499              	 .align 1
+ 500              	 .global new_data_Bright_Color_Back
+ 501              	 .code 16
+ 502              	 .thumb_func
+ 504              	new_data_Bright_Color_Back:
+ 505 0000 0B22     	 mov r2,#11
+ 506 0002 4C21     	 mov r1,#76
+ 507 0004 0D4B     	 ldr r3,.L44
+ 508              	 
+ 509 0006 1A70     	 strb r2,[r3]
+ 510 0008 0D4B     	 ldr r3,.L44+4
+ 511 000a 1970     	 strb r1,[r3]
+ 512 000c 0339     	 sub r1,r1,#3
+ 513 000e 5970     	 strb r1,[r3,#1]
+ 514 0010 1A71     	 strb r2,[r3,#4]
+ 515 0012 0531     	 add r1,r1,#5
+ 516 0014 5D32     	 add r2,r2,#93
+ 517 0016 9970     	 strb r1,[r3,#2]
+ 518 0018 5A71     	 strb r2,[r3,#5]
+ 519 001a 0A49     	 ldr r1,.L44+8
+ 520 001c 0A4A     	 ldr r2,.L44+12
+ 521 001e 0978     	 ldrb r1,[r1]
+ 522 0020 1288     	 ldrh r2,[r2]
+ 523 0022 D970     	 strb r1,[r3,#3]
+ 524 0024 DA71     	 strb r2,[r3,#7]
+ 525 0026 110A     	 lsr r1,r2,#8
+ 526 0028 084A     	 ldr r2,.L44+16
+ 527 002a 9971     	 strb r1,[r3,#6]
+ 528 002c 1288     	 ldrh r2,[r2]
+ 529 002e 110A     	 lsr r1,r2,#8
+ 530 0030 5A72     	 strb r2,[r3,#9]
+ 531 0032 FF22     	 mov r2,#255
+ 532 0034 1972     	 strb r1,[r3,#8]
+ 533 0036 9A72     	 strb r2,[r3,#10]
+ 534 0038 7047     	 bx lr
+ 535              	.L45:
+ 536 003a C046     	 .align 2
+ 537              	.L44:
+ 538 003c 00000000 	 .word .LANCHOR3
+ 539 0040 00000000 	 .word new_data
+ 540 0044 00000000 	 .word node_id
+ 541 0048 00000000 	 .word .LANCHOR4
+ 542 004c 00000000 	 .word .LANCHOR5
+ 544              	 .section .text.new_data_Quot_Walk_Back,"ax",%progbits
+ 545              	 .align 1
+ 546              	 .global new_data_Quot_Walk_Back
+ 547              	 .code 16
+ 548              	 .thumb_func
+ 550              	new_data_Quot_Walk_Back:
+ 551 0000 0B22     	 mov r2,#11
+ 552 0002 4C21     	 mov r1,#76
+ 553 0004 0D4B     	 ldr r3,.L47
+ 554              	 
+ 555 0006 1A70     	 strb r2,[r3]
+ 556 0008 0D4B     	 ldr r3,.L47+4
+ 557 000a 1970     	 strb r1,[r3]
+ 558 000c 0339     	 sub r1,r1,#3
+ 559 000e 5970     	 strb r1,[r3,#1]
+ 560 0010 1A71     	 strb r2,[r3,#4]
+ 561 0012 0531     	 add r1,r1,#5
+ 562 0014 5E32     	 add r2,r2,#94
+ 563 0016 9970     	 strb r1,[r3,#2]
+ 564 0018 5A71     	 strb r2,[r3,#5]
+ 565 001a 0A49     	 ldr r1,.L47+8
+ 566 001c 0A4A     	 ldr r2,.L47+12
+ 567 001e 0978     	 ldrb r1,[r1]
+ 568 0020 1288     	 ldrh r2,[r2]
+ 569 0022 D970     	 strb r1,[r3,#3]
+ 570 0024 DA71     	 strb r2,[r3,#7]
+ 571 0026 110A     	 lsr r1,r2,#8
+ 572 0028 084A     	 ldr r2,.L47+16
+ 573 002a 9971     	 strb r1,[r3,#6]
+ 574 002c 1288     	 ldrh r2,[r2]
+ 575 002e 110A     	 lsr r1,r2,#8
+ 576 0030 5A72     	 strb r2,[r3,#9]
+ 577 0032 FF22     	 mov r2,#255
+ 578 0034 1972     	 strb r1,[r3,#8]
+ 579 0036 9A72     	 strb r2,[r3,#10]
+ 580 0038 7047     	 bx lr
+ 581              	.L48:
+ 582 003a C046     	 .align 2
+ 583              	.L47:
+ 584 003c 00000000 	 .word .LANCHOR3
+ 585 0040 00000000 	 .word new_data
+ 586 0044 00000000 	 .word node_id
+ 587 0048 00000000 	 .word .LANCHOR6
+ 588 004c 00000000 	 .word Farbe_wwcw_Quot_gen
+ 590              	 .section .text.new_data_HalloBack,"ax",%progbits
+ 591              	 .align 1
+ 592              	 .global new_data_HalloBack
+ 593              	 .code 16
+ 594              	 .thumb_func
+ 596              	new_data_HalloBack:
+ 597 0000 0B22     	 mov r2,#11
+ 598 0002 4C21     	 mov r1,#76
+ 599 0004 0B4B     	 ldr r3,.L50
+ 600              	 
+ 601 0006 1A70     	 strb r2,[r3]
+ 602 0008 0B4B     	 ldr r3,.L50+4
+ 603 000a 1970     	 strb r1,[r3]
+ 604 000c 0339     	 sub r1,r1,#3
+ 605 000e 5970     	 strb r1,[r3,#1]
+ 606 0010 0531     	 add r1,r1,#5
+ 607 0012 9970     	 strb r1,[r3,#2]
+ 608 0014 0949     	 ldr r1,.L50+8
+ 609 0016 1A71     	 strb r2,[r3,#4]
+ 610 0018 0978     	 ldrb r1,[r1]
+ 611 001a 5F32     	 add r2,r2,#95
+ 612 001c D970     	 strb r1,[r3,#3]
+ 613 001e 6F21     	 mov r1,#111
+ 614 0020 5A71     	 strb r2,[r3,#5]
+ 615 0022 0132     	 add r2,r2,#1
+ 616 0024 DA71     	 strb r2,[r3,#7]
+ 617 0026 5A72     	 strb r2,[r3,#9]
+ 618 0028 9432     	 add r2,r2,#148
+ 619 002a 9971     	 strb r1,[r3,#6]
+ 620 002c 1972     	 strb r1,[r3,#8]
+ 621 002e 9A72     	 strb r2,[r3,#10]
+ 622 0030 7047     	 bx lr
+ 623              	.L51:
+ 624 0032 C046     	 .align 2
+ 625              	.L50:
+ 626 0034 00000000 	 .word .LANCHOR3
+ 627 0038 00000000 	 .word new_data
+ 628 003c 00000000 	 .word node_id
+ 630              	 .section .text.new_data_neuNodeIdBack,"ax",%progbits
+ 631              	 .align 1
+ 632              	 .global new_data_neuNodeIdBack
+ 633              	 .code 16
+ 634              	 .thumb_func
+ 636              	new_data_neuNodeIdBack:
+ 637 0000 0C22     	 mov r2,#12
+ 638 0002 4C21     	 mov r1,#76
+ 639 0004 0E4B     	 ldr r3,.L53
+ 640              	 
+ 641 0006 1A70     	 strb r2,[r3]
+ 642 0008 0E4B     	 ldr r3,.L53+4
+ 643 000a 1A71     	 strb r2,[r3,#4]
+ 644 000c 5F32     	 add r2,r2,#95
+ 645 000e 5A71     	 strb r2,[r3,#5]
+ 646 0010 0D4A     	 ldr r2,.L53+8
+ 647 0012 1970     	 strb r1,[r3]
+ 648 0014 1278     	 ldrb r2,[r2]
+ 649 0016 0339     	 sub r1,r1,#3
+ 650 0018 5970     	 strb r1,[r3,#1]
+ 651 001a 0531     	 add r1,r1,#5
+ 652 001c 9970     	 strb r1,[r3,#2]
+ 653 001e 9A71     	 strb r2,[r3,#6]
+ 654 0020 0A49     	 ldr r1,.L53+12
+ 655 0022 0B4A     	 ldr r2,.L53+16
+ 656 0024 0978     	 ldrb r1,[r1]
+ 657 0026 1288     	 ldrh r2,[r2]
+ 658 0028 D970     	 strb r1,[r3,#3]
+ 659 002a 1A72     	 strb r2,[r3,#8]
+ 660 002c 110A     	 lsr r1,r2,#8
+ 661 002e 094A     	 ldr r2,.L53+20
+ 662 0030 D971     	 strb r1,[r3,#7]
+ 663 0032 1288     	 ldrh r2,[r2]
+ 664 0034 110A     	 lsr r1,r2,#8
+ 665 0036 9A72     	 strb r2,[r3,#10]
+ 666 0038 FF22     	 mov r2,#255
+ 667 003a 5972     	 strb r1,[r3,#9]
+ 668 003c DA72     	 strb r2,[r3,#11]
+ 669 003e 7047     	 bx lr
+ 670              	.L54:
+ 671              	 .align 2
+ 672              	.L53:
+ 673 0040 00000000 	 .word .LANCHOR3
+ 674 0044 00000000 	 .word new_data
+ 675 0048 00000000 	 .word node_id_neu
+ 676 004c 00000000 	 .word node_id
+ 677 0050 00000000 	 .word Ser_NrH
+ 678 0054 00000000 	 .word Ser_NrL
+ 680              	 .section .text.new_data_neuSerNrBack,"ax",%progbits
+ 681              	 .align 1
+ 682              	 .global new_data_neuSerNrBack
+ 683              	 .code 16
+ 684              	 .thumb_func
+ 686              	new_data_neuSerNrBack:
+ 687 0000 0F22     	 mov r2,#15
+ 688 0002 4C21     	 mov r1,#76
+ 689 0004 124B     	 ldr r3,.L56
+ 690              	 
+ 691 0006 1A70     	 strb r2,[r3]
+ 692 0008 124B     	 ldr r3,.L56+4
+ 693 000a 1970     	 strb r1,[r3]
+ 694 000c 0339     	 sub r1,r1,#3
+ 695 000e 5970     	 strb r1,[r3,#1]
+ 696 0010 1A71     	 strb r2,[r3,#4]
+ 697 0012 0531     	 add r1,r1,#5
+ 698 0014 5D32     	 add r2,r2,#93
+ 699 0016 9970     	 strb r1,[r3,#2]
+ 700 0018 5A71     	 strb r2,[r3,#5]
+ 701 001a 0F49     	 ldr r1,.L56+8
+ 702 001c 0F4A     	 ldr r2,.L56+12
+ 703 001e 0978     	 ldrb r1,[r1]
+ 704 0020 1288     	 ldrh r2,[r2]
+ 705 0022 D970     	 strb r1,[r3,#3]
+ 706 0024 DA71     	 strb r2,[r3,#7]
+ 707 0026 110A     	 lsr r1,r2,#8
+ 708 0028 0D4A     	 ldr r2,.L56+16
+ 709 002a 9971     	 strb r1,[r3,#6]
+ 710 002c 1288     	 ldrh r2,[r2]
+ 711 002e 110A     	 lsr r1,r2,#8
+ 712 0030 5A72     	 strb r2,[r3,#9]
+ 713 0032 0C4A     	 ldr r2,.L56+20
+ 714 0034 1972     	 strb r1,[r3,#8]
+ 715 0036 1288     	 ldrh r2,[r2]
+ 716 0038 110A     	 lsr r1,r2,#8
+ 717 003a DA72     	 strb r2,[r3,#11]
+ 718 003c 0A4A     	 ldr r2,.L56+24
+ 719 003e 9972     	 strb r1,[r3,#10]
+ 720 0040 1288     	 ldrh r2,[r2]
+ 721 0042 110A     	 lsr r1,r2,#8
+ 722 0044 5A73     	 strb r2,[r3,#13]
+ 723 0046 FF22     	 mov r2,#255
+ 724 0048 1973     	 strb r1,[r3,#12]
+ 725 004a 9A73     	 strb r2,[r3,#14]
+ 726 004c 7047     	 bx lr
+ 727              	.L57:
+ 728 004e C046     	 .align 2
+ 729              	.L56:
+ 730 0050 00000000 	 .word .LANCHOR3
+ 731 0054 00000000 	 .word new_data
+ 732 0058 00000000 	 .word node_id
+ 733 005c 00000000 	 .word neu_Ser_NrH
+ 734 0060 00000000 	 .word neu_Ser_NrL
+ 735 0064 00000000 	 .word Ser_NrH
+ 736 0068 00000000 	 .word Ser_NrL
+ 738              	 .section .text.new_data_NodeIdBack,"ax",%progbits
+ 739              	 .align 1
+ 740              	 .global new_data_NodeIdBack
+ 741              	 .code 16
+ 742              	 .thumb_func
+ 744              	new_data_NodeIdBack:
+ 745 0000 0D21     	 mov r1,#13
+ 746 0002 4C22     	 mov r2,#76
+ 747 0004 0F4B     	 ldr r3,.L59
+ 748              	 
+ 749 0006 1970     	 strb r1,[r3]
+ 750 0008 0F4B     	 ldr r3,.L59+4
+ 751 000a 1A70     	 strb r2,[r3]
+ 752 000c 033A     	 sub r2,r2,#3
+ 753 000e 5A70     	 strb r2,[r3,#1]
+ 754 0010 0532     	 add r2,r2,#5
+ 755 0012 9A70     	 strb r2,[r3,#2]
+ 756 0014 0D4A     	 ldr r2,.L59+8
+ 757 0016 1971     	 strb r1,[r3,#4]
+ 758 0018 1278     	 ldrb r2,[r2]
+ 759 001a 6031     	 add r1,r1,#96
+ 760 001c DA70     	 strb r2,[r3,#3]
+ 761 001e 5971     	 strb r1,[r3,#5]
+ 762 0020 DA71     	 strb r2,[r3,#7]
+ 763 0022 0B49     	 ldr r1,.L59+12
+ 764 0024 0B4A     	 ldr r2,.L59+16
+ 765 0026 0978     	 ldrb r1,[r1]
+ 766 0028 1288     	 ldrh r2,[r2]
+ 767 002a 9971     	 strb r1,[r3,#6]
+ 768 002c 5A72     	 strb r2,[r3,#9]
+ 769 002e 110A     	 lsr r1,r2,#8
+ 770 0030 094A     	 ldr r2,.L59+20
+ 771 0032 1972     	 strb r1,[r3,#8]
+ 772 0034 1288     	 ldrh r2,[r2]
+ 773 0036 110A     	 lsr r1,r2,#8
+ 774 0038 DA72     	 strb r2,[r3,#11]
+ 775 003a FF22     	 mov r2,#255
+ 776 003c 9972     	 strb r1,[r3,#10]
+ 777 003e 1A73     	 strb r2,[r3,#12]
+ 778 0040 7047     	 bx lr
+ 779              	.L60:
+ 780 0042 C046     	 .align 2
+ 781              	.L59:
+ 782 0044 00000000 	 .word .LANCHOR3
+ 783 0048 00000000 	 .word new_data
+ 784 004c 00000000 	 .word node_id
+ 785 0050 00000000 	 .word node_id_alt
+ 786 0054 00000000 	 .word Ser_NrH
+ 787 0058 00000000 	 .word Ser_NrL
+ 789              	 .section .text.new_data_SerNrBack,"ax",%progbits
+ 790              	 .align 1
+ 791              	 .global new_data_SerNrBack
+ 792              	 .code 16
+ 793              	 .thumb_func
+ 795              	new_data_SerNrBack:
+ 796 0000 0B22     	 mov r2,#11
+ 797 0002 4C21     	 mov r1,#76
+ 798 0004 0D4B     	 ldr r3,.L62
+ 799              	 
+ 800 0006 1A70     	 strb r2,[r3]
+ 801 0008 0D4B     	 ldr r3,.L62+4
+ 802 000a 1970     	 strb r1,[r3]
+ 803 000c 0339     	 sub r1,r1,#3
+ 804 000e 5970     	 strb r1,[r3,#1]
+ 805 0010 1A71     	 strb r2,[r3,#4]
+ 806 0012 0531     	 add r1,r1,#5
+ 807 0014 6332     	 add r2,r2,#99
+ 808 0016 9970     	 strb r1,[r3,#2]
+ 809 0018 5A71     	 strb r2,[r3,#5]
+ 810 001a 0A49     	 ldr r1,.L62+8
+ 811 001c 0A4A     	 ldr r2,.L62+12
+ 812 001e 0978     	 ldrb r1,[r1]
+ 813 0020 1288     	 ldrh r2,[r2]
+ 814 0022 D970     	 strb r1,[r3,#3]
+ 815 0024 DA71     	 strb r2,[r3,#7]
+ 816 0026 110A     	 lsr r1,r2,#8
+ 817 0028 084A     	 ldr r2,.L62+16
+ 818 002a 9971     	 strb r1,[r3,#6]
+ 819 002c 1288     	 ldrh r2,[r2]
+ 820 002e 110A     	 lsr r1,r2,#8
+ 821 0030 5A72     	 strb r2,[r3,#9]
+ 822 0032 FF22     	 mov r2,#255
+ 823 0034 1972     	 strb r1,[r3,#8]
+ 824 0036 9A72     	 strb r2,[r3,#10]
+ 825 0038 7047     	 bx lr
+ 826              	.L63:
+ 827 003a C046     	 .align 2
+ 828              	.L62:
+ 829 003c 00000000 	 .word .LANCHOR3
+ 830 0040 00000000 	 .word new_data
+ 831 0044 00000000 	 .word node_id
+ 832 0048 00000000 	 .word Ser_NrH
+ 833 004c 00000000 	 .word Ser_NrL
+ 835              	 .section .text.new_data_readbuff2Back,"ax",%progbits
+ 836              	 .align 1
+ 837              	 .global new_data_readbuff2Back
+ 838              	 .code 16
+ 839              	 .thumb_func
+ 841              	new_data_readbuff2Back:
+ 842 0000 1822     	 mov r2,#24
+ 843 0002 1A4B     	 ldr r3,.L65
+ 844 0004 4C21     	 mov r1,#76
+ 845 0006 1A70     	 strb r2,[r3]
+ 846 0008 194B     	 ldr r3,.L65+4
+ 847              	 
+ 848 000a 1A71     	 strb r2,[r3,#4]
+ 849 000c 5832     	 add r2,r2,#88
+ 850 000e 5A71     	 strb r2,[r3,#5]
+ 851 0010 0022     	 mov r2,#0
+ 852 0012 1970     	 strb r1,[r3]
+ 853 0014 0339     	 sub r1,r1,#3
+ 854 0016 5970     	 strb r1,[r3,#1]
+ 855 0018 0531     	 add r1,r1,#5
+ 856 001a 9970     	 strb r1,[r3,#2]
+ 857 001c 1549     	 ldr r1,.L65+8
+ 858 001e 9A71     	 strb r2,[r3,#6]
+ 859 0020 0978     	 ldrb r1,[r1]
+ 860 0022 154A     	 ldr r2,.L65+12
+ 861 0024 D970     	 strb r1,[r3,#3]
+ 862 0026 1178     	 ldrb r1,[r2]
+ 863 0028 D971     	 strb r1,[r3,#7]
+ 864 002a 5178     	 ldrb r1,[r2,#1]
+ 865 002c 1972     	 strb r1,[r3,#8]
+ 866 002e 9178     	 ldrb r1,[r2,#2]
+ 867 0030 5972     	 strb r1,[r3,#9]
+ 868 0032 D178     	 ldrb r1,[r2,#3]
+ 869 0034 9972     	 strb r1,[r3,#10]
+ 870 0036 1179     	 ldrb r1,[r2,#4]
+ 871 0038 D972     	 strb r1,[r3,#11]
+ 872 003a 5179     	 ldrb r1,[r2,#5]
+ 873 003c 1973     	 strb r1,[r3,#12]
+ 874 003e 9179     	 ldrb r1,[r2,#6]
+ 875 0040 5973     	 strb r1,[r3,#13]
+ 876 0042 D179     	 ldrb r1,[r2,#7]
+ 877 0044 9973     	 strb r1,[r3,#14]
+ 878 0046 117A     	 ldrb r1,[r2,#8]
+ 879 0048 D973     	 strb r1,[r3,#15]
+ 880 004a 517A     	 ldrb r1,[r2,#9]
+ 881 004c 1974     	 strb r1,[r3,#16]
+ 882 004e 917A     	 ldrb r1,[r2,#10]
+ 883 0050 5974     	 strb r1,[r3,#17]
+ 884 0052 D17A     	 ldrb r1,[r2,#11]
+ 885 0054 9974     	 strb r1,[r3,#18]
+ 886 0056 117B     	 ldrb r1,[r2,#12]
+ 887 0058 D974     	 strb r1,[r3,#19]
+ 888 005a 517B     	 ldrb r1,[r2,#13]
+ 889 005c 1975     	 strb r1,[r3,#20]
+ 890 005e 917B     	 ldrb r1,[r2,#14]
+ 891 0060 5975     	 strb r1,[r3,#21]
+ 892 0062 D27B     	 ldrb r2,[r2,#15]
+ 893 0064 9A75     	 strb r2,[r3,#22]
+ 894 0066 FF22     	 mov r2,#255
+ 895 0068 DA75     	 strb r2,[r3,#23]
+ 896 006a 7047     	 bx lr
+ 897              	.L66:
+ 898              	 .align 2
+ 899              	.L65:
+ 900 006c 00000000 	 .word .LANCHOR3
+ 901 0070 00000000 	 .word new_data
+ 902 0074 00000000 	 .word node_id
+ 903 0078 00000000 	 .word ReadBuffer2
+ 905              	 .section .text.clearEpromBuffer,"ax",%progbits
+ 906              	 .align 1
+ 907              	 .global clearEpromBuffer
+ 908              	 .code 16
+ 909              	 .thumb_func
+ 911              	clearEpromBuffer:
+ 912 0000 0023     	 mov r3,#0
+ 913              	.L68:
+ 914 0002 0022     	 mov r2,#0
+ 915 0004 0B49     	 ldr r1,.L71
+ 916 0006 CA54     	 strb r2,[r1,r3]
+ 917 0008 0133     	 add r3,r3,#1
+ 918 000a DBB2     	 uxtb r3,r3
+ 919 000c 102B     	 cmp r3,#16
+ 920 000e F8D1     	 bne .L68
+ 921              	.L69:
+ 922 0010 0023     	 mov r3,#0
+ 923 0012 0949     	 ldr r1,.L71+4
+ 924 0014 8B54     	 strb r3,[r1,r2]
+ 925 0016 0132     	 add r2,r2,#1
+ 926 0018 D2B2     	 uxtb r2,r2
+ 927 001a 102A     	 cmp r2,#16
+ 928 001c F8D1     	 bne .L69
+ 929              	.L70:
+ 930 001e 0021     	 mov r1,#0
+ 931 0020 064A     	 ldr r2,.L71+8
+ 932 0022 D154     	 strb r1,[r2,r3]
+ 933 0024 0133     	 add r3,r3,#1
+ 934 0026 DBB2     	 uxtb r3,r3
+ 935 0028 202B     	 cmp r3,#32
+ 936 002a F8D1     	 bne .L70
+ 937 002c 044A     	 ldr r2,.L71+12
+ 938              	 
+ 939 002e 1370     	 strb r3,[r2]
+ 940 0030 7047     	 bx lr
+ 941              	.L72:
+ 942 0032 C046     	 .align 2
+ 943              	.L71:
+ 944 0034 00000000 	 .word ReadBuffer1
+ 945 0038 00000000 	 .word ReadBuffer2
+ 946 003c 00000000 	 .word ReadBuffer3
+ 947 0040 00000000 	 .word Index
+ 949              	 .section .text.fillEpromBuffer,"ax",%progbits
+ 950              	 .align 1
+ 951              	 .global fillEpromBuffer
+ 952              	 .code 16
+ 953              	 .thumb_func
+ 955              	fillEpromBuffer:
+ 956 0000 0023     	 mov r3,#0
+ 957              	.L74:
+ 958 0002 044A     	 ldr r2,.L75
+ 959 0004 D354     	 strb r3,[r2,r3]
+ 960 0006 0133     	 add r3,r3,#1
+ 961 0008 DBB2     	 uxtb r3,r3
+ 962 000a 642B     	 cmp r3,#100
+ 963 000c F9D1     	 bne .L74
+ 964 000e 024A     	 ldr r2,.L75+4
+ 965              	 
+ 966 0010 1370     	 strb r3,[r2]
+ 967 0012 7047     	 bx lr
+ 968              	.L76:
+ 969              	 .align 2
+ 970              	.L75:
+ 971 0014 00000000 	 .word data_buffer
+ 972 0018 00000000 	 .word Index
+ 974              	 .section .text.fill2EpromBuffer,"ax",%progbits
+ 975              	 .align 1
+ 976              	 .global fill2EpromBuffer
+ 977              	 .code 16
+ 978              	 .thumb_func
+ 980              	fill2EpromBuffer:
+ 981 0000 0023     	 mov r3,#0
+ 982              	.L78:
+ 983 0002 D943     	 mvn r1,r3
+ 984 0004 044A     	 ldr r2,.L79
+ 985 0006 D154     	 strb r1,[r2,r3]
+ 986 0008 0133     	 add r3,r3,#1
+ 987 000a DBB2     	 uxtb r3,r3
+ 988 000c 642B     	 cmp r3,#100
+ 989 000e F8D1     	 bne .L78
+ 990 0010 024A     	 ldr r2,.L79+4
+ 991              	 
+ 992 0012 1370     	 strb r3,[r2]
+ 993 0014 7047     	 bx lr
+ 994              	.L80:
+ 995 0016 C046     	 .align 2
+ 996              	.L79:
+ 997 0018 00000000 	 .word data_buffer
+ 998 001c 00000000 	 .word Index
+ 1000              	 .section .text.readAllEEprom,"ax",%progbits
+ 1001              	 .align 1
+ 1002              	 .global readAllEEprom
+ 1003              	 .code 16
+ 1004              	 .thumb_func
+ 1006              	readAllEEprom:
+ 1007 0000 38B5     	 push {r3,r4,r5,lr}
+ 1008 0002 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1009 0006 384D     	 ldr r5,.L86
+ 1010 0008 384C     	 ldr r4,.L86+4
+ 1011 000a 2870     	 strb r0,[r5]
+ 1012 000c 0328     	 cmp r0,#3
+ 1013 000e 06D1     	 bne .L82
+ 1014 0010 0238     	 sub r0,r0,#2
+ 1015 0012 0021     	 mov r1,#0
+ 1016 0014 364A     	 ldr r2,.L86+8
+ 1017 0016 1023     	 mov r3,#16
+ 1018 0018 FFF7FEFF 	 bl E_EEPROM_XMC1_Read
+ 1019 001c 2070     	 strb r0,[r4]
+ 1020              	.L82:
+ 1021 001e 2178     	 ldrb r1,[r4]
+ 1022 0020 0029     	 cmp r1,#0
+ 1023 0022 0CD1     	 bne .L83
+ 1024 0024 324B     	 ldr r3,.L86+8
+ 1025 0026 334A     	 ldr r2,.L86+12
+ 1026 0028 5878     	 ldrb r0,[r3,#1]
+ 1027 002a 1080     	 strh r0,[r2]
+ 1028 002c 9A78     	 ldrb r2,[r3,#2]
+ 1029 002e 324B     	 ldr r3,.L86+16
+ 1030 0030 0220     	 mov r0,#2
+ 1031 0032 1A80     	 strh r2,[r3]
+ 1032 0034 314A     	 ldr r2,.L86+20
+ 1033 0036 1023     	 mov r3,#16
+ 1034 0038 FFF7FEFF 	 bl E_EEPROM_XMC1_Read
+ 1035 003c 2070     	 strb r0,[r4]
+ 1036              	.L83:
+ 1037 003e 2178     	 ldrb r1,[r4]
+ 1038 0040 0029     	 cmp r1,#0
+ 1039 0042 12D1     	 bne .L84
+ 1040 0044 2D4A     	 ldr r2,.L86+20
+ 1041 0046 2E4B     	 ldr r3,.L86+24
+ 1042 0048 5078     	 ldrb r0,[r2,#1]
+ 1043 004a 1870     	 strb r0,[r3]
+ 1044 004c 9078     	 ldrb r0,[r2,#2]
+ 1045 004e 2D4B     	 ldr r3,.L86+28
+ 1046 0050 1870     	 strb r0,[r3]
+ 1047 0052 D378     	 ldrb r3,[r2,#3]
+ 1048 0054 1279     	 ldrb r2,[r2,#4]
+ 1049 0056 1B02     	 lsl r3,r3,#8
+ 1050 0058 D318     	 add r3,r2,r3
+ 1051 005a 2B4A     	 ldr r2,.L86+32
+ 1052 005c 0520     	 mov r0,#5
+ 1053 005e 1380     	 strh r3,[r2]
+ 1054 0060 2A4A     	 ldr r2,.L86+36
+ 1055 0062 2023     	 mov r3,#32
+ 1056 0064 FFF7FEFF 	 bl E_EEPROM_XMC1_Read
+ 1057 0068 2070     	 strb r0,[r4]
+ 1058              	.L84:
+ 1059 006a 2078     	 ldrb r0,[r4]
+ 1060 006c 0028     	 cmp r0,#0
+ 1061 006e 36D1     	 bne .L85
+ 1062 0070 264B     	 ldr r3,.L86+36
+ 1063 0072 274A     	 ldr r2,.L86+40
+ 1064 0074 5978     	 ldrb r1,[r3,#1]
+ 1065 0076 1170     	 strb r1,[r2]
+ 1066 0078 9978     	 ldrb r1,[r3,#2]
+ 1067 007a 264A     	 ldr r2,.L86+44
+ 1068 007c 1170     	 strb r1,[r2]
+ 1069 007e DA78     	 ldrb r2,[r3,#3]
+ 1070 0080 1979     	 ldrb r1,[r3,#4]
+ 1071 0082 1202     	 lsl r2,r2,#8
+ 1072 0084 8A18     	 add r2,r1,r2
+ 1073 0086 2449     	 ldr r1,.L86+48
+ 1074 0088 0A80     	 strh r2,[r1]
+ 1075 008a 5A79     	 ldrb r2,[r3,#5]
+ 1076 008c 9979     	 ldrb r1,[r3,#6]
+ 1077 008e 1202     	 lsl r2,r2,#8
+ 1078 0090 8A18     	 add r2,r1,r2
+ 1079 0092 2249     	 ldr r1,.L86+52
+ 1080 0094 0A80     	 strh r2,[r1]
+ 1081 0096 DA79     	 ldrb r2,[r3,#7]
+ 1082 0098 197A     	 ldrb r1,[r3,#8]
+ 1083 009a 1202     	 lsl r2,r2,#8
+ 1084 009c 8A18     	 add r2,r1,r2
+ 1085 009e 2049     	 ldr r1,.L86+56
+ 1086 00a0 0A80     	 strh r2,[r1]
+ 1087 00a2 5A7A     	 ldrb r2,[r3,#9]
+ 1088 00a4 997A     	 ldrb r1,[r3,#10]
+ 1089 00a6 1202     	 lsl r2,r2,#8
+ 1090 00a8 8A18     	 add r2,r1,r2
+ 1091 00aa 1E49     	 ldr r1,.L86+60
+ 1092 00ac 0A80     	 strh r2,[r1]
+ 1093 00ae DA7A     	 ldrb r2,[r3,#11]
+ 1094 00b0 197B     	 ldrb r1,[r3,#12]
+ 1095 00b2 1202     	 lsl r2,r2,#8
+ 1096 00b4 8A18     	 add r2,r1,r2
+ 1097 00b6 1C49     	 ldr r1,.L86+64
+ 1098 00b8 0A80     	 strh r2,[r1]
+ 1099 00ba 5A7B     	 ldrb r2,[r3,#13]
+ 1100 00bc 997B     	 ldrb r1,[r3,#14]
+ 1101 00be 1202     	 lsl r2,r2,#8
+ 1102 00c0 8A18     	 add r2,r1,r2
+ 1103 00c2 1A49     	 ldr r1,.L86+68
+ 1104 00c4 0A80     	 strh r2,[r1]
+ 1105 00c6 DA7B     	 ldrb r2,[r3,#15]
+ 1106 00c8 197C     	 ldrb r1,[r3,#16]
+ 1107 00ca 1202     	 lsl r2,r2,#8
+ 1108 00cc 8A18     	 add r2,r1,r2
+ 1109 00ce 1849     	 ldr r1,.L86+72
+ 1110 00d0 0A80     	 strh r2,[r1]
+ 1111 00d2 5A7C     	 ldrb r2,[r3,#17]
+ 1112 00d4 9B7C     	 ldrb r3,[r3,#18]
+ 1113 00d6 1202     	 lsl r2,r2,#8
+ 1114 00d8 9B18     	 add r3,r3,r2
+ 1115 00da 164A     	 ldr r2,.L86+76
+ 1116 00dc 1380     	 strh r3,[r2]
+ 1117              	.L85:
+ 1118 00de 2B78     	 ldrb r3,[r5]
+ 1119 00e0 0001     	 lsl r0,r0,#4
+ 1120 00e2 1818     	 add r0,r3,r0
+ 1121              	 
+ 1122 00e4 38BD     	 pop {r3,r4,r5,pc}
+ 1123              	.L87:
+ 1124 00e6 C046     	 .align 2
+ 1125              	.L86:
+ 1126 00e8 00000000 	 .word EEprom_status
+ 1127 00ec 00000000 	 .word oper_status
+ 1128 00f0 00000000 	 .word ReadBuffer1
+ 1129 00f4 00000000 	 .word Ser_NrH
+ 1130 00f8 00000000 	 .word Ser_NrL
+ 1131 00fc 00000000 	 .word ReadBuffer2
+ 1132 0100 00000000 	 .word node_id_alt
+ 1133 0104 00000000 	 .word node_id
+ 1134 0108 00000000 	 .word node_id_16bit
+ 1135 010c 00000000 	 .word ReadBuffer3
+ 1136 0110 00000000 	 .word RegOnOff
+ 1137 0114 00000000 	 .word RegOnOff2
+ 1138 0118 00000000 	 .word dimAkt_Ww
+ 1139 011c 00000000 	 .word dimAkt_Cw
+ 1140 0120 00000000 	 .word dimOff_Ww
+ 1141 0124 00000000 	 .word dimOff_Cw
+ 1142 0128 00000000 	 .word dimNorm1_Ww
+ 1143 012c 00000000 	 .word dimNorm1_Cw
+ 1144 0130 00000000 	 .word dimNorm2_Ww
+ 1145 0134 00000000 	 .word dimNorm2_Cw
+ 1147              	 .section .text.readSerNrEEprom,"ax",%progbits
+ 1148              	 .align 1
+ 1149              	 .global readSerNrEEprom
+ 1150              	 .code 16
+ 1151              	 .thumb_func
+ 1153              	readSerNrEEprom:
+ 1154 0000 38B5     	 push {r3,r4,r5,lr}
+ 1155 0002 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1156 0006 094B     	 ldr r3,.L90
+ 1157 0008 094D     	 ldr r5,.L90+4
+ 1158 000a 1870     	 strb r0,[r3]
+ 1159 000c 1C1C     	 mov r4,r3
+ 1160 000e 0328     	 cmp r0,#3
+ 1161 0010 06D1     	 bne .L89
+ 1162 0012 0238     	 sub r0,r0,#2
+ 1163 0014 0021     	 mov r1,#0
+ 1164 0016 074A     	 ldr r2,.L90+8
+ 1165 0018 1023     	 mov r3,#16
+ 1166 001a FFF7FEFF 	 bl E_EEPROM_XMC1_Read
+ 1167 001e 2870     	 strb r0,[r5]
+ 1168              	.L89:
+ 1169 0020 2878     	 ldrb r0,[r5]
+ 1170 0022 2378     	 ldrb r3,[r4]
+ 1171 0024 0001     	 lsl r0,r0,#4
+ 1172 0026 1818     	 add r0,r3,r0
+ 1173              	 
+ 1174 0028 38BD     	 pop {r3,r4,r5,pc}
+ 1175              	.L91:
+ 1176 002a C046     	 .align 2
+ 1177              	.L90:
+ 1178 002c 00000000 	 .word EEprom_status
+ 1179 0030 00000000 	 .word oper_status
+ 1180 0034 00000000 	 .word ReadBuffer1
+ 1182              	 .section .text.readNodeIdEEprom,"ax",%progbits
+ 1183              	 .align 1
+ 1184              	 .global readNodeIdEEprom
+ 1185              	 .code 16
+ 1186              	 .thumb_func
+ 1188              	readNodeIdEEprom:
+ 1189 0000 38B5     	 push {r3,r4,r5,lr}
+ 1190 0002 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1191 0006 094B     	 ldr r3,.L94
+ 1192 0008 094D     	 ldr r5,.L94+4
+ 1193 000a 1870     	 strb r0,[r3]
+ 1194 000c 1C1C     	 mov r4,r3
+ 1195 000e 0328     	 cmp r0,#3
+ 1196 0010 06D1     	 bne .L93
+ 1197 0012 0138     	 sub r0,r0,#1
+ 1198 0014 0021     	 mov r1,#0
+ 1199 0016 074A     	 ldr r2,.L94+8
+ 1200 0018 1023     	 mov r3,#16
+ 1201 001a FFF7FEFF 	 bl E_EEPROM_XMC1_Read
+ 1202 001e 2870     	 strb r0,[r5]
+ 1203              	.L93:
+ 1204 0020 2878     	 ldrb r0,[r5]
+ 1205 0022 2378     	 ldrb r3,[r4]
+ 1206 0024 0001     	 lsl r0,r0,#4
+ 1207 0026 1818     	 add r0,r3,r0
+ 1208              	 
+ 1209 0028 38BD     	 pop {r3,r4,r5,pc}
+ 1210              	.L95:
+ 1211 002a C046     	 .align 2
+ 1212              	.L94:
+ 1213 002c 00000000 	 .word EEprom_status
+ 1214 0030 00000000 	 .word oper_status
+ 1215 0034 00000000 	 .word ReadBuffer2
+ 1217              	 .section .text.read_akt_light_EEprom,"ax",%progbits
+ 1218              	 .align 1
+ 1219              	 .global read_akt_light_EEprom
+ 1220              	 .code 16
+ 1221              	 .thumb_func
+ 1223              	read_akt_light_EEprom:
+ 1224 0000 38B5     	 push {r3,r4,r5,lr}
+ 1225 0002 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1226 0006 094B     	 ldr r3,.L98
+ 1227 0008 094D     	 ldr r5,.L98+4
+ 1228 000a 1870     	 strb r0,[r3]
+ 1229 000c 1C1C     	 mov r4,r3
+ 1230 000e 0328     	 cmp r0,#3
+ 1231 0010 06D1     	 bne .L97
+ 1232 0012 0130     	 add r0,r0,#1
+ 1233 0014 0021     	 mov r1,#0
+ 1234 0016 074A     	 ldr r2,.L98+8
+ 1235 0018 1023     	 mov r3,#16
+ 1236 001a FFF7FEFF 	 bl E_EEPROM_XMC1_Read
+ 1237 001e 2870     	 strb r0,[r5]
+ 1238              	.L97:
+ 1239 0020 2878     	 ldrb r0,[r5]
+ 1240 0022 2378     	 ldrb r3,[r4]
+ 1241 0024 0001     	 lsl r0,r0,#4
+ 1242 0026 1818     	 add r0,r3,r0
+ 1243              	 
+ 1244 0028 38BD     	 pop {r3,r4,r5,pc}
+ 1245              	.L99:
+ 1246 002a C046     	 .align 2
+ 1247              	.L98:
+ 1248 002c 00000000 	 .word EEprom_status
+ 1249 0030 00000000 	 .word oper_status
+ 1250 0034 00000000 	 .word ReadBuffer2
+ 1252              	 .section .text.read_off_light_EEprom,"ax",%progbits
+ 1253              	 .align 1
+ 1254              	 .global read_off_light_EEprom
+ 1255              	 .code 16
+ 1256              	 .thumb_func
+ 1258              	read_off_light_EEprom:
+ 1259 0000 38B5     	 push {r3,r4,r5,lr}
+ 1260 0002 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1261 0006 094B     	 ldr r3,.L102
+ 1262 0008 094D     	 ldr r5,.L102+4
+ 1263 000a 1870     	 strb r0,[r3]
+ 1264 000c 1C1C     	 mov r4,r3
+ 1265 000e 0328     	 cmp r0,#3
+ 1266 0010 06D1     	 bne .L101
+ 1267 0012 0230     	 add r0,r0,#2
+ 1268 0014 0021     	 mov r1,#0
+ 1269 0016 074A     	 ldr r2,.L102+8
+ 1270 0018 1023     	 mov r3,#16
+ 1271 001a FFF7FEFF 	 bl E_EEPROM_XMC1_Read
+ 1272 001e 2870     	 strb r0,[r5]
+ 1273              	.L101:
+ 1274 0020 2878     	 ldrb r0,[r5]
+ 1275 0022 2378     	 ldrb r3,[r4]
+ 1276 0024 0001     	 lsl r0,r0,#4
+ 1277 0026 1818     	 add r0,r3,r0
+ 1278              	 
+ 1279 0028 38BD     	 pop {r3,r4,r5,pc}
+ 1280              	.L103:
+ 1281 002a C046     	 .align 2
+ 1282              	.L102:
+ 1283 002c 00000000 	 .word EEprom_status
+ 1284 0030 00000000 	 .word oper_status
+ 1285 0034 00000000 	 .word ReadBuffer2
+ 1287              	 .section .text.writeSernr_B1_EEprom,"ax",%progbits
+ 1288              	 .align 1
+ 1289              	 .global writeSernr_B1_EEprom
+ 1290              	 .code 16
+ 1291              	 .thumb_func
+ 1293              	writeSernr_B1_EEprom:
+ 1294 0000 0D4B     	 ldr r3,.L108
+ 1295 0002 70B5     	 push {r4,r5,r6,lr}
+ 1296 0004 1A88     	 ldrh r2,[r3]
+ 1297 0006 BA23     	 mov r3,#186
+ 1298 0008 0C4E     	 ldr r6,.L108+4
+ 1299 000a 0D4D     	 ldr r5,.L108+8
+ 1300 000c 8024     	 mov r4,#128
+ 1301 000e 1B01     	 lsl r3,r3,#4
+ 1302 0010 9A42     	 cmp r2,r3
+ 1303 0012 0AD9     	 bls .L105
+ 1304 0014 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1305 0018 0024     	 mov r4,#0
+ 1306 001a 3070     	 strb r0,[r6]
+ 1307 001c 0328     	 cmp r0,#3
+ 1308 001e 04D1     	 bne .L105
+ 1309 0020 0238     	 sub r0,r0,#2
+ 1310 0022 0849     	 ldr r1,.L108+12
+ 1311 0024 FFF7FEFF 	 bl E_EEPROM_XMC1_Write
+ 1312 0028 2870     	 strb r0,[r5]
+ 1313              	.L105:
+ 1314 002a 2878     	 ldrb r0,[r5]
+ 1315 002c 3378     	 ldrb r3,[r6]
+ 1316 002e 0001     	 lsl r0,r0,#4
+ 1317 0030 1818     	 add r0,r3,r0
+ 1318 0032 0019     	 add r0,r0,r4
+ 1319              	 
+ 1320 0034 70BD     	 pop {r4,r5,r6,pc}
+ 1321              	.L109:
+ 1322 0036 C046     	 .align 2
+ 1323              	.L108:
+ 1324 0038 00000000 	 .word .LANCHOR7
+ 1325 003c 00000000 	 .word EEprom_status
+ 1326 0040 00000000 	 .word oper_status
+ 1327 0044 00000000 	 .word ReadBuffer1
+ 1329              	 .section .text.writeNodeid_B2_EEprom,"ax",%progbits
+ 1330              	 .align 1
+ 1331              	 .global writeNodeid_B2_EEprom
+ 1332              	 .code 16
+ 1333              	 .thumb_func
+ 1335              	writeNodeid_B2_EEprom:
+ 1336 0000 0D4B     	 ldr r3,.L114
+ 1337 0002 70B5     	 push {r4,r5,r6,lr}
+ 1338 0004 1A88     	 ldrh r2,[r3]
+ 1339 0006 BA23     	 mov r3,#186
+ 1340 0008 0C4E     	 ldr r6,.L114+4
+ 1341 000a 0D4D     	 ldr r5,.L114+8
+ 1342 000c 8024     	 mov r4,#128
+ 1343 000e 1B01     	 lsl r3,r3,#4
+ 1344 0010 9A42     	 cmp r2,r3
+ 1345 0012 0AD9     	 bls .L111
+ 1346 0014 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1347 0018 0024     	 mov r4,#0
+ 1348 001a 3070     	 strb r0,[r6]
+ 1349 001c 0328     	 cmp r0,#3
+ 1350 001e 04D1     	 bne .L111
+ 1351 0020 0138     	 sub r0,r0,#1
+ 1352 0022 0849     	 ldr r1,.L114+12
+ 1353 0024 FFF7FEFF 	 bl E_EEPROM_XMC1_Write
+ 1354 0028 2870     	 strb r0,[r5]
+ 1355              	.L111:
+ 1356 002a 2878     	 ldrb r0,[r5]
+ 1357 002c 3378     	 ldrb r3,[r6]
+ 1358 002e 0001     	 lsl r0,r0,#4
+ 1359 0030 1818     	 add r0,r3,r0
+ 1360 0032 0019     	 add r0,r0,r4
+ 1361              	 
+ 1362 0034 70BD     	 pop {r4,r5,r6,pc}
+ 1363              	.L115:
+ 1364 0036 C046     	 .align 2
+ 1365              	.L114:
+ 1366 0038 00000000 	 .word .LANCHOR7
+ 1367 003c 00000000 	 .word EEprom_status
+ 1368 0040 00000000 	 .word oper_status
+ 1369 0044 00000000 	 .word ReadBuffer2
+ 1371              	 .section .text.writeLamp_data_B3_EEprom,"ax",%progbits
+ 1372              	 .align 1
+ 1373              	 .global writeLamp_data_B3_EEprom
+ 1374              	 .code 16
+ 1375              	 .thumb_func
+ 1377              	writeLamp_data_B3_EEprom:
+ 1378 0000 0C4B     	 ldr r3,.L120
+ 1379 0002 70B5     	 push {r4,r5,r6,lr}
+ 1380 0004 1A88     	 ldrh r2,[r3]
+ 1381 0006 BA23     	 mov r3,#186
+ 1382 0008 0B4E     	 ldr r6,.L120+4
+ 1383 000a 0C4D     	 ldr r5,.L120+8
+ 1384 000c 8024     	 mov r4,#128
+ 1385 000e 1B01     	 lsl r3,r3,#4
+ 1386 0010 9A42     	 cmp r2,r3
+ 1387 0012 09D9     	 bls .L117
+ 1388 0014 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1389 0018 0024     	 mov r4,#0
+ 1390 001a 3070     	 strb r0,[r6]
+ 1391 001c 0328     	 cmp r0,#3
+ 1392 001e 03D1     	 bne .L117
+ 1393 0020 0749     	 ldr r1,.L120+12
+ 1394 0022 FFF7FEFF 	 bl E_EEPROM_XMC1_Write
+ 1395 0026 2870     	 strb r0,[r5]
+ 1396              	.L117:
+ 1397 0028 2878     	 ldrb r0,[r5]
+ 1398 002a 3378     	 ldrb r3,[r6]
+ 1399 002c 0001     	 lsl r0,r0,#4
+ 1400 002e 1818     	 add r0,r3,r0
+ 1401 0030 0019     	 add r0,r0,r4
+ 1402              	 
+ 1403 0032 70BD     	 pop {r4,r5,r6,pc}
+ 1404              	.L121:
+ 1405              	 .align 2
+ 1406              	.L120:
+ 1407 0034 00000000 	 .word .LANCHOR7
+ 1408 0038 00000000 	 .word EEprom_status
+ 1409 003c 00000000 	 .word oper_status
+ 1410 0040 00000000 	 .word ReadBuffer3
+ 1412              	 .section .text.writeakt_light_data_B4_EEprom,"ax",%progbits
+ 1413              	 .align 1
+ 1414              	 .global writeakt_light_data_B4_EEprom
+ 1415              	 .code 16
+ 1416              	 .thumb_func
+ 1418              	writeakt_light_data_B4_EEprom:
+ 1419 0000 0D4B     	 ldr r3,.L126
+ 1420 0002 70B5     	 push {r4,r5,r6,lr}
+ 1421 0004 1A88     	 ldrh r2,[r3]
+ 1422 0006 BA23     	 mov r3,#186
+ 1423 0008 0C4E     	 ldr r6,.L126+4
+ 1424 000a 0D4D     	 ldr r5,.L126+8
+ 1425 000c 8024     	 mov r4,#128
+ 1426 000e 1B01     	 lsl r3,r3,#4
+ 1427 0010 9A42     	 cmp r2,r3
+ 1428 0012 0AD9     	 bls .L123
+ 1429 0014 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1430 0018 0024     	 mov r4,#0
+ 1431 001a 3070     	 strb r0,[r6]
+ 1432 001c 0328     	 cmp r0,#3
+ 1433 001e 04D1     	 bne .L123
+ 1434 0020 0130     	 add r0,r0,#1
+ 1435 0022 0849     	 ldr r1,.L126+12
+ 1436 0024 FFF7FEFF 	 bl E_EEPROM_XMC1_Write
+ 1437 0028 2870     	 strb r0,[r5]
+ 1438              	.L123:
+ 1439 002a 2878     	 ldrb r0,[r5]
+ 1440 002c 3378     	 ldrb r3,[r6]
+ 1441 002e 0001     	 lsl r0,r0,#4
+ 1442 0030 1818     	 add r0,r3,r0
+ 1443 0032 0019     	 add r0,r0,r4
+ 1444              	 
+ 1445 0034 70BD     	 pop {r4,r5,r6,pc}
+ 1446              	.L127:
+ 1447 0036 C046     	 .align 2
+ 1448              	.L126:
+ 1449 0038 00000000 	 .word .LANCHOR7
+ 1450 003c 00000000 	 .word EEprom_status
+ 1451 0040 00000000 	 .word oper_status
+ 1452 0044 00000000 	 .word ReadBuffer2
+ 1454              	 .section .text.writeOff_light_B5_EEprom,"ax",%progbits
+ 1455              	 .align 1
+ 1456              	 .global writeOff_light_B5_EEprom
+ 1457              	 .code 16
+ 1458              	 .thumb_func
+ 1460              	writeOff_light_B5_EEprom:
+ 1461 0000 0D4B     	 ldr r3,.L132
+ 1462 0002 70B5     	 push {r4,r5,r6,lr}
+ 1463 0004 1A88     	 ldrh r2,[r3]
+ 1464 0006 BA23     	 mov r3,#186
+ 1465 0008 0C4E     	 ldr r6,.L132+4
+ 1466 000a 0D4D     	 ldr r5,.L132+8
+ 1467 000c 8024     	 mov r4,#128
+ 1468 000e 1B01     	 lsl r3,r3,#4
+ 1469 0010 9A42     	 cmp r2,r3
+ 1470 0012 0AD9     	 bls .L129
+ 1471 0014 FFF7FEFF 	 bl E_EEPROM_XMC1_GetStatus
+ 1472 0018 0024     	 mov r4,#0
+ 1473 001a 3070     	 strb r0,[r6]
+ 1474 001c 0328     	 cmp r0,#3
+ 1475 001e 04D1     	 bne .L129
+ 1476 0020 0230     	 add r0,r0,#2
+ 1477 0022 0849     	 ldr r1,.L132+12
+ 1478 0024 FFF7FEFF 	 bl E_EEPROM_XMC1_Write
+ 1479 0028 2870     	 strb r0,[r5]
+ 1480              	.L129:
+ 1481 002a 2878     	 ldrb r0,[r5]
+ 1482 002c 3378     	 ldrb r3,[r6]
+ 1483 002e 0001     	 lsl r0,r0,#4
+ 1484 0030 1818     	 add r0,r3,r0
+ 1485 0032 0019     	 add r0,r0,r4
+ 1486              	 
+ 1487 0034 70BD     	 pop {r4,r5,r6,pc}
+ 1488              	.L133:
+ 1489 0036 C046     	 .align 2
+ 1490              	.L132:
+ 1491 0038 00000000 	 .word .LANCHOR7
+ 1492 003c 00000000 	 .word EEprom_status
+ 1493 0040 00000000 	 .word oper_status
+ 1494 0044 00000000 	 .word ReadBuffer2
+ 1496              	 .section .text.sysiniValueB1,"ax",%progbits
+ 1497              	 .align 1
+ 1498              	 .global sysiniValueB1
+ 1499              	 .code 16
+ 1500              	 .thumb_func
+ 1502              	sysiniValueB1:
+ 1503 0000 0C4B     	 ldr r3,.L135
+ 1504 0002 0D4A     	 ldr r2,.L135+4
+ 1505              	 
+ 1506 0004 1A80     	 strh r2,[r3]
+ 1507 0006 0D4B     	 ldr r3,.L135+8
+ 1508 0008 0D4A     	 ldr r2,.L135+12
+ 1509 000a 1A80     	 strh r2,[r3]
+ 1510 000c FA23     	 mov r3,#250
+ 1511 000e 0D4A     	 ldr r2,.L135+16
+ 1512 0010 9B00     	 lsl r3,r3,#2
+ 1513 0012 1380     	 strh r3,[r2]
+ 1514 0014 0C4A     	 ldr r2,.L135+20
+ 1515 0016 1380     	 strh r3,[r2]
+ 1516 0018 0C4A     	 ldr r2,.L135+24
+ 1517 001a 1380     	 strh r3,[r2]
+ 1518 001c 0C4A     	 ldr r2,.L135+28
+ 1519 001e 1380     	 strh r3,[r2]
+ 1520 0020 0C4A     	 ldr r2,.L135+32
+ 1521 0022 1380     	 strh r3,[r2]
+ 1522 0024 0C4A     	 ldr r2,.L135+36
+ 1523 0026 1380     	 strh r3,[r2]
+ 1524 0028 0023     	 mov r3,#0
+ 1525 002a 0C4A     	 ldr r2,.L135+40
+ 1526 002c 1380     	 strh r3,[r2]
+ 1527 002e 0C4A     	 ldr r2,.L135+44
+ 1528 0030 1380     	 strh r3,[r2]
+ 1529 0032 7047     	 bx lr
+ 1530              	.L136:
+ 1531              	 .align 2
+ 1532              	.L135:
+ 1533 0034 00000000 	 .word Ser_NrH
+ 1534 0038 7A7B0000 	 .word 31610
+ 1535 003c 00000000 	 .word Ser_NrL
+ 1536 0040 59580000 	 .word 22617
+ 1537 0044 00000000 	 .word Hard_Vers
+ 1538 0048 00000000 	 .word Soft_Vers
+ 1539 004c 00000000 	 .word GEH_Vers
+ 1540 0050 00000000 	 .word Mon_Vers
+ 1541 0054 00000000 	 .word LED_WW_Vers
+ 1542 0058 00000000 	 .word LED_CW_Vers
+ 1543 005c 00000000 	 .word neu_Ser_NrH
+ 1544 0060 00000000 	 .word neu_Ser_NrL
+ 1546              	 .section .text.sysiniValueB2,"ax",%progbits
+ 1547              	 .align 1
+ 1548              	 .global sysiniValueB2
+ 1549              	 .code 16
+ 1550              	 .thumb_func
+ 1552              	sysiniValueB2:
+ 1553 0000 0123     	 mov r3,#1
+ 1554 0002 0E4A     	 ldr r2,.L138
+ 1555 0004 0E49     	 ldr r1,.L138+4
+ 1556 0006 1370     	 strb r3,[r2]
+ 1557 0008 0E4A     	 ldr r2,.L138+8
+ 1558              	 
+ 1559 000a 1370     	 strb r3,[r2]
+ 1560 000c 0E4A     	 ldr r2,.L138+12
+ 1561 000e 1180     	 strh r1,[r2]
+ 1562 0010 FA22     	 mov r2,#250
+ 1563 0012 0E49     	 ldr r1,.L138+16
+ 1564 0014 D200     	 lsl r2,r2,#3
+ 1565 0016 0A80     	 strh r2,[r1]
+ 1566 0018 0D49     	 ldr r1,.L138+20
+ 1567 001a 0A80     	 strh r2,[r1]
+ 1568 001c E121     	 mov r1,#225
+ 1569 001e 0D4A     	 ldr r2,.L138+24
+ 1570 0020 0901     	 lsl r1,r1,#4
+ 1571 0022 1180     	 strh r1,[r2]
+ 1572 0024 0C4A     	 ldr r2,.L138+28
+ 1573 0026 0D49     	 ldr r1,.L138+32
+ 1574 0028 1180     	 strh r1,[r2]
+ 1575 002a 0A21     	 mov r1,#10
+ 1576 002c 0C4A     	 ldr r2,.L138+36
+ 1577 002e 1180     	 strh r1,[r2]
+ 1578 0030 0C4A     	 ldr r2,.L138+40
+ 1579 0032 2B31     	 add r1,r1,#43
+ 1580 0034 1180     	 strh r1,[r2]
+ 1581 0036 0C4A     	 ldr r2,.L138+44
+ 1582 0038 1370     	 strb r3,[r2]
+ 1583 003a 7047     	 bx lr
+ 1584              	.L139:
+ 1585              	 .align 2
+ 1586              	.L138:
+ 1587 003c 00000000 	 .word node_id
+ 1588 0040 34120000 	 .word 4660
+ 1589 0044 00000000 	 .word node_id_alt
+ 1590 0048 00000000 	 .word node_id_16bit
+ 1591 004c 00000000 	 .word val_Pow_Nom
+ 1592 0050 00000000 	 .word val_Pow_max
+ 1593 0054 00000000 	 .word val_Spannung_min
+ 1594 0058 00000000 	 .word val_Spannung_max
+ 1595 005c 68100000 	 .word 4200
+ 1596 0060 00000000 	 .word led_grupp
+ 1597 0064 00000000 	 .word led_Strom
+ 1598 0068 00000000 	 .word node_id_neu
+ 1600              	 .section .text.sysiniValueB4,"ax",%progbits
+ 1601              	 .align 1
+ 1602              	 .global sysiniValueB4
+ 1603              	 .code 16
+ 1604              	 .thumb_func
+ 1606              	sysiniValueB4:
+ 1607 0000 0A23     	 mov r3,#10
+ 1608 0002 0121     	 mov r1,#1
+ 1609 0004 154A     	 ldr r2,.L141
+ 1610 0006 4942     	 neg r1,r1
+ 1611 0008 1370     	 strb r3,[r2]
+ 1612 000a 154A     	 ldr r2,.L141+4
+ 1613              	 
+ 1614 000c 1370     	 strb r3,[r2]
+ 1615 000e 154A     	 ldr r2,.L141+8
+ 1616 0010 1370     	 strb r3,[r2]
+ 1617 0012 154A     	 ldr r2,.L141+12
+ 1618 0014 1370     	 strb r3,[r2]
+ 1619 0016 154A     	 ldr r2,.L141+16
+ 1620 0018 1380     	 strh r3,[r2]
+ 1621 001a 154A     	 ldr r2,.L141+20
+ 1622 001c A633     	 add r3,r3,#166
+ 1623 001e 1380     	 strh r3,[r2]
+ 1624 0020 144A     	 ldr r2,.L141+24
+ 1625 0022 1180     	 strh r1,[r2]
+ 1626 0024 0021     	 mov r1,#0
+ 1627 0026 144A     	 ldr r2,.L141+28
+ 1628 0028 1180     	 strh r1,[r2]
+ 1629 002a FA22     	 mov r2,#250
+ 1630 002c 1349     	 ldr r1,.L141+32
+ 1631 002e 9200     	 lsl r2,r2,#2
+ 1632 0030 0A80     	 strh r2,[r1]
+ 1633 0032 1349     	 ldr r1,.L141+36
+ 1634 0034 0A80     	 strh r2,[r1]
+ 1635 0036 134A     	 ldr r2,.L141+40
+ 1636 0038 1380     	 strh r3,[r2]
+ 1637 003a 134A     	 ldr r2,.L141+44
+ 1638 003c 1380     	 strh r3,[r2]
+ 1639 003e 134A     	 ldr r2,.L141+48
+ 1640 0040 1380     	 strh r3,[r2]
+ 1641 0042 134A     	 ldr r2,.L141+52
+ 1642 0044 1380     	 strh r3,[r2]
+ 1643 0046 134A     	 ldr r2,.L141+56
+ 1644 0048 4F33     	 add r3,r3,#79
+ 1645 004a 1380     	 strh r3,[r2]
+ 1646 004c 124A     	 ldr r2,.L141+60
+ 1647 004e 1380     	 strh r3,[r2]
+ 1648 0050 124A     	 ldr r2,.L141+64
+ 1649 0052 1380     	 strh r3,[r2]
+ 1650 0054 124A     	 ldr r2,.L141+68
+ 1651 0056 1380     	 strh r3,[r2]
+ 1652 0058 7047     	 bx lr
+ 1653              	.L142:
+ 1654 005a C046     	 .align 2
+ 1655              	.L141:
+ 1656 005c 00000000 	 .word Dimm_Gamma
+ 1657 0060 00000000 	 .word Dimm_Stufen
+ 1658 0064 00000000 	 .word Dimm_StufenGR
+ 1659 0068 00000000 	 .word Dimm_Valu
+ 1660 006c 00000000 	 .word Smooth_Value
+ 1661 0070 00000000 	 .word .LANCHOR6
+ 1662 0074 00000000 	 .word Farbe_wwcw_Quot_gen
+ 1663 0078 00000000 	 .word Reserve_1
+ 1664 007c 00000000 	 .word Dimm_Max_WW
+ 1665 0080 00000000 	 .word Dimm_Max_CW
+ 1666 0084 00000000 	 .word linearwalk_ww1
+ 1667 0088 00000000 	 .word linearwalk_ww2
+ 1668 008c 00000000 	 .word linearwalk_cw1
+ 1669 0090 00000000 	 .word linearwalk_cw2
+ 1670 0094 00000000 	 .word Farbe_ww1_Quot
+ 1671 0098 00000000 	 .word Farbe_cw1_Quot
+ 1672 009c 00000000 	 .word Farbe_ww2_Quot
+ 1673 00a0 00000000 	 .word Farbe_cw2_Quot
+ 1675              	 .section .text.sysiniValueB5,"ax",%progbits
+ 1676              	 .align 1
+ 1677              	 .global sysiniValueB5
+ 1678              	 .code 16
+ 1679              	 .thumb_func
+ 1681              	sysiniValueB5:
+ 1682 0000 0522     	 mov r2,#5
+ 1683 0002 0B4B     	 ldr r3,.L144
+ 1684              	 
+ 1685 0004 1A70     	 strb r2,[r3]
+ 1686 0006 0023     	 mov r3,#0
+ 1687 0008 0A4A     	 ldr r2,.L144+4
+ 1688 000a 1370     	 strb r3,[r2]
+ 1689 000c 0A4A     	 ldr r2,.L144+8
+ 1690 000e 1380     	 strh r3,[r2]
+ 1691 0010 0A4B     	 ldr r3,.L144+12
+ 1692 0012 0B4A     	 ldr r2,.L144+16
+ 1693 0014 1380     	 strh r3,[r2]
+ 1694 0016 0B4A     	 ldr r2,.L144+20
+ 1695 0018 1380     	 strh r3,[r2]
+ 1696 001a 0B4B     	 ldr r3,.L144+24
+ 1697 001c 0B4A     	 ldr r2,.L144+28
+ 1698 001e 1380     	 strh r3,[r2]
+ 1699 0020 0B4A     	 ldr r2,.L144+32
+ 1700 0022 1380     	 strh r3,[r2]
+ 1701 0024 0B4B     	 ldr r3,.L144+36
+ 1702 0026 0C4A     	 ldr r2,.L144+40
+ 1703 0028 1380     	 strh r3,[r2]
+ 1704 002a 0C4A     	 ldr r2,.L144+44
+ 1705 002c 1380     	 strh r3,[r2]
+ 1706 002e 7047     	 bx lr
+ 1707              	.L145:
+ 1708              	 .align 2
+ 1709              	.L144:
+ 1710 0030 00000000 	 .word RegOnOff
+ 1711 0034 00000000 	 .word RegOnOff2
+ 1712 0038 00000000 	 .word Reserve_2
+ 1713 003c FF0F0000 	 .word 4095
+ 1714 0040 00000000 	 .word dimOff_Ww
+ 1715 0044 00000000 	 .word dimOff_Cw
+ 1716 0048 FF010000 	 .word 511
+ 1717 004c 00000000 	 .word dimNorm1_Ww
+ 1718 0050 00000000 	 .word dimNorm1_Cw
+ 1719 0054 FF020000 	 .word 767
+ 1720 0058 00000000 	 .word dimNorm2_Ww
+ 1721 005c 00000000 	 .word dimNorm2_Cw
+ 1723              	 .section .text.bcuInit,"ax",%progbits
+ 1724              	 .align 1
+ 1725              	 .global bcuInit
+ 1726              	 .code 16
+ 1727              	 .thumb_func
+ 1729              	bcuInit:
+ 1730 0000 00B5     	 push {lr}
+ 1731 0002 0F4B     	 ldr r3,.L155
+ 1732 0004 1878     	 ldrb r0,[r3]
+ 1733 0006 0138     	 sub r0,r0,#1
+ 1734 0008 0428     	 cmp r0,#4
+ 1735 000a 17D8     	 bhi .L146
+ 1736 000c 0D4A     	 ldr r2,.L155+4
+ 1737 000e 0E4B     	 ldr r3,.L155+8
+ 1738 0010 FFF7FEFF 	 bl __gnu_thumb1_case_uqi
+ 1739              	.L149:
+ 1740 0014 03       	 .byte (.L148-.L149)/2
+ 1741 0015 05       	 .byte (.L150-.L149)/2
+ 1742 0016 09       	 .byte (.L151-.L149)/2
+ 1743 0017 09       	 .byte (.L151-.L149)/2
+ 1744 0018 0E       	 .byte (.L152-.L149)/2
+ 1745 0019 00       	 .p2align 1
+ 1746              	.L148:
+ 1747 001a 0021     	 mov r1,#0
+ 1748 001c 00E0     	 b .L153
+ 1749              	.L150:
+ 1750 001e 0B49     	 ldr r1,.L155+12
+ 1751              	.L153:
+ 1752 0020 1180     	 strh r1,[r2]
+ 1753 0022 1980     	 strh r1,[r3]
+ 1754 0024 0AE0     	 b .L146
+ 1755              	.L151:
+ 1756 0026 0A49     	 ldr r1,.L155+16
+ 1757 0028 0988     	 ldrh r1,[r1]
+ 1758 002a 1180     	 strh r1,[r2]
+ 1759 002c 094A     	 ldr r2,.L155+20
+ 1760 002e 03E0     	 b .L154
+ 1761              	.L152:
+ 1762 0030 0949     	 ldr r1,.L155+24
+ 1763 0032 0988     	 ldrh r1,[r1]
+ 1764 0034 1180     	 strh r1,[r2]
+ 1765 0036 094A     	 ldr r2,.L155+28
+ 1766              	.L154:
+ 1767 0038 1288     	 ldrh r2,[r2]
+ 1768 003a 1A80     	 strh r2,[r3]
+ 1769              	.L146:
+ 1770              	 
+ 1771 003c 00BD     	 pop {pc}
+ 1772              	.L156:
+ 1773 003e C046     	 .align 2
+ 1774              	.L155:
+ 1775 0040 00000000 	 .word RegOnOff
+ 1776 0044 00000000 	 .word dimAkt_Ww
+ 1777 0048 00000000 	 .word dimAkt_Cw
+ 1778 004c FF7F0000 	 .word 32767
+ 1779 0050 00000000 	 .word dimNorm2_Ww
+ 1780 0054 00000000 	 .word dimNorm2_Cw
+ 1781 0058 00000000 	 .word dimOff_Ww
+ 1782 005c 00000000 	 .word dimOff_Cw
+ 1784              	 .section .text.bcuUebergabe,"ax",%progbits
+ 1785              	 .align 1
+ 1786              	 .global bcuUebergabe
+ 1787              	 .code 16
+ 1788              	 .thumb_func
+ 1790              	bcuUebergabe:
+ 1791 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 1792 0002 164F     	 ldr r7,.L158
+ 1793 0004 164B     	 ldr r3,.L158+4
+ 1794 0006 381C     	 mov r0,r7
+ 1795 0008 1988     	 ldrh r1,[r3]
+ 1796 000a FFF7FEFF 	 bl PDM_BCCU_SetIntensity
+ 1797 000e 154E     	 ldr r6,.L158+8
+ 1798 0010 154B     	 ldr r3,.L158+12
+ 1799 0012 301C     	 mov r0,r6
+ 1800 0014 1988     	 ldrh r1,[r3]
+ 1801 0016 FFF7FEFF 	 bl PDM_BCCU_SetIntensity
+ 1802 001a 144D     	 ldr r5,.L158+16
+ 1803 001c 144B     	 ldr r3,.L158+20
+ 1804 001e 281C     	 mov r0,r5
+ 1805 0020 1988     	 ldrh r1,[r3]
+ 1806 0022 FFF7FEFF 	 bl PDM_BCCU_SetIntensity
+ 1807 0026 134C     	 ldr r4,.L158+24
+ 1808 0028 134B     	 ldr r3,.L158+28
+ 1809 002a 201C     	 mov r0,r4
+ 1810 002c 1988     	 ldrh r1,[r3]
+ 1811 002e FFF7FEFF 	 bl PDM_BCCU_SetIntensity
+ 1812 0032 124B     	 ldr r3,.L158+32
+ 1813 0034 381C     	 mov r0,r7
+ 1814 0036 1988     	 ldrh r1,[r3]
+ 1815 0038 FFF7FEFF 	 bl PDM_BCCU_SetLinearWalk
+ 1816 003c 104B     	 ldr r3,.L158+36
+ 1817 003e 301C     	 mov r0,r6
+ 1818 0040 1988     	 ldrh r1,[r3]
+ 1819 0042 FFF7FEFF 	 bl PDM_BCCU_SetLinearWalk
+ 1820 0046 0F4B     	 ldr r3,.L158+40
+ 1821 0048 281C     	 mov r0,r5
+ 1822 004a 1988     	 ldrh r1,[r3]
+ 1823 004c FFF7FEFF 	 bl PDM_BCCU_SetLinearWalk
+ 1824 0050 0D4B     	 ldr r3,.L158+44
+ 1825 0052 201C     	 mov r0,r4
+ 1826 0054 1988     	 ldrh r1,[r3]
+ 1827 0056 FFF7FEFF 	 bl PDM_BCCU_SetLinearWalk
+ 1828              	 
+ 1829 005a F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 1830              	.L159:
+ 1831              	 .align 2
+ 1832              	.L158:
+ 1833 005c 00000000 	 .word PDM_BCCU_0
+ 1834 0060 00000000 	 .word Farbe_ww2
+ 1835 0064 00000000 	 .word PDM_BCCU_1
+ 1836 0068 00000000 	 .word Farbe_cw2
+ 1837 006c 00000000 	 .word PDM_BCCU_2
+ 1838 0070 00000000 	 .word Farbe_ww1
+ 1839 0074 00000000 	 .word PDM_BCCU_3
+ 1840 0078 00000000 	 .word Farbe_cw1
+ 1841 007c 00000000 	 .word linearwalk_ww2
+ 1842 0080 00000000 	 .word linearwalk_cw2
+ 1843 0084 00000000 	 .word linearwalk_ww1
+ 1844 0088 00000000 	 .word linearwalk_cw1
+ 1846              	 .section .text.bcuAktBerechnung,"ax",%progbits
+ 1847              	 .align 1
+ 1848              	 .global bcuAktBerechnung
+ 1849              	 .code 16
+ 1850              	 .thumb_func
+ 1852              	bcuAktBerechnung:
+ 1853 0000 114B     	 ldr r3,.L161
+ 1854 0002 1249     	 ldr r1,.L161+4
+ 1855 0004 1B88     	 ldrh r3,[r3]
+ 1856 0006 10B5     	 push {r4,lr}
+ 1857 0008 1A0A     	 lsr r2,r3,#8
+ 1858 000a 101C     	 mov r0,r2
+ 1859 000c 0A80     	 strh r2,[r1]
+ 1860 000e 1049     	 ldr r1,.L161+8
+ 1861 0010 DBB2     	 uxtb r3,r3
+ 1862 0012 0A80     	 strh r2,[r1]
+ 1863 0014 0F49     	 ldr r1,.L161+12
+ 1864 0016 104C     	 ldr r4,.L161+16
+ 1865 0018 0B80     	 strh r3,[r1]
+ 1866 001a 1049     	 ldr r1,.L161+20
+ 1867              	 
+ 1868 001c 0B80     	 strh r3,[r1]
+ 1869 001e 1049     	 ldr r1,.L161+24
+ 1870 0020 0988     	 ldrh r1,[r1]
+ 1871 0022 4843     	 mul r0,r1
+ 1872 0024 5943     	 mul r1,r3
+ 1873 0026 000B     	 lsr r0,r0,#12
+ 1874 0028 2080     	 strh r0,[r4]
+ 1875 002a 0E48     	 ldr r0,.L161+28
+ 1876 002c 090B     	 lsr r1,r1,#12
+ 1877 002e 0180     	 strh r1,[r0]
+ 1878 0030 0D49     	 ldr r1,.L161+32
+ 1879 0032 0E48     	 ldr r0,.L161+36
+ 1880 0034 0988     	 ldrh r1,[r1]
+ 1881 0036 4A43     	 mul r2,r1
+ 1882 0038 4B43     	 mul r3,r1
+ 1883 003a 120B     	 lsr r2,r2,#12
+ 1884 003c 0280     	 strh r2,[r0]
+ 1885 003e 0C4A     	 ldr r2,.L161+40
+ 1886 0040 1B0B     	 lsr r3,r3,#12
+ 1887 0042 1380     	 strh r3,[r2]
+ 1888 0044 10BD     	 pop {r4,pc}
+ 1889              	.L162:
+ 1890 0046 C046     	 .align 2
+ 1891              	.L161:
+ 1892 0048 00000000 	 .word Farbe_wwcw_Quot_gen
+ 1893 004c 00000000 	 .word Farbe_ww1_Quot
+ 1894 0050 00000000 	 .word Farbe_cw1_Quot
+ 1895 0054 00000000 	 .word Farbe_ww2_Quot
+ 1896 0058 00000000 	 .word Farbe_ww1
+ 1897 005c 00000000 	 .word Farbe_cw2_Quot
+ 1898 0060 00000000 	 .word dimAkt_Ww
+ 1899 0064 00000000 	 .word Farbe_ww2
+ 1900 0068 00000000 	 .word dimAkt_Cw
+ 1901 006c 00000000 	 .word Farbe_cw1
+ 1902 0070 00000000 	 .word Farbe_cw2
+ 1904              	 .section .text.bcudirAktBerechnung,"ax",%progbits
+ 1905              	 .align 1
+ 1906              	 .global bcudirAktBerechnung
+ 1907              	 .code 16
+ 1908              	 .thumb_func
+ 1910              	bcudirAktBerechnung:
+ 1911 0000 0122     	 mov r2,#1
+ 1912 0002 0E4B     	 ldr r3,.L164
+ 1913 0004 5242     	 neg r2,r2
+ 1914 0006 1A80     	 strh r2,[r3]
+ 1915 0008 FF23     	 mov r3,#255
+ 1916 000a 0D4A     	 ldr r2,.L164+4
+ 1917 000c 0D49     	 ldr r1,.L164+8
+ 1918 000e 1380     	 strh r3,[r2]
+ 1919 0010 0D4A     	 ldr r2,.L164+12
+ 1920              	 
+ 1921 0012 1380     	 strh r3,[r2]
+ 1922 0014 0D4A     	 ldr r2,.L164+16
+ 1923 0016 1380     	 strh r3,[r2]
+ 1924 0018 0D4A     	 ldr r2,.L164+20
+ 1925 001a 1380     	 strh r3,[r2]
+ 1926 001c 0D4A     	 ldr r2,.L164+24
+ 1927 001e 1288     	 ldrh r2,[r2]
+ 1928 0020 5A43     	 mul r2,r3
+ 1929 0022 120B     	 lsr r2,r2,#12
+ 1930 0024 0A80     	 strh r2,[r1]
+ 1931 0026 0C49     	 ldr r1,.L164+28
+ 1932 0028 0A80     	 strh r2,[r1]
+ 1933 002a 0C4A     	 ldr r2,.L164+32
+ 1934 002c 1288     	 ldrh r2,[r2]
+ 1935 002e 5343     	 mul r3,r2
+ 1936 0030 0B4A     	 ldr r2,.L164+36
+ 1937 0032 1B0B     	 lsr r3,r3,#12
+ 1938 0034 1380     	 strh r3,[r2]
+ 1939 0036 0B4A     	 ldr r2,.L164+40
+ 1940 0038 1380     	 strh r3,[r2]
+ 1941 003a 7047     	 bx lr
+ 1942              	.L165:
+ 1943              	 .align 2
+ 1944              	.L164:
+ 1945 003c 00000000 	 .word Farbe_wwcw_Quot_gen
+ 1946 0040 00000000 	 .word Farbe_ww1_Quot
+ 1947 0044 00000000 	 .word Farbe_ww1
+ 1948 0048 00000000 	 .word Farbe_cw1_Quot
+ 1949 004c 00000000 	 .word Farbe_ww2_Quot
+ 1950 0050 00000000 	 .word Farbe_cw2_Quot
+ 1951 0054 00000000 	 .word dimAkt_Ww
+ 1952 0058 00000000 	 .word Farbe_ww2
+ 1953 005c 00000000 	 .word dimAkt_Cw
+ 1954 0060 00000000 	 .word Farbe_cw1
+ 1955 0064 00000000 	 .word Farbe_cw2
+ 1957              	 .section .text.light_aus,"ax",%progbits
+ 1958              	 .align 1
+ 1959              	 .global light_aus
+ 1960              	 .code 16
+ 1961              	 .thumb_func
+ 1963              	light_aus:
+ 1964 0000 0C4B     	 ldr r3,.L167
+ 1965 0002 0D4A     	 ldr r2,.L167+4
+ 1966 0004 1B88     	 ldrh r3,[r3]
+ 1967 0006 10B5     	 push {r4,lr}
+ 1968 0008 1380     	 strh r3,[r2]
+ 1969 000a 0C4A     	 ldr r2,.L167+8
+ 1970              	 
+ 1971 000c 1380     	 strh r3,[r2]
+ 1972 000e 0C4A     	 ldr r2,.L167+12
+ 1973 0010 1380     	 strh r3,[r2]
+ 1974 0012 0C4A     	 ldr r2,.L167+16
+ 1975 0014 1380     	 strh r3,[r2]
+ 1976 0016 FFF7FEFF 	 bl bcudirAktBerechnung
+ 1977 001a FFF7FEFF 	 bl bcuUebergabe
+ 1978 001e 8021     	 mov r1,#128
+ 1979 0020 094C     	 ldr r4,.L167+20
+ 1980 0022 0901     	 lsl r1,r1,#4
+ 1981 0024 201C     	 mov r0,r4
+ 1982 0026 FFF7FEFF 	 bl DIM_BCCU_SetDimLvl
+ 1983 002a 201C     	 mov r0,r4
+ 1984 002c FFF7FEFF 	 bl DIM_BCCU_StartDimming
+ 1985 0030 10BD     	 pop {r4,pc}
+ 1986              	.L168:
+ 1987 0032 C046     	 .align 2
+ 1988              	.L167:
+ 1989 0034 00000000 	 .word .LANCHOR6
+ 1990 0038 00000000 	 .word linearwalk_ww1
+ 1991 003c 00000000 	 .word linearwalk_ww2
+ 1992 0040 00000000 	 .word linearwalk_cw1
+ 1993 0044 00000000 	 .word linearwalk_cw2
+ 1994 0048 00000000 	 .word DIM_BCCU_0
+ 1996              	 .section .text.bcuColorBerechnung,"ax",%progbits
+ 1997              	 .align 1
+ 1998              	 .global bcuColorBerechnung
+ 1999              	 .code 16
+ 2000              	 .thumb_func
+ 2002              	bcuColorBerechnung:
+ 2003 0000 084B     	 ldr r3,.L170
+ 2004 0002 0948     	 ldr r0,.L170+4
+ 2005 0004 1A88     	 ldrh r2,[r3]
+ 2006              	 
+ 2007 0006 1304     	 lsl r3,r2,#16
+ 2008 0008 9A1A     	 sub r2,r3,r2
+ 2009 000a 084B     	 ldr r3,.L170+8
+ 2010 000c 110C     	 lsr r1,r2,#16
+ 2011 000e 1A88     	 ldrh r2,[r3]
+ 2012 0010 074B     	 ldr r3,.L170+12
+ 2013 0012 9B1A     	 sub r3,r3,r2
+ 2014 0014 4B43     	 mul r3,r1
+ 2015 0016 4A43     	 mul r2,r1
+ 2016 0018 1B0C     	 lsr r3,r3,#16
+ 2017 001a 0380     	 strh r3,[r0]
+ 2018 001c 054B     	 ldr r3,.L170+16
+ 2019 001e 120C     	 lsr r2,r2,#16
+ 2020 0020 1A80     	 strh r2,[r3]
+ 2021 0022 7047     	 bx lr
+ 2022              	.L171:
+ 2023              	 .align 2
+ 2024              	.L170:
+ 2025 0024 00000000 	 .word .LANCHOR4
+ 2026 0028 00000000 	 .word dimAkt_Ww
+ 2027 002c 00000000 	 .word .LANCHOR5
+ 2028 0030 FFFF0000 	 .word 65535
+ 2029 0034 00000000 	 .word dimAkt_Cw
+ 2031              	 .section .text.Offlight_zahler_write,"ax",%progbits
+ 2032              	 .align 1
+ 2033              	 .global Offlight_zahler_write
+ 2034              	 .code 16
+ 2035              	 .thumb_func
+ 2037              	Offlight_zahler_write:
+ 2038 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 2039 0002 1C4B     	 ldr r3,.L181
+ 2040 0004 1B78     	 ldrb r3,[r3]
+ 2041 0006 052B     	 cmp r3,#5
+ 2042 0008 33D1     	 bne .L172
+ 2043 000a 1B4A     	 ldr r2,.L181+4
+ 2044 000c 1388     	 ldrh r3,[r2]
+ 2045 000e 141C     	 mov r4,r2
+ 2046 0010 0133     	 add r3,r3,#1
+ 2047 0012 9BB2     	 uxth r3,r3
+ 2048 0014 3B2B     	 cmp r3,#59
+ 2049 0016 01D8     	 bhi .L175
+ 2050 0018 1380     	 strh r3,[r2]
+ 2051 001a 2AE0     	 b .L172
+ 2052              	.L175:
+ 2053 001c 0023     	 mov r3,#0
+ 2054 001e 1380     	 strh r3,[r2]
+ 2055 0020 FFF7FEFF 	 bl read_off_light_EEprom
+ 2056 0024 C0B2     	 uxtb r0,r0
+ 2057 0026 0328     	 cmp r0,#3
+ 2058 0028 21D1     	 bne .L178
+ 2059 002a 144B     	 ldr r3,.L181+8
+ 2060 002c 1888     	 ldrh r0,[r3]
+ 2061 002e 144B     	 ldr r3,.L181+12
+ 2062 0030 050A     	 lsr r5,r0,#8
+ 2063 0032 1880     	 strh r0,[r3]
+ 2064 0034 134B     	 ldr r3,.L181+16
+ 2065 0036 1988     	 ldrh r1,[r3]
+ 2066 0038 134B     	 ldr r3,.L181+20
+ 2067 003a 1980     	 strh r1,[r3]
+ 2068 003c 134B     	 ldr r3,.L181+24
+ 2069 003e 1A79     	 ldrb r2,[r3,#4]
+ 2070 0040 AA42     	 cmp r2,r5
+ 2071 0042 0DD1     	 bne .L179
+ 2072 0044 FF22     	 mov r2,#255
+ 2073 0046 061C     	 mov r6,r0
+ 2074 0048 5F79     	 ldrb r7,[r3,#5]
+ 2075 004a 1640     	 and r6,r2
+ 2076 004c B742     	 cmp r7,r6
+ 2077 004e 07D1     	 bne .L179
+ 2078 0050 9F79     	 ldrb r7,[r3,#6]
+ 2079 0052 0E0A     	 lsr r6,r1,#8
+ 2080 0054 B742     	 cmp r7,r6
+ 2081 0056 03D1     	 bne .L179
+ 2082 0058 DE79     	 ldrb r6,[r3,#7]
+ 2083 005a 0A40     	 and r2,r1
+ 2084 005c 9642     	 cmp r6,r2
+ 2085 005e 06D0     	 beq .L178
+ 2086              	.L179:
+ 2087 0060 0A0A     	 lsr r2,r1,#8
+ 2088 0062 1D71     	 strb r5,[r3,#4]
+ 2089 0064 5871     	 strb r0,[r3,#5]
+ 2090 0066 9A71     	 strb r2,[r3,#6]
+ 2091 0068 D971     	 strb r1,[r3,#7]
+ 2092 006a FFF7FEFF 	 bl writeOff_light_B5_EEprom
+ 2093              	.L178:
+ 2094 006e 0023     	 mov r3,#0
+ 2095 0070 2380     	 strh r3,[r4]
+ 2096              	.L172:
+ 2097              	 
+ 2098 0072 F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 2099              	.L182:
+ 2100              	 .align 2
+ 2101              	.L181:
+ 2102 0074 00000000 	 .word RegOnOff
+ 2103 0078 00000000 	 .word .LANCHOR8
+ 2104 007c 00000000 	 .word dimAkt_Ww
+ 2105 0080 00000000 	 .word dimOff_Ww
+ 2106 0084 00000000 	 .word dimAkt_Cw
+ 2107 0088 00000000 	 .word dimOff_Cw
+ 2108 008c 00000000 	 .word ReadBuffer2
+ 2110              	 .section .text.plus39V_stop,"ax",%progbits
+ 2111              	 .align 1
+ 2112              	 .global plus39V_stop
+ 2113              	 .code 16
+ 2114              	 .thumb_func
+ 2116              	plus39V_stop:
+ 2117              	 
+ 2118 0000 7047     	 bx lr
+ 2120              	 .section .text.plus39V_start,"ax",%progbits
+ 2121              	 .align 1
+ 2122              	 .global plus39V_start
+ 2123              	 .code 16
+ 2124              	 .thumb_func
+ 2126              	plus39V_start:
+ 2127              	 
+ 2128 0000 7047     	 bx lr
+ 2130              	 .section .text.Time1msec,"ax",%progbits
+ 2131              	 .align 1
+ 2132              	 .global Time1msec
+ 2133              	 .code 16
+ 2134              	 .thumb_func
+ 2136              	Time1msec:
+ 2137 0000 08B5     	 push {r3,lr}
+ 2138 0002 0248     	 ldr r0,.L186
+ 2139 0004 FFF7FEFF 	 bl ADC_MEASUREMENT_ADV_SoftwareTrigger
+ 2140              	 
+ 2141 0008 08BD     	 pop {r3,pc}
+ 2142              	.L187:
+ 2143 000a C046     	 .align 2
+ 2144              	.L186:
+ 2145 000c 00000000 	 .word ADC_MEASUREMENT_ADV_0
+ 2147              	 .section .text.Time20msec,"ax",%progbits
+ 2148              	 .align 1
+ 2149              	 .global Time20msec
+ 2150              	 .code 16
+ 2151              	 .thumb_func
+ 2153              	Time20msec:
+ 2154 0000 0322     	 mov r2,#3
+ 2155 0002 2248     	 ldr r0,.L194
+ 2156 0004 2249     	 ldr r1,.L194+4
+ 2157 0006 0388     	 ldrh r3,[r0]
+ 2158 0008 10B5     	 push {r4,lr}
+ 2159 000a 5343     	 mul r3,r2
+ 2160 000c 214C     	 ldr r4,.L194+8
+ 2161 000e 0988     	 ldrh r1,[r1]
+ 2162 0010 5B18     	 add r3,r3,r1
+ 2163 0012 2188     	 ldrh r1,[r4]
+ 2164 0014 9B10     	 asr r3,r3,#2
+ 2165 0016 0380     	 strh r3,[r0]
+ 2166 0018 5143     	 mul r1,r2
+ 2167 001a 1F48     	 ldr r0,.L194+12
+ 2168 001c 0088     	 ldrh r0,[r0]
+ 2169 001e 0918     	 add r1,r1,r0
+ 2170 0020 8910     	 asr r1,r1,#2
+ 2171 0022 2180     	 strh r1,[r4]
+ 2172 0024 1D4C     	 ldr r4,.L194+16
+ 2173 0026 1E48     	 ldr r0,.L194+20
+ 2174 0028 2188     	 ldrh r1,[r4]
+ 2175 002a 0088     	 ldrh r0,[r0]
+ 2176 002c 5143     	 mul r1,r2
+ 2177 002e 0918     	 add r1,r1,r0
+ 2178 0030 1C48     	 ldr r0,.L194+24
+ 2179 0032 8910     	 asr r1,r1,#2
+ 2180 0034 2180     	 strh r1,[r4]
+ 2181 0036 0188     	 ldrh r1,[r0]
+ 2182 0038 4A43     	 mul r2,r1
+ 2183 003a 1B49     	 ldr r1,.L194+28
+ 2184 003c 0988     	 ldrh r1,[r1]
+ 2185 003e 5218     	 add r2,r2,r1
+ 2186 0040 1A49     	 ldr r1,.L194+32
+ 2187 0042 9210     	 asr r2,r2,#2
+ 2188 0044 0280     	 strh r2,[r0]
+ 2189 0046 0A88     	 ldrh r2,[r1]
+ 2190 0048 0132     	 add r2,r2,#1
+ 2191 004a 92B2     	 uxth r2,r2
+ 2192 004c 052A     	 cmp r2,#5
+ 2193 004e 01D8     	 bhi .L189
+ 2194 0050 0A80     	 strh r2,[r1]
+ 2195 0052 1AE0     	 b .L188
+ 2196              	.L189:
+ 2197 0054 0022     	 mov r2,#0
+ 2198 0056 0A80     	 strh r2,[r1]
+ 2199 0058 1549     	 ldr r1,.L194+36
+ 2200 005a 8B42     	 cmp r3,r1
+ 2201 005c 07DC     	 bgt .L191
+ 2202 005e 154B     	 ldr r3,.L194+40
+ 2203 0060 1A70     	 strb r2,[r3]
+ 2204 0062 154B     	 ldr r3,.L194+44
+ 2205 0064 1A68     	 ldr r2,[r3]
+ 2206 0066 197B     	 ldrb r1,[r3,#12]
+ 2207 0068 8023     	 mov r3,#128
+ 2208 006a 5B02     	 lsl r3,r3,#9
+ 2209 006c 0BE0     	 b .L193
+ 2210              	.L191:
+ 2211 006e BF22     	 mov r2,#191
+ 2212 0070 1201     	 lsl r2,r2,#4
+ 2213 0072 9342     	 cmp r3,r2
+ 2214 0074 09DD     	 ble .L188
+ 2215 0076 0F4B     	 ldr r3,.L194+40
+ 2216 0078 1B78     	 ldrb r3,[r3]
+ 2217 007a 002B     	 cmp r3,#0
+ 2218 007c 05D1     	 bne .L188
+ 2219 007e 0E4B     	 ldr r3,.L194+44
+ 2220 0080 1A68     	 ldr r2,[r3]
+ 2221 0082 197B     	 ldrb r1,[r3,#12]
+ 2222 0084 0123     	 mov r3,#1
+ 2223              	.L193:
+ 2224 0086 8B40     	 lsl r3,r3,r1
+ 2225 0088 5360     	 str r3,[r2,#4]
+ 2226              	.L188:
+ 2227              	 
+ 2228 008a 10BD     	 pop {r4,pc}
+ 2229              	.L195:
+ 2230              	 .align 2
+ 2231              	.L194:
+ 2232 008c 00000000 	 .word resultA2
+ 2233 0090 00000000 	 .word resultAalt
+ 2234 0094 00000000 	 .word resultB2
+ 2235 0098 00000000 	 .word resultBalt
+ 2236 009c 00000000 	 .word resultC2
+ 2237 00a0 00000000 	 .word resultCalt
+ 2238 00a4 00000000 	 .word resultD2
+ 2239 00a8 00000000 	 .word .LANCHOR9
+ 2240 00ac 00000000 	 .word .LANCHOR10
+ 2241 00b0 9F0B0000 	 .word 2975
+ 2242 00b4 00000000 	 .word .LANCHOR11
+ 2243 00b8 00000000 	 .word VCC_LED_shtdwn
+ 2245              	 .section .text.firstuartBack,"ax",%progbits
+ 2246              	 .align 1
+ 2247              	 .global firstuartBack
+ 2248              	 .code 16
+ 2249              	 .thumb_func
+ 2251              	firstuartBack:
+ 2252 0000 10B5     	 push {r4,lr}
+ 2253 0002 0D4C     	 ldr r4,.L198
+ 2254 0004 2378     	 ldrb r3,[r4]
+ 2255 0006 002B     	 cmp r3,#0
+ 2256 0008 15D1     	 bne .L196
+ 2257 000a FFF7FEFF 	 bl new_data_HalloBack
+ 2258 000e 3023     	 mov r3,#48
+ 2259 0010 0A49     	 ldr r1,.L198+4
+ 2260 0012 0B48     	 ldr r0,.L198+8
+ 2261 0014 4B71     	 strb r3,[r1,#5]
+ 2262 0016 0B4B     	 ldr r3,.L198+12
+ 2263 0018 1B88     	 ldrh r3,[r3]
+ 2264 001a 1A0A     	 lsr r2,r3,#8
+ 2265 001c CB71     	 strb r3,[r1,#7]
+ 2266 001e 0A4B     	 ldr r3,.L198+16
+ 2267 0020 8A71     	 strb r2,[r1,#6]
+ 2268 0022 1B88     	 ldrh r3,[r3]
+ 2269 0024 1A0A     	 lsr r2,r3,#8
+ 2270 0026 4B72     	 strb r3,[r1,#9]
+ 2271 0028 084B     	 ldr r3,.L198+20
+ 2272 002a 0A72     	 strb r2,[r1,#8]
+ 2273 002c 1A78     	 ldrb r2,[r3]
+ 2274 002e FFF7FEFF 	 bl UART_Transmit
+ 2275 0032 0123     	 mov r3,#1
+ 2276 0034 2370     	 strb r3,[r4]
+ 2277              	.L196:
+ 2278              	 
+ 2279 0036 10BD     	 pop {r4,pc}
+ 2280              	.L199:
+ 2281              	 .align 2
+ 2282              	.L198:
+ 2283 0038 00000000 	 .word .LANCHOR12
+ 2284 003c 00000000 	 .word new_data
+ 2285 0040 00000000 	 .word UART_1
+ 2286 0044 00000000 	 .word Ser_NrH
+ 2287 0048 00000000 	 .word Ser_NrL
+ 2288 004c 00000000 	 .word .LANCHOR3
+ 2290              	 .section .text.LED_Toggle_EverySec,"ax",%progbits
+ 2291              	 .align 1
+ 2292              	 .global LED_Toggle_EverySec
+ 2293              	 .code 16
+ 2294              	 .thumb_func
+ 2296              	LED_Toggle_EverySec:
+ 2297 0000 08B5     	 push {r3,lr}
+ 2298 0002 FFF7FEFF 	 bl Offlight_zahler_write
+ 2299              	 
+ 2300 0006 FFF7FEFF 	 bl firstuartBack
+ 2301 000a FFF7FEFF 	 bl lightprog01
+ 2302 000e 08BD     	 pop {r3,pc}
+ 2304              	 .global resultDalt2
+ 2305              	 .comm oper_status,1,1
+ 2306              	 .comm EEprom_status,1,1
+ 2307              	 .global test
+ 2308              	 .global B_nextLedOff
+ 2309              	 .global B_first_uart
+ 2310              	 .comm ReadBuffer4,32,2
+ 2311              	 .comm data_buffer,100,1
+ 2312              	 .comm ReadBuffer3,32,1
+ 2313              	 .comm ReadBuffer2,16,1
+ 2314              	 .comm ReadBuffer1,16,1
+ 2315              	 .comm Index,1,1
+ 2316              	 .comm framelength,1,1
+ 2317              	 .comm command,1,1
+ 2318              	 .comm synclevel,1,1
+ 2319              	 .comm charcount,1,1
+ 2320              	 .comm execute,1,1
+ 2321              	 .comm ReadData,8,1
+ 2322              	 .global transmit_buf_size
+ 2323              	 .comm eeprom_data,32,2
+ 2324              	 .comm new_data,16,1
+ 2325              	 .comm rec_data,16,1
+ 2326              	 .global ColorQuot_Gen
+ 2327              	 .global Brightness_Gen
+ 2328              	 .comm dimNorm2_Cw,2,2
+ 2329              	 .comm dimNorm2_Ww,2,2
+ 2330              	 .comm dimNorm1_Cw,2,2
+ 2331              	 .comm dimNorm1_Ww,2,2
+ 2332              	 .comm dimOff_Cw,2,2
+ 2333              	 .comm dimOff_Ww,2,2
+ 2334              	 .comm Reserve_2,2,2
+ 2335              	 .comm RegOnOff2,1,1
+ 2336              	 .comm RegOnOff,1,1
+ 2337              	 .comm Farbe_cw2,2,2
+ 2338              	 .comm Farbe_cw1,2,2
+ 2339              	 .comm Farbe_ww2,2,2
+ 2340              	 .comm Farbe_ww1,2,2
+ 2341              	 .comm Farbe_cw2_Quot,2,2
+ 2342              	 .comm Farbe_ww2_Quot,2,2
+ 2343              	 .comm Farbe_cw1_Quot,2,2
+ 2344              	 .comm Farbe_ww1_Quot,2,2
+ 2345              	 .comm linearwalk_cw2,2,2
+ 2346              	 .comm linearwalk_cw1,2,2
+ 2347              	 .comm linearwalk_ww2,2,2
+ 2348              	 .comm linearwalk_ww1,2,2
+ 2349              	 .comm dimAkt_Cw,2,2
+ 2350              	 .comm dimAkt_Ww,2,2
+ 2351              	 .comm Dimm_Max_CW,2,2
+ 2352              	 .comm Dimm_Max_WW,2,2
+ 2353              	 .comm Reserve_1,2,2
+ 2354              	 .comm Farbe_wwcw_Quot_gen,2,2
+ 2355              	 .global linearwalk_gen
+ 2356              	 .comm Smooth_Value,2,2
+ 2357              	 .comm Dimm_Valu,1,1
+ 2358              	 .comm Dimm_StufenGR,1,1
+ 2359              	 .comm Dimm_Stufen,1,1
+ 2360              	 .comm Dimm_Gamma,1,1
+ 2361              	 .comm node_id_neu,1,1
+ 2362              	 .comm node_id_resi,1,1
+ 2363              	 .comm led_Strom,2,2
+ 2364              	 .comm led_grupp,2,2
+ 2365              	 .comm val_Spannung_max,2,2
+ 2366              	 .comm val_Spannung_min,2,2
+ 2367              	 .comm val_Pow_max,2,2
+ 2368              	 .comm val_Pow_Nom,2,2
+ 2369              	 .comm node_id_16bit,2,2
+ 2370              	 .comm node_id_alt,1,1
+ 2371              	 .comm node_id,1,1
+ 2372              	 .comm neu_Ser_NrL,2,2
+ 2373              	 .comm neu_Ser_NrH,2,2
+ 2374              	 .comm LED_CW_Vers,2,2
+ 2375              	 .comm LED_WW_Vers,2,2
+ 2376              	 .comm Mon_Vers,2,2
+ 2377              	 .comm GEH_Vers,2,2
+ 2378              	 .comm Soft_Vers,2,2
+ 2379              	 .comm Hard_Vers,2,2
+ 2380              	 .comm Ser_NrL,2,2
+ 2381              	 .comm Ser_NrH,2,2
+ 2382              	 .global zahler_lightprog01
+ 2383              	 .global zahler_offlight
+ 2384              	 .global delay_count
+ 2385              	 .comm resultDCalt2,2,2
+ 2386              	 .comm resultCalt2,2,2
+ 2387              	 .comm resultBalt2,2,2
+ 2388              	 .comm resultAalt2,2,2
+ 2389              	 .global resultDalt
+ 2390              	 .comm resultCalt,2,2
+ 2391              	 .comm resultBalt,2,2
+ 2392              	 .comm resultAalt,2,2
+ 2393              	 .comm resultD2,2,2
+ 2394              	 .comm resultC2,2,2
+ 2395              	 .comm resultB2,2,2
+ 2396              	 .comm resultA2,2,2
+ 2397              	 .comm resultD,2,2
+ 2398              	 .comm resultC,2,2
+ 2399              	 .global resultB
+ 2400              	 .comm resultA,2,2
+ 2401              	 .global adc_ready20m
+ 2402              	 .comm adc_ready,2,2
+ 2403              	 .section .data.ColorQuot_Gen,"aw",%progbits
+ 2404              	 .align 1
+ 2405              	 .set .LANCHOR5,.+0
+ 2408              	ColorQuot_Gen:
+ 2409 0000 FF7F     	 .short 32767
+ 2410              	 .section .bss.resultDalt,"aw",%nobits
+ 2411              	 .align 1
+ 2412              	 .set .LANCHOR9,.+0
+ 2415              	resultDalt:
+ 2416 0000 0000     	 .space 2
+ 2417              	 .section .data.transmit_buf_size,"aw",%progbits
+ 2418              	 .set .LANCHOR3,.+0
+ 2421              	transmit_buf_size:
+ 2422 0000 09       	 .byte 9
+ 2423              	 .section .bss.resultDalt2,"aw",%nobits
+ 2424              	 .align 1
+ 2427              	resultDalt2:
+ 2428 0000 0000     	 .space 2
+ 2429              	 .section .data.Brightness_Gen,"aw",%progbits
+ 2430              	 .align 1
+ 2431              	 .set .LANCHOR4,.+0
+ 2434              	Brightness_Gen:
+ 2435 0000 FF7F     	 .short 32767
+ 2436              	 .section .bss.zahler_lightprog01,"aw",%nobits
+ 2437              	 .align 1
+ 2438              	 .set .LANCHOR2,.+0
+ 2441              	zahler_lightprog01:
+ 2442 0000 0000     	 .space 2
+ 2443              	 .section .bss.adc_ready20m,"aw",%nobits
+ 2444              	 .align 1
+ 2445              	 .set .LANCHOR10,.+0
+ 2448              	adc_ready20m:
+ 2449 0000 0000     	 .space 2
+ 2450              	 .section .bss.B_nextLedOff,"aw",%nobits
+ 2451              	 .set .LANCHOR11,.+0
+ 2454              	B_nextLedOff:
+ 2455 0000 00       	 .space 1
+ 2456              	 .section .bss.B_first_uart,"aw",%nobits
+ 2457              	 .set .LANCHOR12,.+0
+ 2460              	B_first_uart:
+ 2461 0000 00       	 .space 1
+ 2462              	 .section .data.test,"aw",%progbits
+ 2463              	 .align 2
+ 2464              	 .set .LANCHOR0,.+0
+ 2467              	test:
+ 2468 0000 05000000 	 .word 5
+ 2469              	 .section .data.linearwalk_gen,"aw",%progbits
+ 2470              	 .align 1
+ 2471              	 .set .LANCHOR6,.+0
+ 2474              	linearwalk_gen:
+ 2475 0000 B000     	 .short 176
+ 2476              	 .section .data.delay_count,"aw",%progbits
+ 2477              	 .align 2
+ 2478              	 .set .LANCHOR1,.+0
+ 2481              	delay_count:
+ 2482 0000 05000000 	 .word 5
+ 2483              	 .section .data.resultB,"aw",%progbits
+ 2484              	 .align 1
+ 2485              	 .set .LANCHOR7,.+0
+ 2488              	resultB:
+ 2489 0000 FF0F     	 .short 4095
+ 2490              	 .section .bss.zahler_offlight,"aw",%nobits
+ 2491              	 .align 1
+ 2492              	 .set .LANCHOR8,.+0
+ 2495              	zahler_offlight:
+ 2496 0000 0000     	 .space 2
+ 2497              	 .ident "GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20141119 (release) [ARM/embedded-4_9-branch revision 218278]"
+DEFINED SYMBOLS
+                            *ABS*:00000000 samuel_io.c
+    {standard input}:15     .text.digitalo:00000000 $t
+    {standard input}:20     .text.digitalo:00000000 digitalo
+    {standard input}:33     .text.digitalo:00000010 $d
+    {standard input}:38     .text.lightprog01:00000000 $t
+    {standard input}:43     .text.lightprog01:00000000 lightprog01
+    {standard input}:155    .text.lightprog01:000000c8 $d
+    {standard input}:160    .text.analog_start:00000000 $t
+    {standard input}:165    .text.analog_start:00000000 analog_start
+    {standard input}:170    .text.SCU_0_IRQHandler:00000000 $t
+    {standard input}:175    .text.SCU_0_IRQHandler:00000000 SCU_0_IRQHandler
+    {standard input}:180    .text.new_data_fill:00000000 $t
+    {standard input}:185    .text.new_data_fill:00000000 new_data_fill
+    {standard input}:217    .text.new_data_fill:00000038 $d
+                            *COM*:00000010 new_data
+    {standard input}:221    .text.new_data_unbekanntBack:00000000 $t
+    {standard input}:226    .text.new_data_unbekanntBack:00000000 new_data_unbekanntBack
+    {standard input}:256    .text.new_data_unbekanntBack:00000034 $d
+                            *COM*:00000001 node_id
+    {standard input}:261    .text.new_data_BroadcastBack:00000000 $t
+    {standard input}:266    .text.new_data_BroadcastBack:00000000 new_data_BroadcastBack
+    {standard input}:300    .text.new_data_BroadcastBack:0000003c $d
+                            *COM*:00000002 Ser_NrH
+                            *COM*:00000002 Ser_NrL
+    {standard input}:307    .text.new_data_analog1Back:00000000 $t
+    {standard input}:312    .text.new_data_analog1Back:00000000 new_data_analog1Back
+    {standard input}:346    .text.new_data_analog1Back:0000003c $d
+                            *COM*:00000002 resultA2
+                            *COM*:00000002 resultB2
+    {standard input}:353    .text.new_data_analog2Back:00000000 $t
+    {standard input}:358    .text.new_data_analog2Back:00000000 new_data_analog2Back
+    {standard input}:392    .text.new_data_analog2Back:0000003c $d
+                            *COM*:00000002 resultC2
+                            *COM*:00000002 resultD2
+    {standard input}:399    .text.new_data_aktLichtBack:00000000 $t
+    {standard input}:404    .text.new_data_aktLichtBack:00000000 new_data_aktLichtBack
+    {standard input}:438    .text.new_data_aktLichtBack:0000003c $d
+                            *COM*:00000002 dimAkt_Ww
+                            *COM*:00000002 dimAkt_Cw
+    {standard input}:445    .text.new_data_offLichtBack:00000000 $t
+    {standard input}:450    .text.new_data_offLichtBack:00000000 new_data_offLichtBack
+    {standard input}:490    .text.new_data_offLichtBack:00000048 $d
+                            *COM*:00000002 dimOff_Ww
+                            *COM*:00000002 dimOff_Cw
+                            *COM*:00000001 RegOnOff
+                            *COM*:00000001 RegOnOff2
+    {standard input}:499    .text.new_data_Bright_Color_Back:00000000 $t
+    {standard input}:504    .text.new_data_Bright_Color_Back:00000000 new_data_Bright_Color_Back
+    {standard input}:538    .text.new_data_Bright_Color_Back:0000003c $d
+    {standard input}:545    .text.new_data_Quot_Walk_Back:00000000 $t
+    {standard input}:550    .text.new_data_Quot_Walk_Back:00000000 new_data_Quot_Walk_Back
+    {standard input}:584    .text.new_data_Quot_Walk_Back:0000003c $d
+                            *COM*:00000002 Farbe_wwcw_Quot_gen
+    {standard input}:591    .text.new_data_HalloBack:00000000 $t
+    {standard input}:596    .text.new_data_HalloBack:00000000 new_data_HalloBack
+    {standard input}:626    .text.new_data_HalloBack:00000034 $d
+    {standard input}:631    .text.new_data_neuNodeIdBack:00000000 $t
+    {standard input}:636    .text.new_data_neuNodeIdBack:00000000 new_data_neuNodeIdBack
+    {standard input}:673    .text.new_data_neuNodeIdBack:00000040 $d
+                            *COM*:00000001 node_id_neu
+    {standard input}:681    .text.new_data_neuSerNrBack:00000000 $t
+    {standard input}:686    .text.new_data_neuSerNrBack:00000000 new_data_neuSerNrBack
+    {standard input}:730    .text.new_data_neuSerNrBack:00000050 $d
+                            *COM*:00000002 neu_Ser_NrH
+                            *COM*:00000002 neu_Ser_NrL
+    {standard input}:739    .text.new_data_NodeIdBack:00000000 $t
+    {standard input}:744    .text.new_data_NodeIdBack:00000000 new_data_NodeIdBack
+    {standard input}:782    .text.new_data_NodeIdBack:00000044 $d
+                            *COM*:00000001 node_id_alt
+    {standard input}:790    .text.new_data_SerNrBack:00000000 $t
+    {standard input}:795    .text.new_data_SerNrBack:00000000 new_data_SerNrBack
+    {standard input}:829    .text.new_data_SerNrBack:0000003c $d
+    {standard input}:836    .text.new_data_readbuff2Back:00000000 $t
+    {standard input}:841    .text.new_data_readbuff2Back:00000000 new_data_readbuff2Back
+    {standard input}:900    .text.new_data_readbuff2Back:0000006c $d
+                            *COM*:00000010 ReadBuffer2
+    {standard input}:906    .text.clearEpromBuffer:00000000 $t
+    {standard input}:911    .text.clearEpromBuffer:00000000 clearEpromBuffer
+    {standard input}:944    .text.clearEpromBuffer:00000034 $d
+                            *COM*:00000010 ReadBuffer1
+                            *COM*:00000020 ReadBuffer3
+                            *COM*:00000001 Index
+    {standard input}:950    .text.fillEpromBuffer:00000000 $t
+    {standard input}:955    .text.fillEpromBuffer:00000000 fillEpromBuffer
+    {standard input}:971    .text.fillEpromBuffer:00000014 $d
+                            *COM*:00000064 data_buffer
+    {standard input}:975    .text.fill2EpromBuffer:00000000 $t
+    {standard input}:980    .text.fill2EpromBuffer:00000000 fill2EpromBuffer
+    {standard input}:997    .text.fill2EpromBuffer:00000018 $d
+    {standard input}:1001   .text.readAllEEprom:00000000 $t
+    {standard input}:1006   .text.readAllEEprom:00000000 readAllEEprom
+    {standard input}:1126   .text.readAllEEprom:000000e8 $d
+                            *COM*:00000001 EEprom_status
+                            *COM*:00000001 oper_status
+                            *COM*:00000002 node_id_16bit
+                            *COM*:00000002 dimNorm1_Ww
+                            *COM*:00000002 dimNorm1_Cw
+                            *COM*:00000002 dimNorm2_Ww
+                            *COM*:00000002 dimNorm2_Cw
+    {standard input}:1148   .text.readSerNrEEprom:00000000 $t
+    {standard input}:1153   .text.readSerNrEEprom:00000000 readSerNrEEprom
+    {standard input}:1178   .text.readSerNrEEprom:0000002c $d
+    {standard input}:1183   .text.readNodeIdEEprom:00000000 $t
+    {standard input}:1188   .text.readNodeIdEEprom:00000000 readNodeIdEEprom
+    {standard input}:1213   .text.readNodeIdEEprom:0000002c $d
+    {standard input}:1218   .text.read_akt_light_EEprom:00000000 $t
+    {standard input}:1223   .text.read_akt_light_EEprom:00000000 read_akt_light_EEprom
+    {standard input}:1248   .text.read_akt_light_EEprom:0000002c $d
+    {standard input}:1253   .text.read_off_light_EEprom:00000000 $t
+    {standard input}:1258   .text.read_off_light_EEprom:00000000 read_off_light_EEprom
+    {standard input}:1283   .text.read_off_light_EEprom:0000002c $d
+    {standard input}:1288   .text.writeSernr_B1_EEprom:00000000 $t
+    {standard input}:1293   .text.writeSernr_B1_EEprom:00000000 writeSernr_B1_EEprom
+    {standard input}:1324   .text.writeSernr_B1_EEprom:00000038 $d
+    {standard input}:1330   .text.writeNodeid_B2_EEprom:00000000 $t
+    {standard input}:1335   .text.writeNodeid_B2_EEprom:00000000 writeNodeid_B2_EEprom
+    {standard input}:1366   .text.writeNodeid_B2_EEprom:00000038 $d
+    {standard input}:1372   .text.writeLamp_data_B3_EEprom:00000000 $t
+    {standard input}:1377   .text.writeLamp_data_B3_EEprom:00000000 writeLamp_data_B3_EEprom
+    {standard input}:1407   .text.writeLamp_data_B3_EEprom:00000034 $d
+    {standard input}:1413   .text.writeakt_light_data_B4_EEprom:00000000 $t
+    {standard input}:1418   .text.writeakt_light_data_B4_EEprom:00000000 writeakt_light_data_B4_EEprom
+    {standard input}:1449   .text.writeakt_light_data_B4_EEprom:00000038 $d
+    {standard input}:1455   .text.writeOff_light_B5_EEprom:00000000 $t
+    {standard input}:1460   .text.writeOff_light_B5_EEprom:00000000 writeOff_light_B5_EEprom
+    {standard input}:1491   .text.writeOff_light_B5_EEprom:00000038 $d
+    {standard input}:1497   .text.sysiniValueB1:00000000 $t
+    {standard input}:1502   .text.sysiniValueB1:00000000 sysiniValueB1
+    {standard input}:1533   .text.sysiniValueB1:00000034 $d
+                            *COM*:00000002 Hard_Vers
+                            *COM*:00000002 Soft_Vers
+                            *COM*:00000002 GEH_Vers
+                            *COM*:00000002 Mon_Vers
+                            *COM*:00000002 LED_WW_Vers
+                            *COM*:00000002 LED_CW_Vers
+    {standard input}:1547   .text.sysiniValueB2:00000000 $t
+    {standard input}:1552   .text.sysiniValueB2:00000000 sysiniValueB2
+    {standard input}:1587   .text.sysiniValueB2:0000003c $d
+                            *COM*:00000002 val_Pow_Nom
+                            *COM*:00000002 val_Pow_max
+                            *COM*:00000002 val_Spannung_min
+                            *COM*:00000002 val_Spannung_max
+                            *COM*:00000002 led_grupp
+                            *COM*:00000002 led_Strom
+    {standard input}:1601   .text.sysiniValueB4:00000000 $t
+    {standard input}:1606   .text.sysiniValueB4:00000000 sysiniValueB4
+    {standard input}:1656   .text.sysiniValueB4:0000005c $d
+                            *COM*:00000001 Dimm_Gamma
+                            *COM*:00000001 Dimm_Stufen
+                            *COM*:00000001 Dimm_StufenGR
+                            *COM*:00000001 Dimm_Valu
+                            *COM*:00000002 Smooth_Value
+                            *COM*:00000002 Reserve_1
+                            *COM*:00000002 Dimm_Max_WW
+                            *COM*:00000002 Dimm_Max_CW
+                            *COM*:00000002 linearwalk_ww1
+                            *COM*:00000002 linearwalk_ww2
+                            *COM*:00000002 linearwalk_cw1
+                            *COM*:00000002 linearwalk_cw2
+                            *COM*:00000002 Farbe_ww1_Quot
+                            *COM*:00000002 Farbe_cw1_Quot
+                            *COM*:00000002 Farbe_ww2_Quot
+                            *COM*:00000002 Farbe_cw2_Quot
+    {standard input}:1676   .text.sysiniValueB5:00000000 $t
+    {standard input}:1681   .text.sysiniValueB5:00000000 sysiniValueB5
+    {standard input}:1710   .text.sysiniValueB5:00000030 $d
+                            *COM*:00000002 Reserve_2
+    {standard input}:1724   .text.bcuInit:00000000 $t
+    {standard input}:1729   .text.bcuInit:00000000 bcuInit
+    {standard input}:1740   .text.bcuInit:00000014 $d
+    {standard input}:1775   .text.bcuInit:00000040 $d
+    {standard input}:1785   .text.bcuUebergabe:00000000 $t
+    {standard input}:1790   .text.bcuUebergabe:00000000 bcuUebergabe
+    {standard input}:1833   .text.bcuUebergabe:0000005c $d
+                            *COM*:00000002 Farbe_ww2
+                            *COM*:00000002 Farbe_cw2
+                            *COM*:00000002 Farbe_ww1
+                            *COM*:00000002 Farbe_cw1
+    {standard input}:1847   .text.bcuAktBerechnung:00000000 $t
+    {standard input}:1852   .text.bcuAktBerechnung:00000000 bcuAktBerechnung
+    {standard input}:1892   .text.bcuAktBerechnung:00000048 $d
+    {standard input}:1905   .text.bcudirAktBerechnung:00000000 $t
+    {standard input}:1910   .text.bcudirAktBerechnung:00000000 bcudirAktBerechnung
+    {standard input}:1945   .text.bcudirAktBerechnung:0000003c $d
+    {standard input}:1958   .text.light_aus:00000000 $t
+    {standard input}:1963   .text.light_aus:00000000 light_aus
+    {standard input}:1989   .text.light_aus:00000034 $d
+    {standard input}:1997   .text.bcuColorBerechnung:00000000 $t
+    {standard input}:2002   .text.bcuColorBerechnung:00000000 bcuColorBerechnung
+    {standard input}:2025   .text.bcuColorBerechnung:00000024 $d
+    {standard input}:2032   .text.Offlight_zahler_write:00000000 $t
+    {standard input}:2037   .text.Offlight_zahler_write:00000000 Offlight_zahler_write
+    {standard input}:2102   .text.Offlight_zahler_write:00000074 $d
+    {standard input}:2111   .text.plus39V_stop:00000000 $t
+    {standard input}:2116   .text.plus39V_stop:00000000 plus39V_stop
+    {standard input}:2121   .text.plus39V_start:00000000 $t
+    {standard input}:2126   .text.plus39V_start:00000000 plus39V_start
+    {standard input}:2131   .text.Time1msec:00000000 $t
+    {standard input}:2136   .text.Time1msec:00000000 Time1msec
+    {standard input}:2145   .text.Time1msec:0000000c $d
+    {standard input}:2148   .text.Time20msec:00000000 $t
+    {standard input}:2153   .text.Time20msec:00000000 Time20msec
+    {standard input}:2232   .text.Time20msec:0000008c $d
+                            *COM*:00000002 resultAalt
+                            *COM*:00000002 resultBalt
+                            *COM*:00000002 resultCalt
+    {standard input}:2246   .text.firstuartBack:00000000 $t
+    {standard input}:2251   .text.firstuartBack:00000000 firstuartBack
+    {standard input}:2283   .text.firstuartBack:00000038 $d
+    {standard input}:2291   .text.LED_Toggle_EverySec:00000000 $t
+    {standard input}:2296   .text.LED_Toggle_EverySec:00000000 LED_Toggle_EverySec
+    {standard input}:2427   .bss.resultDalt2:00000000 resultDalt2
+    {standard input}:2467   .data.test:00000000 test
+    {standard input}:2454   .bss.B_nextLedOff:00000000 B_nextLedOff
+    {standard input}:2460   .bss.B_first_uart:00000000 B_first_uart
+                            *COM*:00000020 ReadBuffer4
+                            *COM*:00000001 framelength
+                            *COM*:00000001 command
+                            *COM*:00000001 synclevel
+                            *COM*:00000001 charcount
+                            *COM*:00000001 execute
+                            *COM*:00000008 ReadData
+    {standard input}:2421   .data.transmit_buf_size:00000000 transmit_buf_size
+                            *COM*:00000020 eeprom_data
+                            *COM*:00000010 rec_data
+    {standard input}:2408   .data.ColorQuot_Gen:00000000 ColorQuot_Gen
+    {standard input}:2434   .data.Brightness_Gen:00000000 Brightness_Gen
+    {standard input}:2474   .data.linearwalk_gen:00000000 linearwalk_gen
+                            *COM*:00000001 node_id_resi
+    {standard input}:2441   .bss.zahler_lightprog01:00000000 zahler_lightprog01
+    {standard input}:2495   .bss.zahler_offlight:00000000 zahler_offlight
+    {standard input}:2481   .data.delay_count:00000000 delay_count
+                            *COM*:00000002 resultDCalt2
+                            *COM*:00000002 resultCalt2
+                            *COM*:00000002 resultBalt2
+                            *COM*:00000002 resultAalt2
+    {standard input}:2415   .bss.resultDalt:00000000 resultDalt
+                            *COM*:00000002 resultD
+                            *COM*:00000002 resultC
+    {standard input}:2488   .data.resultB:00000000 resultB
+                            *COM*:00000002 resultA
+    {standard input}:2448   .bss.adc_ready20m:00000000 adc_ready20m
+                            *COM*:00000002 adc_ready
+    {standard input}:2404   .data.ColorQuot_Gen:00000000 $d
+    {standard input}:2411   .bss.resultDalt:00000000 $d
+    {standard input}:2424   .bss.resultDalt2:00000000 $d
+    {standard input}:2430   .data.Brightness_Gen:00000000 $d
+    {standard input}:2437   .bss.zahler_lightprog01:00000000 $d
+    {standard input}:2444   .bss.adc_ready20m:00000000 $d
+    {standard input}:2455   .bss.B_nextLedOff:00000000 $d
+    {standard input}:2461   .bss.B_first_uart:00000000 $d
+    {standard input}:2463   .data.test:00000000 $d
+    {standard input}:2470   .data.linearwalk_gen:00000000 $d
+    {standard input}:2477   .data.delay_count:00000000 $d
+    {standard input}:2484   .data.resultB:00000000 $d
+    {standard input}:2491   .bss.zahler_offlight:00000000 $d
+    {standard input}:1745   .text.bcuInit:00000019 $d
+    {standard input}:1745   .text.bcuInit:0000001a $t
+
+UNDEFINED SYMBOLS
+PDM_DIMMED_LED_LAMP_SetColor
+PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv
+PDM_DIMMED_LED_LAMP_0
+E_EEPROM_XMC1_GetStatus
+E_EEPROM_XMC1_Read
+E_EEPROM_XMC1_Write
+__gnu_thumb1_case_uqi
+PDM_BCCU_SetIntensity
+PDM_BCCU_SetLinearWalk
+PDM_BCCU_0
+PDM_BCCU_1
+PDM_BCCU_2
+PDM_BCCU_3
+DIM_BCCU_SetDimLvl
+DIM_BCCU_StartDimming
+DIM_BCCU_0
+ADC_MEASUREMENT_ADV_SoftwareTrigger
+ADC_MEASUREMENT_ADV_0
+VCC_LED_shtdwn
+UART_Transmit
+UART_1
