@@ -1,0 +1,54 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "dim_bccu_conf.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .global DIM_BCCU_0_confighandle
+  18              	 .section .data.DIM_BCCU_0_confighandle,"aw",%progbits
+  19              	 .align 2
+  22              	DIM_BCCU_0_confighandle:
+  23 0000 00       	 .byte 0
+  24 0001 00       	 .byte 0
+  25 0002 02       	 .byte 2
+  26 0003 00       	 .space 1
+  27              	 .global DIM_BCCU_0
+  28              	 .section .data.DIM_BCCU_0,"aw",%progbits
+  29              	 .align 2
+  32              	DIM_BCCU_0:
+  33 0000 7C010350 	 .word 1342374268
+  34 0004 00000000 	 .word DIM_BCCU_0_confighandle
+  35 0008 00000000 	 .word GLOBAL_BCCU_0
+  36 000c 01       	 .byte 1
+  37 000d 00       	 .byte 0
+  38 000e 0000     	 .space 2
+  39 0010 E10F0000 	 .word 4065
+  40              	 .text
+  41              	.Letext0:
+  42              	 .file 1 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+  43              	 .file 2 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+  44              	 .file 3 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/CMSIS/Infineon/XMC1300_series/Include/XMC1300.h"
+  45              	 .file 4 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/XMCLib/inc/xmc_bccu.h"
+  46              	 .file 5 "../Dave/Generated/DIM_BCCU/../GLOBAL_BCCU/global_bccu.h"
+  47              	 .file 6 "../Dave/Generated/DIM_BCCU/dim_bccu.h"
+  48              	 .file 7 "../Dave/Generated/DIM_BCCU/../GLOBAL_BCCU/global_bccu_extern.h"
+  49              	 .file 8 "../Dave/Generated/DIM_BCCU/dim_bccu_conf.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 dim_bccu_conf.c
+    {standard input}:22     .data.DIM_BCCU_0_confighandle:00000000 DIM_BCCU_0_confighandle
+    {standard input}:19     .data.DIM_BCCU_0_confighandle:00000000 $d
+    {standard input}:32     .data.DIM_BCCU_0:00000000 DIM_BCCU_0
+    {standard input}:29     .data.DIM_BCCU_0:00000000 $d
+
+UNDEFINED SYMBOLS
+GLOBAL_BCCU_0

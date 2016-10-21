@@ -1,0 +1,83 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "pdm_dimmed_led_lamp_conf.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .global PDM_DIMMED_LED_LAMP_0_config
+  18              	 .section .data.PDM_DIMMED_LED_LAMP_0_config,"aw",%progbits
+  19              	 .align 2
+  22              	PDM_DIMMED_LED_LAMP_0_config:
+  23 0000 EF01     	 .short 495
+  24 0002 EF01     	 .short 495
+  25 0004 9501     	 .short 405
+  26 0006 EF01     	 .short 495
+  27 0008 0000     	 .short 0
+  28 000a 0000     	 .short 0
+  29 000c 0000     	 .short 0
+  30 000e 0000     	 .short 0
+  31 0010 0000     	 .short 0
+  32 0012 E10F     	 .short 4065
+  33              	 .global PDM_DIMMED_LED_LAMP_0
+  34              	 .section .data.PDM_DIMMED_LED_LAMP_0,"aw",%progbits
+  35              	 .align 2
+  38              	PDM_DIMMED_LED_LAMP_0:
+  39 0000 00000000 	 .word PDM_BCCU_0
+  40 0004 00000000 	 .word PDM_BCCU_3
+  41 0008 00000000 	 .word PDM_BCCU_2
+  42 000c 00000000 	 .word PDM_BCCU_1
+  43 0010 00000000 	 .word 0
+  44 0014 00000000 	 .word 0
+  45 0018 00000000 	 .word 0
+  46 001c 00000000 	 .word 0
+  47 0020 00000000 	 .word 0
+  48 0024 00       	 .byte 0
+  49 0025 000000   	 .space 3
+  50 0028 00000000 	 .word DIM_BCCU_0
+  51 002c 00000000 	 .word PDM_DIMMED_LED_LAMP_0_config
+  52 0030 0000     	 .space 2
+  53 0032 9403     	 .short 916
+  54 0034 0000     	 .short 0
+  55 0036 4000     	 .short 64
+  56 0038 00       	 .space 1
+  57 0039 04       	 .byte 4
+  58 003a 01       	 .byte 1
+  59 003b 00       	 .space 1
+  60              	 .text
+  61              	.Letext0:
+  62              	 .file 1 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+  63              	 .file 2 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+  64              	 .file 3 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/CMSIS/Infineon/XMC1300_series/Include/XMC1300.h"
+  65              	 .file 4 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/XMCLib/inc/xmc_bccu.h"
+  66              	 .file 5 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/XMCLib/inc/xmc_gpio.h"
+  67              	 .file 6 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/XMCLib/inc/xmc1_gpio.h"
+  68              	 .file 7 "../Dave/Generated/PDM_DIMMED_LED_LAMP/../PDM_BCCU/../GLOBAL_BCCU/global_bccu.h"
+  69              	 .file 8 "../Dave/Generated/PDM_DIMMED_LED_LAMP/../PDM_BCCU/pdm_bccu.h"
+  70              	 .file 9 "../Dave/Generated/PDM_DIMMED_LED_LAMP/../DIM_BCCU/dim_bccu.h"
+  71              	 .file 10 "../Dave/Generated/PDM_DIMMED_LED_LAMP/pdm_dimmed_led_lamp.h"
+  72              	 .file 11 "../Dave/Generated/PDM_DIMMED_LED_LAMP/../PDM_BCCU/pdm_bccu_extern.h"
+  73              	 .file 12 "../Dave/Generated/PDM_DIMMED_LED_LAMP/../DIM_BCCU/dim_bccu_extern.h"
+  74              	 .file 13 "../Dave/Generated/PDM_DIMMED_LED_LAMP/pdm_dimmed_led_lamp_conf.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pdm_dimmed_led_lamp_conf.c
+    {standard input}:22     .data.PDM_DIMMED_LED_LAMP_0_config:00000000 PDM_DIMMED_LED_LAMP_0_config
+    {standard input}:19     .data.PDM_DIMMED_LED_LAMP_0_config:00000000 $d
+    {standard input}:38     .data.PDM_DIMMED_LED_LAMP_0:00000000 PDM_DIMMED_LED_LAMP_0
+    {standard input}:35     .data.PDM_DIMMED_LED_LAMP_0:00000000 $d
+
+UNDEFINED SYMBOLS
+PDM_BCCU_0
+PDM_BCCU_3
+PDM_BCCU_2
+PDM_BCCU_1
+DIM_BCCU_0

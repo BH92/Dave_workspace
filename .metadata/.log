@@ -10416,3 +10416,432 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY SOLVER 1 0 2016-10-20 17:28:28.391
 !MESSAGE USER_ACTION : Solver Status: DISCONNECTED
+!SESSION 2016-10-21 09:10:42.189 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -application com.ifx.davex.product.daveApplication -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -application com.ifx.davex.product.daveApplication -showlocation
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-21 09:10:57.426
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_path' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-21 09:10:57.436
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_gdbserver' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-21 09:11:02.841
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-21 09:11:02.842
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\heinb'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY SOLVER 1 0 2016-10-21 09:11:05.234
+!MESSAGE USER_ACTION : Default solver exe path is: C:\DAVEv4-64Bit\DAVE-4.3.2\eclipse\Solver\lib\i386_nt\eclipse.exe
+
+!ENTRY SOLVER 1 0 2016-10-21 09:11:05.501
+!MESSAGE USER_ACTION : GlobalSize= 750MB; LocalSize: 128MB
+
+!ENTRY SOLVER 1 0 2016-10-21 09:11:05.501
+!MESSAGE USER_ACTION : Creating OutOfProcessEclipse instance...
+
+!ENTRY SOLVER 1 0 2016-10-21 09:11:06.159
+!MESSAGE USER_ACTION : Solver Status: CONNECTED
+
+!ENTRY APPSTORE 1 0 2016-10-21 09:11:06.778
+!MESSAGE USER_ACTION : Time taken for loading LibraryStore data for SoftwareId [XMC1.3.02.Q024.ALL] is: 613 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:07.230
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 9 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:07.793
+!MESSAGE USER_ACTION : Active project:Demo_7_Mix[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-21 09:11:12.370
+!MESSAGE Time Taken By De-Serialization  : 3130 ms :: C:\DAVEv4-64Bit\work\Demo_7_Mix\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:11:12.399
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:13.209
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 5426 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:13.808
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 593 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:13.829
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 21 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:13.831
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:17.644
+!MESSAGE USER_ACTION : Time taken for rendering views is: 3812 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:18.900
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 11678 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:11:21.958
+!MESSAGE Only One DAVE Application is running 
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-21 09:11:22.058
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/Examples/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-21 09:11:23.683
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-21 09:11:28.168
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/Contributed/v4.1//daveSite.xml
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:38:42.633
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:38:42.785
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-21 09:38:43.384
+!MESSAGE Time Taken By Serialization  : 597 ms :: C:\DAVEv4-64Bit\work\Demo_7_Mix\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:38:44.080
+!MESSAGE ****************Cleaning project data:Demo_7_Mix*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:44.261
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 628 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:44.625
+!MESSAGE USER_ACTION : Active project:Demo_9_See_PWM_Steps[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-21 09:38:47.057
+!MESSAGE Time Taken By De-Serialization  : 2135 ms :: C:\DAVEv4-64Bit\work\Demo_9_See_PWM_Steps\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:38:47.066
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:47.493
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2871 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:47.823
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 329 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:47.881
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 57 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:47.882
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:49.684
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1802 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:38:50.463
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 6830 msec 
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-21 09:40:25.268
+!MESSAGE J-Link GDB Server failed: 
+Could not connect to target. Please check if target is powered and if ribbon cable is plugged properly.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY org.eclipse.ui 4 4 2016-10-21 09:40:50.308
+!MESSAGE Conflicting handlers for org.eclipse.debug.ui.commands.DebugLast: {ActionDelegateHandlerProxy(null,com.dave.activeproject.ui.actions.ActiveProjDebugLastAction)} vs {ActionDelegateHandlerProxy(null,org.eclipse.debug.internal.ui.actions.DebugLastAction)}
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:43:23.713
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:43:23.791
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-21 09:43:24.086
+!MESSAGE Time Taken By Serialization  : 295 ms :: C:\DAVEv4-64Bit\work\Demo_9_See_PWM_Steps\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:43:24.799
+!MESSAGE ****************Cleaning project data:Demo_9_See_PWM_Steps*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:24.842
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 417 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:25.440
+!MESSAGE USER_ACTION : Active project:Demo_6_BigLamp_DimmingShow[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-21 09:43:27.293
+!MESSAGE Time Taken By De-Serialization  : 1627 ms :: C:\DAVEv4-64Bit\work\Demo_6_BigLamp_DimmingShow\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 09:43:27.303
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:27.619
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2180 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:27.799
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 178 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:27.833
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 31 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:27.834
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:29.244
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1409 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 09:43:30.098
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 5673 msec 
+
+!ENTRY org.eclipse.ui 4 4 2016-10-21 09:43:58.783
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-10-21 09:43:58.784
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.ui 4 4 2016-10-21 09:43:58.784
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-10-21 09:43:58.785
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.ui 4 4 2016-10-21 09:43:58.788
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-10-21 09:43:58.789
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-21 09:55:06.354
+!MESSAGE J-Link GDB Server failed: 
+Could not connect to target. Please check if target is powered and if ribbon cable is plugged properly.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:10:12.333
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:10:12.389
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-21 10:10:12.715
+!MESSAGE Time Taken By Serialization  : 325 ms :: C:\DAVEv4-64Bit\work\Demo_6_BigLamp_DimmingShow\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:10:13.447
+!MESSAGE ****************Cleaning project data:Demo_6_BigLamp_DimmingShow*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:13.480
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 392 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:13.900
+!MESSAGE USER_ACTION : Active project:Demo_9_See_PWM_Steps[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-21 10:10:15.934
+!MESSAGE Time Taken By De-Serialization  : 1830 ms :: C:\DAVEv4-64Bit\work\Demo_9_See_PWM_Steps\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:10:15.942
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:16.253
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2354 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:16.348
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 94 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:16.367
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 17 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:16.368
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:17.500
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1130 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:10:18.085
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 4996 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:14:12.230
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:14:12.299
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-21 10:14:12.709
+!MESSAGE Time Taken By Serialization  : 409 ms :: C:\DAVEv4-64Bit\work\Demo_9_See_PWM_Steps\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:14:13.459
+!MESSAGE ****************Cleaning project data:Demo_9_See_PWM_Steps*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:13.496
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 344 msec 
+
+!ENTRY COMMON 1 0 2016-10-21 10:14:13.774
+!MESSAGE USER_ACTION : checkVersioningForActiveProject: Reloading project....
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:14:13.785
+!MESSAGE ****************Cleaning project data:*******************
+
+!ENTRY DAVE CE 4 0 2016-10-21 10:14:13.787
+!MESSAGE 
+
+***START of Exception Info***
+index=0, size=0
+org.eclipse.emf.common.util.BasicEList.get(BasicEList.java:346)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.removeAllEobjects(ApplicationModelManager.java:1061)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.unloadAllResources(ApplicationModelManager.java:1130)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.shutDown(ApplicationModelManager.java:1189)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.cleanDaveCeObjects(DaveEventInitializer.java:647)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:582)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$6.run(DaveEventInitializer.java:896)
+org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:527)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$1.run(DaveEventInitializer.java:313)
+org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.startWithProgressDialog(DaveEventInitializer.java:306)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:585)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.fireEvent(ActiveProjectNotifer.java:93)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.activeProjectChanged(ActiveProjectNotifer.java:115)
+com.dave.activeproject.core.ActiveProjectManager.fireActiveProjectChanged(ActiveProjectManager.java:681)
+com.dave.activeproject.core.ActiveProjectManager.storeAndFireActiveProjectEvent(ActiveProjectManager.java:415)
+com.dave.activeproject.core.ActiveProjectManager.setActiveProject(ActiveProjectManager.java:329)
+com.dave.activeproject.ui.actions.SetActiveProjectAction.run(SetActiveProjectAction.java:83)
+org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:253)
+org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+com.ifx.davex.product.DaveApplication.start(DaveApplication.java:140)
+org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+java.lang.reflect.Method.invoke(Unknown Source)
+org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+***END of Exception Info***
+
+
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:13.788
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 2 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:13.887
+!MESSAGE USER_ACTION : Active project:Demo_8_TestFast[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-21 10:14:15.522
+!MESSAGE Time Taken By De-Serialization  : 1456 ms :: C:\DAVEv4-64Bit\work\Demo_8_TestFast\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:14:15.527
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:15.792
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1905 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:15.792
+!MESSAGE USER_ACTION : Active project:Demo_8_TestFast[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:15.918
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 126 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:15.938
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 19 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:15.938
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY COMMON 1 0 2016-10-21 10:14:16.552
+!MESSAGE Time Taken By De-Serialization  : 747 ms :: C:\DAVEv4-64Bit\work\Demo_8_TestFast\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 10:14:16.557
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:16.996
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 3104 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:17.121
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 124 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:17.123
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 2 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:17.124
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:17.410
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1470 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:17.940
+!MESSAGE USER_ACTION : Time taken for rendering views is: 816 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:18.319
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 4534 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 10:14:18.609
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 5457 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 14:34:07.108
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 14:34:07.189
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-21 14:34:07.442
+!MESSAGE Time Taken By Serialization  : 252 ms :: C:\DAVEv4-64Bit\work\Demo_8_TestFast\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 14:34:07.971
+!MESSAGE ****************Cleaning project data:Demo_8_TestFast*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:08.001
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 333 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:08.348
+!MESSAGE USER_ACTION : Active project:Demo_8_TestFast[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-21 14:34:09.829
+!MESSAGE Time Taken By De-Serialization  : 1303 ms :: C:\DAVEv4-64Bit\work\Demo_8_TestFast\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 14:34:09.835
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:10.020
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1672 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:10.091
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 69 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:10.092
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:10.093
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:10.757
+!MESSAGE USER_ACTION : Time taken for rendering views is: 664 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:11.223
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3554 msec 

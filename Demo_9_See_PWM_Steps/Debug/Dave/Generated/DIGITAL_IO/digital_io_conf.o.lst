@@ -1,0 +1,96 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "digital_io_conf.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .global xmc_int_tcs
+  18              	 .section .rodata.xmc_int_tcs,"a",%progbits
+  19              	 .align 2
+  22              	xmc_int_tcs:
+  23 0000 00020440 	 .word 1074004480
+  24 0004 00       	 .byte 0
+  25 0005 00       	 .byte 0
+  26 0006 00000000 	 .space 6
+  26      0000
+  27 000c 02       	 .byte 2
+  28 000d 00       	 .byte 0
+  29 000e 0000     	 .space 2
+  30              	 .global xmc_int_bmc
+  31              	 .section .rodata.xmc_int_bmc,"a",%progbits
+  32              	 .align 2
+  35              	xmc_int_bmc:
+  36 0000 00020440 	 .word 1074004480
+  37 0004 00       	 .byte 0
+  38 0005 00       	 .byte 0
+  39 0006 00000000 	 .space 6
+  39      0000
+  40 000c 07       	 .byte 7
+  41 000d 00       	 .byte 0
+  42 000e 0000     	 .space 2
+  43              	 .global xmc_lin_en
+  44              	 .section .rodata.xmc_lin_en,"a",%progbits
+  45              	 .align 2
+  48              	xmc_lin_en:
+  49 0000 00000440 	 .word 1074003968
+  50 0004 80       	 .byte -128
+  51 0005 000000   	 .space 3
+  52 0008 00000100 	 .word 65536
+  53 000c 00       	 .byte 0
+  54 000d 00       	 .byte 0
+  55 000e 0000     	 .space 2
+  56              	 .global xmc_sel_gain
+  57              	 .section .rodata.xmc_sel_gain,"a",%progbits
+  58              	 .align 2
+  61              	xmc_sel_gain:
+  62 0000 00000440 	 .word 1074003968
+  63 0004 80       	 .byte -128
+  64 0005 000000   	 .space 3
+  65 0008 00000100 	 .word 65536
+  66 000c 0C       	 .byte 12
+  67 000d 00       	 .byte 0
+  68 000e 0000     	 .space 2
+  69              	 .global VCC_LED_shtdwn
+  70              	 .section .rodata.VCC_LED_shtdwn,"a",%progbits
+  71              	 .align 2
+  74              	VCC_LED_shtdwn:
+  75 0000 00000440 	 .word 1074003968
+  76 0004 00       	 .byte 0
+  77 0005 00       	 .byte 0
+  78 0006 00000000 	 .space 6
+  78      0000
+  79 000c 0D       	 .byte 13
+  80 000d 00       	 .byte 0
+  81 000e 0000     	 .space 2
+  82              	 .text
+  83              	.Letext0:
+  84              	 .file 1 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+  85              	 .file 2 "c:\\davev4-64bit\\dave-4.3.2\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+  86              	 .file 3 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/XMCLib/inc/xmc_gpio.h"
+  87              	 .file 4 "C:/DAVEv4-64Bit/work/Demo_9_See_PWM_Steps/Libraries/XMCLib/inc/xmc1_gpio.h"
+  88              	 .file 5 "../Dave/Generated/DIGITAL_IO/digital_io.h"
+  89              	 .file 6 "../Dave/Generated/DIGITAL_IO/digital_io_conf.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 digital_io_conf.c
+    {standard input}:22     .rodata.xmc_int_tcs:00000000 xmc_int_tcs
+    {standard input}:19     .rodata.xmc_int_tcs:00000000 $d
+    {standard input}:35     .rodata.xmc_int_bmc:00000000 xmc_int_bmc
+    {standard input}:32     .rodata.xmc_int_bmc:00000000 $d
+    {standard input}:48     .rodata.xmc_lin_en:00000000 xmc_lin_en
+    {standard input}:45     .rodata.xmc_lin_en:00000000 $d
+    {standard input}:61     .rodata.xmc_sel_gain:00000000 xmc_sel_gain
+    {standard input}:58     .rodata.xmc_sel_gain:00000000 $d
+    {standard input}:74     .rodata.VCC_LED_shtdwn:00000000 VCC_LED_shtdwn
+    {standard input}:71     .rodata.VCC_LED_shtdwn:00000000 $d
+
+NO UNDEFINED SYMBOLS

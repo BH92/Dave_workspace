@@ -116,72 +116,54 @@
    {
 
 	  ++zahler_lightprog01;
-	  if ( zahler_lightprog01 == 121 )  //ende
+	  if ( zahler_lightprog01 == 46 )  //ende
 	 			 {
 		  zahler_lightprog01 = 0;
 	 			 }
 	 			 else if (  zahler_lightprog01 == 20)
 	 			 {
-	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 4000;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 4000;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 500;
+	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 0;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 0;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 0;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 0;
 	 				      PDM_DIMMED_LED_LAMP_SetColor(&PDM_DIMMED_LED_LAMP_0);
-	 				      PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394);
+	 				      PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394); //394 = 15sec
 	 			 }
-	 			 else if (  zahler_lightprog01 == 40 )
+	 			 else if (  zahler_lightprog01 == 30 )
 	 			 {
-	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 1500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 1500;
+	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 4000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 4000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 4000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 4000;
 		 				  PDM_DIMMED_LED_LAMP_SetColor(&PDM_DIMMED_LED_LAMP_0);
-			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394);
+			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x1E8); //1E8 = 8sec
 	 			 }
-	 			 else if ( zahler_lightprog01 == 60 )
+	 			 else if ( zahler_lightprog01 == 35 )
 	 			 {
 	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 2000;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 4000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 0;
 	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 2000;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 4000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 0;
 		 				  PDM_DIMMED_LED_LAMP_SetColor(&PDM_DIMMED_LED_LAMP_0);
-			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394);
+			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0xB7); //B7 = 3sec
 	 			 }
-	 			 else if ( zahler_lightprog01 == 80 )
+	 			 else if ( zahler_lightprog01 == 40 )
 	 			 {
-	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 300;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 300;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 300;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 300;
+	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 0;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 2000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 0;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 2000;
 		 				  PDM_DIMMED_LED_LAMP_SetColor(&PDM_DIMMED_LED_LAMP_0);
-			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394);
+			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0xB7); //B7 = 3sec
 	 			 }
-	 			 else if ( zahler_lightprog01 == 100 )
+	 			 else if ( zahler_lightprog01 == 45 )
 	 			 {
-	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 1500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 4000;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 1500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 4000;
+	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 2000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 2000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 2000;
+	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 2000;
 		 				  PDM_DIMMED_LED_LAMP_SetColor(&PDM_DIMMED_LED_LAMP_0);
-			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394);
-	 			 }
-	 			 else if ( zahler_lightprog01 == 120 )
-	 			 {
-	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 3500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 300;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 3500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 300;
-		 				  PDM_DIMMED_LED_LAMP_SetColor(&PDM_DIMMED_LED_LAMP_0);
-			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394);
-	 			 }
-	 			 else if ( zahler_lightprog01 == 140 )
-	 			 {
-	 				   	  PDM_DIMMED_LED_LAMP_0.config->led_intensity[0] = 600;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[1] = 300;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[2] = 500;
-	 				      PDM_DIMMED_LED_LAMP_0.config->led_intensity[3] = 600;
-		 				  PDM_DIMMED_LED_LAMP_SetColor(&PDM_DIMMED_LED_LAMP_0);
-			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0x394);
+			 			  PDM_DIMMED_LED_LAMP_SetDimLevelExponentialAdv(&PDM_DIMMED_LED_LAMP_0,0x0,0xB7); //B7 = 3sec
 	 			 }
 				 else
 

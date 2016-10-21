@@ -1,4 +1,4 @@
-09:33:31 **** Incremental Build of configuration Debug for project Demo_6_BigLamp_DimmingShow ****
+09:55:19 **** Incremental Build of configuration Debug for project Demo_6_BigLamp_DimmingShow ****
 "\"C:\\DAVEv4-64Bit\\DAVE-4.3.2\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j4 all 
 'Invoking: ARM-GCC Print Size'
 "C:/DAVEv4-64Bit/DAVE-4.3.2/eclipse/ARM-GCC-49/bin/arm-none-eabi-size" --format=berkeley "Demo_6_BigLamp_DimmingShow.elf"
@@ -7,5 +7,5 @@
 'Finished building: Demo_6_BigLamp_DimmingShow.siz'
 
 
-09:33:33 Build Finished (took 2s.100ms)
+09:55:20 Build Finished (took 1s.359ms)
 

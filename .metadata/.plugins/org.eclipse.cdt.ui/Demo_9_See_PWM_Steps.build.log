@@ -1,0 +1,11 @@
+10:10:49 **** Incremental Build of configuration Debug for project Demo_9_See_PWM_Steps ****
+"\"C:\\DAVEv4-64Bit\\DAVE-4.3.2\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j4 all 
+'Invoking: ARM-GCC Print Size'
+"C:/DAVEv4-64Bit/DAVE-4.3.2/eclipse/ARM-GCC-49/bin/arm-none-eabi-size" --format=berkeley "Demo_9_See_PWM_Steps.elf"
+   text	   data	    bss	    dec	    hex	filename
+  35340	    540	   2268	  38148	   9504	Demo_9_See_PWM_Steps.elf
+'Finished building: Demo_9_See_PWM_Steps.siz'
+
+
+10:10:51 Build Finished (took 1s.394ms)
+
