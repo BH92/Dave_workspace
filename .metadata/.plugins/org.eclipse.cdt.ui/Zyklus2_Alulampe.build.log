@@ -1,0 +1,11 @@
+11:15:12 **** Incremental Build of configuration Debug for project Zyklus2_Alulampe ****
+"\"C:\\DAVEv4-64Bit\\DAVE-4.3.2\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j4 all 
+'Invoking: ARM-GCC Print Size'
+"C:/DAVEv4-64Bit/DAVE-4.3.2/eclipse/ARM-GCC-49/bin/arm-none-eabi-size" --format=berkeley "Zyklus2_Alulampe.elf"
+   text	   data	    bss	    dec	    hex	filename
+  35064	    540	   2268	  37872	   93f0	Zyklus2_Alulampe.elf
+'Finished building: Zyklus2_Alulampe.siz'
+
+
+11:15:13 Build Finished (took 973ms)
+

@@ -1,0 +1,12 @@
+10:38:05 **** Build of configuration Debug for project Zyklus 1, Holzlampe ****
+"\"C:\\DAVEv4-64Bit\\DAVE-4.3.2\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j4 all 
+'Building target: Zyklus 1, Holzlampe.elf'
+c:/davev4-64bit/dave-4.3.2/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/bin/ld.exe: cannot find  Holzlampe.map: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+make: *** [Zyklus 1, Holzlampe.elf] Error 1
+'Invoking: ARM-GCC C Linker'
+"C:/DAVEv4-64Bit/DAVE-4.3.2/eclipse/ARM-GCC-49/bin/arm-none-eabi-gcc" -T"../linker_script.ld" -nostartfiles -Xlinker --gc-sections -specs=nano.specs -specs=nosys.specs -Wl,-Map,"Zyklus 1, Holzlampe.map" -mcpu=cortex-m0 -mthumb -g -gdwarf-2 -o "Zyklus 1, Holzlampe.elf" "@objects.rsp"  -lm
+makefile:68: recipe for target 'Zyklus 1, Holzlampe.elf' failed
+
+10:38:06 Build Finished (took 1s.62ms)
+

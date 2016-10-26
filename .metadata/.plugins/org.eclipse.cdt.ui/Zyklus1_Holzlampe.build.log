@@ -1,0 +1,11 @@
+10:50:58 **** Incremental Build of configuration Debug for project Zyklus1_Holzlampe ****
+"\"C:\\DAVEv4-64Bit\\DAVE-4.3.2\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j4 all 
+'Invoking: ARM-GCC Print Size'
+"C:/DAVEv4-64Bit/DAVE-4.3.2/eclipse/ARM-GCC-49/bin/arm-none-eabi-size" --format=berkeley "Zyklus1_Holzlampe.elf"
+   text	   data	    bss	    dec	    hex	filename
+  35064	    540	   2268	  37872	   93f0	Zyklus1_Holzlampe.elf
+'Finished building: Zyklus1_Holzlampe.siz'
+
+
+10:51:00 Build Finished (took 1s.386ms)
+

@@ -1,0 +1,1281 @@
+package Model.APPS.PDM_DIMMED_LED_LAMP.v4_0_4;
+
+/*
+ Copyright (c) 2015, Infineon Technologies AG
+ All rights reserved.
+											
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ following conditions are met:
+																			 
+ Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ disclaimer.
+  
+ Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+ disclaimer in the documentation and/or other materials provided with the distribution.
+  
+ Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ products derived from this software without specific prior written permission.
+																			 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+																			 
+ To improve the quality of the software, users are encouraged to share modifications, enhancements or bug fixes with
+ Infineon Technologies AG: dave@infineon.com. */
+
+/*************** Revision History **********************************************
+ Version        Date          Description
+
+ 4.0.0       08-Oct-2015   Initial version for DAVEv4.<br>
+ 
+ 4.0.1       13-Oct-2015   CCU8 channel 2 duty cycle is updated.<br>
+
+ 4.0.2       21-Oct-2015   Hardware connection issue from PDM output to CCU4 mci is fixed.<br>
+ 
+ 4.0.4       08-Jul-2016   Fixed incorrect case for an included header. <BR>                            	
+ *******************************************************************************/
+ 
+/* Import statements */
+ import ifx.davex.app.manifest.*
+
+ class  PDM_DIMMED_LED_LAMP extends PDM_DIMMED_LED_LAMP_GUI {
+
+
+ /**
+  * APP version
+  * Format: a string with three digit separated by a dot.
+  */
+ def version            = '4.0.4'
+
+ /**
+  * APP categories declaration.
+  * It is list of strings. Subcategories are separated by slash.
+  * No limits on number of categories and subcategories depth.
+  */
+ def categoriesDescription = ['LED Lighting']
+
+ /**
+  * Minimum DAVE version required for this APP.
+  *
+  * It is string with three digit separated by a dot.
+  */
+ def minDaveVersion           = '4.0.0'
+
+ /**
+  * Keywords used by search feature in APPs selection view
+  *
+  * It is a list of string.
+  */
+ def keywords      = ['LED Lighting', 'PDM_DIMMED_LED_LAMP', 'RGB LAMP', 'STREET LAMP', 'BCCU', 'ALL']
+
+ /**
+  * softwareIDs is used to declare which devices are compatible with this APP.
+  * It is a map with key a string containing a pattern that shall match the SW id of
+  * the device and as value the minimal version of the APP.
+  *
+  *
+  */
+ def softwareIDs       = [
+   "XMC1.2.00.T038.*":"1.0.0", 
+   "XMC1.2.02.(T028|T016|Q024|Q040).*":"1.0.0", 
+   "XMC1.3.02.(T016|T038|Q024|Q040).*":"1.0.0",
+   "XMC1.4.02.*.*":"1.0.0",
+   "XMC1.4.04.*.*":"1.0.0",
+ ]
+
+ /**
+  * Singleton property:
+  * When it is true the APP can be instantiated only once.
+  */
+ def singleton     = false
+
+ /**
+  * initProvider property
+  * It shall be true to add a call to <AppName>_Init()
+  */
+ def initProvider  = true
+
+ /**
+  * Deprecated APP
+  * Set it to true to indicate that the APP shall be not used for new projects.
+  */
+ def deprecated    = false
+
+ /**
+  * Sharable property.
+  * It shall be true to allows multiple APPs to require the same instance of this APP.
+  */
+ def sharable      = false
+
+ /**
+  *  APP function description.
+  */
+ def description = "Creates a virtual lamp with up to 9 BCCU channels,\n optionally controls the peak current using various\n internal driver methods. The APP provides a run-time\n functions to change a color, dimming level and\n adjustable peak current reference."
+ /* End   : PDM_DIMMED_LED_LAMP property section */
+ 
+ /* Begin : User variable section */
+ /*  variable to hold Global Dimming value  */
+ GInteger gint_GlobDimLvl_LED = GInteger(widgetName:"gint_GlobDimLvl_LED")
+ /*  variable to hold actual dimming clock frequency value  */
+ GFloat dimming_clock = GFloat(widgetName:"dimming_clock")
+ /*  variable to hold actual fast clock frequency value  */
+ GFloat Actualfastclockfrequency = GFloat(widgetName:"Actualfastclockfrequency")
+
+ /* Resources are consumed for simple dcdc method which requires two pad resources */
+ MVirtualResourceGroup hwres_port_pin_comp_out_0 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_1 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_2 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_3 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_4 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_5 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_6 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_7 = null
+ MVirtualResourceGroup hwres_port_pin_comp_out_8 = null
+ /* Resources are consumed for simple dcdc method which requires two pad resources */
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_0 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_1 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_2 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_3 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_4 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_5 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_6 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_7 = null
+ MVirtualResourceGroup hwres_port_pin_ccu4_in_8 = null
+ /* Virtual signals are defined for simple dcdc method which needs virtual connection between PWM and Comparator */
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_0
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_1
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_2
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_3
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_4
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_5
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_6
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_7
+ MVirtualSignal vs_pdm_dimmed_led_lamp_comp_out_8
+ /* Virtual signals are defined for simple dcdc method which needs virtual connection between PWM and Comparator */
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_0
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_1
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_2
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_3
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_4
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_5
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_6
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_7
+ MVirtualSignal vs_pdm_dimmed_led_lamp_ccu4_in_8
+ 
+ 
+  /* List of virtual resource groups */
+ MRequiredApp appres_dim_bccu
+ MRequiredApp appres_global_bccu
+ MRequiredApp appres_pdm_bccu_1
+ MRequiredApp appres_pdm_bccu_2
+ MRequiredApp appres_pdm_bccu_3
+ MRequiredApp appres_pdm_bccu_4
+ MRequiredApp appres_pdm_bccu_5
+ MRequiredApp appres_pdm_bccu_6
+ MRequiredApp appres_pdm_bccu_7
+ MRequiredApp appres_pdm_bccu_8
+ MRequiredApp appres_pdm_bccu_9
+ MRequiredApp appres_comp_ref_1
+ MRequiredApp appres_pwm_ccu4_1
+ MRequiredApp appres_pwm_ccu8_1
+ MRequiredApp appres_comp_ref_2
+ MRequiredApp appres_pwm_ccu4_2
+ MRequiredApp appres_pwm_ccu8_2
+ MRequiredApp appres_comp_ref_3
+ MRequiredApp appres_pwm_ccu4_3
+ MRequiredApp appres_pwm_ccu8_3
+ MRequiredApp appres_comp_ref_4
+ MRequiredApp appres_pwm_ccu4_4
+ MRequiredApp appres_pwm_ccu8_4
+ MRequiredApp appres_comp_ref_5
+ MRequiredApp appres_pwm_ccu4_5
+ MRequiredApp appres_pwm_ccu8_5
+ MRequiredApp appres_comp_ref_6
+ MRequiredApp appres_pwm_ccu4_6
+ MRequiredApp appres_pwm_ccu8_6
+ MRequiredApp appres_comp_ref_7
+ MRequiredApp appres_pwm_ccu4_7
+ MRequiredApp appres_pwm_ccu8_7
+ MRequiredApp appres_comp_ref_8
+ MRequiredApp appres_pwm_ccu4_8
+ MRequiredApp appres_pwm_ccu8_8
+ MRequiredApp appres_comp_ref_9
+ MRequiredApp appres_pwm_ccu4_9
+ MRequiredApp appres_pwm_ccu8_9
+ /* array to hold labels of LED channel */
+ RArray <MRequiredApp> appres_comp_ref_arr = RArray(10)
+ RArray <MRequiredApp> appres_pwm_ccu4_arr = RArray(10)
+ RArray <MRequiredApp> appres_pwm_ccu8_arr = RArray(10)
+ 
+ 
+ /* List of virtual signals */
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_dim_bccu_dimout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_global_bccu_dimout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_1_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_2_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_3_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_4_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_5_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_6_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_7_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_8_dimin
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_9_dimin
+ 
+ MVirtualSignalRA vs_comp_ref_1_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_1_out
+ MVirtualSignalRA vs_pwm_ccu4_1_mci
+ MVirtualSignalRA vs_pwm_ccu4_1_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_1_in
+ MVirtualSignalRA vs_comp_ref_1_out
+ MVirtualSignalRA vs_pwm_ccu8_1_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_1_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_2_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_2_out
+ MVirtualSignalRA vs_pwm_ccu4_2_mci
+ MVirtualSignalRA vs_pwm_ccu4_2_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_2_in
+ MVirtualSignalRA vs_comp_ref_2_out
+ MVirtualSignalRA vs_pwm_ccu8_2_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_2_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_3_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_3_out
+ MVirtualSignalRA vs_pwm_ccu4_3_mci
+ MVirtualSignalRA vs_pwm_ccu4_3_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_3_in
+ MVirtualSignalRA vs_comp_ref_3_out
+ MVirtualSignalRA vs_pwm_ccu8_3_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_3_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_4_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_4_out
+ MVirtualSignalRA vs_pwm_ccu4_4_mci
+ MVirtualSignalRA vs_pwm_ccu4_4_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_4_in
+ MVirtualSignalRA vs_comp_ref_4_out
+ MVirtualSignalRA vs_pwm_ccu8_4_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_4_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_5_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_5_out
+ MVirtualSignalRA vs_pwm_ccu4_5_mci
+ MVirtualSignalRA vs_pwm_ccu4_5_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_5_in
+ MVirtualSignalRA vs_comp_ref_5_out
+ MVirtualSignalRA vs_pwm_ccu8_5_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_5_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_6_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_6_out
+ MVirtualSignalRA vs_pwm_ccu4_6_mci
+ MVirtualSignalRA vs_pwm_ccu4_6_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_6_in
+ MVirtualSignalRA vs_comp_ref_6_out
+ MVirtualSignalRA vs_pwm_ccu8_6_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_6_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_7_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_7_out
+ MVirtualSignalRA vs_pwm_ccu4_7_mci
+ MVirtualSignalRA vs_pwm_ccu4_7_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_7_in
+ MVirtualSignalRA vs_comp_ref_7_out
+ MVirtualSignalRA vs_pwm_ccu8_7_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_7_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_8_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_8_out
+ MVirtualSignalRA vs_pwm_ccu4_8_mci
+ MVirtualSignalRA vs_pwm_ccu4_8_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_8_in
+ MVirtualSignalRA vs_comp_ref_8_out
+ MVirtualSignalRA vs_pwm_ccu8_8_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_8_gp1_unsync
+
+ MVirtualSignalRA vs_comp_ref_9_event_generator_pdout
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_9_out
+ MVirtualSignalRA vs_pwm_ccu4_9_mci
+ MVirtualSignalRA vs_pwm_ccu4_9_gp0_unsync
+ MVirtualSignalRA vs_pdm_dimmed_led_lamp_pdm_bccu_9_in
+ MVirtualSignalRA vs_comp_ref_9_out
+ MVirtualSignalRA vs_pwm_ccu8_9_gp0_unsync
+ MVirtualSignalRA vs_pwm_ccu8_9_gp1_unsync
+
+ /* Index */
+ /* array to hold labels of LED channel */
+ RArray <GLabel> glabel_LEDChannel_arr = RArray(10)
+ /* array to hold percentage value of dimming level */
+ RArray <GFloat> gfloat_DimLvlPer_LED_arr = RArray(10)
+ /* array to hold dimming level value */
+ RArray <GInteger> gint_DimLvl_LED_arr = RArray(10)
+ /* array to hold percentage value of channel intensity */
+ RArray <GFloat> gfloat_IntenPer_LED_arr = RArray(10)
+ /* array to hold channel intensity value */
+ RArray <GInteger> gint_Inten_LED_arr = RArray(10)
+ /* array to hold percentage value of LED brightness */
+ RArray <GFloat> gfloat_BrightnessPer_LED_arr = RArray(10)
+ /* array to hold LED brightness value  */
+ RArray <GInteger> gint_Brightness_LED_arr = RArray(10)
+ 
+ RArray <GCombo> gcombo_pcc_ref_gen_arr = RArray(10)
+ RArray <GCombo> gcombo_pcc_ref_src_arr = RArray(10)
+ RArray <GFloat> gfloat_pcc_peak_ref_mv_arr = RArray(10)
+ RArray <GFloat> gfloat_pcc_gen_off_time_ns_arr = RArray(10)
+ 
+ /* End   : User variable section */
+
+ /* pdm_dimmed_led_lamp APP Constructor */
+ public PDM_DIMMED_LED_LAMP(DaveEnv daveEnv) 
+ {
+	String family = daveEnv.project.selectedDevice.deviceId.family 	/* ex:XMC4 or XMC1 */
+	String series = (daveEnv.project.selectedDevice.deviceId.family + daveEnv.project.selectedDevice.deviceId.series) /* ex:XMC45, 44.. */
+	 boolean ccu8_available = false
+	 boolean comp_available
+	 boolean comparator_constraint = false
+	 
+	 
+	 gcombo_pcc_ref_gen_arr[0] = gcombo_pcc_ref_gen_0
+	 gcombo_pcc_ref_gen_arr[1] = gcombo_pcc_ref_gen_1
+	 gcombo_pcc_ref_gen_arr[2] = gcombo_pcc_ref_gen_2
+	 gcombo_pcc_ref_gen_arr[3] = gcombo_pcc_ref_gen_3
+	 gcombo_pcc_ref_gen_arr[4] = gcombo_pcc_ref_gen_4
+	 gcombo_pcc_ref_gen_arr[5] = gcombo_pcc_ref_gen_5
+	 gcombo_pcc_ref_gen_arr[6] = gcombo_pcc_ref_gen_6
+	 gcombo_pcc_ref_gen_arr[7] = gcombo_pcc_ref_gen_7
+	 gcombo_pcc_ref_gen_arr[8] = gcombo_pcc_ref_gen_8
+	 
+	 gcombo_pcc_ref_src_arr[0] = gcombo_pcc_ref_src_0
+	 gcombo_pcc_ref_src_arr[1] = gcombo_pcc_ref_src_1
+	 gcombo_pcc_ref_src_arr[2] = gcombo_pcc_ref_src_2
+	 gcombo_pcc_ref_src_arr[3] = gcombo_pcc_ref_src_3
+	 gcombo_pcc_ref_src_arr[4] = gcombo_pcc_ref_src_4
+	 gcombo_pcc_ref_src_arr[5] = gcombo_pcc_ref_src_5
+	 gcombo_pcc_ref_src_arr[6] = gcombo_pcc_ref_src_6
+	 gcombo_pcc_ref_src_arr[7] = gcombo_pcc_ref_src_7
+	 gcombo_pcc_ref_src_arr[8] = gcombo_pcc_ref_src_8
+	 
+	 gfloat_pcc_peak_ref_mv_arr[0] = gfloat_pcc_peak_ref_mv_0
+	 gfloat_pcc_peak_ref_mv_arr[1] = gfloat_pcc_peak_ref_mv_1
+	 gfloat_pcc_peak_ref_mv_arr[2] = gfloat_pcc_peak_ref_mv_2
+	 gfloat_pcc_peak_ref_mv_arr[3] = gfloat_pcc_peak_ref_mv_3
+	 gfloat_pcc_peak_ref_mv_arr[4] = gfloat_pcc_peak_ref_mv_4
+	 gfloat_pcc_peak_ref_mv_arr[5] = gfloat_pcc_peak_ref_mv_5
+	 gfloat_pcc_peak_ref_mv_arr[6] = gfloat_pcc_peak_ref_mv_6
+	 gfloat_pcc_peak_ref_mv_arr[7] = gfloat_pcc_peak_ref_mv_7
+	 gfloat_pcc_peak_ref_mv_arr[8] = gfloat_pcc_peak_ref_mv_8
+	 
+	 gfloat_pcc_gen_off_time_ns_arr[0] = gfloat_pcc_gen_off_time_ns_0
+	 gfloat_pcc_gen_off_time_ns_arr[1] = gfloat_pcc_gen_off_time_ns_1
+	 gfloat_pcc_gen_off_time_ns_arr[2] = gfloat_pcc_gen_off_time_ns_2
+	 gfloat_pcc_gen_off_time_ns_arr[3] = gfloat_pcc_gen_off_time_ns_3
+	 gfloat_pcc_gen_off_time_ns_arr[4] = gfloat_pcc_gen_off_time_ns_4
+	 gfloat_pcc_gen_off_time_ns_arr[5] = gfloat_pcc_gen_off_time_ns_5
+	 gfloat_pcc_gen_off_time_ns_arr[6] = gfloat_pcc_gen_off_time_ns_6
+	 gfloat_pcc_gen_off_time_ns_arr[7] = gfloat_pcc_gen_off_time_ns_7
+	 gfloat_pcc_gen_off_time_ns_arr[8] = gfloat_pcc_gen_off_time_ns_8
+	 
+	 
+   /* Fetch label information of all the LED channel from GUI */
+   glabel_LEDChannel_arr[0] = glabel_LEDChannel_0
+   glabel_LEDChannel_arr[1] = glabel_LEDChannel_1
+   glabel_LEDChannel_arr[2] = glabel_LEDChannel_2
+   glabel_LEDChannel_arr[3] = glabel_LEDChannel_3
+   glabel_LEDChannel_arr[4] = glabel_LEDChannel_4
+   glabel_LEDChannel_arr[5] = glabel_LEDChannel_5
+   glabel_LEDChannel_arr[6] = glabel_LEDChannel_6
+   glabel_LEDChannel_arr[7] = glabel_LEDChannel_7
+   glabel_LEDChannel_arr[8] = glabel_LEDChannel_8
+ 
+   /* Fetch configured percentage value of dimming level for all the LED channel from GUI */
+   gfloat_DimLvlPer_LED_arr[0] =  gfloat_DimLvlPer_LED_0
+   gfloat_DimLvlPer_LED_arr[1] =  gfloat_DimLvlPer_LED_1
+   gfloat_DimLvlPer_LED_arr[2] =  gfloat_DimLvlPer_LED_2
+   gfloat_DimLvlPer_LED_arr[3] =  gfloat_DimLvlPer_LED_3
+   gfloat_DimLvlPer_LED_arr[4] =  gfloat_DimLvlPer_LED_4
+   gfloat_DimLvlPer_LED_arr[5] =  gfloat_DimLvlPer_LED_5
+   gfloat_DimLvlPer_LED_arr[6] =  gfloat_DimLvlPer_LED_6
+   gfloat_DimLvlPer_LED_arr[7] =  gfloat_DimLvlPer_LED_7
+   gfloat_DimLvlPer_LED_arr[8] =  gfloat_DimLvlPer_LED_8
+ 
+   /* Fetch configured dimming level value of all the LED channel from GUI */
+   gint_DimLvl_LED_arr[0] =  gint_DimLvl_LED_0
+   gint_DimLvl_LED_arr[1] =  gint_DimLvl_LED_1
+   gint_DimLvl_LED_arr[2] =  gint_DimLvl_LED_2
+   gint_DimLvl_LED_arr[3] =  gint_DimLvl_LED_3
+   gint_DimLvl_LED_arr[4] =  gint_DimLvl_LED_4
+   gint_DimLvl_LED_arr[5] =  gint_DimLvl_LED_5
+   gint_DimLvl_LED_arr[6] =  gint_DimLvl_LED_6
+   gint_DimLvl_LED_arr[7] =  gint_DimLvl_LED_7
+   gint_DimLvl_LED_arr[8] =  gint_DimLvl_LED_8
+		
+ 
+   /* Fetch configured percentage value of channel intensity for all the LED channel from GUI */
+   gfloat_IntenPer_LED_arr[0] = gfloat_IntenPer_LED_0
+   gfloat_IntenPer_LED_arr[1] = gfloat_IntenPer_LED_1
+   gfloat_IntenPer_LED_arr[2] = gfloat_IntenPer_LED_2
+   gfloat_IntenPer_LED_arr[3] = gfloat_IntenPer_LED_3
+   gfloat_IntenPer_LED_arr[4] = gfloat_IntenPer_LED_4
+   gfloat_IntenPer_LED_arr[5] = gfloat_IntenPer_LED_5
+   gfloat_IntenPer_LED_arr[6] = gfloat_IntenPer_LED_6
+   gfloat_IntenPer_LED_arr[7] = gfloat_IntenPer_LED_7
+   gfloat_IntenPer_LED_arr[8] = gfloat_IntenPer_LED_8
+ 
+   /* Fetch configured channel intensity value of all the LED channel from GUI */
+   gint_Inten_LED_arr[0] = gint_Inten_LED_0
+   gint_Inten_LED_arr[1] = gint_Inten_LED_1
+   gint_Inten_LED_arr[2] = gint_Inten_LED_2
+   gint_Inten_LED_arr[3] = gint_Inten_LED_3
+   gint_Inten_LED_arr[4] = gint_Inten_LED_4
+   gint_Inten_LED_arr[5] = gint_Inten_LED_5
+   gint_Inten_LED_arr[6] = gint_Inten_LED_6
+   gint_Inten_LED_arr[7] = gint_Inten_LED_7
+   gint_Inten_LED_arr[8] = gint_Inten_LED_8
+ 
+   /* Fetch configured percentage value of LED brightness for all the LED channel from GUI */
+   gfloat_BrightnessPer_LED_arr[0] = gfloat_BrightnessPer_LED_0
+   gfloat_BrightnessPer_LED_arr[1] = gfloat_BrightnessPer_LED_1
+   gfloat_BrightnessPer_LED_arr[2] = gfloat_BrightnessPer_LED_2
+   gfloat_BrightnessPer_LED_arr[3] = gfloat_BrightnessPer_LED_3
+   gfloat_BrightnessPer_LED_arr[4] = gfloat_BrightnessPer_LED_4
+   gfloat_BrightnessPer_LED_arr[5] = gfloat_BrightnessPer_LED_5
+   gfloat_BrightnessPer_LED_arr[6] = gfloat_BrightnessPer_LED_6
+   gfloat_BrightnessPer_LED_arr[7] = gfloat_BrightnessPer_LED_7
+   gfloat_BrightnessPer_LED_arr[8] = gfloat_BrightnessPer_LED_8
+ 
+   /* Fetch configured  LED brightness value of all the LED channel from GUI */
+   gint_Brightness_LED_arr[0] = gint_Brightness_LED_0
+   gint_Brightness_LED_arr[1] = gint_Brightness_LED_1
+   gint_Brightness_LED_arr[2] = gint_Brightness_LED_2
+   gint_Brightness_LED_arr[3] = gint_Brightness_LED_3
+   gint_Brightness_LED_arr[4] = gint_Brightness_LED_4
+   gint_Brightness_LED_arr[5] = gint_Brightness_LED_5
+   gint_Brightness_LED_arr[6] = gint_Brightness_LED_6
+   gint_Brightness_LED_arr[7] = gint_Brightness_LED_7
+   gint_Brightness_LED_arr[8] = gint_Brightness_LED_8
+  
+   /* Checking CCU8 availability */ 
+   if((series == "XMC13") || (series == "XMC14")){  
+     ccu8_available = true
+   }
+            
+   comp_available = true
+   
+   /* Checking comparator availability */
+   if((series == "XMC13") ||(series == "XMC12"))
+   {
+	   comparator_constraint = true
+   }
+   
+   /* Updating driver methods upon availability of CCU8 and Comparator */
+   if((comp_available == true) && (ccu8_available == true))
+   {
+     gcombo_DriverSel.options = ["Direct PDM (External LED Drivers)","Slow DCDC Buck with PDM","Simple DCDC Buck with PDM","Fast DCDC Buck with PDM"]
+	
+   }
+   else if((comp_available == true) && (ccu8_available == false))   {
+	 gcombo_DriverSel.options = ["Direct PDM (External LED Drivers)","Slow DCDC Buck with PDM","Simple DCDC Buck with PDM"]
+	
+   }
+   else
+   {
+	 gcombo_DriverSel.options = ["Direct PDM (External LED Drivers)"]
+	 
+   }
+   
+   
+   /* Updating no of channels depending on comparator availability */
+  gcombo_NoOfChannels.options = MF({
+    if(gcombo_DriverSel.value == "Direct PDM (External LED Drivers)")
+    {
+	   [
+		  "1",
+		  "2",
+		  "3",
+		  "4",
+		  "5",
+		  "6",
+		  "7",
+		  "8",
+		  "9",
+		]
+	}
+    else if(comparator_constraint == true)
+    {
+	   [
+		  "1",
+		  "2",
+		  "3",
+	   ]
+	   
+    }
+	else
+	{
+	  [
+		"1",
+		"2",
+		"3",
+		"4",
+	  ]
+	}
+   
+   }, List)
+	   
+
+   /* consumption of DIM_BCCU APP based on GUI configuration */
+   appres_dim_bccu = MRequiredApp("DIM_BCCU", "DIM BCCU APP", RNOTSHARABLE, "4.0.2", MF({gcombo_SourceOfDimming.value == "Dimming Engine"}, Boolean))
+   /* consumption of GLOBAL_BCCU APP */
+   appres_global_bccu = MRequiredApp("GLOBAL_BCCU", "GLOBAL_BCCU APP", RSHARABLE, "4.0.2", true)
+
+   /* consumption of PDM_BCCU APPs based on GUI configuration */
+  for(int index in 1..9) {	   
+	   int loop_count = index;
+	   this."appres_pdm_bccu_${index}"=
+       MRequiredApp("PDM_BCCU", "LED${index-1}", RNOTSHARABLE, "4.0.2", MF({Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count}, Boolean))
+   }
+    
+   /* map all the virtual signals */
+   vs_pdm_dimmed_led_lamp_dim_bccu_dimout = MVirtualSignalRA(appres_dim_bccu, "vs_dimout")
+   vs_pdm_dimmed_led_lamp_global_bccu_dimout = MVirtualSignalRA(appres_global_bccu, "vs_global_dimming_engine")
+
+      
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_dimin"=
+	   MVirtualSignalRA(this."appres_pdm_bccu_${index}", "vs_pdmbccu_dimin")
+   }
+   
+   /* Establish the connections between source and target based on GUI configuration */   
+   for(int index in 1..9) {
+	   int loop_count = index;	
+	   addConnectionConstraint(vs_pdm_dimmed_led_lamp_dim_bccu_dimout, this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_dimin", MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) &&
+		                                                                                              (gcombo_SourceOfDimming.value == "Dimming Engine")}, Boolean) )
+   }
+
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   addConnectionConstraint(vs_pdm_dimmed_led_lamp_global_bccu_dimout, this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_dimin", MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) &&
+																									  (gcombo_SourceOfDimming.value == "Global Dimming")}, Boolean) )
+   }
+
+   /* controlling the visibility of images based of GUI configuration */
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   this."gimage_${index}led_dimengine".visible=
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Dimming Engine") && (gcombo_DriverSel.value == "Direct PDM (External LED Drivers)")}, Boolean)
+   }
+
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   this."gimage_${index}led_globdim".visible =
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Global Dimming") && (gcombo_DriverSel.value == "Direct PDM (External LED Drivers)")}, Boolean)
+   }
+   /* controlling the visibility of images(simple dimming) based of GUI configuration */
+   for(int index in 1..4) {
+	   int loop_count = index;
+	   this."gimage_pcc_simple_${index}led_dimengine".visible=
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Dimming Engine") && (gcombo_DriverSel.value == "Simple DCDC Buck with PDM")}, Boolean)
+   }
+   /* controlling the visibility of images(simple global dimming) based of GUI configuration */
+   for(int index in 1..4) {
+	   int loop_count = index;
+	   this."gimage_pcc_simple_${index}led_globdim".visible=
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Global Dimming") && (gcombo_DriverSel.value == "Simple DCDC Buck with PDM")}, Boolean)
+   }
+   /* controlling the visibility of images(slow dimming) based of GUI configuration */
+   for(int index in 1..4) {
+	   int loop_count = index;
+	   this."gimage_pcc_slow_${index}led_dimengine".visible=
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Dimming Engine") && (gcombo_DriverSel.value == "Slow DCDC Buck with PDM")}, Boolean)
+   }
+   /* controlling the visibility of images(slow global dimming) based of GUI configuration */
+   for(int index in 1..4) {
+	   int loop_count = index;
+	   this."gimage_pcc_slow_${index}led_globdim".visible=
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Global Dimming") && (gcombo_DriverSel.value == "Slow DCDC Buck with PDM")}, Boolean)
+   }
+   
+   /* controlling the visibility of images(fast dimming) based of GUI configuration */
+   for(int index in 1..4) {
+	   int loop_count = index;
+	   this."gimage_pcc_fast_${index}led_dimengine".visible=
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Dimming Engine") && (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")}, Boolean)
+   }
+   /* controlling the visibility of images(fast global dimming) based of GUI configuration */
+   for(int index in 1..4) {
+	   int loop_count = index;
+	   this."gimage_pcc_fast_${index}led_globdim".visible=
+	   MF({(Integer.parseInt(gcombo_NoOfChannels.value) == loop_count) && (gcombo_SourceOfDimming.value == "Global Dimming") && (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")}, Boolean)
+   }
+   
+   /* Fetch actual dimming clock frequency(DCLK) value */
+   dimming_clock.value = MF({appres_global_bccu.getVal(["gfloat_actual_dimming_clock_freq", "value"])}, Float)
+   /* Fetch actual fast clock frequency(FCLK) value */
+   Actualfastclockfrequency.value = MF({appres_global_bccu.getVal(["gfloat_actual_fast_clock_freq", "value"])}, Float)
+
+   /* Fetch global dimming level value */
+   gint_GlobDimLvl_LED.value = MF({
+     int a
+     if (gcombo_SourceOfDimming.value == "Global Dimming")
+     {
+       a = appres_global_bccu.getVal(["ginteger_global_dimming_level", "value"])
+     }
+     else
+     {
+       a = 0
+     }
+     return a
+   }, Integer)
+
+   /* Fetch linear walker clock prescaler value */
+   ginteger_linpres.value = MF({appres_pdm_bccu_1.getVal(["ginteger_linpres", "value"])}, Integer)
+
+   /* Fetch dimming clock divider value */
+	    gint_dimdiv.value = MF({
+     int a
+     if (gcombo_SourceOfDimming.value == "Dimming Engine")
+     {
+       a = appres_dim_bccu.getVal(["ginteger_dimdiv", "value"])
+     }
+     else
+     {
+       a = 0
+     }
+     return a
+   }, Integer)
+
+   /* Fetch dimming clock prescaler value */
+   gint_dimming_clk_prescaler.value = MF({appres_global_bccu.getVal(["ginteger_dimming_clock_prescaler_factor", "value"])}, Integer)
+
+   /* Constraints for Enable/Disable of widgets */
+   for (int index = 0; index < 9; index++)
+   {
+     int loop_index = index
+
+     glabel_LEDChannel_arr[index].enabled = MF({Integer.parseInt(gcombo_NoOfChannels.value) > loop_index}, Boolean)
+     gint_Inten_LED_arr[index].enabled =  MF({Integer.parseInt(gcombo_NoOfChannels.value) > loop_index}, Boolean)
+     gint_DimLvl_LED_arr[index].visible = MF({gcombo_SourceOfDimming.value == "Dimming Engine"}, Boolean)
+
+     gfloat_DimLvlPer_LED_arr[index].value = MF({
+       float a
+       float dim_level
+       if(gcombo_SourceOfDimming.value == "Dimming Engine")
+       {
+         dim_level = gint_DimLvl_LED_arr[loop_index].value
+       }
+       else
+       {
+	 dim_level = gint_GlobDimLvl_LED.value
+       }
+       if (dim_level == 4095)
+       {
+         a = (dim_level / 4095.0) * 100.0
+       }
+       else
+       {
+         a = (dim_level / 4096.0) * 100.0
+       }
+       return a
+     }, Float)
+
+     gfloat_IntenPer_LED_arr[index].value = MF({
+       float a
+       if (gint_Inten_LED_arr[loop_index].value == 4095)
+       {
+         a = (gint_Inten_LED_arr[loop_index].value / 4095.0) * 100.0
+       }
+       else
+       {
+         a = (gint_Inten_LED_arr[loop_index].value / 4096.0) * 100.0
+       }
+       return a
+     }, Float)
+
+     gint_Brightness_LED_arr[index].value = MF({
+       int a
+       if (gcombo_SourceOfDimming.value == "Dimming Engine")
+       {
+         a = (((gint_DimLvl_LED_arr[loop_index].value + 1) * (gint_Inten_LED_arr[loop_index].value + 1))-1)
+       }
+       else
+       {
+         a = (((gint_GlobDimLvl_LED.value + 1) * (gint_Inten_LED_arr[loop_index].value + 1))-1)
+       }
+       a = a >> 12
+       return a
+     }, Integer)
+
+     gfloat_BrightnessPer_LED_arr[index].value = MF({
+       float a
+       if ((gint_DimLvl_LED_arr[loop_index].value == 4095) || (gint_Inten_LED_arr[loop_index].value == 4095) || (gint_GlobDimLvl_LED.value == 4095))
+       {
+         a = ((gint_Brightness_LED_arr[loop_index].value) / 4095 ) * 100
+       }
+       else
+       {
+         a = ((gint_Brightness_LED_arr[loop_index].value) / 4096 ) * 100
+       }
+       return a
+     }, Float)
+
+   }
+
+   
+   MF dimlevel_val = MF({gint_DimLvl_LED_0.value}, Integer)
+   /* Enable/Disable of dimming level widgets based on dimming engine selection */
+   gint_DimLvl_LED_0.enabled = MF({gcombo_SourceOfDimming.value == "Dimming Engine"}, Boolean)
+	 for(int index in 1..8) {
+		 int loop_count = index;		 
+		 this."gint_DimLvl_LED_${index}".value= dimlevel_val
+	 }
+	 
+   /* Enable/Disable of PDM_BCCU channels during pdm_dimmed_led_lamp initialization based on GUI configuration */
+   appres_dim_bccu.setVal(["gcheck_dimming_engine_enable_init", "value"], MF({gcheck_EnLamp.value}, Boolean))
+
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   this."appres_pdm_bccu_${index}".setVal(["gcheck_enable_channel", "value"], MF({gcheck_EnLamp.value}, Boolean))
+   }
+
+   /* Enable/Disable of bypass dimming input based on GUI configuration */
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   this."appres_pdm_bccu_${index}".setVal(["gcheck_dimming_input_bypass", "value"], MF({false}, Boolean))
+	   this."appres_pdm_bccu_${index}".setVal(["gcheck_dimming_input_bypass", "enabled"],  MF({false},Boolean))
+   }
+   
+   /* configure initial dimming level value based on GUI configuration in widget of DIM_BCCU APP */
+   appres_dim_bccu.setVal(["ginteger_initial_dimming_level", "value"], MF({gint_DimLvl_LED_0.value}, Integer))
+
+   /* configure initial channel intensity value based on GUI configuration in widget of PDM_BCCU APPs */
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   this."appres_pdm_bccu_${index}".setVal(["ginteger_channel_initial_intensity", "value"], MF({gint_Inten_LED_arr[loop_count-1].value}, Integer))
+   }
+   
+   /* configure desired transition time value based on GUI configuration in widget of DIM_BCCU APP */
+   appres_dim_bccu.setVal(["gFloat_desired_transition_time", "value"], MF({gfloat_dim_trans_time.value}, Float))
+
+   /* configure desired initial linear walk time value based on GUI configuration in widget of PDM_BCCU APPs */
+   for(int index in 1..9) {
+	   int loop_count = index;
+	   this."appres_pdm_bccu_${index}".setVal(["gfloat_desired_initial_linear_walk_time", "value"], MF({gfloat_lin_walk_time.value}, Float))
+   }
+   /* controlling the visibility of dimming transition time widgets based on dimming engine selection */
+   glabel_dim_trans_time.visible = MF({(gcombo_SourceOfDimming.value == "Dimming Engine")}, Boolean)
+   gfloat_dim_trans_time.visible = MF({(gcombo_SourceOfDimming.value == "Dimming Engine")}, Boolean)
+
+   /* controlling the maximum value of dimming transition time widgets based on GUI configuration */
+   gfloat_dim_trans_time.maxValue = MF({
+     ((1023 * 20479)/(dimming_clock.value * 1000))
+   }, Float)
+
+   /* controlling the maximum value of linear walk time widgets based on GUI configuration */
+   gfloat_lin_walk_time.maxValue = MF({
+     ((8192 * 1023) / (Actualfastclockfrequency.value * 1000))
+   }, Float)
+
+   /* controlling the visibility of dimming clock prescaler widgets based on dimming engine selection */
+   glabel_dimming_clk_prescaler.visible = MF({(gcombo_SourceOfDimming.value == "Dimming Engine")}, Boolean)
+   gint_dimming_clk_prescaler.visible = MF({(gcombo_SourceOfDimming.value == "Dimming Engine")}, Boolean)
+
+   /* controlling the visibility of dimming divider value widgets based on dimming engine selection */
+   glabel_dimdiv.visible = MF({(gcombo_SourceOfDimming.value == "Dimming Engine")}, Boolean)
+   gint_dimdiv.visible = MF({(gcombo_SourceOfDimming.value == "Dimming Engine")}, Boolean)
+
+   glabel_321.visible =  MF({(gcombo_SourceOfDimming.value == "Global Dimming")}, Boolean)
+   
+   gtab_control.visible = false
+   
+   	 
+/*************************************************************************************** Peak current control ***************************************************************/
+  gtab_pcc.visible = MF({
+	  if(gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")
+      {
+		  true
+      }
+	  else
+	  {
+		  false
+	  }
+  }, Boolean)
+ 
+ 
+  /* virtual connections between BCCU,CCU4/8 and ACMP, as well as connection constraints depending on LED driver methods */
+  for(int index in 1..9) {
+		 int loop_count = index;
+		 
+	     this."appres_comp_ref_${index}"= 
+		 MRequiredApp("COMP_REF", "COMP_REF_${index-1}", RNOTSHARABLE, "4.0.2", MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) && (gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")}, Boolean))
+		 this."appres_pwm_ccu4_${index}" = MRequiredApp("PWM_CCU4", "PWM_CCU4_${index-1}", RNOTSHARABLE, "4.0.2", MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) && ((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))}, Boolean))
+	     this."appres_pwm_ccu8_${index}" = MRequiredApp("PWM_CCU8", "PWM_CCU8_${index-1}", RNOTSHARABLE, "4.0.2",  MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) && (ccu8_available == true) && (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")}, Boolean))
+
+	     this."vs_comp_ref_${index}_event_generator_pdout" = MVirtualSignalRA(this."appres_comp_ref_${index}", "vs_event_generator_pdout")
+		 
+	     this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_out" = MVirtualSignalRA(this."appres_pdm_bccu_${index}", "vs_pdmbccu_out")
+		 
+	     this."vs_pwm_ccu4_${index}_mci" = MVirtualSignalRA(this."appres_pwm_ccu4_${index}", "vs_ccu4_cc4_mci")
+		 
+	     this."vs_pwm_ccu4_${index}_gp0_unsync" = MVirtualSignalRA(this."appres_pwm_ccu4_${index}", "vs_ccu4_cc4_gp0_unsync")
+		 
+	     this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_in" = MVirtualSignalRA(this."appres_pdm_bccu_${index}", "vs_pdmbccu_in")
+		 
+	     this."vs_comp_ref_${index}_out" = MVirtualSignalRA(this."appres_comp_ref_${index}", "vs_comp_slice_out_signal")
+		 
+	     this."vs_pwm_ccu8_${index}_gp0_unsync" = MVirtualSignalRA(this."appres_pwm_ccu8_${index}", "vs_ccu8_cc8_gp0_unsync")
+		 
+	     this."vs_pwm_ccu8_${index}_gp1_unsync" = MVirtualSignalRA(this."appres_pwm_ccu8_${index}", "vs_ccu8_cc8_gp1_unsync")
+		 
+		 		 
+	     /* Slow driver */ 
+	    addConnectionConstraint(this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_out", this."vs_pwm_ccu4_${index}_mci", MF({((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))}, Boolean) )
+	    addConnectionConstraint(this."vs_comp_ref_${index}_event_generator_pdout", this."vs_pwm_ccu4_${index}_gp0_unsync", MF({(gcombo_DriverSel.value == "Slow DCDC Buck with PDM")}, Boolean) )
+	     /* Fast driver */ 
+	    addConnectionConstraint(this."vs_comp_ref_${index}_out", this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_in", MF({(gcombo_DriverSel.value == "Fast DCDC Buck with PDM")}, Boolean) )
+	    addConnectionConstraint(this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_out", this."vs_pwm_ccu8_${index}_gp0_unsync", MF({(gcombo_DriverSel.value == "Fast DCDC Buck with PDM")}, Boolean) )
+	    addConnectionConstraint(this."vs_pdm_dimmed_led_lamp_pdm_bccu_${index}_out", this."vs_pwm_ccu8_${index}_gp1_unsync", MF({(gcombo_DriverSel.value == "Fast DCDC Buck with PDM")}, Boolean) )
+  }
+  
+  /* Slow driver */
+ 
+  for(int index in 1..4)
+  {
+	  int loop_count = index;
+	  
+	 this."hwres_port_pin_comp_out_${index-1}" = MVirtualResourceGroup("led_ch${index-1}_comp_out_pin", ["port", "p", "*", "pad", "*"],  MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)}, Boolean))
+	 this."hwres_port_pin_ccu4_in_${index-1}" = MVirtualResourceGroup("led_ch${index-1}_ccu4_in_pin", ["port", "p", "*", "pad", "*"],  MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)}, Boolean))
+   
+  }
+   
+  @AddPin
+  vs_pdm_dimmed_led_lamp_comp_out_0 = MVirtualSignal(hwres_port_pin_comp_out_0,"led_ch0_comp_out_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 1)}, Boolean))
+  @AddPin
+  vs_pdm_dimmed_led_lamp_ccu4_in_0 = MVirtualSignal(hwres_port_pin_ccu4_in_0,"led_ch0_ccu4_in_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 1)}, Boolean))
+
+  @AddPin
+  vs_pdm_dimmed_led_lamp_comp_out_1 = MVirtualSignal(hwres_port_pin_comp_out_1,"led_ch1_comp_out_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 2)}, Boolean))
+  @AddPin
+  vs_pdm_dimmed_led_lamp_ccu4_in_1 = MVirtualSignal(hwres_port_pin_ccu4_in_1,"led_ch1_ccu4_in_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 2)}, Boolean))
+  
+  @AddPin
+  vs_pdm_dimmed_led_lamp_comp_out_2 = MVirtualSignal(hwres_port_pin_comp_out_2,"led_ch2_comp_out_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 3)}, Boolean))
+  @AddPin
+  vs_pdm_dimmed_led_lamp_ccu4_in_2 = MVirtualSignal(hwres_port_pin_ccu4_in_2,"led_ch2_ccu4_in_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 3)}, Boolean))
+
+  @AddPin
+  vs_pdm_dimmed_led_lamp_comp_out_3 = MVirtualSignal(hwres_port_pin_comp_out_3,"led_ch3_comp_out_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 4)}, Boolean))
+  @AddPin
+  vs_pdm_dimmed_led_lamp_ccu4_in_3 = MVirtualSignal(hwres_port_pin_ccu4_in_3,"led_ch3_ccu4_in_pin","pad",MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM") && (Integer.parseInt(gcombo_NoOfChannels.value) >= 4)}, Boolean))
+
+  /* connection constraints for Simple DCDC driver */ 
+  for(int index in 1..4)
+  {
+	  addConnectionConstraint(this."vs_comp_ref_${index}_out", this."vs_pdm_dimmed_led_lamp_comp_out_${index-1}", MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM")}, Boolean) )
+	  
+	  addConnectionConstraint(this."vs_pdm_dimmed_led_lamp_ccu4_in_${index-1}", this."vs_pwm_ccu4_${index}_gp0_unsync", MF({(gcombo_DriverSel.value == "Simple DCDC Buck with PDM")}, Boolean) )
+  }
+  
+  
+    
+  
+  /* RArray initialized after object created */  
+  appres_comp_ref_arr[0] = appres_comp_ref_1
+  appres_comp_ref_arr[1] = appres_comp_ref_2
+  appres_comp_ref_arr[2] = appres_comp_ref_3
+  appres_comp_ref_arr[3] = appres_comp_ref_4
+  appres_comp_ref_arr[4] = appres_comp_ref_5
+  appres_comp_ref_arr[5] = appres_comp_ref_6
+  appres_comp_ref_arr[6] = appres_comp_ref_7
+  appres_comp_ref_arr[7] = appres_comp_ref_8
+  appres_comp_ref_arr[8] = appres_comp_ref_9
+  
+  appres_pwm_ccu4_arr[0] = appres_pwm_ccu4_1
+  appres_pwm_ccu4_arr[1] = appres_pwm_ccu4_2
+  appres_pwm_ccu4_arr[2] = appres_pwm_ccu4_3
+  appres_pwm_ccu4_arr[3] = appres_pwm_ccu4_4
+  appres_pwm_ccu4_arr[4] = appres_pwm_ccu4_5
+  appres_pwm_ccu4_arr[5] = appres_pwm_ccu4_6
+  appres_pwm_ccu4_arr[6] = appres_pwm_ccu4_7
+  appres_pwm_ccu4_arr[7] = appres_pwm_ccu4_8
+  appres_pwm_ccu4_arr[8] = appres_pwm_ccu4_9
+
+  appres_pwm_ccu8_arr[0] = appres_pwm_ccu8_1
+  appres_pwm_ccu8_arr[1] = appres_pwm_ccu8_2
+  appres_pwm_ccu8_arr[2] = appres_pwm_ccu8_3
+  appres_pwm_ccu8_arr[3] = appres_pwm_ccu8_4
+  appres_pwm_ccu8_arr[4] = appres_pwm_ccu8_5
+  appres_pwm_ccu8_arr[5] = appres_pwm_ccu8_6
+  appres_pwm_ccu8_arr[6] = appres_pwm_ccu8_7
+  appres_pwm_ccu8_arr[7] = appres_pwm_ccu8_8
+  appres_pwm_ccu8_arr[8] = appres_pwm_ccu8_9
+
+  for(int index in 1..9) {
+	  int loop_count = index;
+	  
+		this."glabel_pcc_LEDChannel_${index-1}".enabled = MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)}, Boolean)
+		this."gcombo_pcc_ref_gen_${index-1}".enabled = MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)}, Boolean)
+		this."gcombo_pcc_ref_src_${index-1}".enabled = MF({((Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) && (gcombo_pcc_ref_gen_arr[loop_count-1].value != "External Reference"))}, Boolean)
+		this."gfloat_pcc_peak_ref_mv_${index-1}".enabled = MF({((Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) && (gcombo_pcc_ref_gen_arr[loop_count-1].value != "External Reference"))}, Boolean)
+		this."glabel_pcc_peak_ref_mv_unit_${index-1}".enabled = MF({((Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count) && (gcombo_pcc_ref_gen_arr[loop_count-1].value != "External Reference"))}, Boolean)
+		this."gfloat_pcc_gen_off_time_ns_${index-1}".enabled = MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)}, Boolean)
+		this."glabel_pcc_gen_off_time_ns_unit_${index-1}".enabled = MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)}, Boolean)
+		this."glabel_pcc_gen_off_time_val_unit_${index-1}".enabled = MF({(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)}, Boolean)
+		
+		this."appres_pdm_bccu_${index}".setVal(["gcheck_output_enable", "value"], MF({
+		  if(gcombo_DriverSel.value == "Direct PDM (External LED Drivers)")
+		  {
+			 (true)
+		  }
+		  else
+		  {
+			 (false)
+		  }
+	   }, Boolean))
+		
+//		this."appres_comp_ref_${index}".setVal(["gcheck_invert_output", "value"], MF({
+//			if(gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+//			{
+//				(true)
+//			}
+//			else
+//			{
+//				(false)
+//			}
+//		}, Boolean)) /* commented based on ACE feedback */
+
+		this."appres_comp_ref_${index}".setVal(["gcombo_ref_source", "value"], MF({
+			
+				if(gcombo_pcc_ref_gen_arr[loop_count-1].value == "External Reference")
+				{
+					"External Reference"
+					
+				}
+				else if((gcombo_pcc_ref_gen_arr[loop_count-1].value == "Internal Reference with External Filter") && (gcombo_pcc_ref_src_arr[loop_count-1].value == "BCCU"))
+				{
+					"BCCU"
+					
+				}
+				else if((gcombo_pcc_ref_gen_arr[loop_count-1].value == "Internal Reference with External Filter") && (gcombo_pcc_ref_src_arr[loop_count-1].value == "CCU4"))
+				{
+					"CCU4"
+					
+				}
+				else
+				{
+					 "External Reference"
+					
+				}
+			
+		}, String))
+		
+ 		this."gfloat_pcc_peak_ref_mv_${index-1}".maxValue = MF({
+	      if(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)
+	      {
+			if(gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")
+			{
+				float a
+				a = (1000.0f * appres_comp_ref_arr[loop_count-1].getVal(["gfloat_ref_voltage", "maxValue"]))
+				(a)
+			}
+			else
+			{
+				(5000.0f)
+			}
+	      }
+		  else
+		  {
+			  (5000.0f)
+		  }
+		}, Float)
+	  
+
+		this."appres_comp_ref_${index}".setVal(["gfloat_ref_voltage", "value"], MF({
+		  float a
+		  a = (gfloat_pcc_peak_ref_mv_arr[loop_count-1].value / 1000.0f)
+		  (a)
+		}, Float))
+		
+		this."appres_comp_ref_${index}".setVal(["gcheck_enable_eru", "value"], MF({
+			if(gcombo_DriverSel.value == "Slow DCDC Buck with PDM")
+			{
+				(true)
+			}
+			else
+			{
+				(false)
+			}
+		}, Boolean))
+		
+/* Workaround added below */	
+/******************************************************************************************************/
+   /* formula
+    * 
+    * OFF_Time = (PWM_Time_period * (100 - Duty)) / 100,
+    * Duty = 100 - (OFF_Time(in ns) * 100)/PWM_Time_Period (in us)
+    * Duty = 100 - (OFF_Time(in ns) * 100) * PWM_Freq (in hz) 
+    */
+
+		this."appres_pwm_ccu4_${index}".setVal(["gfloat_duty_cycle", "value"], MF({
+			float a
+			a = 100.0f - (((gfloat_pcc_gen_off_time_ns_arr[loop_count-1].value * 100) * (appres_pwm_ccu4_arr[loop_count-1].getVal(["gfloat_act_freq", "value"]))) / 1e9)
+			(a)
+		}, Float))
+		
+		this."appres_pwm_ccu8_${index}".setVal(["gfloat_sym_duty_ch1", "value"], MF({
+			float a
+			a = 100.0f - (((gfloat_pcc_gen_off_time_ns_arr[loop_count-1].value * 100) * (appres_pwm_ccu8_arr[loop_count-1].getVal(["gfloat_act_freq", "value"]))) / 1e9)
+			(a) 
+		}, Float))
+		
+		this."appres_pwm_ccu8_${index}".setVal(["gfloat_sym_duty_ch2", "value"], MF({
+			float a
+			a = 100.0f - (((gfloat_pcc_gen_off_time_ns_arr[loop_count-1].value * 100) * (appres_pwm_ccu8_arr[loop_count-1].getVal(["gfloat_act_freq", "value"]))) / 1e9)
+			(a)
+		}, Float))
+
+	/*
+	 * OFF-Time(min) = ((1 * 0.001) / PWM_Freq) (in ns) i.e. = 0.1% of PWM_Time_Period
+	 */
+		this."gfloat_pcc_gen_off_time_ns_${index-1}".minValue = MF({
+	      if(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)
+	      {
+			if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+			{
+				float a
+		        a = ((1e9 * 0.001f) / appres_pwm_ccu4_arr[loop_count-1].getVal(["gfloat_act_freq", "value"]))
+				(a)
+			}
+			else if (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+			{
+				float a
+		        a = ((1e9 * 0.001f) / appres_pwm_ccu8_arr[loop_count-1].getVal(["gfloat_act_freq", "value"]))
+				(a)
+			}
+			else
+			{
+				(0.0f)
+			}
+	      }
+		  else
+		  {
+			  0.0f
+		  }
+		}, Float)
+
+	/*
+	 * OFF-Time(max) = (1 / PWM_Freq) (in ns), i.e. = 100% of PWM_Time_Period
+	 */
+		this."gfloat_pcc_gen_off_time_ns_${index-1}".maxValue = MF({
+	      if(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)
+	      {
+			if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+			{
+				float a
+		        a = (1e9 / appres_pwm_ccu4_arr[loop_count-1].getVal(["gfloat_act_freq", "value"]))
+				(a)
+			}
+			else if (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+			{
+				float a
+                a = (1e9 / appres_pwm_ccu8_arr[loop_count-1].getVal(["gfloat_act_freq", "value"]))				
+				(a)
+			}
+			else
+			{
+				(512000.0f)
+			}
+	      }
+		  else
+		  {
+			  (512000.0f)
+		  }
+		}, Float)
+
+/******************************************************************************************************/		
+		this."appres_pwm_ccu4_${index}".setVal(["ginteger_freq", "value"], MF({(int)(gfloat_pcc_gen_off_time_freq.value * 1000)}, Integer))
+		this."appres_pwm_ccu8_${index}".setVal(["ginteger_freq", "value"], MF({(int)(gfloat_pcc_gen_off_time_freq.value * 1000)}, Integer))
+
+	  
+		this."appres_pwm_ccu4_${index}".setVal(["gcheck_ch1_out0_enable", "value"], MF({
+			if(gcombo_DriverSel.value != "Direct PDM (External LED Drivers)")
+			{
+				(true)
+			}
+			else
+			{
+				(false)
+			}
+		}, Boolean))
+	  
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ch1_out0_state", "value"], MF({"Before Compare Match"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ch1_out1_state", "value"], MF({"Before Compare Match"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ch2_out2_state", "value"], MF({"Before Compare Match"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ch2_out3_state", "value"], MF({"Before Compare Match"}, String))
+		
+		this."ginteger_pcc_gen_off_time_val_${index-1}".maxValue = MF({
+	      if(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)
+	      {
+			if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+			{
+				int a
+				a = appres_pwm_ccu4_arr[loop_count-1].getVal(["ginteger_sym_cmp_ch1", "maxValue"])
+				(a)
+			}
+			else if (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+			{
+				int a
+				a = appres_pwm_ccu8_arr[loop_count-1].getVal(["ginteger_sym_cmp_ch1", "maxValue"])
+				(a)
+			}
+			else
+			{
+				(65535)
+			}
+		  }
+		  else
+		  {
+			  (65535)
+		  }
+		}, Integer)
+
+/* Workaround added below */
+/******************************************************************************************************/
+	this."ginteger_pcc_gen_off_time_val_${index-1}".value = MF({
+	  if(Integer.parseInt(gcombo_NoOfChannels.value) >= loop_count)
+	  {
+			if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+			{
+				int a
+				a =  appres_pwm_ccu4_arr[loop_count-1].getVal(["ginteger_sym_cmp_ch1", "value"])
+				(a)
+			}
+			else if(gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+			{
+				int a
+				a =  appres_pwm_ccu8_arr[loop_count-1].getVal(["ginteger_sym_cmp_ch1", "value"])
+				(a)
+			}
+			else
+			{
+				(0)
+			}
+	  }
+	  else
+	  {
+		  (0)
+	  }
+	}, Integer)
+
+/******************************************************************************************************/
+		this."appres_pwm_ccu4_${index}".setVal(["gcheck_init_start", "value"],  MF({true}, Boolean))
+		this."appres_pwm_ccu4_${index}".setVal(["gcheck_single_shot", "value"], MF({false}, Boolean))
+		this."appres_pwm_ccu4_${index}".setVal(["gcombo_e0_fn", "value"], MF({"External Stop"}, String))
+		this."appres_pwm_ccu4_${index}".setVal(["gcombo_e0_trigger", "value"], MF({"Rising"}, String))
+		this."appres_pwm_ccu4_${index}".setVal(["gcombo_ext_stop_action", "value"], MF({"Clear Timer"}, String))
+		this."appres_pwm_ccu4_${index}".setVal(["gcheck_mcm_ch1_enable", "value"], MF({true}, Boolean))
+		  
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_e0_fn", "value"], MF({"External Stop"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_e0_trigger", "value"], MF({"Rising"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ext_stop_action", "value"], MF({"Clear Timer"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_e1_fn", "value"], MF({"External Modulation"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ext_mod_level", "value"], MF({"Active On Low Level"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ext_mod_mode", "value"], MF({"Gating The Outputs"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcombo_ext_mod_sync", "value"], MF({"Not Synchronized"}, String))
+		this."appres_pwm_ccu8_${index}".setVal(["gcheck_init_start", "value"],  MF({true}, Boolean))
+		this."appres_pwm_ccu8_${index}".setVal(["gcheck_single_shot", "value"], MF({false}, Boolean))
+		
+		this."appres_pdm_bccu_${index}".setVal(["gcheck_output_gating_enable", "value"], MF({(gcombo_DriverSel.value == "Fast DCDC Buck with PDM")}, Boolean))		
+	 }
+	 
+	 ginteger_pcc_gen_off_time_period.maxValue = MF({
+		 if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+		 {
+			 int a
+			 a = (appres_pwm_ccu4_1.getVal(["ginteger_period", "maxValue"]))
+			 (a)
+		 }
+		 else if (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+		 {
+			 int a
+			 a = (appres_pwm_ccu8_1.getVal(["ginteger_period", "maxValue"]))
+			 (a)
+		 }
+		 else
+		 {
+			 (65535)
+		 }
+	 }, Integer)
+
+	 ginteger_pcc_gen_off_time_period.value = MF({
+		 if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+		 {
+			 int a
+			 a =  appres_pwm_ccu4_1.getVal(["ginteger_period", "value"])
+			 (a)
+		 }
+		 else if(gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+		 {
+			 int a
+			 a =  appres_pwm_ccu8_1.getVal(["ginteger_period", "value"])
+			 (a)
+		 }
+		 else
+		 {
+			 (0)
+		 }
+	 }, Integer)
+
+	gfloat_pcc_gen_off_time_freq.minValue = MF({
+		if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+		{
+			float a
+			a = (appres_pwm_ccu4_1.getVal(["ginteger_freq", "minValue"])) / 1000.0f
+			(a)
+		}
+		else if (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+		{
+			float a
+			a = appres_pwm_ccu8_1.getVal(["ginteger_freq", "minValue"]) / 1000.0f
+			(a)
+		}
+		else
+		{
+			(0.0f)
+		}
+	}, Float)
+  
+	gfloat_pcc_gen_off_time_freq.maxValue = MF({
+		if((gcombo_DriverSel.value == "Slow DCDC Buck with PDM") || (gcombo_DriverSel.value == "Simple DCDC Buck with PDM"))
+		{
+			float a
+			a = appres_pwm_ccu4_1.getVal(["ginteger_freq", "maxValue"])
+			(a)
+		}
+		else if (gcombo_DriverSel.value == "Fast DCDC Buck with PDM")
+		{
+			float a
+			a = appres_pwm_ccu8_1.getVal(["ginteger_freq", "maxValue"])
+			(a)
+		}
+		else
+		{
+			(512000.0f)
+		}
+	}, Float)	 	
+ }
+
+
+ /* generation of static and dynamic .c and .h files of pdm_dimmed_led_lamp APP  */
+ def generateFiles(){
+   copy("pdm_dimmed_led_lamp.c", "pdm_dimmed_led_lamp.c")
+   copy("pdm_dimmed_led_lamp.h", "pdm_dimmed_led_lamp.h")
+   generate("pdm_dimmed_led_lamp_confh.tmpl", "pdm_dimmed_led_lamp_conf.h")
+   generate("pdm_dimmed_led_lamp_confc.tmpl", "pdm_dimmed_led_lamp_conf.c")
+   generate("pdm_dimmed_led_lamp_externh.tmpl", "pdm_dimmed_led_lamp_extern.h")
+ }
+
+}
