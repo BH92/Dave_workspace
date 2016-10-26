@@ -10845,3 +10845,2457 @@ org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 
 !ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:34:11.223
 !MESSAGE USER_ACTION : Total time taken for setting project as active is: 3554 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 14:42:38.768
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 14:42:38.819
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-21 14:42:39.028
+!MESSAGE Time Taken By Serialization  : 207 ms :: C:\DAVEv4-64Bit\work\Demo_8_TestFast\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-21 14:42:39.372
+!MESSAGE ****************Cleaning project data:Demo_8_TestFast*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-21 14:42:39.393
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 236 msec 
+
+!ENTRY SOLVER 1 0 2016-10-21 14:42:39.393
+!MESSAGE Solver exited (0)
+
+!ENTRY SOLVER 1 0 2016-10-21 14:42:39.650
+!MESSAGE USER_ACTION : Solver Status: DISCONNECTED
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-10-21 14:42:42.047
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.internal.ui.DebugUIPlugin$8
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-10-21 14:42:42.048
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.core.commands.AbstractDebugCommand$UpdateJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-10-21 14:42:42.048
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: ilg.gnuarmeclipse.debug.gdbjtag.dsf.GnuArmGdbServerBackend$GdbServerMonitorJob
+!SESSION 2016-10-24 10:09:32.403 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -application com.ifx.davex.product.daveApplication -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -application com.ifx.davex.product.daveApplication -showlocation
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:09:42.351
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_path' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:09:42.367
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_gdbserver' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:09:47.311
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:09:47.312
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\heinb'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY SOLVER 1 0 2016-10-24 10:09:50.412
+!MESSAGE USER_ACTION : Default solver exe path is: C:\DAVEv4-64Bit\DAVE-4.3.2\eclipse\Solver\lib\i386_nt\eclipse.exe
+
+!ENTRY SOLVER 1 0 2016-10-24 10:09:50.642
+!MESSAGE USER_ACTION : GlobalSize= 750MB; LocalSize: 128MB
+
+!ENTRY SOLVER 1 0 2016-10-24 10:09:50.643
+!MESSAGE USER_ACTION : Creating OutOfProcessEclipse instance...
+
+!ENTRY SOLVER 1 0 2016-10-24 10:09:52.182
+!MESSAGE USER_ACTION : Solver Status: CONNECTED
+
+!ENTRY APPSTORE 1 0 2016-10-24 10:09:52.808
+!MESSAGE USER_ACTION : Time taken for loading LibraryStore data for SoftwareId [XMC1.3.02.Q024.ALL] is: 626 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:09:53.277
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 8 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:09:53.774
+!MESSAGE USER_ACTION : Active project:Demo_8_TestFast[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:09:57.388
+!MESSAGE Time Taken By De-Serialization  : 2384 ms :: C:\DAVEv4-64Bit\work\Demo_8_TestFast\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:09:57.452
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:09:58.157
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 4391 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:09:58.447
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 290 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:09:58.467
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 19 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:09:58.467
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:10:01.319
+!MESSAGE USER_ACTION : Time taken for rendering views is: 2852 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:10:02.276
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 9007 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:10:02.847
+!MESSAGE Only One DAVE Application is running 
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:10:02.973
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/Examples/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:10:14.142
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:10:21.311
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/Contributed/v4.1//daveSite.xml
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 10:18:26.910
+!MESSAGE Indexed 'Zyklus 1, Holzlampe' (57 sources, 105 headers) in 5.3 sec: 9,630 declarations; 22,166 references; 6 unresolved inclusions; 502 syntax errors; 4,578 unresolved names (13%)
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:18:41.530
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:18:41.677
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:18:42.159
+!MESSAGE Time Taken By Serialization  : 481 ms :: C:\DAVEv4-64Bit\work\Demo_8_TestFast\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:18:42.848
+!MESSAGE ****************Cleaning project data:Demo_8_TestFast*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:42.984
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 545 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:43.255
+!MESSAGE USER_ACTION : Active project:Zyklus 1, Holzlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:18:45.651
+!MESSAGE Time Taken By De-Serialization  : 2189 ms :: C:\DAVEv4-64Bit\work\Zyklus 1, Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:18:45.659
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:45.925
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2669 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:46.147
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 221 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:46.164
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 16 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:46.165
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:47.259
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1093 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:18:47.809
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 5370 msec 
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 10:22:07.770
+!MESSAGE Indexed 'Zyklus 2, Alulampe' (57 sources, 105 headers) in 2.54 sec: 9,630 declarations; 22,115 references; 6 unresolved inclusions; 502 syntax errors; 4,578 unresolved names (13%)
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:22:17.338
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:22:17.408
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:22:17.693
+!MESSAGE Time Taken By Serialization  : 285 ms :: C:\DAVEv4-64Bit\work\Zyklus 1, Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:22:18.179
+!MESSAGE ****************Cleaning project data:Zyklus 1, Holzlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:18.225
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 324 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:18.504
+!MESSAGE USER_ACTION : Active project:Zyklus 2, Alulampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:22:19.759
+!MESSAGE Time Taken By De-Serialization  : 1099 ms :: C:\DAVEv4-64Bit\work\Zyklus 2, Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:22:19.766
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:19.931
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1427 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:19.998
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 66 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:20.010
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 12 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:20.011
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:20.933
+!MESSAGE USER_ACTION : Time taken for rendering views is: 922 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:22:21.573
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3672 msec 
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 10:23:43.055
+!MESSAGE Indexed 'Zyklus 3, Betonlampe' (57 sources, 105 headers) in 2.51 sec: 9,630 declarations; 22,115 references; 6 unresolved inclusions; 502 syntax errors; 4,578 unresolved names (13%)
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:23:49.482
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:23:49.548
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:23:49.746
+!MESSAGE Time Taken By Serialization  : 198 ms :: C:\DAVEv4-64Bit\work\Zyklus 2, Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:23:50.388
+!MESSAGE ****************Cleaning project data:Zyklus 2, Alulampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:50.404
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 353 msec 
+
+!ENTRY COMMON 1 0 2016-10-24 10:23:50.636
+!MESSAGE USER_ACTION : checkVersioningForActiveProject: Reloading project....
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:23:50.644
+!MESSAGE ****************Cleaning project data:*******************
+
+!ENTRY DAVE CE 4 0 2016-10-24 10:23:50.646
+!MESSAGE 
+
+***START of Exception Info***
+index=0, size=0
+org.eclipse.emf.common.util.BasicEList.get(BasicEList.java:346)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.removeAllEobjects(ApplicationModelManager.java:1061)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.unloadAllResources(ApplicationModelManager.java:1130)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.shutDown(ApplicationModelManager.java:1189)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.cleanDaveCeObjects(DaveEventInitializer.java:647)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:582)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$6.run(DaveEventInitializer.java:896)
+org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:527)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$1.run(DaveEventInitializer.java:313)
+org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.startWithProgressDialog(DaveEventInitializer.java:306)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:585)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.fireEvent(ActiveProjectNotifer.java:93)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.activeProjectChanged(ActiveProjectNotifer.java:115)
+com.dave.activeproject.core.ActiveProjectManager.fireActiveProjectChanged(ActiveProjectManager.java:681)
+com.dave.activeproject.core.ActiveProjectManager.storeAndFireActiveProjectEvent(ActiveProjectManager.java:415)
+com.dave.activeproject.core.ActiveProjectManager.setActiveProject(ActiveProjectManager.java:329)
+com.dave.activeproject.ui.actions.SetActiveProjectAction.run(SetActiveProjectAction.java:83)
+org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:253)
+org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+com.ifx.davex.product.DaveApplication.start(DaveApplication.java:140)
+org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+java.lang.reflect.Method.invoke(Unknown Source)
+org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+***END of Exception Info***
+
+
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:50.647
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 3 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:50.705
+!MESSAGE USER_ACTION : Active project:Zyklus 3, Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:23:52.025
+!MESSAGE Time Taken By De-Serialization  : 1149 ms :: C:\DAVEv4-64Bit\work\Zyklus 3, Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:23:52.031
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:52.234
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1529 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:52.234
+!MESSAGE USER_ACTION : Active project:Zyklus 3, Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:52.325
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 91 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:52.343
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 16 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:52.343
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY COMMON 1 0 2016-10-24 10:23:52.873
+!MESSAGE Time Taken By De-Serialization  : 623 ms :: C:\DAVEv4-64Bit\work\Zyklus 3, Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:23:52.878
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:53.187
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2456 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:53.300
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 111 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:53.302
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:53.302
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:53.393
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1050 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:54.259
+!MESSAGE USER_ACTION : Time taken for rendering views is: 956 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:54.558
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3915 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:23:54.828
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 4777 msec 
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-10-24 10:29:10.884
+!MESSAGE Error rebuilding index: Zyklus 4 - Moods
+!STACK 1
+C Model Exception: C Model Status [Element Dave does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:484)
+	at org.eclipse.cdt.internal.core.model.CContainer.buildStructure(CContainer.java:156)
+	at org.eclipse.cdt.internal.core.model.Openable.generateInfos(Openable.java:261)
+	at org.eclipse.cdt.internal.core.model.CElement.openWhenClosed(CElement.java:427)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:305)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:295)
+	at org.eclipse.cdt.internal.core.model.Parent.getChildren(Parent.java:55)
+	at org.eclipse.cdt.internal.core.model.CElement.accept(CElement.java:524)
+	at org.eclipse.cdt.internal.core.model.CElement.accept(CElement.java:526)
+	at org.eclipse.cdt.internal.core.model.CElement.accept(CElement.java:526)
+	at org.eclipse.cdt.internal.core.model.CElement.accept(CElement.java:526)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMRebuildTask.createDelegate(PDOMRebuildTask.java:118)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMRebuildTask.run(PDOMRebuildTask.java:78)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2016-10-24 10:29:10.884
+!MESSAGE Element Dave does not exist.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:29:15.885
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:29:15.945
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:29:16.146
+!MESSAGE Time Taken By Serialization  : 185 ms :: C:\DAVEv4-64Bit\work\Zyklus 3, Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:29:16.546
+!MESSAGE ****************Cleaning project data:Zyklus 3, Betonlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:16.578
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 248 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:16.851
+!MESSAGE USER_ACTION : Active project:Zyklus 4 - Moods[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:29:18.074
+!MESSAGE Time Taken By De-Serialization  : 1072 ms :: C:\DAVEv4-64Bit\work\Zyklus 4 - Moods\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:29:18.079
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:18.226
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1376 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:18.284
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 56 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:18.299
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 15 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:18.300
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:19.100
+!MESSAGE USER_ACTION : Time taken for rendering views is: 799 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:29:20.094
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3764 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:35:30.344
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:35:30.398
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:35:30.545
+!MESSAGE Time Taken By Serialization  : 147 ms :: C:\DAVEv4-64Bit\work\Zyklus 4 - Moods\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:35:30.899
+!MESSAGE ****************Cleaning project data:Zyklus 4 - Moods*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:30.914
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 200 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:31.115
+!MESSAGE USER_ACTION : Active project:Zyklus 1, Holzlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:35:32.149
+!MESSAGE Time Taken By De-Serialization  : 934 ms :: C:\DAVEv4-64Bit\work\Zyklus 1, Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:35:32.149
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:32.309
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1209 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:32.414
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 103 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:32.428
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 14 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:32.429
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:33.313
+!MESSAGE USER_ACTION : Time taken for rendering views is: 884 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:35:33.745
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3031 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:38:13.351
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:38:13.396
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:38:13.588
+!MESSAGE Time Taken By Serialization  : 190 ms :: C:\DAVEv4-64Bit\work\Zyklus 1, Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:38:14.065
+!MESSAGE ****************Cleaning project data:Zyklus 1, Holzlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:14.087
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 244 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:14.458
+!MESSAGE USER_ACTION : Active project:Zyklus 2, Alulampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:38:15.478
+!MESSAGE Time Taken By De-Serialization  : 911 ms :: C:\DAVEv4-64Bit\work\Zyklus 2, Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:38:15.481
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:15.647
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1190 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:15.708
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 60 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:15.734
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 24 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:15.734
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:16.601
+!MESSAGE USER_ACTION : Time taken for rendering views is: 866 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:38:17.023
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3180 msec 
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 10:38:57.942
+!MESSAGE Indexed 'Zyklus1 - Holzlampe' (57 sources, 113 headers) in 2.64 sec: 9,991 declarations; 27,706 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:04.916
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:04.967
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:39:05.170
+!MESSAGE Time Taken By Serialization  : 203 ms :: C:\DAVEv4-64Bit\work\Zyklus 2, Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:10.338
+!MESSAGE ****************Cleaning project data:Zyklus 2, Alulampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:10.359
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 120 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:10.837
+!MESSAGE USER_ACTION : Active project:Zyklus2_Alulampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:39:11.865
+!MESSAGE Time Taken By De-Serialization  : 893 ms :: C:\DAVEv4-64Bit\work\Zyklus2_Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:11.870
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:12.032
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1196 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:12.098
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 65 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:12.113
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 14 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:12.114
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:13.047
+!MESSAGE USER_ACTION : Time taken for rendering views is: 932 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:13.462
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3223 msec 
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 10:39:17.557
+!MESSAGE Indexed 'Zyklus2_Alulampe' (57 sources, 113 headers) in 2.37 sec: 9,991 declarations; 27,706 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 10:39:31.624
+!MESSAGE Indexed 'Zyklus1_Holzlampe' (57 sources, 113 headers) in 1.67 sec: 9,991 declarations; 27,706 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:32.527
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:32.576
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:39:32.749
+!MESSAGE Time Taken By Serialization  : 172 ms :: C:\DAVEv4-64Bit\work\Zyklus2_Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:33.328
+!MESSAGE ****************Cleaning project data:Zyklus2_Alulampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:33.348
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 324 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:33.565
+!MESSAGE USER_ACTION : Active project:Zyklus1_Holzlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:39:34.842
+!MESSAGE Time Taken By De-Serialization  : 1159 ms :: C:\DAVEv4-64Bit\work\Zyklus1_Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:39:34.846
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:35.039
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1474 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:35.103
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 64 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:35.116
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 13 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:35.117
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:35.924
+!MESSAGE USER_ACTION : Time taken for rendering views is: 806 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:39:36.368
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3344 msec 
+
+!ENTRY org.eclipse.ui 4 4 2016-10-24 10:40:28.450
+!MESSAGE Conflicting handlers for org.eclipse.debug.ui.commands.DebugLast: {ActionDelegateHandlerProxy(null,com.dave.activeproject.ui.actions.ActiveProjDebugLastAction)} vs {ActionDelegateHandlerProxy(null,org.eclipse.debug.internal.ui.actions.DebugLastAction)}
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:43:32.582
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:43:32.627
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:43:32.869
+!MESSAGE Time Taken By Serialization  : 241 ms :: C:\DAVEv4-64Bit\work\Zyklus1_Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:43:33.442
+!MESSAGE ****************Cleaning project data:Zyklus1_Holzlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:33.476
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 270 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:33.774
+!MESSAGE USER_ACTION : Active project:Demo_2_GoodMorning[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:43:34.856
+!MESSAGE Time Taken By De-Serialization  : 982 ms :: C:\DAVEv4-64Bit\work\Demo_2_GoodMorning\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:43:34.860
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:35.048
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1273 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:35.153
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 105 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:35.182
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 28 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:35.183
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:35.993
+!MESSAGE USER_ACTION : Time taken for rendering views is: 810 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:43:36.435
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3228 msec 
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-24 10:43:46.164
+!MESSAGE J-Link GDB Server failed: 
+Could not connect to target. Please check if target is powered and if ribbon cable is plugged properly.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:44:35.566
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:44:35.622
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:44:35.871
+!MESSAGE Time Taken By Serialization  : 249 ms :: C:\DAVEv4-64Bit\work\Demo_2_GoodMorning\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:44:36.368
+!MESSAGE ****************Cleaning project data:Demo_2_GoodMorning*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:36.395
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 281 msec 
+
+!ENTRY COMMON 1 0 2016-10-24 10:44:36.703
+!MESSAGE USER_ACTION : checkVersioningForActiveProject: Reloading project....
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:44:36.716
+!MESSAGE ****************Cleaning project data:*******************
+
+!ENTRY DAVE CE 4 0 2016-10-24 10:44:36.717
+!MESSAGE 
+
+***START of Exception Info***
+index=0, size=0
+org.eclipse.emf.common.util.BasicEList.get(BasicEList.java:346)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.removeAllEobjects(ApplicationModelManager.java:1061)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.unloadAllResources(ApplicationModelManager.java:1130)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.shutDown(ApplicationModelManager.java:1189)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.cleanDaveCeObjects(DaveEventInitializer.java:647)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:582)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$6.run(DaveEventInitializer.java:896)
+org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:527)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$1.run(DaveEventInitializer.java:313)
+org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.startWithProgressDialog(DaveEventInitializer.java:306)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:585)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.fireEvent(ActiveProjectNotifer.java:93)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.activeProjectChanged(ActiveProjectNotifer.java:115)
+com.dave.activeproject.core.ActiveProjectManager.fireActiveProjectChanged(ActiveProjectManager.java:681)
+com.dave.activeproject.core.ActiveProjectManager.storeAndFireActiveProjectEvent(ActiveProjectManager.java:415)
+com.dave.activeproject.core.ActiveProjectManager.setActiveProject(ActiveProjectManager.java:329)
+com.dave.activeproject.ui.actions.SetActiveProjectAction.run(SetActiveProjectAction.java:83)
+org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:253)
+org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+com.ifx.davex.product.DaveApplication.start(DaveApplication.java:140)
+org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+java.lang.reflect.Method.invoke(Unknown Source)
+org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+***END of Exception Info***
+
+
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:36.718
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:36.740
+!MESSAGE USER_ACTION : Active project:Demo_3_GoodNight[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:44:37.922
+!MESSAGE Time Taken By De-Serialization  : 1019 ms :: C:\DAVEv4-64Bit\work\Demo_3_GoodNight\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:44:37.926
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:38.102
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1363 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:38.103
+!MESSAGE USER_ACTION : Active project:Demo_3_GoodNight[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:38.190
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 87 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:38.208
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 17 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:38.209
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY COMMON 1 0 2016-10-24 10:44:38.748
+!MESSAGE Time Taken By De-Serialization  : 633 ms :: C:\DAVEv4-64Bit\work\Demo_3_GoodNight\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:44:38.753
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:38.966
+!MESSAGE USER_ACTION : Time taken for rendering views is: 757 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:38.967
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2224 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:39.087
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 119 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:39.088
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:39.089
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:39.307
+!MESSAGE USER_ACTION : Time taken for rendering views is: 218 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:39.536
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 2819 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:44:39.736
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3622 msec 
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-24 10:45:03.860
+!MESSAGE J-Link GDB Server failed: 
+Could not listen on tcp port. Please check if another version of the server is running.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-24 10:45:11.618
+!MESSAGE J-Link GDB Server failed: 
+Could not listen on tcp port. Please check if another version of the server is running.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:45:18.797
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:45:18.840
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:45:19.071
+!MESSAGE Time Taken By Serialization  : 231 ms :: C:\DAVEv4-64Bit\work\Demo_3_GoodNight\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:45:19.407
+!MESSAGE ****************Cleaning project data:Demo_3_GoodNight*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:19.429
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 272 msec 
+
+!ENTRY SOLVER 1 0 2016-10-24 10:45:19.429
+!MESSAGE Solver exited (0)
+
+!ENTRY SOLVER 1 0 2016-10-24 10:45:19.682
+!MESSAGE USER_ACTION : Solver Status: DISCONNECTED
+
+!ENTRY org.eclipse.debug.core 4 2 2016-10-24 10:45:20.445
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.debug.core 4 120 2016-10-24 10:45:20.450
+!MESSAGE An exception occurred during launch configuration change notification.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.debug.core 4 2 2016-10-24 10:45:20.454
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.debug.core 4 120 2016-10-24 10:45:20.454
+!MESSAGE An exception occurred during launch configuration change notification.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-10-24 10:45:22.920 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -application com.ifx.davex.product.daveApplication -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -application com.ifx.davex.product.daveApplication -showlocation
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:45:32.764
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_path' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:45:32.769
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_gdbserver' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:45:36.344
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:45:36.345
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\heinb'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY SOLVER 1 0 2016-10-24 10:45:39.139
+!MESSAGE USER_ACTION : Default solver exe path is: C:\DAVEv4-64Bit\DAVE-4.3.2\eclipse\Solver\lib\i386_nt\eclipse.exe
+
+!ENTRY SOLVER 1 0 2016-10-24 10:45:39.405
+!MESSAGE USER_ACTION : GlobalSize= 750MB; LocalSize: 128MB
+
+!ENTRY SOLVER 1 0 2016-10-24 10:45:39.406
+!MESSAGE USER_ACTION : Creating OutOfProcessEclipse instance...
+
+!ENTRY SOLVER 1 0 2016-10-24 10:45:39.988
+!MESSAGE USER_ACTION : Solver Status: CONNECTED
+
+!ENTRY APPSTORE 1 0 2016-10-24 10:45:40.553
+!MESSAGE USER_ACTION : Time taken for loading LibraryStore data for SoftwareId [XMC1.3.02.Q024.ALL] is: 560 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:40.674
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 7 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:41.200
+!MESSAGE USER_ACTION : Active project:Demo_3_GoodNight[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:45:45.784
+!MESSAGE Time Taken By De-Serialization  : 3076 ms :: C:\DAVEv4-64Bit\work\Demo_3_GoodNight\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:45:45.807
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:46.685
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 5487 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:47.073
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 383 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:47.098
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 25 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:47.100
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:50.434
+!MESSAGE USER_ACTION : Time taken for rendering views is: 3334 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:51.571
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 10905 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:45:55.243
+!MESSAGE Only One DAVE Application is running 
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:45:55.433
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/Examples/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:45:57.870
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:46:03.348
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/Contributed/v4.1//daveSite.xml
+
+!ENTRY org.eclipse.ui 4 4 2016-10-24 10:46:15.465
+!MESSAGE Conflicting handlers for org.eclipse.debug.ui.commands.DebugLast: {ActionDelegateHandlerProxy(null,com.dave.activeproject.ui.actions.ActiveProjDebugLastAction)} vs {ActionDelegateHandlerProxy(null,org.eclipse.debug.internal.ui.actions.DebugLastAction)}
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:46:35.032
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:46:35.204
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:46:35.694
+!MESSAGE Time Taken By Serialization  : 489 ms :: C:\DAVEv4-64Bit\work\Demo_3_GoodNight\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:46:36.321
+!MESSAGE ****************Cleaning project data:Demo_3_GoodNight*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:36.415
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 492 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:36.722
+!MESSAGE USER_ACTION : Active project:Zyklus1_Holzlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:46:38.634
+!MESSAGE Time Taken By De-Serialization  : 1676 ms :: C:\DAVEv4-64Bit\work\Zyklus1_Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:46:38.642
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:38.954
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2233 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:39.115
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 159 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:39.129
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 13 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:39.129
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:40.296
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1166 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:46:40.850
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 4928 msec 
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-24 10:47:52.828
+!MESSAGE J-Link GDB Server failed: 
+Could not listen on tcp port. Please check if another version of the server is running.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-24 10:48:16.401
+!MESSAGE J-Link GDB Server failed: 
+Could not listen on tcp port. Please check if another version of the server is running.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:48:29.221
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:48:29.316
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:48:29.579
+!MESSAGE Time Taken By Serialization  : 262 ms :: C:\DAVEv4-64Bit\work\Zyklus1_Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:48:30.073
+!MESSAGE ****************Cleaning project data:Zyklus1_Holzlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:48:30.104
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 421 msec 
+
+!ENTRY SOLVER 1 0 2016-10-24 10:48:30.105
+!MESSAGE Solver exited (0)
+
+!ENTRY SOLVER 1 0 2016-10-24 10:48:30.358
+!MESSAGE USER_ACTION : Solver Status: DISCONNECTED
+
+!ENTRY org.eclipse.cdt.dsf 4 -1 2016-10-24 10:48:31.479
+!MESSAGE Invocation exception when calling a service event handler method
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor43.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:519)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:463)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:390)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@4245bf68 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	... 13 more
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+Root exception:
+java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@4245bf68 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	at sun.reflect.GeneratedMethodAccessor43.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:519)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:463)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:390)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+
+!ENTRY org.eclipse.debug.core 4 2 2016-10-24 10:48:31.644
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.debug.core 4 120 2016-10-24 10:48:31.645
+!MESSAGE An exception occurred during launch configuration change notification.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-10-24 10:49:25.334 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -application com.ifx.davex.product.daveApplication -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -application com.ifx.davex.product.daveApplication -showlocation
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:49:40.223
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_path' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:49:40.223
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_gdbserver' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:49:48.435
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:49:48.435
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\heinb'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY SOLVER 1 0 2016-10-24 10:49:52.013
+!MESSAGE USER_ACTION : Default solver exe path is: C:\DAVEv4-64Bit\DAVE-4.3.2\eclipse\Solver\lib\i386_nt\eclipse.exe
+
+!ENTRY SOLVER 1 0 2016-10-24 10:49:52.294
+!MESSAGE USER_ACTION : GlobalSize= 750MB; LocalSize: 128MB
+
+!ENTRY SOLVER 1 0 2016-10-24 10:49:52.294
+!MESSAGE USER_ACTION : Creating OutOfProcessEclipse instance...
+
+!ENTRY SOLVER 1 0 2016-10-24 10:49:54.402
+!MESSAGE USER_ACTION : Solver Status: CONNECTED
+
+!ENTRY APPSTORE 1 0 2016-10-24 10:49:55.137
+!MESSAGE USER_ACTION : Time taken for loading LibraryStore data for SoftwareId [XMC1.3.02.Q024.ALL] is: 735 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:49:55.371
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:49:56.137
+!MESSAGE USER_ACTION : Active project:Zyklus1_Holzlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:50:01.426
+!MESSAGE Time Taken By De-Serialization  : 3496 ms :: C:\DAVEv4-64Bit\work\Zyklus1_Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:50:01.473
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:50:02.306
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 6184 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:50:02.941
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 630 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:50:02.973
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 32 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:50:03.138
+!MESSAGE USER_ACTION : Time taken for updating views is: 165 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:50:07.049
+!MESSAGE USER_ACTION : Time taken for rendering views is: 3911 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:50:08.546
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 13175 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:50:32.881
+!MESSAGE Only One DAVE Application is running 
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:50:33.069
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/Examples/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:50:35.371
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:50:39.588
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/Contributed/v4.1//daveSite.xml
+
+!ENTRY org.eclipse.ui 4 4 2016-10-24 10:51:02.644
+!MESSAGE Conflicting handlers for org.eclipse.debug.ui.commands.DebugLast: {ActionDelegateHandlerProxy(null,org.eclipse.debug.internal.ui.actions.DebugLastAction)} vs {ActionDelegateHandlerProxy(null,com.dave.activeproject.ui.actions.ActiveProjDebugLastAction)}
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:53:27.637
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:53:27.778
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:53:28.270
+!MESSAGE Time Taken By Serialization  : 491 ms :: C:\DAVEv4-64Bit\work\Zyklus1_Holzlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:53:28.977
+!MESSAGE ****************Cleaning project data:Zyklus1_Holzlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:29.119
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 535 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:29.709
+!MESSAGE USER_ACTION : Active project:Zyklus 3, Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:53:31.495
+!MESSAGE Time Taken By De-Serialization  : 1551 ms :: C:\DAVEv4-64Bit\work\Zyklus 3, Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:53:31.504
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:31.768
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2060 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:32.157
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 387 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:32.175
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 18 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:32.176
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:33.489
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1312 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:53:34.178
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 5593 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:54:50.923
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:54:51.052
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:54:51.290
+!MESSAGE Time Taken By Serialization  : 236 ms :: C:\DAVEv4-64Bit\work\Zyklus 3, Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:55:00.339
+!MESSAGE ****************Cleaning project data:Zyklus 3, Betonlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:00.379
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 271 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:01.011
+!MESSAGE USER_ACTION : Active project:Zyklus3_Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:55:02.616
+!MESSAGE Time Taken By De-Serialization  : 1407 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:55:02.623
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:02.866
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1854 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:02.984
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 116 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:03.015
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 31 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:03.015
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:04.299
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1282 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:55:05.077
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 4969 msec 
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 10:55:06.769
+!MESSAGE Indexed 'Zyklus3_Betonlampe' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-24 10:55:46.841
+!MESSAGE J-Link GDB Server failed: 
+Could not listen on tcp port. Please check if another version of the server is running.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:56:02.559
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:56:02.644
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 10:56:02.905
+!MESSAGE Time Taken By Serialization  : 261 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:56:03.235
+!MESSAGE ****************Cleaning project data:Zyklus3_Betonlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:56:03.270
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 273 msec 
+
+!ENTRY SOLVER 1 0 2016-10-24 10:56:03.271
+!MESSAGE Solver exited (0)
+
+!ENTRY SOLVER 1 0 2016-10-24 10:56:03.524
+!MESSAGE USER_ACTION : Solver Status: DISCONNECTED
+
+!ENTRY org.eclipse.cdt.dsf 4 -1 2016-10-24 10:56:04.442
+!MESSAGE Invocation exception when calling a service event handler method
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor44.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:519)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:463)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:390)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@4bce62b is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	... 13 more
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+Root exception:
+java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@4bce62b is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	at sun.reflect.GeneratedMethodAccessor44.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:519)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:463)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:390)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+
+!ENTRY org.eclipse.debug.core 4 2 2016-10-24 10:56:04.494
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.debug.core 4 120 2016-10-24 10:56:04.496
+!MESSAGE An exception occurred during launch configuration change notification.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.service.DsfServicesTracker.<init>(DsfServicesTracker.java:152)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.<init>(DsfSourceLookupParticipant.java:62)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupDirector.initializeParticipants(DsfSourceLookupDirector.java:38)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.initializeDefaults(AbstractSourceLookupDirector.java:594)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.launchConfigurationChanged(AbstractSourceLookupDirector.java:359)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:229)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:209)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2162)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:384)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:250)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:220)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.dave.activeproject.ui.actions.DebugLaunchActiveProjectAction.launchesTerminated(DebugLaunchActiveProjectAction.java:275)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1055)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:405)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1087)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:429)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-10-24 10:57:22.955 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -application com.ifx.davex.product.daveApplication -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -application com.ifx.davex.product.daveApplication -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-10-24 10:57:27.174
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:57:38.149
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_path' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 10:57:38.149
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_gdbserver' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:57:44.725
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 10:57:44.725
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\heinb'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY SOLVER 1 0 2016-10-24 10:57:49.168
+!MESSAGE USER_ACTION : Default solver exe path is: C:\DAVEv4-64Bit\DAVE-4.3.2\eclipse\Solver\lib\i386_nt\eclipse.exe
+
+!ENTRY SOLVER 1 0 2016-10-24 10:57:49.587
+!MESSAGE USER_ACTION : GlobalSize= 750MB; LocalSize: 128MB
+
+!ENTRY SOLVER 1 0 2016-10-24 10:57:49.589
+!MESSAGE USER_ACTION : Creating OutOfProcessEclipse instance...
+
+!ENTRY SOLVER 1 0 2016-10-24 10:57:50.377
+!MESSAGE USER_ACTION : Solver Status: CONNECTED
+
+!ENTRY APPSTORE 1 0 2016-10-24 10:57:51.814
+!MESSAGE USER_ACTION : Time taken for loading LibraryStore data for SoftwareId [XMC1.3.02.Q024.ALL] is: 1344 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:57:51.959
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 19 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:57:52.616
+!MESSAGE USER_ACTION : Active project:Zyklus3_Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 10:57:57.969
+!MESSAGE Time Taken By De-Serialization  : 3438 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 10:57:58.016
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:57:58.985
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 6369 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:57:59.391
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 406 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:57:59.438
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 47 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:57:59.438
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:58:03.332
+!MESSAGE USER_ACTION : Time taken for rendering views is: 3894 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:58:04.846
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 12907 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 10:58:07.406
+!MESSAGE Only One DAVE Application is running 
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:58:07.515
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/Examples/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:58:12.070
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 10:58:19.138
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/Contributed/v4.1//daveSite.xml
+
+!ENTRY org.eclipse.ui 4 4 2016-10-24 10:58:40.750
+!MESSAGE Conflicting handlers for org.eclipse.debug.ui.commands.DebugLast: {ActionDelegateHandlerProxy(null,org.eclipse.debug.internal.ui.actions.DebugLastAction)} vs {ActionDelegateHandlerProxy(null,com.dave.activeproject.ui.actions.ActiveProjDebugLastAction)}
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-10-24 11:00:15.485
+!MESSAGE Indexed 'Z3' (57 sources, 105 headers) in 6.22 sec: 9,630 declarations; 22,132 references; 6 unresolved inclusions; 502 syntax errors; 4,578 unresolved names (13%)
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:00:44.350
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:00:44.492
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:00:45.032
+!MESSAGE Time Taken By Serialization  : 539 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:00:45.841
+!MESSAGE ****************Cleaning project data:Zyklus3_Betonlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:45.978
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 513 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:46.388
+!MESSAGE USER_ACTION : Active project:Z3[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:00:48.178
+!MESSAGE Time Taken By De-Serialization  : 1603 ms :: C:\DAVEv4-64Bit\work\Z3\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:00:48.186
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:48.505
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2118 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:48.737
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 229 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:48.753
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 15 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:48.753
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:49.978
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1224 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:00:50.641
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 5175 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:03:01.055
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:03:01.128
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:03:01.426
+!MESSAGE Time Taken By Serialization  : 297 ms :: C:\DAVEv4-64Bit\work\Z3\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:03:02.000
+!MESSAGE ****************Cleaning project data:Z3*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:02.037
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 315 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:02.413
+!MESSAGE USER_ACTION : Active project:Demo_2_GoodMorning[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:03:03.804
+!MESSAGE Time Taken By De-Serialization  : 1187 ms :: C:\DAVEv4-64Bit\work\Demo_2_GoodMorning\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:03:03.811
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:04.049
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1636 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:04.203
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 154 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:04.219
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 16 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:04.220
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:05.087
+!MESSAGE USER_ACTION : Time taken for rendering views is: 867 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:03:05.686
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3965 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:08:15.670
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:08:15.755
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:08:16.040
+!MESSAGE Time Taken By Serialization  : 284 ms :: C:\DAVEv4-64Bit\work\Demo_2_GoodMorning\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:08:16.589
+!MESSAGE ****************Cleaning project data:Demo_2_GoodMorning*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:16.615
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 330 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:16.778
+!MESSAGE USER_ACTION : Active project:Zyklus3_Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:08:18.052
+!MESSAGE Time Taken By De-Serialization  : 1128 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:08:18.060
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:18.409
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1632 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:18.506
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 95 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:18.526
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 19 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:18.526
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:19.516
+!MESSAGE USER_ACTION : Time taken for rendering views is: 988 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:08:20.038
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3753 msec 
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2016-10-24 11:08:47.778
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+tbreak main
+Error message from debugger back end:
+Cannot access memory at address 0x1000755a
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:115)
+	at ilg.gnuarmeclipse.debug.gdbjtag.jlink.dsf.LaunchConfigurationDelegate.launchDebugSession(LaunchConfigurationDelegate.java:479)
+	at ilg.gnuarmeclipse.debug.gdbjtag.jlink.dsf.LaunchConfigurationDelegate.launchDebugger(LaunchConfigurationDelegate.java:190)
+	at ilg.gnuarmeclipse.debug.gdbjtag.jlink.dsf.LaunchConfigurationDelegate.launch(LaunchConfigurationDelegate.java:161)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: Failed to execute MI command:
+tbreak main
+Error message from debugger back end:
+Cannot access memory at address 0x1000755a
+java.lang.Exception: Cannot access memory at address 0x1000755a
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:926)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:755)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10004 2016-10-24 11:08:47.780
+!MESSAGE Failed to execute MI command:
+tbreak main
+Error message from debugger back end:
+Cannot access memory at address 0x1000755a
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2016-10-24 11:08:47.780
+!MESSAGE Failed to execute MI command:
+tbreak main
+Error message from debugger back end:
+Cannot access memory at address 0x1000755a
+!STACK 0
+java.lang.Exception: Cannot access memory at address 0x1000755a
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:926)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:755)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-10-24 11:08:58.065
+!MESSAGE J-Link GDB Server failed: 
+Could not connect to target. Please check if target is powered and if ribbon cable is plugged properly.
+
+For more details, see the JLinkGDBServerCL.exe console.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:09:04.770
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:09:04.834
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:09:05.027
+!MESSAGE Time Taken By Serialization  : 193 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:09:05.400
+!MESSAGE ****************Cleaning project data:Zyklus3_Betonlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:05.421
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 201 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:05.679
+!MESSAGE USER_ACTION : Active project:Z3[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:09:06.915
+!MESSAGE Time Taken By De-Serialization  : 1026 ms :: C:\DAVEv4-64Bit\work\Z3\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:09:06.920
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:07.130
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1452 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:07.192
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 61 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:07.206
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 14 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:07.207
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:08.002
+!MESSAGE USER_ACTION : Time taken for rendering views is: 794 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:09:08.456
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3235 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:13:28.344
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:13:28.406
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:13:28.719
+!MESSAGE Time Taken By Serialization  : 313 ms :: C:\DAVEv4-64Bit\work\Z3\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:13:29.277
+!MESSAGE ****************Cleaning project data:Z3*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:29.303
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 317 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:29.497
+!MESSAGE USER_ACTION : Active project:Zyklus2_Alulampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:13:30.854
+!MESSAGE Time Taken By De-Serialization  : 1211 ms :: C:\DAVEv4-64Bit\work\Zyklus2_Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:13:30.859
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:31.196
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1699 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:31.260
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 62 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:31.277
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 17 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:31.279
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:32.124
+!MESSAGE USER_ACTION : Time taken for rendering views is: 845 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:13:32.661
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3676 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:22:06.106
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:22:06.159
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:22:06.371
+!MESSAGE Time Taken By Serialization  : 211 ms :: C:\DAVEv4-64Bit\work\Zyklus2_Alulampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:22:06.813
+!MESSAGE ****************Cleaning project data:Zyklus2_Alulampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:06.833
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 226 msec 
+
+!ENTRY COMMON 1 0 2016-10-24 11:22:07.024
+!MESSAGE USER_ACTION : checkVersioningForActiveProject: Reloading project....
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:22:07.039
+!MESSAGE ****************Cleaning project data:*******************
+
+!ENTRY DAVE CE 4 0 2016-10-24 11:22:07.040
+!MESSAGE 
+
+***START of Exception Info***
+index=0, size=0
+org.eclipse.emf.common.util.BasicEList.get(BasicEList.java:346)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.removeAllEobjects(ApplicationModelManager.java:1061)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.unloadAllResources(ApplicationModelManager.java:1130)
+com.ifx.davex.ce.core.application.manager.ApplicationModelManager.shutDown(ApplicationModelManager.java:1189)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.cleanDaveCeObjects(DaveEventInitializer.java:647)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:582)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$6.run(DaveEventInitializer.java:896)
+org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:527)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$1.run(DaveEventInitializer.java:313)
+org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.startWithProgressDialog(DaveEventInitializer.java:306)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:585)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.fireEvent(ActiveProjectNotifer.java:93)
+com.ifx.davex.ce.core.notifiers.ActiveProjectNotifer.activeProjectChanged(ActiveProjectNotifer.java:115)
+com.dave.activeproject.core.ActiveProjectManager.fireActiveProjectChanged(ActiveProjectManager.java:681)
+com.dave.activeproject.core.ActiveProjectManager.storeAndFireActiveProjectEvent(ActiveProjectManager.java:415)
+com.dave.activeproject.core.ActiveProjectManager.setActiveProject(ActiveProjectManager.java:329)
+com.dave.activeproject.ui.actions.SetActiveProjectAction.run(SetActiveProjectAction.java:83)
+org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:253)
+org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+com.ifx.davex.product.DaveApplication.start(DaveApplication.java:140)
+org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+java.lang.reflect.Method.invoke(Unknown Source)
+org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+***END of Exception Info***
+
+
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:07.041
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 3 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:07.065
+!MESSAGE USER_ACTION : Active project:Zyklus3_Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:22:08.208
+!MESSAGE Time Taken By De-Serialization  : 1009 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:22:08.212
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:08.383
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1319 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:08.384
+!MESSAGE USER_ACTION : Active project:Zyklus3_Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:08.491
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 107 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:08.550
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 58 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:08.551
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY COMMON 1 0 2016-10-24 11:22:08.950
+!MESSAGE Time Taken By De-Serialization  : 552 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:22:08.955
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:09.245
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 2175 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:09.384
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 138 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:09.385
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:09.386
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:09.445
+!MESSAGE USER_ACTION : Time taken for rendering views is: 894 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:09.704
+!MESSAGE USER_ACTION : Time taken for rendering views is: 317 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:09.978
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 2939 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:22:10.451
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 3844 msec 
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:40:59.777
+!MESSAGE Resource '/Z3' does not exist.
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:41:06.327
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:41:06.404
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:41:06.683
+!MESSAGE Time Taken By Serialization  : 277 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:41:07.129
+!MESSAGE ****************Cleaning project data:Zyklus3_Betonlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:07.223
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 436 msec 
+
+!ENTRY SOLVER 1 0 2016-10-24 11:41:07.224
+!MESSAGE Solver exited (0)
+
+!ENTRY SOLVER 1 0 2016-10-24 11:41:07.477
+!MESSAGE USER_ACTION : Solver Status: DISCONNECTED
+
+!ENTRY COMMON 1 0 2016-10-24 11:41:07.879
+!MESSAGE USER_ACTION : checkVersioningForActiveProject: Reloading project....
+
+!ENTRY DAVE CE 4 0 2016-10-24 11:41:07.881
+!MESSAGE 
+
+***START of Exception Info***
+null
+com.ifx.davex.ce.core.generic.GenericUtils$1.run(GenericUtils.java:406)
+org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+com.ifx.davex.ce.core.generic.GenericUtils.closeEditors(GenericUtils.java:402)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$6.run(DaveEventInitializer.java:895)
+org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:527)
+org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:284)
+org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.disconnectFromWorkspace(IDEWorkbenchAdvisor.java:516)
+org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.postShutdown(IDEWorkbenchAdvisor.java:349)
+org.eclipse.ui.internal.Workbench.shutdown(Workbench.java:3111)
+org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1167)
+org.eclipse.ui.internal.Workbench.access$21(Workbench.java:1079)
+org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1410)
+org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+org.eclipse.ui.internal.Workbench.close(Workbench.java:1407)
+org.eclipse.ui.internal.Workbench.close(Workbench.java:1380)
+org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1556)
+org.eclipse.ui.internal.WorkbenchWindow.access$15(WorkbenchWindow.java:1527)
+org.eclipse.ui.internal.WorkbenchWindow$10.run(WorkbenchWindow.java:1592)
+org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1589)
+org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1603)
+org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:521)
+org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$11.shellClosed(WBWRenderer.java:563)
+org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
+org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:308)
+org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1696)
+org.eclipse.swt.widgets.Control.windowProc(Control.java:4612)
+org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+com.ifx.davex.product.DaveApplication.start(DaveApplication.java:140)
+org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+java.lang.reflect.Method.invoke(Unknown Source)
+org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+***END of Exception Info***
+
+
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:08.070
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 0 msec 
+
+!ENTRY DAVE CE 4 0 2016-10-24 11:41:08.084
+!MESSAGE 
+
+***START of Exception Info***
+null
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.closeViews(DaveEventInitializer.java:452)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.access$3(DaveEventInitializer.java:449)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$4.run(DaveEventInitializer.java:444)
+org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:527)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$1.run(DaveEventInitializer.java:313)
+org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.startWithProgressDialog(DaveEventInitializer.java:306)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer.update(DaveEventInitializer.java:585)
+com.ifx.davex.ce.core.notifiers.DaveEventInitializer$6.run(DaveEventInitializer.java:896)
+org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:527)
+org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:284)
+org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.disconnectFromWorkspace(IDEWorkbenchAdvisor.java:516)
+org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.postShutdown(IDEWorkbenchAdvisor.java:349)
+org.eclipse.ui.internal.Workbench.shutdown(Workbench.java:3111)
+org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1167)
+org.eclipse.ui.internal.Workbench.access$21(Workbench.java:1079)
+org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1410)
+org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+org.eclipse.ui.internal.Workbench.close(Workbench.java:1407)
+org.eclipse.ui.internal.Workbench.close(Workbench.java:1380)
+org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1556)
+org.eclipse.ui.internal.WorkbenchWindow.access$15(WorkbenchWindow.java:1527)
+org.eclipse.ui.internal.WorkbenchWindow$10.run(WorkbenchWindow.java:1592)
+org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1589)
+org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1603)
+org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:521)
+org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$11.shellClosed(WBWRenderer.java:563)
+org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
+org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:308)
+org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1696)
+org.eclipse.swt.widgets.Control.windowProc(Control.java:4612)
+org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+com.ifx.davex.product.DaveApplication.start(DaveApplication.java:140)
+org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+java.lang.reflect.Method.invoke(Unknown Source)
+org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+***END of Exception Info***
+
+
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:08.085
+!MESSAGE USER_ACTION : Active project:Zyklus3_Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:41:09.365
+!MESSAGE Time Taken By De-Serialization  : 1173 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:41:09.370
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:09.673
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 1588 msec 
+
+!ENTRY SOLVER 1 0 2016-10-24 11:41:09.675
+!MESSAGE USER_ACTION : GlobalSize= 750MB; LocalSize: 128MB
+
+!ENTRY SOLVER 1 0 2016-10-24 11:41:09.676
+!MESSAGE USER_ACTION : Creating OutOfProcessEclipse instance...
+
+!ENTRY SOLVER 1 0 2016-10-24 11:41:09.944
+!MESSAGE USER_ACTION : Solver Status: CONNECTED
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:10.012
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 67 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:10.013
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:10.013
+!MESSAGE USER_ACTION : Time taken for updating views is: 0 msec 
+
+!ENTRY com.dave.mbs.common 4 0 2016-10-24 11:41:10.015
+!MESSAGE 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:10.057
+!MESSAGE USER_ACTION : Time taken for rendering views is: 1 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:41:10.272
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 2202 msec 
+!SESSION 2016-10-24 11:43:29.978 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -application com.ifx.davex.product.daveApplication -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -application com.ifx.davex.product.daveApplication -showlocation
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 11:43:38.147
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_path' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.core.variables 4 120 2016-10-24 11:43:38.147
+!MESSAGE Contributed variable extension from bundle 'ilg.gnuarmeclipse.debug.gdbjtag.mikroe' overrides existing extension variable 'jlink_gdbserver' from  bundle 'ilg.gnuarmeclipse.debug.gdbjtag.jlink'
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 11:43:42.028
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-24 11:43:42.029
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\heinb'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY SOLVER 1 0 2016-10-24 11:43:45.106
+!MESSAGE USER_ACTION : Default solver exe path is: C:\DAVEv4-64Bit\DAVE-4.3.2\eclipse\Solver\lib\i386_nt\eclipse.exe
+
+!ENTRY SOLVER 1 0 2016-10-24 11:43:45.303
+!MESSAGE USER_ACTION : GlobalSize= 750MB; LocalSize: 128MB
+
+!ENTRY SOLVER 1 0 2016-10-24 11:43:45.303
+!MESSAGE USER_ACTION : Creating OutOfProcessEclipse instance...
+
+!ENTRY SOLVER 1 0 2016-10-24 11:43:46.169
+!MESSAGE USER_ACTION : Solver Status: CONNECTED
+
+!ENTRY APPSTORE 1 0 2016-10-24 11:43:46.701
+!MESSAGE USER_ACTION : Time taken for loading LibraryStore data for SoftwareId [XMC1.3.02.Q024.ALL] is: 527 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:47.179
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 8 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:47.640
+!MESSAGE USER_ACTION : Active project:Zyklus3_Betonlampe[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:43:52.802
+!MESSAGE Time Taken By De-Serialization  : 3494 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:43:52.826
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:53.813
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 6176 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:54.172
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 355 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:54.213
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 39 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:54.376
+!MESSAGE USER_ACTION : Time taken for updating views is: 161 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:58.124
+!MESSAGE USER_ACTION : Time taken for rendering views is: 3746 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:43:59.611
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 12440 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:02.607
+!MESSAGE Only One DAVE Application is running 
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 11:44:02.727
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/Examples/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 11:44:06.712
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/XMC_IFX/v4.1//daveSite.xml
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:44:07.828
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:44:08.114
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:44:08.952
+!MESSAGE Time Taken By Serialization  : 837 ms :: C:\DAVEv4-64Bit\work\Zyklus3_Betonlampe\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:44:10.245
+!MESSAGE ****************Cleaning project data:Zyklus3_Betonlampe*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:10.405
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 1036 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:10.785
+!MESSAGE USER_ACTION : Active project:Zyklus 4 - Moods[ Software ID:XMC1.3.02.Q024.ALL]
+
+!ENTRY COMMON 1 0 2016-10-24 11:44:13.505
+!MESSAGE Time Taken By De-Serialization  : 2373 ms :: C:\DAVEv4-64Bit\work\Zyklus 4 - Moods\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:44:13.513
+!MESSAGE *************Serializing EMF and Groovy data to RAM*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:13.911
+!MESSAGE USER_ACTION : Time taken for initializing Application Model is: 3127 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:14.411
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(updateQuery): 496 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:14.431
+!MESSAGE USER_ACTION : Time taken for reloadLastSolverResult(getSolutionQuery): 19 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:14.432
+!MESSAGE USER_ACTION : Time taken for updating views is: 1 msec 
+
+!ENTRY com.ifx.dave.LibraryManager 4 0 2016-10-24 11:44:15.864
+!MESSAGE Reading file: http://dave.infineon.com/Libraries/DAVE_Libs/Contributed/v4.1//daveSite.xml
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:16.489
+!MESSAGE USER_ACTION : Time taken for rendering views is: 2056 msec 
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:44:17.517
+!MESSAGE USER_ACTION : Total time taken for setting project as active is: 8149 msec 
+
+!ENTRY org.eclipse.ui 4 4 2016-10-24 11:46:01.325
+!MESSAGE Conflicting handlers for org.eclipse.debug.ui.commands.DebugLast: {ActionDelegateHandlerProxy(null,com.dave.activeproject.ui.actions.ActiveProjDebugLastAction)} vs {ActionDelegateHandlerProxy(null,org.eclipse.debug.internal.ui.actions.DebugLastAction)}
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:53:46.027
+!MESSAGE *************Saving EMF data into file system*******************
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:53:46.112
+!MESSAGE *************Saving Groovy data into file system*******************
+
+!ENTRY COMMON 1 0 2016-10-24 11:53:46.426
+!MESSAGE Time Taken By Serialization  : 313 ms :: C:\DAVEv4-64Bit\work\Zyklus 4 - Moods\Dave\Model\projectData.bin
+
+!ENTRY com.dave.mbs.common 1 0 2016-10-24 11:53:46.542
+!MESSAGE ****************Cleaning project data:Zyklus 4 - Moods*******************
+
+!ENTRY APPLICATION_MODEL 1 0 2016-10-24 11:53:46.599
+!MESSAGE USER_ACTION : Time taken for disposing objects for memory cleanup: 68 msec 
+
+!ENTRY SOLVER 1 0 2016-10-24 11:53:46.600
+!MESSAGE Solver exited (0)
+
+!ENTRY SOLVER 1 0 2016-10-24 11:53:46.856
+!MESSAGE USER_ACTION : Solver Status: DISCONNECTED
